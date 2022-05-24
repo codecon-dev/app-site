@@ -80,6 +80,15 @@ export default function Footer({ sponsors, hideFooter }: Props) {
           </div>
         </div>
       </div>
+      <div className={styles.vercel}>
+        <a
+          href="https://vercel.com/?utm_source=codecon&utm_campaign=oss"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <img src="/powered-by-vercel.svg" alt="Powered by Vercel" />
+        </a>
+      </div>
     </div>
   );
 }
