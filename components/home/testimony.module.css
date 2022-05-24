@@ -1,0 +1,36 @@
+.wrapper {
+    overflow: hidden;
+    height: auto;
+}
+
+.visible {
+    overflow: visible;
+    height: 8rem;
+}
+
+
+@media (min-width: 900px) {
+    .visible {
+        height: 15rem;
+    }
+}
+
+.container {
+    overflow: visible;
+    width: 120%;
+    white-space: nowrap;
+    background-color: var(--brand);
+    color: var(--body-color);
+    font-size: 3rem;
+    padding: 1rem 0;
+    transform: rotate(-3deg);
+    margin-top: 2rem;
+    margin-left: -10%;
+}
+
+@media (min-width: 900px) {
+    .container {
+        font-size: 5rem;
+        margin-top: 4rem;
+    }
+  }

@@ -1,0 +1,19 @@
+.hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -16px;
+    margin-bottom: 32px;
+}
+
+.hint > span {
+    background-color: #242424;
+    padding: 12px 40px;
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-family: monospace;
+    font-weight: bold;
+    letter-spacing: 5px;
+    box-shadow: var(--brand-secondary) 0 0 32px 0;
+    border-radius: 12px;
+}

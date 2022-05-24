@@ -1,0 +1,19 @@
+.wrapper {
+  background-color: white;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+  padding: 2rem 0;
+}
+
+@media screen and (min-width: 1100px) {
+  .container {
+    padding: 5rem 0;
+    height: 1000px;
+  }
+}

@@ -1,0 +1,42 @@
+.section {
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.button {
+  background-color: rgba(255, 255, 255, 0.3);
+  display: block;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  transition: all 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: all 0.2s ease;
+}
+
+.button-black {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.button-black:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: black;
+}

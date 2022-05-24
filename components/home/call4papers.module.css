@@ -1,0 +1,49 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 4rem auto 2rem;
+  padding: 0 2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+}
+
+.button {
+  background: var(--brand);
+  padding: 15px 30px;
+  color: white;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.container h2 {
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.container p {
+  margin: 0;
+}
+
+.container a:hover {
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}

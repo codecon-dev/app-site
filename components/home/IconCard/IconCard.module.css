@@ -1,0 +1,14 @@
+.title {
+  font-family: 'nebularegular';
+  text-transform: lowercase;
+  color: var(--brand);
+  margin-bottom: 1rem;
+  line-height: 1;
+  font-weight: 200;
+  font-size: 24px;
+  margin-top: 1.5rem;
+}
+
+.card p {
+  margin-bottom: 2rem;
+}

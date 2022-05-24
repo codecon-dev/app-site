@@ -1,0 +1,28 @@
+.section {
+  padding: 5rem 0;
+  background-color: #fff;
+}
+
+.container {
+  background-color: #fff;
+  color: black;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 3rem;
+  margin: 0 auto;
+}
+
+.criteria {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.how {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.how a {
+  color: var(--brand-secondary);
+  text-decoration: underline;
+}

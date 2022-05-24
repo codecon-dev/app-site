@@ -1,0 +1,94 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 908px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.hero {
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 800;
+  margin: var(--space-8x) auto var(--space-2x) auto;
+  color: var(--brand);
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 90%;
+}
+
+@media (min-width: 908px) {
+  .hero {
+    font-size: 50px;
+    margin: var(--space-16x) auto var(--space-4x);
+    max-width: 1200px;
+  }
+}
+
+.contact {
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: var(--space-4x);
+}
+
+@media (min-width: 908px) {
+  .contact {
+    margin-bottom: var(--space-12x);
+  }
+}
+
+.contact p {
+  margin-bottom: 0;
+}
+
+.contact a {
+  color: #fff;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.social {
+  max-width: 1200px;
+  margin: var(--space-16x) auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media (min-width: 908px) {
+  .social {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.social span {
+  font-size: 24px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: var(--space-2x) var(--space-4x);
+  background: #fff;
+  color: #141414;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--gray);
+  transition: all 0.2s ease;
+}

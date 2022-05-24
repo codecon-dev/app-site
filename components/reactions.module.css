@@ -1,0 +1,142 @@
+.reactions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2x);
+    position: relative;
+    z-index: 200;
+    flex-wrap: wrap;
+}
+
+.button {
+    border: 0;
+    height: 30px;
+    gap: var(--space-2x);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--space-2x);
+    background-color: rgba(255, 255, 255, .1);
+    color: var(--gray);
+    font-weight: 700;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+}
+
+.button img {
+    width: 16px;
+    height: 16px;
+}
+
+@media (min-width: 900px) {
+    .button {
+        height: 50px;
+        padding: 0 var(--space-4x);
+        gap: var(--space-4x);
+    }
+
+    .button img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.button.background {
+    background-color: rgba(0,0,0,.8);
+}
+
+.button:focus,
+.button:active,
+.button:hover {
+    background-color: rgba(255, 255, 255, .2);
+    color: #fff;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    outline: none;
+}
+
+.button.background:focus,
+.button.background:active,
+.button.background:hover {
+    background-color: rgba(0,0,0,.8);
+}
+
+.new-reaction-container {
+    position: relative;
+}
+
+.new-reaction-container.background .new-reaction {
+    background-color: rgba(0,0,0,.8);
+}
+
+.new-reaction {
+    border:1px solid rgba(255, 255, 255, .2);
+    width: var(--space-8x);
+    height: 30px;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.new-reaction svg {
+    width: 17px;
+    height: 15px;
+}
+
+@media (min-width: 900px) {
+    .new-reaction {
+        display: inline-flex;
+        width: var(--space-16x);
+        height: 50px;
+    }
+
+    .new-reaction svg {
+        width: 27px;
+        height: 25px;
+    }
+}
+
+.new-reaction path {
+    transition: all 0.2s ease;
+}
+
+.new-reaction:focus,
+.new-reaction:active,
+.new-reaction:hover {
+    outline: none;
+    border:1px solid rgba(255, 255, 255, .4);
+    transition: all 0.2s ease;
+}
+
+.new-reaction:hover path {
+    fill: #fff;
+    transition: all 0.2s ease;
+}
+
+.modal {
+    z-index: 400;
+    position: absolute;
+    bottom: 110%;
+    right: 0;
+    background: var(--gray);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: var(--space-4x);
+}
+
+.modal button {
+    border: 0;
+    background: transparent;
+    padding: var(--space-2x);
+    cursor: pointer;
+}
+
+.modal button:hover,
+.modal button:active,
+.modal button:focus {
+    outline: none;
+    background-color: rgba(0,0,0,.1);
+}

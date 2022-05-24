@@ -1,0 +1,43 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 4rem auto 2rem;
+  padding: 0 3rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+}
+
+.container h2 {
+  text-transform: lowercase;
+  line-height: 1;
+  color: #69dbce;
+  font-family: 'nebularegular';
+  font-weight: 200;
+}
+
+.container p {
+  margin: 0;
+}
+
+.container a:hover {
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}

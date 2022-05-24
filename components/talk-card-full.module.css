@@ -1,0 +1,104 @@
+.container {
+	width: 100%;
+	border-bottom: 1px solid rgba(255, 255, 255, .2);
+	padding: 50px 0;
+}
+
+@media (min-width: 850px) {
+	.container {
+		display: grid;
+		grid-template-columns: 200px 200px 1fr;
+	}
+}
+
+.container.live {
+	background-color: rgba(255, 255, 255, 0.06);
+	padding: 50px 2rem;
+}
+
+.container:last-child {
+	border-bottom: 0;
+}
+
+.talkType {
+	margin-top: 0;
+}
+
+.type-talk .talkType span,
+.type-fish .talkType span {
+	background: var(--brand);
+}
+
+.type-panel .talkType span {
+	background: var(--brand-secondary);
+}
+
+.talkType span,
+.talkPlace span,
+.aoVivo {
+	margin: 0;
+	padding: 0.5rem;
+	text-transform: uppercase;
+	font-size: 12px;
+	color: var(--body-color);
+	letter-spacing: 1px;
+}
+
+.aoVivo {
+	background-color: #fff;
+	display: inline-block;
+}
+
+.photo {
+	display: flex;
+	gap: var(--space-8x);
+	align-items: flex-start;
+	text-align: center;
+	text-transform: uppercase;
+	color: var(--brand);
+	letter-spacing: 1px;
+	line-height: 1;
+	margin-top: 1rem;
+  }
+
+@media (min-width: 850px) {
+	.photo {
+		margin-top: 0;
+		flex-direction: column;
+	}
+}
+  
+  .photo img {
+	max-width: 100%;
+	clip-path: 
+	  polygon(
+		0% 0%,     /* top left */
+		0% 0%,     /* top left */
+		90% 0%,    /* top right */
+		100% 10%,   /* top right */
+		100% 100%,  /* bottom right */
+		100% 100%,  /* bottom right */
+		10% 100%,   /* bottom left */
+		0 90%      /* bottom left */
+	  );
+  }
+  
+  .speaker {
+	max-width: 140px;
+	color: var(--brand);
+  }
+
+  .title {
+	  text-transform: uppercase;
+	  font-size: 1.2rem;
+  }
+
+@media (min-width: 850px) {
+	.title {
+		font-size: 1.5rem;
+	}
+}
+
+  .description {
+	  line-height: 2rem;
+  }

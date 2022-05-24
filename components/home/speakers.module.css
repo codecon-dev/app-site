@@ -1,0 +1,103 @@
+.wrapper {
+    position: relative;
+    margin: 6rem 0;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (min-width: 900px) {
+    .container {
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-end;
+    }
+}
+
+.container a {
+    text-decoration: underline;
+    transition: all .2s ease;
+}
+
+.container a:hover {
+    opacity: .6;
+    transition: all .2s ease;
+}
+
+.img-wrapper {
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    z-index: 20;
+}
+
+@media (min-width: 900px) {
+    .img-wrapper {
+        width: 40%;
+    }
+}
+
+.img-wrapper::before {
+    z-index: -1;
+    width: 160%;
+    height: 160%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    content: "";
+    background-image: url('/shadow-1.png');
+    background-position: center;
+    background-size: 100% 100%;
+    display: block;
+}
+
+.img-wrapper img {
+    max-width: 100%;
+    display: block;
+}
+
+.txt-wrapper {
+    width: 80%;
+    max-width: 500px;
+}
+
+@media (min-width: 900px) {
+    .txt-wrapper {
+        width: 35%;
+    }
+}
+
+.txt-wrapper h2 {
+    font-weight: 200;
+}
+
+.link-wrapper {
+    margin-top: 15%;
+}
+
+.link-wrapper::before {
+    width: 100%;
+    height: 1px;
+    background: var(--accents-7);
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+}
+
+.link {
+    padding-top: 15%;
+    color: var(--gray);
+}
+
+.link a {
+    color: var(--brand);
+    display: block;
+}

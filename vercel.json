@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/discord", "destination": "https://discord.gg/invite/Cz4zgUr" },
+    { "source": "/lojinha", "destination": "https://www.tshirtgeek.com.br/loja/codecon" }
+  ]
+}

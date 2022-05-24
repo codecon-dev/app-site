@@ -1,0 +1,42 @@
+.container {
+    text-align: center;
+}
+
+@media (min-width: 850px) {
+	.container {
+		margin: 5rem 0;
+	}
+}
+
+.button {
+	box-shadow: 0 1.88px 18.81px 0 rgba(114,75,254,0.3);
+	background-color: var(--brand-secondary);
+	padding: 1.3rem;
+	color: var(--body-color);
+	margin: 2rem auto;
+	display: inline-block;
+	text-align: center;
+	transition: all ease 0.2s;
+	white-space: nowrap;
+}
+
+@media (min-width: 850px) {
+	.button {
+		padding: 1.3rem 6rem;
+	}
+  }
+
+.button:hover {
+	filter: brightness(1.1);
+	transition: all ease 0.2s;
+	box-shadow: 0 3.88px 18.81px 0 rgba(114,75,254,0.7);
+}
+
+.isYellow {
+    background-color: var(--brand);
+    box-shadow: 0 1.88px 18.81px 0 rgba(238,242,83,0.3);
+}
+
+.isYellow:hover {
+    box-shadow: 0 3.88px 18.81px 0 rgba(238,242,83,0.7);
+}

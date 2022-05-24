@@ -1,0 +1,114 @@
+.wrapper,
+.wrapperClean {
+    position: relative;
+	transition: all ease .5s;
+}
+
+.wrapper::before,
+.wrapperClean::before {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    right: 8%;
+    top: 0;
+    background-image: url('/yellow-triangle.png');
+    background-position: right center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+	transition: all ease .5s;
+}
+
+.isPurple::before {
+    background-image: url('/purple-triangle.png');
+}
+
+.wrapper:hover {
+	transform: translateY(-10%);
+	transition: all ease .5s;
+}
+
+.link {
+	color: white;
+}
+
+.box {
+    width: 70%;
+    position: relative;
+    background-position: center;
+    background-size: 100% auto;
+    z-index: 0;
+
+    clip-path: 
+    polygon(
+      0% 0%,     /* top left */
+      0% 0%,     /* top left */
+      85% 0%,    /* top right */
+      100% 15%,   /* top right */
+      100% 100%,  /* bottom right */
+      100% 100%,  /* bottom right */
+      15% 100%,   /* bottom left */
+      0 85%      /* bottom left */
+    );
+
+	transition: all ease .5s;
+}
+
+.wrapper:hover .box {
+	clip-path: 
+	polygon(
+	  0% 15%,     /* top left */
+	  15% 0%,     /* top left */
+	  100% 0%,    /* top right */
+	  100% 0%,   /* top right */
+	  100% 85%,  /* bottom right */
+	  85% 100%,  /* bottom right */
+	  0% 100%,   /* bottom left */
+	  0% 100%      /* bottom left */
+	);
+
+	transition: all ease .5s;
+}
+
+.box:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.name {
+    position: absolute;
+    width: 45%;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    text-transform: uppercase;
+    line-height: 1;
+    z-index: 10;
+    font-size: 24px;
+}
+
+@media (min-width: 850px) {
+    .name {
+      font-size: 30px;
+    }
+  }
+
+.social {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.social a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social a:hover {
+    color: white;
+}
