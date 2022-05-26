@@ -1,6 +1,9 @@
-import styles from './hero.module.css';
+import Image from 'next/image';
+
 import Button from '@components/_ui/Button/Button';
 import IconDiscord from '@components/icons/icon-discord';
+
+import styles from './Hero.module.scss';
 
 export default function Hero() {
   return (
@@ -8,11 +11,14 @@ export default function Hero() {
       <div className={styles.container}>
         <div className={styles.row}>
           <div className={styles['col-1']}>
-            <img
-              className={styles.image}
-              src="/hero.png"
-              alt="Imagem de um livecoding em Next.js"
-            />
+            <div className={styles.image}>
+              <Image
+                width={776}
+                height={588}
+                src="/hero.png"
+                alt="Imagem de um livecoding em Next.js"
+              />
+            </div>
           </div>
           <div className={styles['col-2']}>
             <h1 className={styles.title}>

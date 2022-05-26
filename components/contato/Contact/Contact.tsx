@@ -1,10 +1,11 @@
-import styles from './contact.module.css';
-import IconTwitter from './icons/icon-twitter';
-import InstagramIcon from './icons/icon-instagram';
+import Header from '@components/header';
+import IconTwitter from '@components/icons/icon-twitter';
+import InstagramIcon from '@components/icons/icon-instagram';
 import IconGithub from '@components/icons/icon-github';
-import Header from './header';
-import IconDiscord from './icons/icon-discord';
-import Button from './_ui/Button/Button';
+import IconDiscord from '@components/icons/icon-discord';
+import Button from '@components/_ui/Button/Button';
+
+import styles from './Contact.module.scss';
 
 export default function Contact() {
   return (

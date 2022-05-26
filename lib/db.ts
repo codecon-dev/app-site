@@ -17,7 +17,7 @@ export async function query(q: string, values: (string | number)[] | string | nu
     await db.end();
     return results;
   } catch (e) {
-    throw Error(e.message);
+    throw Error('Erro');
   }
 }
 

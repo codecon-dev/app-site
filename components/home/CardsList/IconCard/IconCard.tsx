@@ -1,4 +1,4 @@
-import Button from '@components/_ui/Button/Button';
+import Button from '@components/_ui/Button';
 import styles from './IconCard.module.css';
 
 type Props = {

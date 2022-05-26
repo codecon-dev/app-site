@@ -96,7 +96,7 @@ a {
   color: var(--secondary-color);
 }
 
-.container-max {
+.container {
   width: 90%;
   max-width: 800px;
   margin: 0 auto 5rem;

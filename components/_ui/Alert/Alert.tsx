@@ -1,5 +1,6 @@
-import Button from '../Button/Button';
-import styles from './Alert.module.css';
+import Button from '@components/_ui/Button';
+
+import styles from './Alert.module.scss';
 
 type Props = {
   title: string;

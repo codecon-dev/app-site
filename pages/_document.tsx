@@ -1,10 +1,11 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 export default class CustomDocument extends Document {
   renderGTMSnippet() {
     return (
       <>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-VMX8ZXD3J0"></script>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-VMX8ZXD3J0" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

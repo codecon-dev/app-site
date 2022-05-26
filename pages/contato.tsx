@@ -1,19 +1,10 @@
-import { GetStaticProps } from 'next';
+import Page from '@components/_ui/Page';
+import Layout from '@components/_ui/Layout';
+import Contact from '@components/contato/Contact';
 
-import Page from '@components/page';
-import Layout from '@components/layout';
-import Header from '@components/header';
-import Contact from '@components/contact';
-
-import { getAllSponsors } from '@lib/cms-api';
-import { Sponsor } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
 
-type Props = {
-  sponsors: Sponsor[];
-};
-
-export default function Palestras({ sponsors }: Props) {
+export default function Palestras() {
   const meta = {
     title: 'Contato - Codecon',
     description: META_DESCRIPTION
@@ -27,13 +18,3 @@ export default function Palestras({ sponsors }: Props) {
     </Page>
   );
 }
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const sponsors = await getAllSponsors();
-
-  return {
-    props: {
-      sponsors
-    }
-  };
-};

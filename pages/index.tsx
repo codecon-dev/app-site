@@ -1,47 +1,38 @@
-import { GetStaticProps } from 'next';
-
-import { useRouter } from 'next/router';
 import { SkipNavContent } from '@reach/skip-nav';
 
-import Layout from '@components/layout';
-import Page from '@components/page';
-import ConfContent from '@components/index';
 import { META_DESCRIPTION } from '@lib/constants';
 
-import { getAllSponsors, getPrincipalSpeakers } from '@lib/cms-api';
-import { Sponsor, Speaker } from '@lib/types';
+import Layout from '@components/_ui/Layout';
+import Page from '@components/_ui/Page';
+import Alert from '@components/_ui/Alert/Alert';
+import Hero from '@components/home/Hero';
+import CardsList from '@components/home/CardsList';
 
-type Props = {
-  sponsors: Sponsor[];
-  speakers: Speaker[];
-};
-
-export default function Conf({ sponsors, speakers }: Props) {
-  const { query } = useRouter();
+export default function Conf() {
   const meta = {
     title: 'Codecon - A comunidade que te faz crescer',
     description: META_DESCRIPTION
   };
-  const ticketNumber = query.ticketNumber?.toString();
 
   return (
     <Page meta={meta} fullViewport>
       <Layout>
         <SkipNavContent />
-        <ConfContent />
+        <Hero />
+        <Alert
+          title="Call4Papers"
+          description="Quer compartilhar seu conhecimento com o mundo? Envie sua sugestão de palestra ou workshop."
+          buttonText="Submeta seu conteúdo"
+          buttonHref="https://tally.so/r/mOyDRw"
+        />
+        <Alert
+          title="A pesquisa que vai mapear o mercado de tecnologia"
+          description="Criamos uma pesquisa para entender o real estado da área tech no Brasil."
+          buttonText="Responda"
+          buttonHref="https://pesquisa.codecon.dev/"
+        />
+        <CardsList />
       </Layout>
     </Page>
   );
 }
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const sponsors = await getAllSponsors();
-  const speakers = await getPrincipalSpeakers();
-
-  return {
-    props: {
-      sponsors,
-      speakers
-    }
-  };
-};

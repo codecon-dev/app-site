@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 
-import styles from './Button.module.css';
+import styles from './Button.module.scss';
 
 type Props = {
   children: React.ReactNode;
