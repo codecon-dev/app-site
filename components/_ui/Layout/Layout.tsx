@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter, NextRouter } from 'next/router';
-import { SkipNavContent } from '@reach/skip-nav';
 import cn from 'classnames';
 
 import { NAVIGATION } from '@lib/constants';
@@ -85,7 +84,6 @@ export default function Layout({
             className={cn(styles.main, { [styles.paddingBottom]: paddingBottom })}
             style={layoutStyles}
           >
-            <SkipNavContent />
             <div className={cn(styles.full, className)}>{children}</div>
           </main>
           <Footer hideFooter={hideFooter} sponsors={sponsors} />

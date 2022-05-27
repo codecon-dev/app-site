@@ -1,5 +1,3 @@
-import { SkipNavContent } from '@reach/skip-nav';
-
 import { META_DESCRIPTION } from '@lib/constants';
 
 import Layout from '@components/_ui/Layout';
@@ -17,7 +15,6 @@ export default function Conf() {
   return (
     <Page meta={meta} fullViewport>
       <Layout>
-        <SkipNavContent />
         <Hero />
         <Alert
           title="Call4Papers"

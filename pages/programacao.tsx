@@ -1,7 +1,5 @@
 import { GetStaticProps } from 'next';
 
-import { SkipNavContent } from '@reach/skip-nav';
-
 import { getAllWorkshops } from '@lib/cms-api';
 import { Workshop } from '@lib/types';
 
@@ -27,7 +25,6 @@ export default function Programacao({ workshops }: Props) {
   return (
     <Page meta={meta} fullViewport>
       <Layout>
-        <SkipNavContent />
         <Header
           hero="Programação"
           description="Confira o que vem aí nos meetups e workshops da Codecon"
