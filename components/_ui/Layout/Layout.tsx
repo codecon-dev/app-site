@@ -5,9 +5,9 @@ import cn from 'classnames';
 
 import { NAVIGATION } from '@lib/constants';
 import { Sponsor } from '@lib/types';
-import Logo from '@components/icons/icon-logo';
-import MobileMenu from '@components/mobile-menu';
-import Footer from '@components/footer';
+import Logo from '@components/_ui/Icons/icon-logo';
+import MobileMenu from '@components/_ui/MobileMenu';
+import Footer from '@components/_ui/Footer';
 
 import styles from './Layout.module.scss';
 

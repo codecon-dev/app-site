@@ -2,17 +2,17 @@ import { GetStaticProps } from 'next';
 
 import { SkipNavContent } from '@reach/skip-nav';
 
-import Layout from '@components/_ui/Layout';
-import Page from '@components/_ui/Page';
-import { META_DESCRIPTION } from '@lib/constants';
-
 import { getAllWorkshops } from '@lib/cms-api';
 import { Workshop } from '@lib/types';
 
-import Header from '@components/header';
-import WorkshopsGrid from '@components/workshops-grid';
-import Newsletter from '@components/programacao-metaverso/newsletter';
+import { META_DESCRIPTION } from '@lib/constants';
+import Layout from '@components/_ui/Layout';
+import Page from '@components/_ui/Page';
 import Alert from '@components/_ui/Alert/Alert';
+import Header from '@components/_ui/Page/Header';
+
+import Grid from '@components/programacao/Grid';
+import Newsletter from '@components/programacao/Newsletter';
 
 type Props = {
   workshops: Workshop[];
@@ -38,7 +38,7 @@ export default function Programacao({ workshops }: Props) {
         >
           <Newsletter />
         </Alert>
-        <WorkshopsGrid workshops={workshops} />
+        <Grid workshops={workshops} />
       </Layout>
     </Page>
   );

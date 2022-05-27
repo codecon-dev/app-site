@@ -1,8 +1,8 @@
-import Header from '@components/header';
-import IconTwitter from '@components/icons/icon-twitter';
-import InstagramIcon from '@components/icons/icon-instagram';
-import IconGithub from '@components/icons/icon-github';
-import IconDiscord from '@components/icons/icon-discord';
+import Header from '@components/_ui/Page/Header';
+import IconTwitter from '@components/_ui/Icons/icon-twitter';
+import InstagramIcon from '@components/_ui/Icons/icon-instagram';
+import IconGithub from '@components/_ui/Icons/icon-github';
+import IconDiscord from '@components/_ui/Icons/icon-discord';
 import Button from '@components/_ui/Button/Button';
 
 import styles from './Contact.module.scss';

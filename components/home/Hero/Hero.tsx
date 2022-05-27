@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import Button from '@components/_ui/Button/Button';
-import IconDiscord from '@components/icons/icon-discord';
+import IconDiscord from '@components/_ui/Icons/icon-discord';
 
 import styles from './Hero.module.scss';
 
@@ -15,6 +15,7 @@ export default function Hero() {
               <Image
                 width={776}
                 height={588}
+                quality={100}
                 src="/hero.png"
                 alt="Imagem de um livecoding em Next.js"
               />
