@@ -10,12 +10,9 @@ import styleUtils from '@components/_ui/Utils/Utils.module.scss';
 
 type Props = {
   sponsors?: Sponsor[];
-  hideFooter: boolean;
 };
 
-export default function Footer({ sponsors, hideFooter }: Props) {
-  if (hideFooter) return null;
-
+export default function Footer({ sponsors }: Props) {
   const onlySponsors = sponsors?.filter(s => s.tier !== 'silver');
 
   return (
