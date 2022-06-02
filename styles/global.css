@@ -61,7 +61,6 @@ body {
   margin: 0;
   line-height: 1.65;
   font-family: 'Exo 2', monospace;
-  font-size: var(--text-md);
   font-weight: 400;
   min-width: 320px;
   direction: ltr;
@@ -98,8 +97,9 @@ a {
 
 .container {
   width: 90%;
-  max-width: 800px;
-  margin: 0 auto 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 a.link {
