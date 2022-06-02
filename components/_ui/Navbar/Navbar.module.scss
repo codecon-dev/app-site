@@ -1,34 +1,59 @@
 @import '/styles/colors';
+@import '/styles/media-queries';
 
 .header {
   padding: 2rem 0;
   border-bottom: 1px solid $dark-green;
 
-  &--container {
+  &__container {
     display: flex;
     align-items: center;
     gap: 2rem;
   }
 
-  &--logo {
+  &__navigation {
+    @media #{$breakpoint-sm} {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      width: 100%;
+      gap: 1rem;
+    }
+
+    @media #{$breakpoint-lg} {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__logo {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+
+    @media #{$breakpoint-sm} {
+      width: auto;
+    }
   }
 }
 
 .nav {
-  display: flex;
+  display: none;
   gap: 2rem;
   text-transform: lowercase;
 
-  &--item {
+  @media #{$breakpoint-sm} {
+    display: flex;
+  }
+
+  &__item {
     color: $light-gray;
 
     &:hover {
       color: $white;
     }
 
-    &__button {
+    &--button {
       background-color: $primary;
       color: $black;
       padding: 0 0.75rem;
@@ -43,12 +68,12 @@
       }
     }
 
-    &__active {
+    &--active {
       color: $green;
     }
   }
 
-  &__attendee {
+  &--attendee {
     margin-left: auto;
   }
 }
