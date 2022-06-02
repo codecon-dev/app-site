@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import cn from 'classnames';
 
-import { NAVIGATION } from '@lib/constants';
+import { NAVIGATION, ATTENDEE_NAVIGATION } from '@lib/constants';
 
 import styles from './MobileMenu.module.scss';
 
@@ -21,13 +21,15 @@ function ModalDialog(props: Parameters<typeof useOverlay>[0] & Parameters<typeof
   const { overlayProps } = useOverlay(props, ref);
   const { dialogProps } = useDialog(props, ref);
 
+  const allNavigation = [...NAVIGATION, ...ATTENDEE_NAVIGATION];
+
   usePreventScroll();
 
   return (
     <div className={styles['nav-overlay']}>
       <FocusScope contain restoreFocus autoFocus>
         <nav className={styles.nav} {...overlayProps} {...dialogProps} {...modalProps} ref={ref}>
-          {NAVIGATION.map(({ name, route }) => (
+          {allNavigation.map(({ name, route }) => (
             <Link key={name} href={route}>
               <a
                 className={cn(styles['nav-item'], {
