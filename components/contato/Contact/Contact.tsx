@@ -3,7 +3,7 @@ import IconTwitter from '@components/_ui/Icons/icon-twitter';
 import InstagramIcon from '@components/_ui/Icons/icon-instagram';
 import IconGithub from '@components/_ui/Icons/icon-github';
 import IconDiscord from '@components/_ui/Icons/icon-discord';
-import Button from '@components/_ui/Button/Button';
+import LinkButton from '@components/_ui/LinkButton/LinkButton';
 
 import styles from './Contact.module.scss';
 
@@ -28,21 +28,21 @@ export default function Contact() {
       <div className={styles.social}>
         <span>Também estamos nas redes sociais</span>
 
-        <Button newPage href="https://twitter.com/codecondev">
+        <LinkButton newPage href="https://twitter.com/codecondev">
           <IconTwitter size={16} color="#fff" /> Twitter
-        </Button>
+        </LinkButton>
 
-        <Button newPage href="https://instagram.com/codecon.dev">
+        <LinkButton newPage href="https://instagram.com/codecon.dev">
           <InstagramIcon size={16} color="#fff" /> Instagram
-        </Button>
+        </LinkButton>
 
-        <Button newPage href="https://github.com/codecon-dev">
+        <LinkButton newPage href="https://github.com/codecon-dev">
           <IconGithub size={16} color="#fff" /> GitHub
-        </Button>
+        </LinkButton>
 
-        <Button newPage href="https://codecon.dev/discord">
+        <LinkButton newPage href="https://codecon.dev/discord">
           <IconDiscord size={16} color="#fff" /> Discord
-        </Button>
+        </LinkButton>
       </div>
     </>
   );

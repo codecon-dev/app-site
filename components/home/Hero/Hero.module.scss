@@ -9,13 +9,16 @@
 }
 
 .image {
-  display: block;
-  margin-bottom: 2rem;
-
   &__wrapper {
+    display: block;
+    margin-bottom: 2rem;
+
     @media #{$breakpoint-sm} {
-      margin-left: auto;
-      max-width: 85%;
+      margin-bottom: 4rem;
+    }
+
+    @media #{$breakpoint-lg} {
+      margin-bottom: 0;
     }
   }
 }
