@@ -1,0 +1,51 @@
+@import 'styles/colors';
+
+.wrapper {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: $dark-gray;
+}
+
+.toggle {
+  display: inline-block;
+  cursor: pointer;
+
+  &__fill {
+    display: block;
+    position: relative;
+    width: 4.5rem;
+    height: 2.25rem;
+    border-radius: 4rem;
+    background: #000;
+    border: 2px solid $dark-gray;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      height: 2.25rem;
+      width: 2.25rem;
+      background-color: $dark-gray;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.45);
+      border-radius: 4rem;
+      transition: transform 0.2s, background-position 0.2s;
+      background-image: url('/icons/dark-mode.png');
+      background-repeat: no-repeat;
+      background-position: top center;
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:checked ~ .toggle__fill {
+      &::after {
+        transform: translateX(2.25rem);
+        background-position: bottom center;
+      }
+    }
+  }
+}
