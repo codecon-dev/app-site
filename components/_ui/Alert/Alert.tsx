@@ -1,4 +1,4 @@
-import Button from '@components/_ui/Button';
+import LinkButton from '@components/_ui/LinkButton';
 
 import styles from './Alert.module.scss';
 
@@ -23,9 +23,9 @@ export default function Alert({ title, description, children, buttonText, button
           {children && children}
 
           {buttonText && buttonHref && (
-            <Button newPage href={buttonHref}>
+            <LinkButton newPage href={buttonHref}>
               {buttonText}
-            </Button>
+            </LinkButton>
           )}
         </div>
       </div>
