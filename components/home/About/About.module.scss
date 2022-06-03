@@ -1,0 +1,33 @@
+@import 'styles/media-queries';
+
+.section {
+  margin: 2rem 0;
+
+  @media #{$breakpoint-sm} {
+    margin: 5rem 0;
+  }
+}
+
+.image {
+  &__wrapper {
+    display: block;
+    margin-bottom: 2rem;
+
+    @media #{$breakpoint-sm} {
+      margin-bottom: 4rem;
+    }
+
+    @media #{$breakpoint-lg} {
+      margin-bottom: 0;
+      margin-left: auto;
+      max-width: 85%;
+    }
+  }
+}
+
+.button {
+  &__wrapper {
+    display: block;
+    margin-top: 2rem;
+  }
+}
