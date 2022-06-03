@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
 @import 'reset';
 @import 'media-queries';
+@import 'typography';
 @import 'colors';
 
 body {
@@ -16,7 +17,6 @@ body {
 
   @media #{$breakpoint-sm} {
     max-width: $max-width-sm;
-    padding: 0 1.5rem;
   }
 
   @media #{$breakpoint-lg} {

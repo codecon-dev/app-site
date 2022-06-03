@@ -1,0 +1,47 @@
+@import 'styles/colors';
+
+.button {
+  background-color: $light-green;
+  font-weight: bold;
+  line-height: 1.8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem 1.5rem;
+  color: $black;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  gap: 1rem;
+  transition: all 0.3s ease-in-out;
+
+  i {
+    font-style: normal;
+  }
+
+  span {
+    transform: translateY(1px);
+  }
+
+  &--with-price {
+    padding-right: 0.15rem;
+  }
+
+  &__price {
+    display: block;
+    background-color: $black;
+    color: $primary;
+    padding: 0 0.6rem;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
+    background-color: $white;
+    transition: all 0.3s ease-in-out;
+
+    .button__price {
+      color: $white;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}

@@ -1,47 +1,33 @@
-import Image from 'next/image';
+import { Player } from '@lottiefiles/react-lottie-player';
 
-import Button from '@components/_ui/Button/Button';
-import IconDiscord from '@components/_ui/Icons/icon-discord';
+import LinkButton from '@components/_ui/LinkButton/LinkButton';
 
 import styles from './Hero.module.scss';
+import { Grid, Column } from '@components/_ui/Grid';
+import { REGISTER_URL } from '@lib/constants';
 
 export default function Hero() {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.container}>
-        <div className={styles.row}>
-          <div className={styles['col-1']}>
-            <div className={styles.image}>
-              <Image
-                width={776}
-                height={588}
-                quality={100}
-                src="/hero.png"
-                alt="Imagem de um livecoding em Next.js"
-              />
-            </div>
-          </div>
-          <div className={styles['col-2']}>
-            <h1 className={styles.title}>
-              A comunidade que te faz <span>crescer</span>
-            </h1>
+    <section className={styles.section}>
+      <Grid align="center">
+        <Column lg={6}>
+          <h1>Be the developer of the future</h1>
+          <span className="headline headline__darker">
+            Online <span className="bullet">•</span> 22, 23 e 24 de Setembro
+          </span>
 
-            <p className={styles.description}>
-              Acompanhe os meetups semanais da nossa comunidade sobre desenvolvimento de software,
-              ferramentas e tudo que há de bom.
-            </p>
-
-            <div className={styles.actions}>
-              <Button type="primary" href="/programacao">
-                Confira a programação
-              </Button>
-              <Button type="secondary" href="https://codecon.dev/discord">
-                Acesse nosso Discord <IconDiscord color="#fff" size={16} />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          <span className={styles['button__wrapper']}>
+            <LinkButton price={20} href={REGISTER_URL} newPage>
+              Inscreva-se
+            </LinkButton>
+          </span>
+        </Column>
+        <Column lg={6} xsmOrder={1}>
+          <span className={styles['image__wrapper']}>
+            <Player autoplay loop src="/animations/hero.json" />
+          </span>
+        </Column>
+      </Grid>
+    </section>
   );
 }

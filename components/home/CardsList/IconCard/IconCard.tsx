@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import Button from '@components/_ui/Button';
+import LinkButton from '@components/_ui/LinkButton';
 import styles from './IconCard.module.css';
 
 type Props = {
@@ -18,9 +18,9 @@ export default function IconCard({ iconName, title, description, buttonText, but
       <h2 className={styles.title}>{title}</h2>
       <p>{description}</p>
 
-      <Button newPage href={buttonHref}>
+      <LinkButton newPage href={buttonHref}>
         {buttonText}
-      </Button>
+      </LinkButton>
     </div>
   );
 }

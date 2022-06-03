@@ -1,5 +1,3 @@
-import { META_DESCRIPTION } from '@lib/constants';
-
 import Layout from '@components/_ui/Layout';
 import Page from '@components/_ui/Page';
 import Alert from '@components/_ui/Alert/Alert';
@@ -7,13 +5,8 @@ import Hero from '@components/home/Hero';
 import CardsList from '@components/home/CardsList';
 
 export default function Conf() {
-  const meta = {
-    title: 'Codecon - A comunidade que te faz crescer',
-    description: META_DESCRIPTION
-  };
-
   return (
-    <Page meta={meta} fullViewport>
+    <Page>
       <Layout>
         <Hero />
         <Alert

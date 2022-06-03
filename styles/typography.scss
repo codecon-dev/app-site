@@ -1,0 +1,33 @@
+@import 'media-queries';
+@import 'colors';
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+
+  @media #{$breakpoint-sm} {
+    font-size: 4rem;
+  }
+
+  @media #{$breakpoint-lg} {
+    font-size: 4rem;
+    letter-spacing: 1.2rem;
+  }
+}
+
+.headline {
+  display: block;
+  font-size: 1.5rem;
+  color: $light-gray;
+
+  &__darker {
+    color: $dark-gray;
+  }
+}
+
+.bullet {
+  color: $white;
+}
