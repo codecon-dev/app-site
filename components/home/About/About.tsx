@@ -12,10 +12,19 @@ export default function About() {
             <Image
               src="/images/developer.png"
               width={594}
-              height="544"
+              height={544}
               alt="Programador usando um notebook"
               quality={100}
             />
+            <div className={styles['image__badge']}>
+              <Image
+                src="/images/badge.svg"
+                width={238}
+                height={238}
+                alt="Texto escrito workshops, painéis e palestras"
+                quality={100}
+              />
+            </div>
           </div>
         </Column>
         <Column lg={6} sm={7} xsmOrder={1}>

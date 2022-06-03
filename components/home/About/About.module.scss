@@ -40,9 +40,40 @@
   }
 }
 
+@keyframes circle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .image {
   &__wrapper {
     display: flex;
+    position: relative;
+  }
+
+  &__badge {
+    display: none;
+
+    @media #{$breakpoint-sm} {
+      display: block;
+      position: absolute;
+      width: 10rem;
+      height: 10rem;
+      top: -20%;
+      right: -15%;
+      animation-name: circle;
+      animation-duration: 20s;
+      animation-iteration-count: infinite;
+    }
+
+    @media #{$breakpoint-lg} {
+      width: 15rem;
+      height: 15rem;
+    }
   }
 }
 
