@@ -1,0 +1,71 @@
+@import '/styles/media-queries';
+
+$grid-gutter: 1rem;
+$grid-columns: 12;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(#{$grid-columns}, 1fr);
+  column-gap: $grid-gutter;
+  padding: 0 $grid-gutter;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+
+  &--align-start {
+    align-items: flex-start;
+  }
+
+  &--align-center {
+    align-items: center;
+  }
+
+  &--align-end {
+    align-items: flex-end;
+  }
+
+  @media #{$breakpoint-lg} {
+    max-width: $max-width-lg;
+    grid-template-columns: repeat(#{$grid-columns}, 1fr);
+    column-gap: $grid-gutter;
+    padding: 0 $grid-gutter;
+  }
+}
+
+.column {
+  margin-bottom: $grid-gutter;
+
+  @media #{$breakpoint-lg} {
+    margin-bottom: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @for $i from 1 through 3 {
+    &.order-#{$i} {
+      grid-row: #{$i};
+
+      @media #{$breakpoint-lg} {
+        grid-row: auto;
+      }
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    &.col-sm-#{$i} {
+      @media #{$breakpoint-sm} {
+        grid-column-end: span #{$i};
+      }
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    &.col-lg-#{$i} {
+      @media #{$breakpoint-lg} {
+        grid-column-end: span #{$i};
+      }
+    }
+  }
+}
