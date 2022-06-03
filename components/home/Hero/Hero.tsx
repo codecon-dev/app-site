@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <section className={styles.section}>
       <Grid align="center">
-        <Column lg={6}>
+        <Column lg={6} sm={7} smOrder={1}>
           <h1>Be the developer of the future</h1>
           <span className="headline headline__darker">
             Online <span className="bullet">•</span> 22, 23 e 24 de Setembro
@@ -25,7 +25,7 @@ export default function Hero() {
 
           <DarkModeToggle />
         </Column>
-        <Column lg={6} xsmOrder={1}>
+        <Column lg={6} sm={5} xsmOrder={1}>
           <span className={styles['image__wrapper']}>
             <Player autoplay loop src="/animations/hero.json" />
           </span>
