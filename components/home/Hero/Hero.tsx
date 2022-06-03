@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Player } from '@lottiefiles/react-lottie-player';
 
 import LinkButton from '@components/_ui/LinkButton/LinkButton';
