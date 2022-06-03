@@ -24,11 +24,12 @@ $grid-columns: 12;
     align-items: flex-end;
   }
 
+  @media #{$breakpoint-sm} {
+    max-width: $max-width-sm;
+  }
+
   @media #{$breakpoint-lg} {
     max-width: $max-width-lg;
-    grid-template-columns: repeat(#{$grid-columns}, 1fr);
-    column-gap: $grid-gutter;
-    padding: 0 $grid-gutter;
   }
 }
 
@@ -44,12 +45,24 @@ $grid-columns: 12;
   }
 
   @for $i from 1 through 3 {
-    &.order-#{$i} {
+    &.order-xsm-#{$i} {
       grid-row: #{$i};
 
       @media #{$breakpoint-lg} {
         grid-row: auto;
       }
+    }
+
+    &.order-sm-#{$i} {
+      @media #{$breakpoint-sm} {
+        grid-row: #{$i};
+      }
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    &.col-xsm-#{$i} {
+      grid-column-end: span #{$i};
     }
   }
 

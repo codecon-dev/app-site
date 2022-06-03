@@ -8,7 +8,10 @@
   &__container {
     display: flex;
     align-items: center;
-    gap: 2rem;
+
+    @media #{$breakpoint-sm} {
+      gap: 2rem;
+    }
   }
 
   &__navigation {

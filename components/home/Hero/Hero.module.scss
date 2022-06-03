@@ -1,12 +1,22 @@
+@import 'styles/media-queries';
+
 .section {
-  margin: 5rem 0;
+  margin: 2rem 0;
+
+  @media #{$breakpoint-sm} {
+    margin: 5rem 0;
+  }
 }
 
 .image {
+  display: block;
+  margin-bottom: 2rem;
+
   &__wrapper {
-    margin-left: auto;
-    max-width: 85%;
-    display: block;
+    @media #{$breakpoint-sm} {
+      margin-left: auto;
+      max-width: 85%;
+    }
   }
 }
 

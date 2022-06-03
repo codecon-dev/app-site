@@ -14,7 +14,7 @@ export default function Hero() {
         <Column lg={6}>
           <h1>Be the developer of the future</h1>
           <span className="headline headline__darker">
-            Online <span className="bullet">•</span> 22, 23 e 24 de setembro
+            Online <span className="bullet">•</span> 22, 23 e 24 de Setembro
           </span>
 
           <span className={styles['button__wrapper']}>
@@ -23,7 +23,7 @@ export default function Hero() {
             </Button>
           </span>
         </Column>
-        <Column lg={6}>
+        <Column lg={6} xsmOrder={1}>
           <span className={styles['image__wrapper']}>
             <Image src="/images/hero.png" alt="Hero" width={590} height={587} quality={100} />
           </span>
