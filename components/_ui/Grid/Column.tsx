@@ -20,13 +20,13 @@ export default function Column(props: Props) {
     <div
       className={clsx(
         styles.column,
-        styles['col-xsm-' + xsm],
-        styles['col-sm-' + sm],
-        styles['col-lg-' + lg],
+        styles[`col-xsm-${xsm}`],
+        styles[`col-sm-${sm}`],
+        styles[`col-lg-${lg}`],
         className,
         {
-          [styles['order-xsm-' + xsmOrder]]: xsmOrder,
-          [styles['order-sm-' + smOrder]]: xsmOrder
+          [styles[`order-xsm-${xsmOrder}`]]: xsmOrder,
+          [styles[`order-sm-${smOrder}`]]: xsmOrder
         }
       )}
     >

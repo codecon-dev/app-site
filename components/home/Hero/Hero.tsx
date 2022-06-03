@@ -1,11 +1,11 @@
-import Image from 'next/image';
+import { Player } from '@lottiefiles/react-lottie-player';
 
-import Button from '@components/_ui/Button/Button';
-import IconDiscord from '@components/_ui/Icons/icon-discord';
+import DarkModeToggle from './DarkModeToggle';
+import { Grid, Column } from '@components/_ui/Grid';
+import LinkButton from '@components/_ui/LinkButton/LinkButton';
+import { EVENT_PRICE, REGISTER_URL } from '@lib/constants';
 
 import styles from './Hero.module.scss';
-import { Grid, Column } from '@components/_ui/Grid';
-import { REGISTER_URL } from '@lib/constants';
 
 export default function Hero() {
   return (
@@ -18,14 +18,16 @@ export default function Hero() {
           </span>
 
           <span className={styles['button__wrapper']}>
-            <Button price={20} href={REGISTER_URL} newPage>
+            <LinkButton price={EVENT_PRICE} href={REGISTER_URL} newPage>
               Inscreva-se
-            </Button>
+            </LinkButton>
           </span>
+
+          <DarkModeToggle />
         </Column>
         <Column lg={6} xsmOrder={1}>
           <span className={styles['image__wrapper']}>
-            <Image src="/images/hero.png" alt="Hero" width={590} height={587} quality={100} />
+            <Player autoplay loop src="/animations/hero.json" />
           </span>
         </Column>
       </Grid>
