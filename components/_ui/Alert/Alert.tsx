@@ -23,7 +23,7 @@ export default function Alert({ title, description, children, buttonText, button
           {children && children}
 
           {buttonText && buttonHref && (
-            <Button newPage type="tertiary" href={buttonHref}>
+            <Button newPage href={buttonHref}>
               {buttonText}
             </Button>
           )}
