@@ -1,33 +1,68 @@
 @import 'styles/media-queries';
+@import 'styles/colors';
 
 .section {
-  margin: 2rem 0;
+  background-color: $primary;
+  color: $black;
+  padding-bottom: 1rem;
 
   @media #{$breakpoint-sm} {
-    margin: 5rem 0;
+    padding-bottom: 0;
+  }
+
+  p {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+
+    @media #{$breakpoint-sm} {
+      max-width: 85%;
+      margin-left: auto;
+      margin-top: 0;
+    }
+
+    @media #{$breakpoint-lg} {
+      margin-top: 5.5rem;
+    }
+
+    strong {
+      color: $white;
+    }
+  }
+}
+
+.grid {
+  @media #{$breakpoint-sm} {
+    align-items: center;
+  }
+
+  @media #{$breakpoint-lg} {
+    align-items: flex-start;
   }
 }
 
 .image {
   &__wrapper {
-    display: block;
-    margin-bottom: 2rem;
-
-    @media #{$breakpoint-sm} {
-      margin-bottom: 4rem;
-    }
-
-    @media #{$breakpoint-lg} {
-      margin-bottom: 0;
-      margin-left: auto;
-      max-width: 85%;
-    }
+    display: flex;
   }
 }
 
-.button {
+.second-image {
   &__wrapper {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     display: block;
-    margin-top: 2rem;
+
+    @media #{$breakpoint-sm} {
+      display: none;
+    }
+
+    @media #{$breakpoint-lg} {
+      display: block;
+      width: 85%;
+      display: block;
+      margin-top: 3rem;
+      margin-bottom: 0;
+      margin-left: auto;
+    }
   }
 }

@@ -1,17 +1,33 @@
 import Image from 'next/image';
 
-import Button from '@components/_ui/Button/Button';
-
 import styles from './About.module.scss';
 import { Grid, Column } from '@components/_ui/Grid';
-import { REGISTER_URL } from '@lib/constants';
 
 export default function About() {
   return (
     <section className={styles.section}>
-      <Grid align="center">
-        <Column lg={6}></Column>
-        <Column lg={6} xsmOrder={1}></Column>
+      <Grid className={styles.grid}>
+        <Column lg={6} sm={5} smOrder={1}>
+          <div className={styles['image__wrapper']}>
+            <Image
+              src="/images/developer.png"
+              width={594}
+              height="544"
+              alt="Programador usando um notebook"
+              quality={100}
+            />
+          </div>
+        </Column>
+        <Column lg={6} sm={7} xsmOrder={1}>
+          <p>
+            A Codecon reúne código, diversão e atividades mão na massa em um ambiente virtual onde
+            você consegue <strong>de verdade</strong> interagir com outras pessoas.
+          </p>
+
+          <div className={styles['second-image__wrapper']}>
+            <Image src="/images/gather.png" width={478} height={218} alt="Interações no Gather" />
+          </div>
+        </Column>
       </Grid>
     </section>
   );
