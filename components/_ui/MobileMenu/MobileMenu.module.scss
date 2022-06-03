@@ -1,11 +1,14 @@
+@import 'styles/media-queries';
+@import 'styles/colors';
+
 .nav-overlay {
   position: fixed;
   z-index: 999;
-  top: 100px;
+  top: 7rem;
   left: 0;
   right: 0;
   bottom: 0;
-  background: black;
+  background: $black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,41 +22,35 @@
 }
 
 .nav-item {
-  font-size: var(--space-8x);
+  font-size: 2rem;
   letter-spacing: -0.05em;
   font-weight: 800;
-  color: #fff;
-  margin-bottom: var(--space-4x);
+  color: $white;
+  margin-bottom: 1rem;
   line-height: 1.5;
   width: fit-content;
 }
 
 .nav-item:focus {
-  outline: 1px dotted #fff;
+  outline: 1px dotted $primary;
 }
 
 .nav-active {
-  color: #fff;
-  background: linear-gradient(90deg, var(--brand), var(--brand)) left bottom transparent no-repeat;
-  background-size: 100% 2px;
+  color: $primary;
 }
 
 .button {
   margin: 0;
-  margin-top: 10px;
-  margin-right: var(--space-4x);
   background: none;
   border: none;
   cursor: pointer;
+
+  @media #{$breakpoint-sm} {
+    display: none;
+  }
 }
 
 .icon {
-  color: #fff;
+  color: $white;
   display: block;
-}
-
-@media (min-width: 1100px) {
-  .button {
-    display: none;
-  }
 }

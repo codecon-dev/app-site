@@ -1,0 +1,79 @@
+@import '/styles/colors';
+@import '/styles/media-queries';
+
+.header {
+  padding: 2rem 0;
+  border-bottom: 1px solid $dark-green;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__navigation {
+    @media #{$breakpoint-sm} {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      width: 100%;
+      gap: 1rem;
+    }
+
+    @media #{$breakpoint-lg} {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @media #{$breakpoint-sm} {
+      width: auto;
+    }
+  }
+}
+
+.nav {
+  display: none;
+  gap: 2rem;
+  text-transform: lowercase;
+
+  @media #{$breakpoint-sm} {
+    display: flex;
+  }
+
+  &__item {
+    color: $light-gray;
+
+    &:hover {
+      color: $white;
+    }
+
+    &--button {
+      background-color: $primary;
+      color: $black;
+      padding: 0 0.75rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: $black;
+        background-color: $white;
+        transition: all 0.2s ease;
+      }
+    }
+
+    &--active {
+      color: $green;
+    }
+  }
+
+  &--attendee {
+    margin-left: auto;
+  }
+}
