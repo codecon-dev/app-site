@@ -42,6 +42,8 @@ export default function Navbar() {
               {ATTENDEE_NAVIGATION.map(({ name, route, type }) => (
                 <Link key={name} href={route}>
                   <a
+                    target={type == 'button' ? '_blank' : undefined}
+                    rel={type == 'button' ? 'noopener noreferrer' : undefined}
                     className={cn(styles['nav__item'], {
                       [styles['nav__item--active']]: activeRoute.startsWith(route),
                       [styles['nav__item--button']]: type == 'button'
