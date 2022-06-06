@@ -32,12 +32,16 @@ export default function About() {
             A Codecon reúne código, diversão e atividades mão na massa em um ambiente virtual onde
             você consegue <strong>de verdade</strong> interagir com outras pessoas.
           </p>
-
-          <div className={styles['second-image__wrapper']}>
-            <Image src="/images/gather.png" width={478} height={218} alt="Interações no Gather" />
-          </div>
+          <video className={styles['video--mobile']} autoPlay muted loop>
+            <source src="/animations/gather-mobile.mp4" type="video/mp4" />
+          </video>
         </Column>
       </Grid>
+      <div className={styles['video']}>
+        <video autoPlay muted loop>
+          <source src="/animations/gather.mp4" type="video/mp4" />
+        </video>
+      </div>
     </section>
   );
 }
