@@ -54,6 +54,7 @@
 
 .image {
   &__wrapper {
+    background-color: $primary;
     position: relative;
     z-index: 2;
     display: flex;
