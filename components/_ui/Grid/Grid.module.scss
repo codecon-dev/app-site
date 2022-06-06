@@ -10,7 +10,7 @@ $grid-columns: 12;
   padding: 0 $grid-gutter;
   margin: 0 auto;
   width: 100%;
-  max-width: 100%;
+  max-width: $max-width-xsm;
 
   &--align-start {
     align-items: flex-start;
@@ -34,16 +34,6 @@ $grid-columns: 12;
 }
 
 .column {
-  margin-bottom: $grid-gutter;
-
-  @media #{$breakpoint-lg} {
-    margin-bottom: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
   @for $i from 1 through 3 {
     &.order-xsm-#{$i} {
       grid-row: #{$i};

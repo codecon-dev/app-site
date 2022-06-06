@@ -26,7 +26,7 @@ export default function Column(props: Props) {
         className,
         {
           [styles[`order-xsm-${xsmOrder}`]]: xsmOrder,
-          [styles[`order-sm-${smOrder}`]]: xsmOrder
+          [styles[`order-sm-${smOrder}`]]: smOrder
         }
       )}
     >
