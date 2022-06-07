@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import clsx from 'clsx';
+import cn from 'classnames';
 
 import styles from './Grid.module.scss';
 
@@ -18,7 +18,7 @@ export default function Column(props: Props) {
 
   return (
     <div
-      className={clsx(
+      className={cn(
         styles.column,
         styles[`col-xsm-${xsm}`],
         styles[`col-sm-${sm}`],

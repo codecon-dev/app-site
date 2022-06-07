@@ -9,7 +9,7 @@ import styles from './Hero.module.scss';
 
 export default function Hero() {
   return (
-    <section className={styles.section}>
+    <section>
       <Grid align="center">
         <Column lg={6} sm={7} smOrder={1}>
           <h1>Be the developer of the future</h1>

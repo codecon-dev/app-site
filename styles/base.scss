@@ -10,6 +10,14 @@ body {
   color: $white;
 }
 
+section {
+  margin: 2rem 0;
+
+  @media #{$breakpoint-sm} {
+    margin: 5rem 0;
+  }
+}
+
 .container {
   padding: 0 1rem;
   margin: 0 auto;
