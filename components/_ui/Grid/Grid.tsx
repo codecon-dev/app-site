@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import cn from 'classnames';
 import { ReactNode } from 'react';
 
 import styles from './Grid.module.scss';
@@ -18,5 +18,5 @@ export default function Grid(props: Props) {
     [styles['grid--align-end']]: align === 'end'
   };
 
-  return <div className={clsx(styles.grid, aditionalClasses, className)}>{children}</div>;
+  return <div className={cn(styles.grid, aditionalClasses, className)}>{children}</div>;
 }
