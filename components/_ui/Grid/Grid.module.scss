@@ -50,6 +50,30 @@ $grid-columns: 12;
     }
   }
 
+  &.col-xsm-0 {
+    display: none;
+
+    @media #{$breakpoint-sm} {
+      display: block;
+    }
+  }
+
+  &.col-sm-0 {
+    @media #{$breakpoint-sm} {
+      display: none;
+    }
+
+    @media #{$breakpoint-lg} {
+      display: block;
+    }
+  }
+
+  &.col-lg-0 {
+    @media #{$breakpoint-lg} {
+      display: none;
+    }
+  }
+
   @for $i from 1 through $grid-columns {
     &.col-xsm-#{$i} {
       grid-column-end: span #{$i};
