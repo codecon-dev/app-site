@@ -32,15 +32,15 @@ export default function About() {
             </div>
           </div>
         </Column>
-        <Column lg={1} />
+        <Column lg={1} xsm={0} />
         <Column lg={5} sm={7} xsmOrder={1}>
           <p>
             A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue{' '}
             <strong>de verdade</strong> interagir com outras pessoas.
           </p>
-          <video className={styles['video--mobile']} autoPlay muted loop>
-            <source src="/animations/gather-mobile.mp4" type="video/mp4" />
-          </video>
+          <div className={styles['image__mobile']}>
+            <Image src="/images/gather.png" width={479} height={218} quality={100} />
+          </div>
         </Column>
       </Grid>
       <div className={styles['video']}>
