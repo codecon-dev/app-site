@@ -1,0 +1,17 @@
+@import 'styles/media-queries';
+
+.card {
+  margin-bottom: 3rem;
+
+  @media #{$breakpoint-lg} {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 1rem;
+
+    @media #{$breakpoint-lg} {
+      margin-bottom: 3rem;
+    }
+  }
+}
