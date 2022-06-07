@@ -32,7 +32,7 @@ export default function About() {
             </div>
           </div>
         </Column>
-        <Column lg={1} xsm={0} />
+        <Column lg={1} sm={0} xsm={0} />
         <Column lg={5} sm={7} xsmOrder={1}>
           <p>
             A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue{' '}
