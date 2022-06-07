@@ -5,28 +5,21 @@
   position: relative;
   background-color: $primary;
   color: $black;
-  padding-bottom: 1rem;
+  padding: 2rem 0;
   margin: 0;
 
   @media #{$breakpoint-sm} {
-    padding-bottom: 0;
+    padding: 0;
   }
 
   p {
     color: $black;
     font-size: 1.5rem;
-    margin-top: 2rem;
     position: relative;
     z-index: 2;
 
-    @media #{$breakpoint-sm} {
-      max-width: 85%;
-      margin-left: auto;
-      margin-top: 0;
-    }
-
     @media #{$breakpoint-lg} {
-      margin-top: 5.5rem;
+      margin-top: 4rem;
     }
 
     strong {
