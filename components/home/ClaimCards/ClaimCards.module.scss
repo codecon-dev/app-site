@@ -3,6 +3,10 @@
 .card {
   margin-bottom: 3rem;
 
+  &--last {
+    margin-bottom: 0;
+  }
+
   @media #{$breakpoint-lg} {
     margin-bottom: 0;
   }

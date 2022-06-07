@@ -1,3 +1,5 @@
+import cn from 'classnames';
+
 import { Grid, Column } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton';
 
@@ -34,7 +36,7 @@ export default function ClaimCards() {
           </div>
         </Column>
         <Column lg={4}>
-          <div className={styles.card}>
+          <div className={cn(styles.card, styles['card--last'])}>
             <h3>
               Conecte-se com marcas relevantes
               <br /> da área de tecnologia
