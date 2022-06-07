@@ -1,13 +1,5 @@
 @import 'styles/media-queries';
 
-.section {
-  margin: 2rem 0;
-
-  @media #{$breakpoint-sm} {
-    margin: 5rem 0;
-  }
-}
-
 .image {
   &__wrapper {
     display: block;
