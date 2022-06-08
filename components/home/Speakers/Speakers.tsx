@@ -41,7 +41,7 @@ export default function Speakers() {
       <Grid>
         <Column lg={12}>
           <div className={styles.cta}>
-            <LinkButton href="/programacao">Confira a programação completa</LinkButton>
+            <LinkButton href="/programacao">Programação completa</LinkButton>
           </div>
         </Column>
       </Grid>
