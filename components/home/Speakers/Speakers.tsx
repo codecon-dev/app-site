@@ -1,5 +1,6 @@
 import { Grid, Column } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton';
+import SpeakerCard from '@components/_ui/SpeakerCard';
 
 import styles from './Speakers.module.scss';
 
@@ -13,28 +14,52 @@ export default function Speakers() {
       </Grid>
       <Grid>
         <Column lg={3} sm={4}>
-          [componente speaker]
+          <SpeakerCard>
+            <SpeakerCard.Title>Bruno Rocha</SpeakerCard.Title>
+            <SpeakerCard.Image src="/images/developer.png" alt="lorem" />
+          </SpeakerCard>
         </Column>
         <Column lg={3} sm={4}>
-          [componente speaker]
+          <SpeakerCard>
+            <SpeakerCard.Title>Bruno Rocha</SpeakerCard.Title>
+            <SpeakerCard.Image src="/images/developer.png" alt="lorem" />
+          </SpeakerCard>
         </Column>
         <Column lg={3} sm={4}>
-          [componente speaker]
+          <SpeakerCard>
+            <SpeakerCard.Title>Bruno Rocha</SpeakerCard.Title>
+            <SpeakerCard.Image src="/images/developer.png" alt="lorem" />
+          </SpeakerCard>
         </Column>
         <Column lg={3} sm={4} xsm={0}>
-          [componente speaker]
+          <SpeakerCard>
+            <SpeakerCard.Title>Bruno Rocha</SpeakerCard.Title>
+            <SpeakerCard.Image src="/images/developer.png" alt="lorem" />
+          </SpeakerCard>
         </Column>
         <Column lg={3} sm={4} xsm={0}>
-          [componente speaker]
+          <SpeakerCard>
+            <SpeakerCard.Title>Bruno Rocha</SpeakerCard.Title>
+            <SpeakerCard.Image src="/images/developer.png" alt="lorem" />
+          </SpeakerCard>
         </Column>
         <Column lg={3} sm={4} xsm={0}>
-          [componente speaker]
+          <SpeakerCard>
+            <SpeakerCard.Title>Bruno Rocha</SpeakerCard.Title>
+            <SpeakerCard.Image src="/images/developer.png" alt="lorem" />
+          </SpeakerCard>
         </Column>
         <Column lg={3} sm={0} xsm={0}>
-          [componente speaker]
+          <SpeakerCard>
+            <SpeakerCard.Title>Bruno Rocha</SpeakerCard.Title>
+            <SpeakerCard.Image src="/images/developer.png" alt="lorem" />
+          </SpeakerCard>
         </Column>
         <Column lg={3} sm={0} xsm={0}>
-          [componente speaker]
+          <SpeakerCard>
+            <SpeakerCard.Title>Bruno Rocha</SpeakerCard.Title>
+            <SpeakerCard.Image src="/images/developer.png" alt="lorem" />
+          </SpeakerCard>
         </Column>
       </Grid>
 
