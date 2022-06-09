@@ -4,6 +4,10 @@
 @import 'typography';
 @import 'colors';
 
+:root {
+  --light-green: #{$light-green};
+}
+
 body {
   font-family: 'Space Grotesk', sans-serif;
   background-color: $black;
