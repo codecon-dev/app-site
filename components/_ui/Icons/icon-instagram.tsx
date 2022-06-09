@@ -1,6 +1,6 @@
 type Props = {
   color: string;
-  size: number;
+  size?: number;
 };
 
 export default function InstagramIcon({ color = '#111111', size = 22 }: Props) {
