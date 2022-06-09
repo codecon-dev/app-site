@@ -4,6 +4,7 @@ import Hero from '@components/home/Hero';
 import About from '@components/home/About';
 import ClaimCards from '@components/home/ClaimCards';
 import Gather from '@components/home/Gather';
+import Speakers from '@components/home/Speakers';
 
 export default function Conf() {
   return (
@@ -13,6 +14,7 @@ export default function Conf() {
         <About />
         <ClaimCards />
         <Gather />
+        <Speakers />
       </Layout>
     </Page>
   );

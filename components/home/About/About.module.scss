@@ -5,7 +5,7 @@
   position: relative;
   background-color: $primary;
   color: $black;
-  padding: 2rem 0;
+  padding: 4rem 0;
   margin: 0;
 
   @media #{$breakpoint-sm} {
@@ -76,6 +76,12 @@
       height: 15rem;
     }
   }
+
+  &__mobile {
+    @media #{$breakpoint-sm} {
+      display: none;
+    }
+  }
 }
 
 .video {
@@ -100,11 +106,5 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-
-  &--mobile {
-    @media #{$breakpoint-sm} {
-      display: none;
-    }
   }
 }
