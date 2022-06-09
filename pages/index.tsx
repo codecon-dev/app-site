@@ -5,6 +5,7 @@ import About from '@components/home/About';
 import ClaimCards from '@components/home/ClaimCards';
 import Gather from '@components/home/Gather';
 import Speakers from '@components/home/Speakers';
+import Newsletter from '@components/home/Newsletter';
 
 export default function Conf() {
   return (
@@ -15,6 +16,7 @@ export default function Conf() {
         <ClaimCards />
         <Gather />
         <Speakers />
+        <Newsletter />
       </Layout>
     </Page>
   );

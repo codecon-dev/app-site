@@ -45,7 +45,7 @@ export default function ClaimCards() {
               Grandes empresas da área de tecnologia estarão presentes no evento com estandes para
               que você possa interagir de verdade.
             </p>
-            <LinkButton href="/patrocinadores">Conheça os patrocinadores</LinkButton>
+            <LinkButton href="/patrocinadores">Nossos patrocinadores</LinkButton>
           </div>
         </Column>
       </Grid>

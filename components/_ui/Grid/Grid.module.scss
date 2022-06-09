@@ -6,7 +6,6 @@ $grid-columns: 12;
 .grid {
   display: grid;
   grid-template-columns: repeat(#{$grid-columns}, 1fr);
-  column-gap: $grid-gutter;
   row-gap: $grid-gutter;
   padding: 0 $grid-gutter;
   margin: 0 auto;
@@ -26,6 +25,7 @@ $grid-columns: 12;
   }
 
   @media #{$breakpoint-sm} {
+    column-gap: $grid-gutter;
     max-width: $max-width-sm;
   }
 
