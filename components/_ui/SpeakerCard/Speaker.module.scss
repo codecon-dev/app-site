@@ -49,22 +49,22 @@
     grid-area: image;
 
     border: 5px solid $light-green;
-    padding: 10px;
+    padding: 0.5rem;
   }
 
   .title,
   .about {
     background-color: $light-green;
-    padding: 8px;
+    padding: 0.5rem;
   }
 
   .title {
     grid-area: title;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
   }
 
   .about {
     grid-area: about;
-    margin-top: 8px;
+    margin-top: 0.5rem;
   }
 }
