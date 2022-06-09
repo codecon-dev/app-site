@@ -7,6 +7,7 @@ $grid-columns: 12;
   display: grid;
   grid-template-columns: repeat(#{$grid-columns}, 1fr);
   column-gap: $grid-gutter;
+  row-gap: $grid-gutter;
   padding: 0 $grid-gutter;
   margin: 0 auto;
   width: 100%;
