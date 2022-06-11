@@ -1,5 +1,6 @@
 import { Grid, Column } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton';
+import Activity from '@components/_ui/Activity';
 import SpeakerCard from '@components/_ui/SpeakerCard';
 
 import styles from './Speakers.module.scss';
@@ -68,6 +69,42 @@ export default function Speakers() {
           <div className={styles.cta}>
             <LinkButton href="/programacao">Programação completa</LinkButton>
           </div>
+        </Column>
+      </Grid>
+
+      <br />
+      <br />
+
+      <Grid>
+        <Column lg={5}>
+          <Activity sponsor="JetBrains">
+            <Activity.Header>
+              <p>Painel</p>
+              <time>09:00 - 12:00</time>
+            </Activity.Header>
+            <Activity.Title>Pra que serve, afinal, o DevRel?</Activity.Title>
+            <Activity.Footer>
+              <Activity.SpeakerImage src="/images/developer.png" alt="lorem" />
+              <Activity.SpeakerImage src="/images/developer.png" alt="lorem" />
+              <Activity.SpeakerImage src="/images/developer.png" alt="lorem" />
+            </Activity.Footer>
+          </Activity>
+        </Column>
+
+        <Column lg={5}>
+          <Activity>
+            <Activity.Header>
+              <p>Workshop</p>
+              <time>22/09 - 09:00 - 12:00</time>
+            </Activity.Header>
+            <Activity.Title>Aprenda GoLang criando um bot para o Discord</Activity.Title>
+            <Activity.Footer>
+              <Activity.SpeakerImage src="/images/developer.png" alt="lorem" />
+            </Activity.Footer>
+            <LinkButton href="/programacao" price={39}>
+              Saiba mais
+            </LinkButton>
+          </Activity>
         </Column>
       </Grid>
     </section>
