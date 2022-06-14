@@ -33,7 +33,7 @@ async function fetchCmsAPI(query: string, { variables }: { variables?: Record<st
   }
 }
 
-export async function getAllSpeakers(limit = 100): Promise<Speaker[]> {
+export async function getAllSpeakers(limit: number): Promise<Speaker[]> {
   const data = await fetchCmsAPI(`
     {
       allSpeakers(orderBy: [order_ASC], first: ${limit}) {
