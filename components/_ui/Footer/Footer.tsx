@@ -16,7 +16,7 @@ export default function Footer({ sponsors }: Props) {
   const onlySponsors = sponsors?.filter(s => s.tier !== 'silver');
 
   return (
-    <div className={styles.wrapper}>
+    <footer className={styles.wrapper}>
       {onlySponsors && (
         <div className={styles.container}>
           <h2 className={styles.title}>Patrocínio</h2>
@@ -86,6 +86,6 @@ export default function Footer({ sponsors }: Props) {
           <Image width={215} height={45} src="/powered-by-vercel.svg" alt="Powered by Vercel" />
         </a>
       </div>
-    </div>
+    </footer>
   );
 }

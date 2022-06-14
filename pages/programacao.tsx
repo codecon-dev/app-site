@@ -7,7 +7,7 @@ import { META_DESCRIPTION } from '@lib/constants';
 import Layout from '@components/_ui/Layout';
 import Page from '@components/_ui/Page';
 import Alert from '@components/_ui/Alert/Alert';
-import Header from '@components/_ui/Page/Header';
+import Header from '@components/_ui/Header';
 
 import Grid from '@components/programacao/Grid';
 import Newsletter from '@components/programacao/Newsletter';
@@ -26,7 +26,7 @@ export default function Programacao({ workshops }: Props) {
     <Page meta={meta} fullViewport>
       <Layout>
         <Header
-          hero="Programação"
+          title="Programação"
           description="Confira o que vem aí nos meetups e workshops da Codecon"
         />
         <Alert

@@ -1,4 +1,4 @@
-import Header from '@components/_ui/Page/Header';
+import Header from '@components/_ui/Header';
 import IconTwitter from '@components/_ui/Icons/icon-twitter';
 import InstagramIcon from '@components/_ui/Icons/icon-instagram';
 import IconGithub from '@components/_ui/Icons/icon-github';
@@ -10,7 +10,7 @@ import styles from './Contact.module.scss';
 export default function Contact() {
   return (
     <>
-      <Header hero="Entre em contato" description="Tá com dúvida? Vem com a gente." />
+      <Header title="Entre em contato" description="Tá com dúvida? Vem com a gente." />
       <div className={styles.container}>
         <div className={styles.contact}>
           <p>Dúvidas gerais</p>

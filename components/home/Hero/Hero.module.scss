@@ -1,5 +1,13 @@
 @import 'styles/media-queries';
 
+.header {
+  margin: 4rem 0;
+
+  @media #{$breakpoint-sm} {
+    margin: 8rem 0;
+  }
+}
+
 .image {
   &__wrapper {
     display: block;
