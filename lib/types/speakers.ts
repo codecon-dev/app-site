@@ -13,6 +13,7 @@ export type Speaker = {
   company: string;
   talk: Talk;
   image: Image;
+  character: Image;
 };
 
 export type PropsTitle = {
@@ -20,6 +21,7 @@ export type PropsTitle = {
 };
 
 export type PropsImage = {
+  href: string;
   src: string;
   alt: string;
 };
@@ -28,8 +30,8 @@ export type PropsAbout = {
   children: ReactNode;
 };
 
-type SocialData = {
-  label: 'GitHub' | 'Twitter' | 'Instagram';
+export type SocialData = {
+  label: 'GitHub' | 'Twitter' | 'Linkedin';
   url: string;
 };
 

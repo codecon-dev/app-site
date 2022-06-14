@@ -33,10 +33,11 @@ async function fetchCmsAPI(query: string, { variables }: { variables?: Record<st
   }
 }
 
-export async function getPrincipalSpeakers(): Promise<Speaker[]> {
+export async function getAllSpeakers(limit = 100): Promise<Speaker[]> {
   const data = await fetchCmsAPI(`
     {
-      allSpeakers(orderBy: [order_ASC], first: 8) {
+      allSpeakers(orderBy: [order_ASC], first: ${limit}) {
+        id
         name
         bio
         slug
@@ -47,26 +48,8 @@ export async function getPrincipalSpeakers(): Promise<Speaker[]> {
         image {
           url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, bri: 7, w: 500, h: 500})
         }
-      }
-    }
-  `);
-
-  return data.allSpeakers;
-}
-
-export async function getAllSpeakers(): Promise<Speaker[]> {
-  const data = await fetchCmsAPI(`
-    {
-      allSpeakers(orderBy: [order_ASC], first: 100) {
-        id
-        name
-        bio
-        slug
-        twitter
-        github
-        company
-        image {
-          url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, bri: 7, w: 500, h: 500})
+        character {
+          url
         }
       }
     }
@@ -94,12 +77,10 @@ export async function getAllTalks(): Promise<Talk[]> {
           twitter
           slug
           github
+          linkedin
           company
-          imageSquare: image {
-            url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, w: 500, h: 500})
-          }
           image {
-            url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, w: 300, h: 400})
+            url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, w: 500, h: 500})
           }
         }
       }
