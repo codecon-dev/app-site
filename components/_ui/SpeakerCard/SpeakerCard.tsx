@@ -54,7 +54,7 @@ const Social = ({ data, character }: PropsSocial) => {
         })}
         {!!character && (
           <li>
-            <NextImage src={character.src} alt={character.alt} width={65} height={100} />
+            <NextImage src={character.src} alt={character.alt} width={48} height={73} />
           </li>
         )}
       </ul>
