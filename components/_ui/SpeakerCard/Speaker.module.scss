@@ -1,4 +1,5 @@
 @import 'styles/colors';
+@import 'styles/media-queries';
 
 .speaker_card {
   display: grid;
@@ -32,8 +33,13 @@
   }
 
   .social {
+    display: none;
     grid-area: social;
     align-self: flex-end;
+
+    @media #{$breakpoint-sm} {
+      display: block;
+    }
 
     ul {
       list-style: none;
