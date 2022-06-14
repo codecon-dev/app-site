@@ -1,0 +1,11 @@
+@import 'styles/media-queries';
+
+.card {
+  @media #{$breakpoint-sm} {
+    margin-bottom: 10rem;
+
+    &:nth-child(3n) {
+      transform: translateY(10rem);
+    }
+  }
+}
