@@ -26,6 +26,7 @@ export default function Programacao({ workshops }: Props) {
     <Page meta={meta} fullViewport>
       <Layout>
         <Header
+          image="/images/programacao/hero.svg"
           title="Programação"
           description="Confira o que vem aí nos meetups e workshops da Codecon"
         />

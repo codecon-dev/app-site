@@ -10,8 +10,9 @@
 
 .image {
   &__wrapper {
-    display: block;
-    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    min-height: 18.75rem;
 
     @media #{$breakpoint-sm} {
       margin-bottom: 4rem;

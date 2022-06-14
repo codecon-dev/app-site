@@ -30,7 +30,7 @@ export default function Navbar() {
                 <Link key={name} href={route}>
                   <a
                     className={cn(styles['nav__item'], {
-                      [styles['nav__item__active']]: activeRoute.startsWith(route)
+                      [styles['nav__item--active']]: activeRoute.startsWith(route)
                     })}
                   >
                     {name}

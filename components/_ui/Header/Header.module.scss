@@ -1,0 +1,22 @@
+@import 'styles/media-queries';
+@import 'styles/colors';
+
+.header {
+  margin: 4rem 0;
+
+  @media #{$breakpoint-sm} {
+    margin: 8rem 0;
+  }
+}
+
+.hero {
+  color: $primary;
+}
+
+.description {
+  font-size: 1.25rem;
+
+  @media #{$breakpoint-sm} {
+    font-size: 1.5rem;
+  }
+}

@@ -10,7 +10,11 @@ import styles from './Contact.module.scss';
 export default function Contact() {
   return (
     <>
-      <Header title="Entre em contato" description="Tá com dúvida? Vem com a gente." />
+      <Header
+        image="/images/contato/hero.svg"
+        title="Entre em contato"
+        description="Tá com dúvida? Vem com a gente."
+      />
       <div className={styles.container}>
         <div className={styles.contact}>
           <p>Dúvidas gerais</p>
