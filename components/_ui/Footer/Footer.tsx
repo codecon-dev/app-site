@@ -7,6 +7,8 @@ import InstagramIcon from '@components/_ui/Icons/icon-instagram';
 
 import styles from './Footer.module.scss';
 import styleUtils from '@components/_ui/Utils/Utils.module.scss';
+import { Column, Grid } from '../Grid';
+import Link from 'next/link';
 
 type Props = {
   sponsors?: Sponsor[];
@@ -17,36 +19,40 @@ export default function Footer({ sponsors }: Props) {
 
   return (
     <footer className={styles.wrapper}>
+      <h3 className={styles.title}>A Codecon só é possível graças ao apoio dessas marcas</h3>
+
       {onlySponsors && (
-        <div className={styles.container}>
-          <h2 className={styles.title}>Patrocínio</h2>
-          <div className={styles.sponsors}>
-            {onlySponsors.map(s => (
+        <Grid>
+          {onlySponsors.map(s => (
+            <Column lg={3} sm={4}>
               <a key={s.slug} href={s.website} target="_blank" rel="noopener noreferrer">
                 <Image width={200} height={200} src={s.logo.url} alt={s.name} />
               </a>
-            ))}
-          </div>
-        </div>
+            </Column>
+          ))}
+        </Grid>
       )}
 
       <div className={styles.footer}>
-        <div className={styles.container}>
-          <div className={styles['footer-container']}>
-            <div>
-              A Codecon preza pela inclusão e diversidade.{' '}
-              <br className={styleUtils['hide-on-mobile']} />
-              Seguimos o{' '}
-              <a
-                href="https://www.codamos.club/codigo-de-conduta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                código de conduta da Codamos
-              </a>
-              .
-            </div>
+        <Grid>
+          <Column lg={6} sm={6}>
+            A Codecon preza pela inclusão e diversidade.{' '}
+            <br className={styleUtils['hide-on-mobile']} />
+            Seguimos o{' '}
+            <a
+              href="https://www.codamos.club/codigo-de-conduta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              código de conduta da Codamos
+            </a>
+            .
+          </Column>
+          <Column lg={6} sm={6}>
             <div className={styles.social}>
+              <Link href="/contato">
+                <a>Fale com a gente</a>
+              </Link>
               <a
                 className={styles.icon}
                 href="https://twitter.com/codecondev"
@@ -74,17 +80,22 @@ export default function Footer({ sponsors }: Props) {
                 <IconDiscord size={16} color="#fff" />
               </a>
             </div>
-          </div>
-        </div>
-      </div>
-      <div className={styles.vercel}>
-        <a
-          href="https://vercel.com/?utm_source=codecon&utm_campaign=oss"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <Image width={215} height={45} src="/powered-by-vercel.svg" alt="Powered by Vercel" />
-        </a>
+            <div className={styles.vercel}>
+              <a
+                href="https://vercel.com/?utm_source=codecon&utm_campaign=oss"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <Image
+                  width={215}
+                  height={45}
+                  src="/powered-by-vercel.svg"
+                  alt="Powered by Vercel"
+                />
+              </a>
+            </div>
+          </Column>
+        </Grid>
       </div>
     </footer>
   );
