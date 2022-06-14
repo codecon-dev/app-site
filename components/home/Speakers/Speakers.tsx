@@ -22,7 +22,7 @@ export default function Speakers({ speakers }: Props) {
       </Grid>
       <Grid>
         {speakers.map((speaker, index) => (
-          <Column lg={3} sm={!!(index > 5) ? 0 : 4} xsm={!!(index > 2) ? 0 : 12}>
+          <Column key={speaker.id} lg={3} sm={!!(index > 5) ? 0 : 4} xsm={!!(index > 2) ? 0 : 12}>
             <SpeakerCard>
               <SpeakerCard.Title>{speaker.name}</SpeakerCard.Title>
               <SpeakerCard.Image

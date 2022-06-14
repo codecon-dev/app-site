@@ -30,8 +30,8 @@ export default function WorkshopsGrid({ speakers }: Props) {
 
           return (
             <>
-              {!!(index % 2) && <Column lg={2} sm={0} xsm={0} />}
-              <Column lg={5} sm={6} className={styles.card}>
+              {!!(index % 2) && <Column key={`col-${speaker.id}`} lg={2} sm={0} xsm={0} />}
+              <Column key={speaker.id} lg={5} sm={6} className={styles.card}>
                 <SpeakerCard>
                   <SpeakerCard.Image
                     href={`/quem-vai/${speaker.slug}`}
