@@ -2,7 +2,13 @@ import NextImage from 'next/image';
 
 import Icons from './Icons';
 import styles from './Speaker.module.scss';
-import { PropsAbout, PropsImage, PropsSocial, PropsSpeakerCard, PropsTitle } from './types';
+import {
+  PropsAbout,
+  PropsImage,
+  PropsSocial,
+  PropsSpeakerCard,
+  PropsTitle
+} from '@lib/types/speakers';
 
 const Title = ({ children }: PropsTitle) => {
   return (
@@ -24,7 +30,9 @@ const About = ({ children }: PropsAbout) => {
   return <div className={styles.about}>{children}</div>;
 };
 
-const Social = ({ data, character: { src, alt } }: PropsSocial) => {
+const Social = ({ data, character }: PropsSocial) => {
+  if (!data) return null;
+
   return (
     <div className={styles.social}>
       <ul>
@@ -39,9 +47,11 @@ const Social = ({ data, character: { src, alt } }: PropsSocial) => {
             </li>
           );
         })}
-        <li>
-          <NextImage src={src} alt={alt} width={65} height={100} />
-        </li>
+        {!!character && (
+          <li>
+            <NextImage src={character.src} alt={character.alt} width={65} height={100} />
+          </li>
+        )}
       </ul>
     </div>
   );

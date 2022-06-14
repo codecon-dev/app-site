@@ -1,3 +1,5 @@
+import { Speaker } from './speakers';
+
 export type UserRank = {
   tag: string;
   score: number;
@@ -6,20 +8,6 @@ export type UserRank = {
 
 export type Image = {
   url: string;
-};
-
-export type Speaker = {
-  id: string;
-  name: string;
-  bio: string;
-  title: string;
-  slug: string;
-  twitter: string;
-  github: string;
-  company: string;
-  talk: Talk;
-  image: Image;
-  imageSquare: Image;
 };
 
 export type Stage = {

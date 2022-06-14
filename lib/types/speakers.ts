@@ -1,4 +1,19 @@
 import { ReactNode } from 'react';
+import { Talk, Image } from './all';
+
+export type Speaker = {
+  id: string;
+  name: string;
+  bio: string;
+  title: string;
+  slug: string;
+  twitter: string;
+  github: string;
+  linkedin: string;
+  company: string;
+  talk: Talk;
+  image: Image;
+};
 
 export type PropsTitle = {
   children: string;
@@ -24,8 +39,8 @@ type Character = {
 };
 
 export type PropsSocial = {
-  data: SocialData[];
-  character: Character;
+  data?: SocialData[];
+  character?: Character;
 };
 
 export type PropsSpeakerCard = {

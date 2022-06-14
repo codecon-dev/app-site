@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import { Sponsor } from '@lib/types';
+import { Sponsor } from '@lib/types/all';
 import Navbar from '@components/_ui/Navbar';
 import Footer from '@components/_ui/Footer';
 

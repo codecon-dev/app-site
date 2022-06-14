@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Sponsor } from '@lib/types';
+import { Sponsor } from '@lib/types/all';
 import IconDiscord from '@components/_ui/Icons/icon-discord';
 import IconTwitter from '@components/_ui/Icons/icon-twitter';
 import InstagramIcon from '@components/_ui/Icons/icon-instagram';

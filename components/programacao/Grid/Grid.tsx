@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Workshop } from '@lib/types';
+import { Workshop } from '@lib/types/all';
 import { captureHourAndMinutesFromDateString, formatDate } from '@lib/dates';
 
 import styles from './Grid.module.scss';

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
-import { Workshop, Sponsor, Talk, Speaker } from '@lib/types';
+import { Workshop, Sponsor, Talk } from '@lib/types/all';
+import { Speaker } from '@lib/types/speakers';
 
 const API_URL = 'https://graphql.datocms.com/';
 const API_TOKEN = process.env.DATOCMS_READ_ONLY_API_TOKEN;
@@ -35,17 +36,15 @@ async function fetchCmsAPI(query: string, { variables }: { variables?: Record<st
 export async function getPrincipalSpeakers(): Promise<Speaker[]> {
   const data = await fetchCmsAPI(`
     {
-      allSpeakers(orderBy: [order_ASC], first: 4) {
+      allSpeakers(orderBy: [order_ASC], first: 8) {
         name
         bio
         slug
         twitter
         github
+        linkedin
         company
         image {
-          url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, bri: 7, w: 300, h: 400})
-        }
-        imageSquare: image {
           url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, bri: 7, w: 500, h: 500})
         }
       }
@@ -67,10 +66,7 @@ export async function getAllSpeakers(): Promise<Speaker[]> {
         github
         company
         image {
-          url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, w: 300, h: 400})
-        }
-        imageSquare: image {
-          url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, w: 500, h: 500})
+          url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, bri: 7, w: 500, h: 500})
         }
       }
     }

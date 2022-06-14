@@ -1,4 +1,5 @@
-import { Workshop, Sponsor, Talk, Speaker } from '@lib/types';
+import { Workshop, Sponsor, Talk } from '@lib/types/all';
+import { Speaker } from '@lib/types/speakers';
 
 import * as datoCmsApi from './cms-providers/dato';
 
