@@ -18,7 +18,7 @@ export default function Footer({ sponsors }: Props) {
   const onlySponsors = sponsors?.filter(s => s.tier !== 'silver');
 
   return (
-    <div className={styles.wrapper}>
+    <footer className={styles.wrapper}>
       <h3 className={styles.title}>A Codecon só é possível graças ao apoio dessas marcas</h3>
 
       {onlySponsors && (
@@ -97,6 +97,6 @@ export default function Footer({ sponsors }: Props) {
           </Column>
         </Grid>
       </div>
-    </div>
+    </footer>
   );
 }

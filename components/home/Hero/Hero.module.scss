@@ -1,9 +1,18 @@
 @import 'styles/media-queries';
 
+.header {
+  margin: 4rem 0;
+
+  @media #{$breakpoint-sm} {
+    margin: 8rem 0;
+  }
+}
+
 .image {
   &__wrapper {
-    display: block;
-    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    min-height: 18.75rem;
 
     @media #{$breakpoint-sm} {
       margin-bottom: 4rem;
