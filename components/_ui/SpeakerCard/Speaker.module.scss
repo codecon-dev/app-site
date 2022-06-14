@@ -21,6 +21,16 @@
     text-transform: uppercase;
   }
 
+  a {
+    opacity: 0.7;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+      transition: opacity 0.2s ease-in-out;
+    }
+  }
+
   .social {
     grid-area: social;
     align-self: flex-end;
@@ -33,10 +43,23 @@
     }
 
     li {
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
 
       &:last-child {
         margin-bottom: 0;
+      }
+
+      a {
+        opacity: 1;
+        padding: 1rem;
+        border-radius: 50%;
+        display: block;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          background-color: $dark-green;
+          transition: all 0.2s ease-in-out;
+        }
       }
     }
   }
@@ -47,7 +70,6 @@
 
   .image_wrapper {
     grid-area: image;
-
     border: 5px solid $light-green;
     padding: 0.5rem;
   }

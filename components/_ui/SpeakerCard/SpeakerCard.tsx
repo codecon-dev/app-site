@@ -9,6 +9,7 @@ import {
   PropsSpeakerCard,
   PropsTitle
 } from '@lib/types/speakers';
+import Link from 'next/link';
 
 const Title = ({ children }: PropsTitle) => {
   return (
@@ -18,10 +19,14 @@ const Title = ({ children }: PropsTitle) => {
   );
 };
 
-const Image = ({ src, alt }: PropsImage) => {
+const Image = ({ href, src, alt }: PropsImage) => {
   return (
     <div className={styles.image_wrapper}>
-      <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
+      <Link href={href}>
+        <a>
+          <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
+        </a>
+      </Link>
     </div>
   );
 };
