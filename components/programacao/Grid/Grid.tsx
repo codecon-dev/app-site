@@ -11,7 +11,7 @@ function WorkshopCard({ workshop }: { workshop: Workshop }) {
       <div className={styles.details}>
         <div className={styles.images}>
           {workshop.teacher.map((t, index) => (
-            <Image key={index} src={t.imageSquare.url} width={64} height={64} alt={t.name} />
+            <Image key={index} src={t.image.url} width={64} height={64} alt={t.name} />
           ))}
         </div>
         <span>

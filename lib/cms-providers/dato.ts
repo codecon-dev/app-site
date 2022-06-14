@@ -148,12 +148,10 @@ export async function getAllWorkshops(): Promise<Workshop[]> {
           slug
           twitter
           github
+          linkedin
           company
-		      imageSquare: image {
-            url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, w: 500, h: 500})
-          }
           image {
-            url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, w: 300, h: 400})
+            url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, w: 500, h: 500})
           }
         }
         link
