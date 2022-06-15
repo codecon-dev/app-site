@@ -1,10 +1,15 @@
 import cn from 'classnames';
 
 import { Talk } from '@lib/types/all';
-import { isActivityStartingTimeBetween, captureHourAndMinutesFromDateString } from '@lib/dates';
+import {
+  isActivityStartingTimeBetween,
+  captureHourAndMinutesFromDateString,
+  getActivityByDay
+} from '@lib/dates';
 
 import styles from './Schedule.module.scss';
 import Activity from '@components/_ui/Activity';
+import { useEffect, useState } from 'react';
 
 type Props = {
   talks: Talk[];
@@ -82,20 +87,31 @@ function TalkContainer({ talk, index }: { talk: Talk; index: number }) {
 }
 
 export default function Schedule({ talks }: Props) {
-  const talksOrdered = sortTalksByHourAndPlace(talks, placePriority);
+  const dayOne = talks.filter(talk => getActivityByDay(talk, '22/09/2022'));
+  const dayTwo = talks.filter(talk => getActivityByDay(talk, '23/09/2022'));
+  const dayThree = talks.filter(talk => getActivityByDay(talk, '24/09/2022'));
+  const [activeTab, setActiveTab] = useState(dayOne);
+  const [firstBlock, setFirstBlock] = useState<Talk[]>();
+  const [secondBlock, setSecondBlock] = useState<Talk[]>();
+  const [thirdBlock, setThirdBlock] = useState<Talk[]>();
+  const [fourthBlock, setFourthBlock] = useState<Talk[]>();
 
-  const firstBlock = talksOrdered.filter(talk =>
-    isActivityStartingTimeBetween(talk, '10:00', '11:00')
-  );
-  const secondBlock = talksOrdered.filter(talk =>
-    isActivityStartingTimeBetween(talk, '14:00', '15:00')
-  );
-  const thirdBlock = talksOrdered.filter(talk =>
-    isActivityStartingTimeBetween(talk, '15:30', '16:30')
-  );
-  const fourthBlock = talksOrdered.filter(talk =>
-    isActivityStartingTimeBetween(talk, '17:00', '18:00')
-  );
+  useEffect(() => {
+    const talksOrdered = sortTalksByHourAndPlace(activeTab, placePriority);
+
+    setFirstBlock(
+      talksOrdered.filter(talk => isActivityStartingTimeBetween(talk, '10:00', '11:00'))
+    );
+    setSecondBlock(
+      talksOrdered.filter(talk => isActivityStartingTimeBetween(talk, '14:00', '15:00'))
+    );
+    setThirdBlock(
+      talksOrdered.filter(talk => isActivityStartingTimeBetween(talk, '15:30', '16:30'))
+    );
+    setFourthBlock(
+      talksOrdered.filter(talk => isActivityStartingTimeBetween(talk, '17:00', '18:00'))
+    );
+  }, [activeTab]);
 
   return (
     <section>
@@ -130,7 +146,7 @@ export default function Schedule({ talks }: Props) {
             </span>
           </div>
 
-          {firstBlock.map((talk, index) => (
+          {firstBlock?.map((talk, index) => (
             <TalkContainer talk={talk} index={index} key={talk.id} />
           ))}
 
@@ -180,7 +196,7 @@ export default function Schedule({ talks }: Props) {
             </span>
           </div>
 
-          {secondBlock.map((talk, index) => (
+          {secondBlock?.map((talk, index) => (
             <TalkContainer talk={talk} index={index} key={talk.id} />
           ))}
 
@@ -197,7 +213,7 @@ export default function Schedule({ talks }: Props) {
             </span>
           </div>
 
-          {thirdBlock.map((talk, index) => (
+          {thirdBlock?.map((talk, index) => (
             <TalkContainer talk={talk} index={index} key={talk.id} />
           ))}
 
@@ -214,7 +230,7 @@ export default function Schedule({ talks }: Props) {
             </span>
           </div>
 
-          {fourthBlock.map((talk, index) => (
+          {fourthBlock?.map((talk, index) => (
             <TalkContainer talk={talk} index={index} key={talk.id} />
           ))}
 

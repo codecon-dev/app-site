@@ -31,6 +31,12 @@ export function isActivityStartingTimeBetween(
   );
 }
 
+export function getActivityByDay(activity: Talk | Workshop, date: string): boolean {
+  const startDate = formatDate(activity.start, 'dd/MM/yyyy');
+
+  return startDate === date;
+}
+
 export function formatDate(date: string, formatType: string) {
   return format(parseISO(date), formatType, { locale: pt });
 }
