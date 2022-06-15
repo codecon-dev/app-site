@@ -43,56 +43,6 @@ export default function Speakers({ speakers }: Props) {
           </div>
         </Column>
       </Grid>
-
-      <br />
-      <br />
-
-      <Grid>
-        <Column lg={5}>
-          <Activity sponsor={{ logo: '/images/developer.png', name: 'JetBrains' }}>
-            <Activity.Header>
-              <p>Painel</p>
-              <time>09:00 - 12:00</time>
-            </Activity.Header>
-            <Activity.Title href="https://google.com">
-              Pra que serve, afinal, o DevRel?
-            </Activity.Title>
-            <Activity.Footer>
-              <Activity.SpeakerImage
-                src="/images/developer.png"
-                alt="Bruno Rocha"
-                href="https://google.com"
-              />
-              <Activity.SpeakerImage
-                src="/images/developer.png"
-                alt="Bruno Rocha"
-                href="https://google.com"
-              />
-              <Activity.SpeakerImage
-                src="/images/developer.png"
-                alt="Bruno Rocha"
-                href="https://google.com"
-              />
-            </Activity.Footer>
-          </Activity>
-        </Column>
-
-        <Column lg={5}>
-          <Activity>
-            <Activity.Header>
-              <p>Workshop</p>
-              <time>22/09 - 09:00 - 12:00</time>
-            </Activity.Header>
-            <Activity.Title>Aprenda GoLang criando um bot para o Discord</Activity.Title>
-            <Activity.Footer>
-              <Activity.SpeakerImage src="/images/developer.png" alt="Bruno Rocha" />
-            </Activity.Footer>
-            <LinkButton href="/programacao" price={39}>
-              Saiba mais
-            </LinkButton>
-          </Activity>
-        </Column>
-      </Grid>
     </section>
   );
 }
