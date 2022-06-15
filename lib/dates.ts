@@ -1,6 +1,6 @@
 import { parseISO, format } from 'date-fns';
 import pt from 'date-fns/locale/pt';
-import { Talk, Workshop } from '@lib/types';
+import { Talk, Workshop } from '@lib/types/all';
 
 export function captureHourAndMinutesFromDateString(dateString: string) {
   const hourAndMinutesMatch = /T(\d\d:\d\d):/.exec(dateString);

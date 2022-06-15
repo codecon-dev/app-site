@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 
 import { getAllWorkshops } from '@lib/cms-api';
-import { Workshop } from '@lib/types';
+import { Workshop } from '@lib/types/all';
 
 import { META_DESCRIPTION } from '@lib/constants';
 import Layout from '@components/_ui/Layout';

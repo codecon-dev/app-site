@@ -1,14 +1,10 @@
-import { Workshop, Sponsor, Talk, Speaker } from '@lib/types';
+import { Workshop, Sponsor, Talk } from '@lib/types/all';
+import { Speaker } from '@lib/types/speakers';
 
 import * as datoCmsApi from './cms-providers/dato';
 
-export async function getPrincipalSpeakers(): Promise<Speaker[]> {
-  const speakers = await datoCmsApi.getPrincipalSpeakers();
-  return speakers || [];
-}
-
-export async function getAllSpeakers(): Promise<Speaker[]> {
-  const speakers = await datoCmsApi.getAllSpeakers();
+export async function getAllSpeakers(limit = 100): Promise<Speaker[]> {
+  const speakers = await datoCmsApi.getAllSpeakers(limit);
   return speakers || [];
 }
 

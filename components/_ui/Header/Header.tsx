@@ -16,7 +16,7 @@ export default function Header({ title, description, image }: Props) {
           <h1 className={styles.hero}>{title}</h1>
           {!!description && <p className={styles.description}>{description}</p>}
         </Column>
-        <Column lg={3} xsm={0}>
+        <Column lg={3} sm={0} xsm={0}>
           <Image src={image} width={320} height={320} alt="Ícone de ilustração do topo da página" />
         </Column>
       </Grid>

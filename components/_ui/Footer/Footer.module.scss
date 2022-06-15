@@ -3,7 +3,12 @@
 
 .wrapper {
   background-color: $white;
-  padding-top: 3rem;
+  text-align: center;
+  padding-top: 4rem;
+
+  @media #{$breakpoint-sm} {
+    padding-top: 8rem;
+  }
 }
 
 .title {
@@ -11,8 +16,13 @@
   color: $black;
 }
 
+.sponsor {
+  display: inline-block;
+  max-width: 50%;
+}
+
 .footer {
-  margin-top: 3rem;
+  margin-top: 4rem;
   padding-top: 2rem;
   background-color: lighten($light-gray, 18%);
   color: $black;
@@ -20,6 +30,7 @@
 
   @media #{$breakpoint-sm} {
     text-align: left;
+    margin-top: 8rem;
   }
 }
 

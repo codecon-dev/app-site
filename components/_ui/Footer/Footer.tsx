@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Sponsor } from '@lib/types';
+import { Sponsor } from '@lib/types/all';
 import IconDiscord from '@components/_ui/Icons/icon-discord';
 import IconTwitter from '@components/_ui/Icons/icon-twitter';
 import InstagramIcon from '@components/_ui/Icons/icon-instagram';
@@ -15,23 +15,30 @@ type Props = {
 };
 
 export default function Footer({ sponsors }: Props) {
-  const onlySponsors = sponsors?.filter(s => s.tier !== 'silver');
-
   return (
     <footer className={styles.wrapper}>
-      <h3 className={styles.title}>A Codecon só é possível graças ao apoio dessas marcas</h3>
+      <div className="container">
+        <h2 className={styles.title}>
+          A Codecon só é possível graças ao
+          <br className={styleUtils['hide-on-mobile']} /> apoio dessas marcas
+        </h2>
 
-      {onlySponsors && (
-        <Grid>
-          {onlySponsors.map(s => (
-            <Column lg={3} sm={4}>
-              <a key={s.slug} href={s.website} target="_blank" rel="noopener noreferrer">
-                <Image width={200} height={200} src={s.logo.url} alt={s.name} />
+        {!!sponsors && (
+          <>
+            {sponsors.map(s => (
+              <a
+                className={styles.sponsor}
+                key={s.slug}
+                href={s.website}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image width={220} height={120} src={s.logo.url} alt={s.name} />
               </a>
-            </Column>
-          ))}
-        </Grid>
-      )}
+            ))}
+          </>
+        )}
+      </div>
 
       <div className={styles.footer}>
         <Grid>
