@@ -41,14 +41,21 @@
   }
 
   .title {
-    font-weight: normal;
+    display: block;
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 40px;
+
+    &[href]:hover {
+      text-decoration: underline;
+    }
   }
 
   .content {
     border: 1px solid $light-green;
     padding: 16px;
 
-    & > a {
+    & > [class*='LinkButton'] {
       position: absolute;
       bottom: 1px;
       right: 1px;
