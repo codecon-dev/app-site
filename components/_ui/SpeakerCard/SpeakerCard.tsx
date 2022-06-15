@@ -2,7 +2,14 @@ import NextImage from 'next/image';
 
 import Icons from './Icons';
 import styles from './Speaker.module.scss';
-import { PropsAbout, PropsImage, PropsSocial, PropsSpeakerCard, PropsTitle } from './types';
+import {
+  PropsAbout,
+  PropsImage,
+  PropsSocial,
+  PropsSpeakerCard,
+  PropsTitle
+} from '@lib/types/speakers';
+import Link from 'next/link';
 
 const Title = ({ children }: PropsTitle) => {
   return (
@@ -12,10 +19,14 @@ const Title = ({ children }: PropsTitle) => {
   );
 };
 
-const Image = ({ src, alt }: PropsImage) => {
+const Image = ({ href, src, alt }: PropsImage) => {
   return (
     <div className={styles.image_wrapper}>
-      <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
+      <Link href={href}>
+        <a>
+          <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
+        </a>
+      </Link>
     </div>
   );
 };
@@ -24,7 +35,9 @@ const About = ({ children }: PropsAbout) => {
   return <div className={styles.about}>{children}</div>;
 };
 
-const Social = ({ data, character: { src, alt } }: PropsSocial) => {
+const Social = ({ data, character }: PropsSocial) => {
+  if (!data) return null;
+
   return (
     <div className={styles.social}>
       <ul>
@@ -39,9 +52,11 @@ const Social = ({ data, character: { src, alt } }: PropsSocial) => {
             </li>
           );
         })}
-        <li>
-          <NextImage src={src} alt={alt} width={65} height={100} />
-        </li>
+        {!!character && (
+          <li>
+            <NextImage src={character.src} alt={character.alt} width={48} height={73} />
+          </li>
+        )}
       </ul>
     </div>
   );

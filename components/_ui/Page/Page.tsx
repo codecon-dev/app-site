@@ -2,13 +2,13 @@ import cn from 'classnames';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import { SITE_NAME, SITE_URL, TWITTER_USER_NAME } from '@lib/constants';
+import { META_DESCRIPTION, SITE_NAME, SITE_URL, TWITTER_USER_NAME } from '@lib/constants';
 
 type Meta = {
-  title: string | null;
-  description: string | null;
-  image?: string | null;
-  url?: string | null;
+  title: string;
+  description?: string;
+  image?: string;
+  url?: string;
 };
 
 type Props = {
@@ -22,7 +22,7 @@ export default function Page({ meta, children, fullViewport = false }: Props) {
   const image = meta?.image || '/twitter-card.png';
   const title = meta?.title || SITE_NAME;
   const url = meta?.url || `${SITE_URL}${router.asPath}`;
-  const description = meta?.description || SITE_NAME;
+  const description = meta?.description || META_DESCRIPTION;
 
   return (
     <div className={cn('page-container', { full: fullViewport })}>
