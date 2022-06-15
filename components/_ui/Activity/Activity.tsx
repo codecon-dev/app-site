@@ -1,25 +1,28 @@
 import NextImage from 'next/image';
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import styles from './Activity.module.scss';
 
-type TitleProps = {
-  children: ReactNode;
-  as?: React.ElementType;
-};
+interface TitleProps extends React.LinkHTMLAttributes<HTMLAnchorElement> {
+  children: string;
+}
 
 type HeaderProps = {
   children: ReactNode;
 };
 
-type ActivityProps = {
+type FooterProps = {
   children: ReactNode;
-  sponsor?: string;
 };
 
-type SpeakerImageProps = {
+type ActivityProps = {
+  children: ReactNode;
+  sponsor?: { name: string; logo: string };
+};
+
+interface SpeakerImageProps extends React.LinkHTMLAttributes<HTMLAnchorElement> {
   src: string;
   alt: string;
-};
+}
 
 const SpeakerImage = ({ src, alt, ...rest }: SpeakerImageProps) => {
   return (
@@ -29,7 +32,7 @@ const SpeakerImage = ({ src, alt, ...rest }: SpeakerImageProps) => {
   );
 };
 
-const Footer = ({ children }: HeaderProps) => {
+const Footer = ({ children }: FooterProps) => {
   return <footer className={styles.footer}>{children}</footer>;
 };
 
@@ -37,34 +40,27 @@ const Header = ({ children }: HeaderProps) => {
   return <div className={styles.header}>{children}</div>;
 };
 
-const Title = ({ children = '', as }: TitleProps) => {
-  const Component = as || 'h3';
-
-  return <Component className={styles.title}>{children}</Component>;
+const Title = ({ children, ...rest }: TitleProps) => {
+  return (
+    <a {...rest} className={styles.title}>
+      {children}
+    </a>
+  );
 };
 
-const Activity = ({ children, sponsor = '' }: ActivityProps) => {
-  function getSponsorImage(sponsor = '') {
-    const path = `/images/`;
-    const images = {
-      jetbrains: 'developer.png'
-    }[sponsor.toLowerCase()];
-
-    return `${path}${images}`;
-  }
-
+const Activity = ({ children, sponsor }: ActivityProps) => {
   return (
     <div className={styles.activity}>
-      {!!sponsor && (
+      {!!sponsor?.name && !!sponsor?.logo && (
         <div className={styles.sponsor}>
           <span>Conteúdo oferecido por</span>
           <div>
             <NextImage
-              src={getSponsorImage(sponsor)}
+              src={sponsor.logo}
               width={32}
               height={32}
               layout="responsive"
-              alt={`${sponsor} logo`}
+              alt={`Logo da empresa ${sponsor.name} que está patrocinando esse conteúdo`}
             />
           </div>
         </div>

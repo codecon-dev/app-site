@@ -49,16 +49,30 @@ export default function Speakers({ speakers }: Props) {
 
       <Grid>
         <Column lg={5}>
-          <Activity sponsor="JetBrains">
+          <Activity sponsor={{ logo: '/images/developer.png', name: 'JetBrains' }}>
             <Activity.Header>
               <p>Painel</p>
               <time>09:00 - 12:00</time>
             </Activity.Header>
-            <Activity.Title>Pra que serve, afinal, o DevRel?</Activity.Title>
+            <Activity.Title href="https://google.com">
+              Pra que serve, afinal, o DevRel?
+            </Activity.Title>
             <Activity.Footer>
-              <Activity.SpeakerImage src="/images/developer.png" alt="lorem" />
-              <Activity.SpeakerImage src="/images/developer.png" alt="lorem" />
-              <Activity.SpeakerImage src="/images/developer.png" alt="lorem" />
+              <Activity.SpeakerImage
+                src="/images/developer.png"
+                alt="Bruno Rocha"
+                href="https://google.com"
+              />
+              <Activity.SpeakerImage
+                src="/images/developer.png"
+                alt="Bruno Rocha"
+                href="https://google.com"
+              />
+              <Activity.SpeakerImage
+                src="/images/developer.png"
+                alt="Bruno Rocha"
+                href="https://google.com"
+              />
             </Activity.Footer>
           </Activity>
         </Column>
@@ -71,7 +85,7 @@ export default function Speakers({ speakers }: Props) {
             </Activity.Header>
             <Activity.Title>Aprenda GoLang criando um bot para o Discord</Activity.Title>
             <Activity.Footer>
-              <Activity.SpeakerImage src="/images/developer.png" alt="lorem" />
+              <Activity.SpeakerImage src="/images/developer.png" alt="Bruno Rocha" />
             </Activity.Footer>
             <LinkButton href="/programacao" price={39}>
               Saiba mais
