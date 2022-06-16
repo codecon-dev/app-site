@@ -1,0 +1,78 @@
+@import 'styles/colors';
+
+.activity {
+  position: relative;
+
+  .sponsor {
+    background-color: white;
+    align-items: center;
+    color: #707070;
+    display: flex;
+    font-size: 0.75rem;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.1em;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+
+    & *:last-child {
+      flex: 1;
+      max-width: 2rem;
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+
+    * {
+      color: $light-gray;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+
+    *:first-child {
+      color: $light-green;
+      font-weight: bold;
+      letter-spacing: 0.2em;
+    }
+  }
+
+  .title {
+    display: block;
+    color: #fff;
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+
+    &[href]:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .content {
+    border: 1px solid $light-green;
+    padding: 1rem;
+
+    & > .button {
+      position: absolute;
+      bottom: 1px;
+      right: 1px;
+    }
+  }
+
+  .footer {
+    display: flex;
+  }
+
+  .speaker_image {
+    flex: 1;
+    max-width: 2rem;
+    margin-right: 0.625rem;
+
+    img {
+      border-radius: 50%;
+    }
+  }
+}
