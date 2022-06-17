@@ -1,6 +1,7 @@
 import NextImage from 'next/image';
 import React, { ReactNode } from 'react';
 import { Image } from '@lib/types/all';
+import LinkButton, { LinkButtonProps } from '../LinkButton';
 
 import stylesUtils from '../Utils/Utils.module.scss';
 import styles from './Activity.module.scss';
@@ -35,12 +36,20 @@ const SpeakerImage = ({ src, alt, ...rest }: SpeakerImageProps) => {
   );
 };
 
+const Button = (props: LinkButtonProps) => {
+  return (
+    <div className={styles.button}>
+      <LinkButton {...props}>Saiba mais</LinkButton>
+    </div>
+  );
+};
+
 const Footer = ({ children }: FooterProps) => {
   return <footer className={styles.footer}>{children}</footer>;
 };
 
 const Header = ({ children }: HeaderProps) => {
-  return <div className={styles.header}>{children}</div>;
+  return <header className={styles.header}>{children}</header>;
 };
 
 const Title = ({ children, ...rest }: TitleProps) => {
@@ -53,7 +62,7 @@ const Title = ({ children, ...rest }: TitleProps) => {
 
 const Activity = ({ children, sponsor }: ActivityProps) => {
   return (
-    <div className={styles.activity}>
+    <article className={styles.activity}>
       {!!sponsor?.name && !!sponsor?.logo && (
         <div className={styles.sponsor}>
           <span>
@@ -72,7 +81,7 @@ const Activity = ({ children, sponsor }: ActivityProps) => {
       )}
 
       <div className={styles.content}>{children}</div>
-    </div>
+    </article>
   );
 };
 
@@ -80,5 +89,6 @@ Activity.Header = Header;
 Activity.Title = Title;
 Activity.Footer = Footer;
 Activity.SpeakerImage = SpeakerImage;
+Activity.Button = Button;
 
 export default Activity;
