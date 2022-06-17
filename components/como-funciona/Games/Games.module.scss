@@ -1,0 +1,21 @@
+@import 'styles/colors';
+@import 'styles/media-queries';
+
+.game {
+  background-color: $dark-green;
+  padding: 4rem 0;
+
+  @media #{$breakpoint-sm} {
+    padding: 0;
+  }
+
+  &.alternate {
+    background-color: transparent;
+    margin: 4rem 0;
+    padding: 0;
+  }
+
+  div + p {
+    margin-top: 1.5rem;
+  }
+}
