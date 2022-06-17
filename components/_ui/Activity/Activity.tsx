@@ -46,7 +46,7 @@ const Footer = ({ children }: FooterProps) => {
 };
 
 const Header = ({ children }: HeaderProps) => {
-  return <div className={styles.header}>{children}</div>;
+  return <header className={styles.header}>{children}</header>;
 };
 
 const Title = ({ children, ...rest }: TitleProps) => {
@@ -59,7 +59,7 @@ const Title = ({ children, ...rest }: TitleProps) => {
 
 const Activity = ({ children, sponsor }: ActivityProps) => {
   return (
-    <div className={styles.activity}>
+    <article className={styles.activity}>
       {!!sponsor?.name && !!sponsor?.logo && (
         <div className={styles.sponsor}>
           <span>Conteúdo oferecido por</span>
