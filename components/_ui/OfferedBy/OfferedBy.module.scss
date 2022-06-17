@@ -1,0 +1,41 @@
+@import 'styles/colors';
+@import 'styles/media-queries';
+
+.sponsor {
+  align-items: center;
+  display: flex;
+  font-size: 0.75rem;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.1em;
+  padding: 0 1rem;
+  text-transform: uppercase;
+
+  &-white {
+    background-color: $white;
+    color: $dark-gray;
+  }
+
+  &-black {
+    background-color: transparent;
+    border: 1px solid $primary;
+    color: $white;
+  }
+
+  .type {
+    display: inline-block;
+
+    @media #{$breakpoint-sm} {
+      display: none;
+    }
+
+    @media #{$breakpoint-lg} {
+      display: inline-block;
+    }
+  }
+
+  .image {
+    flex: 1;
+    max-width: 7rem;
+  }
+}
