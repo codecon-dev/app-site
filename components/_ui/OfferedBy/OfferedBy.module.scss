@@ -10,11 +10,8 @@
   letter-spacing: 0.1em;
   padding: 0 1rem;
   text-transform: uppercase;
-
-  &-white {
-    background-color: $white;
-    color: $dark-gray;
-  }
+  background-color: $white;
+  color: $dark-gray;
 
   &-black {
     background-color: transparent;
