@@ -76,7 +76,7 @@ const Activity = ({ children, sponsor }: ActivityProps) => {
       )}
 
       <div className={styles.content}>{children}</div>
-    </div>
+    </article>
   );
 };
 
