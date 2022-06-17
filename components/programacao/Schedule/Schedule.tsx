@@ -87,17 +87,21 @@ function TalkContainer({ talk, index }: { talk: Talk; index: number }) {
 }
 
 export default function Schedule({ talks }: Props) {
-  const dayOne = talks.filter(talk => getActivityByDay(talk, '22/09/2022'));
-  const dayTwo = talks.filter(talk => getActivityByDay(talk, '23/09/2022'));
-  const dayThree = talks.filter(talk => getActivityByDay(talk, '24/09/2022'));
-  const [activeTab, setActiveTab] = useState(dayOne);
+  const [activeTab, setActiveTab] = useState(0);
+  const [dayHaveHappyHour, setDayHaveHappyHour] = useState(false);
   const [firstBlock, setFirstBlock] = useState<Talk[]>();
   const [secondBlock, setSecondBlock] = useState<Talk[]>();
   const [thirdBlock, setThirdBlock] = useState<Talk[]>();
   const [fourthBlock, setFourthBlock] = useState<Talk[]>();
 
   useEffect(() => {
-    const talksOrdered = sortTalksByHourAndPlace(activeTab, placePriority);
+    const talksByDay = [
+      talks.filter(talk => getActivityByDay(talk, '22/09/2022')),
+      talks.filter(talk => getActivityByDay(talk, '23/09/2022')),
+      talks.filter(talk => getActivityByDay(talk, '24/09/2022'))
+    ];
+
+    const talksOrdered = sortTalksByHourAndPlace(talksByDay[activeTab], placePriority);
 
     setFirstBlock(
       talksOrdered.filter(talk => isActivityStartingTimeBetween(talk, '10:00', '11:00'))
@@ -111,10 +115,47 @@ export default function Schedule({ talks }: Props) {
     setFourthBlock(
       talksOrdered.filter(talk => isActivityStartingTimeBetween(talk, '17:00', '18:00'))
     );
-  }, [activeTab]);
+  }, [activeTab, talks]);
 
   return (
     <section>
+      <nav className={styles.tabs}>
+        <div className="container">
+          <button
+            className={cn({
+              [styles.active]: activeTab === 0
+            })}
+            onClick={() => {
+              setActiveTab(0);
+              setDayHaveHappyHour(false);
+            }}
+          >
+            Quinta (22/09)
+          </button>
+          <button
+            className={cn({
+              [styles.active]: activeTab === 1
+            })}
+            onClick={() => {
+              setActiveTab(1);
+              setDayHaveHappyHour(false);
+            }}
+          >
+            Sexta (23/09)
+          </button>
+          <button
+            className={cn({
+              [styles.active]: activeTab === 2
+            })}
+            onClick={() => {
+              setActiveTab(2);
+              setDayHaveHappyHour(true);
+            }}
+          >
+            Sábado (24/09)
+          </button>
+        </div>
+      </nav>
       <div className="container">
         <div className={styles.grid}>
           <span />
@@ -234,32 +275,33 @@ export default function Schedule({ talks }: Props) {
             <TalkContainer talk={talk} index={index} key={talk.id} />
           ))}
 
-          <div className={styles.hour}>
-            <span className={styles.hiddenHour} />
-            <span className={styles.bigHour}>
-              <span>19h</span>
-            </span>
-            <span className={styles.mediumHour}>
-              <span>19h30</span>
-            </span>
-            <span className={styles.bigHour}>
-              <span>20h</span>
-            </span>
-          </div>
-
-          <div className={cn(styles.talkContainer, styles.talkContainerHappyHour)}>
-            <div className={cn(styles.intervalCard, styles.happyCard)}>
-              <div className={styles.header}>
-                <span className={styles.type}>Intervalo</span>
-                <span className={styles.time}>11h30 ~ 14h00</span>
+          {dayHaveHappyHour && (
+            <>
+              <div className={styles.hour}>
+                <span className={styles.hiddenHour} />
+                <span className={styles.bigHour}>
+                  <span>19h</span>
+                </span>
+                <span className={styles.mediumHour}>
+                  <span>19h30</span>
+                </span>
+                <span className={styles.bigHour}>
+                  <span>20h</span>
+                </span>
               </div>
-              <h3>
-                Momento livre para você almoçar, visitar estandes, participar de nossas atividades
-                extras e fazer networking.
-              </h3>
-            </div>
-            <BgTalkContainer />
-          </div>
+
+              <div className={cn(styles.talkContainer, styles.talkContainerHappyHour)}>
+                <div className={cn(styles.intervalCard, styles.happyCard)}>
+                  <div className={styles.header}>
+                    <span className={styles.type}>Happy hour</span>
+                    <span className={styles.time}>18h30 ~ 20h00</span>
+                  </div>
+                  <h3>Happy hour virtual, com músicas e muito networking.</h3>
+                </div>
+                <BgTalkContainer />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </section>
