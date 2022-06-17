@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import styles from './LinkButton.module.scss';
 
-type Props = {
+export type Props = {
   children: React.ReactNode;
   href: string;
   price?: number;
