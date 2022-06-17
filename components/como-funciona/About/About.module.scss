@@ -1,0 +1,14 @@
+@import 'styles/colors';
+@import 'styles/media-queries';
+
+.section {
+  background-color: $white;
+  color: $black;
+  padding: 4rem 0;
+}
+
+.content {
+  p {
+    color: $dark-gray;
+  }
+}

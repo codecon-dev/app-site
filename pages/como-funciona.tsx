@@ -1,25 +1,42 @@
+import { GetStaticProps } from 'next';
+
+import { getAllSponsors } from '@lib/cms-api';
+import { Sponsor } from '@lib/types/all';
+
 import Page from '@components/_ui/Page';
 import Layout from '@components/_ui/Layout';
-import Testimonial from '@components/como-funciona/Testimonial';
-import OfferedBy from '@components/_ui/OfferedBy';
+import Header from '@components/_ui/Header';
+import About from '@components/como-funciona/About';
 
-export default function ComoFunciona() {
+type Props = {
+  sponsors: Sponsor[];
+};
+
+export default function ComoFunciona({ sponsors }: Props) {
   const meta = {
     title: 'Como funciona - Codecon'
   };
 
   return (
     <Page meta={meta}>
-      <Layout>
-        <Testimonial
-          text={`Foi o melhor evento que participei na pandemia, muito mais interativo e "humanizado", deu para ter aquela experiência de "andar à toa" e conhecer gente, e parar e entrar em salas e assistir as palestras.`}
+      <Layout sponsors={sponsors}>
+        <Header
+          title="É um evento, mas nem parece!"
+          description="A Codecon é um festival de tecnologia online que reúne código, conteúdo, networking e muita diversão."
+          image="/images/como-funciona/hero.svg"
         />
-        <OfferedBy
-          logo="https://www.datocms-assets.com/43312/1631813961-americanas.svg"
-          name="Codecon"
-          type="black"
-        />
+        <About />
       </Layout>
     </Page>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const sponsors = await getAllSponsors();
+
+  return {
+    props: {
+      sponsors
+    }
+  };
+};
