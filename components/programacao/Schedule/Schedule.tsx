@@ -72,7 +72,7 @@ function TalkContainer({ talk, index }: { talk: Talk; index: number }) {
         <Activity.Title href={`/programacao/${talk.slug}`}>{talk.title}</Activity.Title>
         <Activity.Footer>
           {talk.speaker.map(t => (
-            <Activity.SpeakerImage src={t.image.url} alt={t.name} />
+            <Activity.SpeakerImage href={`/quem-vai/${t.slug}`} src={t.image.url} alt={t.name} />
           ))}
         </Activity.Footer>
       </Activity>
