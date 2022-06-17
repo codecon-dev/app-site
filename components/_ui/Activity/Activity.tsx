@@ -63,7 +63,9 @@ const Title = ({ children, ...rest }: TitleProps) => {
 const Activity = ({ children, sponsor }: ActivityProps) => {
   return (
     <article className={styles.activity}>
-      {!!sponsor?.name && !!sponsor?.logo && <OfferedBy name={sponsor.name} logo={sponsor.logo} />}
+      {!!sponsor?.name && !!sponsor?.logo && (
+        <OfferedBy name={sponsor.name} logo={sponsor.logo.url} />
+      )}
 
       <div className={styles.content}>{children}</div>
     </article>
