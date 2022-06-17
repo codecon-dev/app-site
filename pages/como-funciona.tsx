@@ -7,6 +7,7 @@ import Page from '@components/_ui/Page';
 import Layout from '@components/_ui/Layout';
 import Header from '@components/_ui/Header';
 import About from '@components/como-funciona/About';
+import CodeCodes from '@components/como-funciona/CodeCodes';
 
 type Props = {
   sponsors: Sponsor[];
@@ -26,6 +27,7 @@ export default function ComoFunciona({ sponsors }: Props) {
           image="/images/como-funciona/hero.svg"
         />
         <About />
+        <CodeCodes />
       </Layout>
     </Page>
   );
