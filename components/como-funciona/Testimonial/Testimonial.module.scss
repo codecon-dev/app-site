@@ -1,0 +1,25 @@
+@import 'styles/colors';
+@import 'styles/media-queries';
+
+.testimonial {
+  background-color: $primary;
+  padding: 2rem;
+
+  @media #{$breakpoint-sm} {
+    padding: 3.75rem;
+  }
+
+  p {
+    color: $black;
+    font-size: 1rem;
+
+    @media #{$breakpoint-sm} {
+      font-size: 1.25rem;
+    }
+  }
+
+  .image {
+    text-align: right;
+    display: block;
+  }
+}
