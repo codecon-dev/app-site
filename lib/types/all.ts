@@ -29,6 +29,10 @@ export type Talk = {
   speaker: Speaker[];
   place: string;
   talkType: string;
+  sponsor: {
+    name: string;
+    logo: Image;
+  };
 };
 
 export type Link = {

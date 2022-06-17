@@ -1,7 +1,10 @@
 import NextImage from 'next/image';
 import React, { ReactNode } from 'react';
-import styles from './Activity.module.scss';
+import { Image } from '@lib/types/all';
 import LinkButton, { LinkButtonProps } from '../LinkButton';
+
+import stylesUtils from '../Utils/Utils.module.scss';
+import styles from './Activity.module.scss';
 
 interface TitleProps extends React.LinkHTMLAttributes<HTMLAnchorElement> {
   children: string;
@@ -17,7 +20,7 @@ type FooterProps = {
 
 type ActivityProps = {
   children: ReactNode;
-  sponsor?: { name: string; logo: string };
+  sponsor?: { name: string; logo: Image };
 };
 
 interface SpeakerImageProps extends React.LinkHTMLAttributes<HTMLAnchorElement> {
@@ -62,11 +65,13 @@ const Activity = ({ children, sponsor }: ActivityProps) => {
     <article className={styles.activity}>
       {!!sponsor?.name && !!sponsor?.logo && (
         <div className={styles.sponsor}>
-          <span>Conteúdo oferecido por</span>
+          <span>
+            <span className={stylesUtils['hide-on-tablet']}>Conteúdo</span> oferecido por
+          </span>
           <div>
             <NextImage
-              src={sponsor.logo}
-              width={32}
+              src={sponsor.logo.url}
+              width={50}
               height={32}
               layout="responsive"
               alt={`Logo da empresa ${sponsor.name} que está patrocinando esse conteúdo`}

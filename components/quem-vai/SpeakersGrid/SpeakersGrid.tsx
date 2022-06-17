@@ -9,7 +9,7 @@ type Props = {
   speakers: Speaker[];
 };
 
-export default function WorkshopsGrid({ speakers }: Props) {
+export default function SpeakersGrid({ speakers }: Props) {
   return (
     <section>
       <Grid>
