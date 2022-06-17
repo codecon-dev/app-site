@@ -83,6 +83,12 @@ export async function getAllTalks(): Promise<Talk[]> {
             url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, w: 500, h: 500})
           }
         }
+        sponsor {
+          name
+          logo {
+            url
+          }
+        }
       }
     }
   `);
