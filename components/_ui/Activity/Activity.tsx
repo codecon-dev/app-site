@@ -2,6 +2,7 @@ import NextImage from 'next/image';
 import React, { ReactNode } from 'react';
 import styles from './Activity.module.scss';
 import LinkButton, { LinkButtonProps } from '../LinkButton';
+import OfferedBy from '../OfferedBy';
 
 interface TitleProps extends React.LinkHTMLAttributes<HTMLAnchorElement> {
   children: string;
@@ -60,20 +61,7 @@ const Title = ({ children, ...rest }: TitleProps) => {
 const Activity = ({ children, sponsor }: ActivityProps) => {
   return (
     <article className={styles.activity}>
-      {!!sponsor?.name && !!sponsor?.logo && (
-        <div className={styles.sponsor}>
-          <span>Conteúdo oferecido por</span>
-          <div>
-            <NextImage
-              src={sponsor.logo}
-              width={32}
-              height={32}
-              layout="responsive"
-              alt={`Logo da empresa ${sponsor.name} que está patrocinando esse conteúdo`}
-            />
-          </div>
-        </div>
-      )}
+      {!!sponsor?.name && !!sponsor?.logo && <OfferedBy name={sponsor.name} logo={sponsor.logo} />}
 
       <div className={styles.content}>{children}</div>
     </article>
