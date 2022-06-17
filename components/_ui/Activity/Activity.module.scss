@@ -7,24 +7,6 @@
   height: 100%;
   flex-direction: column;
 
-  .sponsor {
-    background-color: $white;
-    align-items: center;
-    color: $dark-gray;
-    display: flex;
-    font-size: 0.75rem;
-    justify-content: space-between;
-    margin-bottom: 0.25rem;
-    letter-spacing: 0.1em;
-    padding: 0.5rem 1rem;
-    text-transform: uppercase;
-
-    & *:last-child {
-      flex: 1;
-      max-width: 2rem;
-    }
-  }
-
   .header {
     display: flex;
     align-items: center;
