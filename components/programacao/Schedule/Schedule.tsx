@@ -4,12 +4,18 @@ import { Talk } from '@lib/types/all';
 import {
   isActivityStartingTimeBetween,
   captureHourAndMinutesFromDateString,
-  getActivityByDay
+  isActivityStartingOnDay
 } from '@lib/dates';
 
 import styles from './Schedule.module.scss';
 import Activity from '@components/_ui/Activity';
 import { useEffect, useState } from 'react';
+
+enum TABS {
+  THUSDAY = 0,
+  FRIDAY = 1,
+  SATURDAY = 2
+}
 
 type Props = {
   talks: Talk[];
@@ -91,26 +97,26 @@ export default function Schedule({ talks }: Props) {
   today.setHours(0, 0, 0, 0);
   const dayTwoDate = new Date('2022-09-23 00:00:00');
   const dayThreeDate = new Date('2022-09-24 00:00:00');
-  let actualDayTab = 0;
+  let actualDayTab = TABS.THUSDAY;
 
   if (today.toDateString() === dayTwoDate.toDateString()) {
-    actualDayTab = 1;
+    actualDayTab = TABS.FRIDAY;
   } else if (today.toDateString() === dayThreeDate.toDateString()) {
-    actualDayTab = 2;
+    actualDayTab = TABS.SATURDAY;
   }
 
   const [activeTab, setActiveTab] = useState(actualDayTab);
-  const [dayHaveHappyHour, setDayHaveHappyHour] = useState(false);
   const [firstBlock, setFirstBlock] = useState<Talk[]>();
   const [secondBlock, setSecondBlock] = useState<Talk[]>();
   const [thirdBlock, setThirdBlock] = useState<Talk[]>();
   const [fourthBlock, setFourthBlock] = useState<Talk[]>();
+  const hasHappyHour = activeTab === TABS.SATURDAY;
 
   useEffect(() => {
     const talksByDay = [
-      talks.filter(talk => getActivityByDay(talk, '22/09/2022')),
-      talks.filter(talk => getActivityByDay(talk, '23/09/2022')),
-      talks.filter(talk => getActivityByDay(talk, '24/09/2022'))
+      talks.filter(talk => isActivityStartingOnDay(talk, '22/09/2022')),
+      talks.filter(talk => isActivityStartingOnDay(talk, '23/09/2022')),
+      talks.filter(talk => isActivityStartingOnDay(talk, '24/09/2022'))
     ];
 
     const talksOrdered = sortTalksByHourAndPlace(talksByDay[activeTab], placePriority);
@@ -135,11 +141,10 @@ export default function Schedule({ talks }: Props) {
         <div className="container">
           <button
             className={cn({
-              [styles.active]: activeTab === 0
+              [styles.active]: activeTab === TABS.THUSDAY
             })}
             onClick={() => {
-              setActiveTab(0);
-              setDayHaveHappyHour(false);
+              setActiveTab(TABS.THUSDAY);
             }}
           >
             <span className={styles['full-text']}>Quinta (22/09)</span>
@@ -147,11 +152,10 @@ export default function Schedule({ talks }: Props) {
           </button>
           <button
             className={cn({
-              [styles.active]: activeTab === 1
+              [styles.active]: activeTab === TABS.FRIDAY
             })}
             onClick={() => {
-              setActiveTab(1);
-              setDayHaveHappyHour(false);
+              setActiveTab(TABS.FRIDAY);
             }}
           >
             <span className={styles['full-text']}>Sexta (23/09)</span>
@@ -159,11 +163,10 @@ export default function Schedule({ talks }: Props) {
           </button>
           <button
             className={cn({
-              [styles.active]: activeTab === 2
+              [styles.active]: activeTab === TABS.SATURDAY
             })}
             onClick={() => {
-              setActiveTab(2);
-              setDayHaveHappyHour(true);
+              setActiveTab(TABS.SATURDAY);
             }}
           >
             <span className={styles['full-text']}>Sábado (24/09)</span>
@@ -290,7 +293,7 @@ export default function Schedule({ talks }: Props) {
             <TalkContainer talk={talk} index={index} key={talk.id} />
           ))}
 
-          {dayHaveHappyHour && (
+          {hasHappyHour && (
             <>
               <div className={styles.hour}>
                 <span className={styles.hiddenHour} />
