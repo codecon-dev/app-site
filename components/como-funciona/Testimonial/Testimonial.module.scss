@@ -12,12 +12,12 @@
   p {
     color: $black;
     font-size: 1rem;
-    line-height: 1.8;
-    letter-spacing: 0.1rem;
     text-align: justify;
 
     @media #{$breakpoint-sm} {
       font-size: 1.25rem;
+      line-height: 1.8;
+      letter-spacing: 0.1rem;
     }
   }
 
