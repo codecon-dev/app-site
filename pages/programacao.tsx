@@ -23,8 +23,8 @@ export default function Programacao({ talks, sponsors }: Props) {
       <Layout sponsors={sponsors}>
         <Header
           image="/images/programacao/hero.svg"
-          title="Programação"
-          description="Anote na agenda e programe-se! São 3 salas simultâneas, workshops
+          title="Agenda"
+          description="Programe-se! São 3 salas simultâneas, workshops
           e muitas atividades extras rolando nos três dias de evento."
         />
         <Schedule talks={talks} />
