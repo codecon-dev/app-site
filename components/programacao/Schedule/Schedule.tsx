@@ -87,7 +87,19 @@ function TalkContainer({ talk, index }: { talk: Talk; index: number }) {
 }
 
 export default function Schedule({ talks }: Props) {
-  const [activeTab, setActiveTab] = useState(0);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const dayTwoDate = new Date('2022-09-23 00:00:00');
+  const dayThreeDate = new Date('2022-09-24 00:00:00');
+  let actualDayTab = 0;
+
+  if (today.toDateString() === dayTwoDate.toDateString()) {
+    actualDayTab = 1;
+  } else if (today.toDateString() === dayThreeDate.toDateString()) {
+    actualDayTab = 2;
+  }
+
+  const [activeTab, setActiveTab] = useState(actualDayTab);
   const [dayHaveHappyHour, setDayHaveHappyHour] = useState(false);
   const [firstBlock, setFirstBlock] = useState<Talk[]>();
   const [secondBlock, setSecondBlock] = useState<Talk[]>();
@@ -130,7 +142,8 @@ export default function Schedule({ talks }: Props) {
               setDayHaveHappyHour(false);
             }}
           >
-            Quinta (22/09)
+            <span className={styles['full-text']}>Quinta (22/09)</span>
+            <span className={styles['mobile-text']}>22/09</span>
           </button>
           <button
             className={cn({
@@ -141,7 +154,8 @@ export default function Schedule({ talks }: Props) {
               setDayHaveHappyHour(false);
             }}
           >
-            Sexta (23/09)
+            <span className={styles['full-text']}>Sexta (23/09)</span>
+            <span className={styles['mobile-text']}>23/09</span>
           </button>
           <button
             className={cn({
@@ -152,7 +166,8 @@ export default function Schedule({ talks }: Props) {
               setDayHaveHappyHour(true);
             }}
           >
-            Sábado (24/09)
+            <span className={styles['full-text']}>Sábado (24/09)</span>
+            <span className={styles['mobile-text']}>24/09</span>
           </button>
         </div>
       </nav>
