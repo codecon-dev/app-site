@@ -52,7 +52,7 @@
 }
 
 .show-on-mobile {
-  display: block;
+  display: inline-block;
 }
 
 .hide-on-mobile {
@@ -65,12 +65,12 @@
   }
 
   .hide-on-mobile {
-    display: block;
+    display: inline-block;
   }
 }
 
 .hide-on-tablet {
-  display: block;
+  display: inline-block;
 }
 
 .show-on-tablet {
@@ -79,7 +79,7 @@
 
 @media (max-width: 1199px) and (min-width: 768px) {
   .show-on-tablet {
-    display: block;
+    display: inline-block;
   }
 
   .hide-on-tablet {

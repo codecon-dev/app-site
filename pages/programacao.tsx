@@ -1,53 +1,46 @@
 import { GetStaticProps } from 'next';
 
-import { getAllWorkshops } from '@lib/cms-api';
-import { Workshop } from '@lib/types/all';
+import { getAllTalks, getAllSponsors } from '@lib/cms-api';
+import { Sponsor, Talk } from '@lib/types/all';
 
-import { META_DESCRIPTION } from '@lib/constants';
 import Layout from '@components/_ui/Layout';
 import Page from '@components/_ui/Page';
-import Alert from '@components/_ui/Alert/Alert';
 import Header from '@components/_ui/Header';
-
-import Grid from '@components/programacao/Grid';
-import Newsletter from '@components/programacao/Newsletter';
+import Schedule from '@components/programacao/Schedule';
 
 type Props = {
-  workshops: Workshop[];
+  talks: Talk[];
+  sponsors: Sponsor[];
 };
 
-export default function Programacao({ workshops }: Props) {
+export default function Programacao({ talks, sponsors }: Props) {
   const meta = {
-    title: 'Programação - Meetups Codecon',
-    description: META_DESCRIPTION
+    title: 'Programação - Codecon Digital 2022'
   };
 
   return (
-    <Page meta={meta} fullViewport>
-      <Layout>
+    <Page meta={meta}>
+      <Layout sponsors={sponsors}>
         <Header
           image="/images/programacao/hero.svg"
-          title="Programação"
-          description="Confira o que vem aí nos meetups e workshops da Codecon"
+          title="Agenda"
+          description="Programe-se! São 3 salas simultâneas, workshops
+          e muitas atividades extras rolando nos três dias de evento."
         />
-        <Alert
-          title="Seja avisado!"
-          description="Receba um e-mail com a programação da semana dos meetups."
-        >
-          <Newsletter />
-        </Alert>
-        <Grid workshops={workshops} />
+        <Schedule talks={talks} />
       </Layout>
     </Page>
   );
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const workshops = await getAllWorkshops();
+  const talks = await getAllTalks();
+  const sponsors = await getAllSponsors();
 
   return {
     props: {
-      workshops
+      talks,
+      sponsors
     }
   };
 };
