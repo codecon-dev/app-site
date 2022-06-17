@@ -1,8 +1,10 @@
 import NextImage from 'next/image';
 import React, { ReactNode } from 'react';
-import styles from './Activity.module.scss';
+import { Image } from '@lib/types/all';
 import LinkButton, { LinkButtonProps } from '../LinkButton';
 import OfferedBy from '../OfferedBy';
+
+import styles from './Activity.module.scss';
 
 interface TitleProps extends React.LinkHTMLAttributes<HTMLAnchorElement> {
   children: string;
@@ -18,7 +20,7 @@ type FooterProps = {
 
 type ActivityProps = {
   children: ReactNode;
-  sponsor?: { name: string; logo: string };
+  sponsor?: { name: string; logo: Image };
 };
 
 interface SpeakerImageProps extends React.LinkHTMLAttributes<HTMLAnchorElement> {

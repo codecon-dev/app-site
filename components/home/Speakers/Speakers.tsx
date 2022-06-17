@@ -2,6 +2,7 @@ import { Speaker } from '@lib/types/speakers';
 
 import { Grid, Column } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton';
+import Activity from '@components/_ui/Activity';
 import SpeakerCard from '@components/_ui/SpeakerCard';
 
 import styles from './Speakers.module.scss';
