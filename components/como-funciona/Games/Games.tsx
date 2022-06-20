@@ -10,20 +10,20 @@ import styles from './Games.module.scss';
 
 type Props = {
   title: string;
-  content: ReactNode;
+  children: ReactNode;
   image: string;
   sponsor?: { name: string; logo: Image };
   alternate?: boolean;
 };
 
-function GameSection({ title, content, image, sponsor, alternate }: Props) {
+function GameSection({ title, children, image, sponsor, alternate }: Props) {
   const fullContent = (
     <>
       <h2>{title}</h2>
       {sponsor?.logo && (
         <OfferedBy logo={sponsor.logo.url} name={sponsor.name} offerType="Experiência" isBlackBg />
       )}
-      {content}
+      {children}
     </>
   );
 
@@ -52,49 +52,37 @@ export default function Games() {
       <GameSection
         title="Enigmas da Olist"
         sponsor={{ name: 'Olist', logo: { url: '/images/como-funciona/olist.svg' } }}
-        content={
-          <>
-            <p>
-              Cada sala esconde um enigma que deve ser decifrado. Só você é capaz de descobrir a
-              resposta (porquê nem eu sei).
-            </p>
-            <p>Quem terminar mais rápido em todos os dias também leva prêmios.</p>
-          </>
-        }
         image="/images/como-funciona/enigmas.jpg"
-      />
+      >
+        <p>
+          Cada sala esconde um enigma que deve ser decifrado. Só você é capaz de descobrir a
+          resposta (porquê nem eu sei).
+        </p>
+        <p>Quem terminar mais rápido em todos os dias também leva prêmios.</p>
+      </GameSection>
 
       <GameSection
         alternate
         title="Maratona da Alura"
         sponsor={{ name: 'Alura', logo: { url: '/images/como-funciona/alura.svg' } }}
-        content={
-          <>
-            <p>
-              Uma competição onde você deve criar a melhor inteligência artificial para eliminar seu
-              oponentes em diversos jogos. O mais rápido possível.
-            </p>
-            <p>Os melhores de cada dia de competição ganham prêmios.</p>
-          </>
-        }
         image="/images/como-funciona/maratona.jpg"
-      />
+      >
+        <p>
+          Uma competição onde você deve criar a melhor inteligência artificial para eliminar seu
+          oponentes em diversos jogos. O mais rápido possível.
+        </p>
+        <p>Os melhores de cada dia de competição ganham prêmios.</p>
+      </GameSection>
 
-      <GameSection
-        title="Escape Room"
-        content={
-          <>
-            <p>
-              O seu objetivo (e do grupo) é conseguir finalizar todos os desafios em 20 minutos.
-              Está na sua mão salvar o nosso mundo!
-            </p>
-            <p>
-              Todos que conseguirem terminar a escape room participam de um sorteio valendo prêmios.
-            </p>
-          </>
-        }
-        image="/images/como-funciona/escape-room.jpg"
-      />
+      <GameSection title="Escape Room" image="/images/como-funciona/escape-room.jpg">
+        <p>
+          O seu objetivo (e do grupo) é conseguir finalizar todos os desafios em 20 minutos. Está na
+          sua mão salvar o nosso mundo!
+        </p>
+        <p>
+          Todos que conseguirem terminar a escape room participam de um sorteio valendo prêmios.
+        </p>
+      </GameSection>
     </section>
   );
 }
