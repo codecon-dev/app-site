@@ -2,13 +2,11 @@ import Image from 'next/image';
 
 import { Column, Grid } from '@components/_ui/Grid';
 
-import styles from './CodeCodes.module.scss';
-
 export default function CodeCodes() {
   return (
-    <section className={styles.section}>
+    <section>
       <Grid align="center">
-        <Column lg={5} className={styles.content}>
+        <Column lg={5}>
           <h2>Code-codes</h2>
           <p>
             É um ranking global do nosso evento, onde você acumula códigos que valem pontos e ganha
