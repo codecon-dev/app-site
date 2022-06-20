@@ -20,10 +20,13 @@ export default function About() {
         </Column>
         <Column lg={2} />
         <Column lg={5}>
-          <Testimonial
-            text={`Foi o melhor evento que participei na pandemia, muito mais interativo e "humanizado", deu para ter aquela experiência de "andar à toa" e conhecer gente, e parar e entrar em salas e assistir as palestras.
-`}
-          />
+          <Testimonial>
+            <p>
+              Foi o melhor evento que participei na pandemia, muito mais interativo e "humanizado",
+              deu para ter aquela experiência de "andar à toa" e conhecer gente, e parar e entrar em
+              salas e assistir as palestras.
+            </p>
+          </Testimonial>
         </Column>
       </Grid>
     </section>

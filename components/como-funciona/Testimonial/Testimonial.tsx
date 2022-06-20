@@ -1,11 +1,12 @@
+import { ReactNode } from 'react';
 import Image from 'next/image';
 
 import styles from './Testimonial.module.scss';
 
-export default function Testimonial({ text }: { text: string }) {
+export default function Testimonial({ children }: { children: ReactNode }) {
   return (
     <article className={styles.testimonial}>
-      <p>{text}</p>
+      {children}
       <span className={styles.image}>
         <Image src="/icons/quote.svg" alt="Aspas" width={40} height={40} />
       </span>

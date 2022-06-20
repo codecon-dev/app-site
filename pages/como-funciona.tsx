@@ -9,6 +9,7 @@ import Header from '@components/_ui/Header';
 import About from '@components/como-funciona/About';
 import CodeCodes from '@components/como-funciona/CodeCodes';
 import Games from '@components/como-funciona/Games';
+import Cta from '@components/como-funciona/Cta';
 
 type Props = {
   sponsors: Sponsor[];
@@ -30,6 +31,7 @@ export default function ComoFunciona({ sponsors }: Props) {
         <About />
         <CodeCodes />
         <Games />
+        <Cta />
       </Layout>
     </Page>
   );
