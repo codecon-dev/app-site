@@ -4,6 +4,9 @@
 .wrapper {
   background-color: $white;
   text-align: center;
+}
+
+.grid {
   padding-top: 4rem;
 
   @media #{$breakpoint-sm} {

@@ -10,15 +10,15 @@ type Props = {
   children: React.ReactNode;
   hideNav?: boolean;
   sponsors?: Sponsor[];
-  hideFooter?: boolean;
+  hideSponsors?: boolean;
 };
 
-export default function Layout({ children, hideNav, sponsors, hideFooter }: Props) {
+export default function Layout({ children, hideNav, sponsors, hideSponsors }: Props) {
   return (
     <>
       {!hideNav && <Navbar />}
       <main className={cn(styles.main)}>{children}</main>
-      {!hideFooter && <Footer sponsors={sponsors} />}
+      <Footer sponsors={sponsors} hideSponsors={hideSponsors} />
     </>
   );
 }

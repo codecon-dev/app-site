@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import cn from 'classnames';
 
 import { Sponsor } from '@lib/types/all';
 import IconDiscord from '@components/_ui/Icons/icon-discord';
@@ -12,33 +13,36 @@ import Link from 'next/link';
 
 type Props = {
   sponsors?: Sponsor[];
+  hideSponsors?: boolean;
 };
 
-export default function Footer({ sponsors }: Props) {
+export default function Footer({ sponsors, hideSponsors }: Props) {
   return (
     <footer className={styles.wrapper}>
-      <div className="container">
-        <h2 className={styles.title}>
-          A Codecon só é possível graças ao
-          <br className={styleUtils['hide-on-mobile']} /> apoio dessas marcas
-        </h2>
+      {!hideSponsors && (
+        <div className={cn('container', styles.grid)}>
+          <h2 className={styles.title}>
+            A Codecon só é possível graças ao
+            <br className={styleUtils['hide-on-mobile']} /> apoio dessas marcas
+          </h2>
 
-        {!!sponsors && (
-          <>
-            {sponsors.map(s => (
-              <a
-                className={styles.sponsor}
-                key={s.slug}
-                href={s.website}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image width={220} height={120} src={s.logo.url} alt={s.name} />
-              </a>
-            ))}
-          </>
-        )}
-      </div>
+          {!!sponsors && (
+            <>
+              {sponsors.map(s => (
+                <a
+                  className={styles.sponsor}
+                  key={s.slug}
+                  href={s.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image width={220} height={120} src={s.logo.url} alt={s.name} />
+                </a>
+              ))}
+            </>
+          )}
+        </div>
+      )}
 
       <div className={styles.footer}>
         <Grid>
