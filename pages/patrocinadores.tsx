@@ -19,7 +19,7 @@ export default function Programacao({ sponsors }: Props) {
 
   return (
     <Page meta={meta}>
-      <Layout hideSponsors>
+      <Layout>
         <Header
           image="/images/patrocinadores/hero.svg"
           title="marcas que apoiam a gente"

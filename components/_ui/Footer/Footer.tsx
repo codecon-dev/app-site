@@ -13,34 +13,29 @@ import Link from 'next/link';
 
 type Props = {
   sponsors?: Sponsor[];
-  hideSponsors?: boolean;
 };
 
-export default function Footer({ sponsors, hideSponsors }: Props) {
+export default function Footer({ sponsors }: Props) {
   return (
     <footer className={styles.wrapper}>
-      {!hideSponsors && (
+      {sponsors && (
         <div className={cn('container', styles.grid)}>
           <h2 className={styles.title}>
             A Codecon só é possível graças ao
             <br className={styleUtils['hide-on-mobile']} /> apoio dessas marcas
           </h2>
 
-          {!!sponsors && (
-            <>
-              {sponsors.map(s => (
-                <a
-                  className={styles.sponsor}
-                  key={s.slug}
-                  href={s.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image width={220} height={120} src={s.logo.url} alt={s.name} />
-                </a>
-              ))}
-            </>
-          )}
+          {sponsors.map(s => (
+            <a
+              className={styles.sponsor}
+              key={s.slug}
+              href={s.website}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image width={220} height={120} src={s.logo.url} alt={s.name} />
+            </a>
+          ))}
         </div>
       )}
 
