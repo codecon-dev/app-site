@@ -17,6 +17,7 @@
   font-size: 1.25rem;
 
   @media #{$breakpoint-sm} {
+    max-width: 85%;
     font-size: 1.5rem;
   }
 }
