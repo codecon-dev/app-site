@@ -48,7 +48,7 @@ function sortTalksByHourAndPlace(talks: Talk[], priorityMap: PriorityMap): Talk[
   return talksWithPriority;
 }
 
-function BgTalkContainer({ moreLines }: { moreLines?: boolean }) {
+function BgTalkCard({ moreLines }: { moreLines?: boolean }) {
   return (
     <div className={styles.bgTalkContainer}>
       <span></span>
@@ -65,7 +65,7 @@ function BgTalkContainer({ moreLines }: { moreLines?: boolean }) {
   );
 }
 
-function TalkContainer({ talk, index }: { talk: Talk; index: number }) {
+function TalkCard({ talk, index }: { talk: Talk; index: number }) {
   return (
     <div
       className={cn(styles.talkContainer, {
@@ -87,7 +87,7 @@ function TalkContainer({ talk, index }: { talk: Talk; index: number }) {
           ))}
         </Activity.Footer>
       </Activity>
-      <BgTalkContainer />
+      <BgTalkCard />
     </div>
   );
 }
@@ -206,7 +206,7 @@ export default function Schedule({ talks }: Props) {
           </div>
 
           {firstBlock?.map((talk, index) => (
-            <TalkContainer talk={talk} index={index} key={talk.id} />
+            <TalkCard talk={talk} index={index} key={talk.id} />
           ))}
 
           <div className={styles.hour}>
@@ -239,7 +239,7 @@ export default function Schedule({ talks }: Props) {
                 extras e fazer networking.
               </h3>
             </div>
-            <BgTalkContainer moreLines />
+            <BgTalkCard moreLines />
           </div>
 
           <div className={styles.hour}>
@@ -256,7 +256,7 @@ export default function Schedule({ talks }: Props) {
           </div>
 
           {secondBlock?.map((talk, index) => (
-            <TalkContainer talk={talk} index={index} key={talk.id} />
+            <TalkCard talk={talk} index={index} key={talk.id} />
           ))}
 
           <div className={styles.hour}>
@@ -273,7 +273,7 @@ export default function Schedule({ talks }: Props) {
           </div>
 
           {thirdBlock?.map((talk, index) => (
-            <TalkContainer talk={talk} index={index} key={talk.id} />
+            <TalkCard talk={talk} index={index} key={talk.id} />
           ))}
 
           <div className={styles.hour}>
@@ -290,7 +290,7 @@ export default function Schedule({ talks }: Props) {
           </div>
 
           {fourthBlock?.map((talk, index) => (
-            <TalkContainer talk={talk} index={index} key={talk.id} />
+            <TalkCard talk={talk} index={index} key={talk.id} />
           ))}
 
           {hasHappyHour && (
@@ -316,7 +316,7 @@ export default function Schedule({ talks }: Props) {
                   </div>
                   <h3>Happy hour virtual, com músicas e muito networking.</h3>
                 </div>
-                <BgTalkContainer />
+                <BgTalkCard />
               </div>
             </>
           )}
