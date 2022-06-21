@@ -161,6 +161,12 @@ export async function getAllWorkshops(): Promise<Workshop[]> {
           }
         }
         link
+        sponsor {
+          name
+          logo {
+            url
+          }
+        }
       }
     }
   `);
