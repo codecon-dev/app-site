@@ -18,7 +18,7 @@ export default function Hero() {
           </span>
 
           <span className={styles['button__wrapper']}>
-            <LinkButton price={EVENT_PRICE} href={REGISTER_URL} newPage>
+            <LinkButton info={EVENT_PRICE} href={REGISTER_URL} newPage>
               Inscreva-se
             </LinkButton>
           </span>
