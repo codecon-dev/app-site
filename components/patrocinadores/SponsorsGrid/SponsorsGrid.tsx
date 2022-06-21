@@ -14,24 +14,15 @@ export default function SponsorsGrid({ sponsors }: Props) {
   return (
     <section>
       <Grid>
-        {sponsors?.map(sponsor => {
-          return (
-            <>
-              <Column lg={4} sm={4}>
-                <Link href={`/patrocinadores/${sponsor.slug}`}>
-                  <a className={styles.sponsor} style={{ backgroundColor: sponsor.color.hex }}>
-                    <Image
-                      src={sponsor.whiteLogo.url}
-                      width={250}
-                      height={250}
-                      alt={sponsor.name}
-                    />
-                  </a>
-                </Link>
-              </Column>
-            </>
-          );
-        })}
+        {sponsors.map(sponsor => (
+          <Column lg={4} sm={4}>
+            <Link href={`/patrocinadores/${sponsor.slug}`}>
+              <a className={styles.sponsor} style={{ backgroundColor: sponsor.color.hex }}>
+                <Image src={sponsor.whiteLogo.url} width={250} height={250} alt={sponsor.name} />
+              </a>
+            </Link>
+          </Column>
+        ))}
       </Grid>
     </section>
   );
