@@ -39,7 +39,7 @@ const SpeakerImage = ({ src, alt, ...rest }: SpeakerImageProps) => {
 const Button = (props: LinkButtonProps) => {
   return (
     <div className={styles.button}>
-      <LinkButton {...props}>Saiba mais</LinkButton>
+      <LinkButton {...props}>{props.children}</LinkButton>
     </div>
   );
 };
