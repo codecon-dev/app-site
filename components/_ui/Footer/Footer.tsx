@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import cn from 'classnames';
 
 import { Sponsor } from '@lib/types/all';
 import IconDiscord from '@components/_ui/Icons/icon-discord';
@@ -17,28 +18,26 @@ type Props = {
 export default function Footer({ sponsors }: Props) {
   return (
     <footer className={styles.wrapper}>
-      <div className="container">
-        <h2 className={styles.title}>
-          A Codecon só é possível graças ao
-          <br className={styleUtils['hide-on-mobile']} /> apoio dessas marcas
-        </h2>
+      {sponsors && (
+        <div className={cn('container', styles.grid)}>
+          <h2 className={styles.title}>
+            A Codecon só é possível graças ao
+            <br className={styleUtils['hide-on-mobile']} /> apoio dessas marcas
+          </h2>
 
-        {!!sponsors && (
-          <>
-            {sponsors.map(s => (
-              <a
-                className={styles.sponsor}
-                key={s.slug}
-                href={s.website}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image width={220} height={120} src={s.logo.url} alt={s.name} />
-              </a>
-            ))}
-          </>
-        )}
-      </div>
+          {sponsors.map(s => (
+            <a
+              className={styles.sponsor}
+              key={s.slug}
+              href={s.website}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image width={220} height={120} src={s.logo.url} alt={s.name} />
+            </a>
+          ))}
+        </div>
+      )}
 
       <div className={styles.footer}>
         <Grid>
