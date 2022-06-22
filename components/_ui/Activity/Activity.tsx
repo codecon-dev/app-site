@@ -30,7 +30,7 @@ interface SpeakerImageProps extends React.LinkHTMLAttributes<HTMLAnchorElement> 
 
 const SpeakerImage = ({ src, alt, ...rest }: SpeakerImageProps) => {
   return (
-    <a className={styles.speaker_image} {...rest}>
+    <a className={`${styles.speaker_image} tooltip`} data-content={alt} {...rest}>
       <NextImage src={src} alt={alt} width={32} height={32} layout="responsive" />
     </a>
   );
