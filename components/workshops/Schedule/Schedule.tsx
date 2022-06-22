@@ -31,7 +31,12 @@ function WorkshopCard({ workshop }: { workshop: Workshop }) {
         <Activity.Title href={`/workshops/${workshop.slug}`}>{workshop.title}</Activity.Title>
         <Activity.Footer>
           {workshop.teacher.map(t => (
-            <Activity.SpeakerImage href={`/quem-vai/${t.slug}`} src={t.image.url} alt={t.name} />
+            <Activity.SpeakerImage
+              key={t.slug}
+              href={`/quem-vai/${t.slug}`}
+              src={t.image.url}
+              alt={t.name}
+            />
           ))}
         </Activity.Footer>
         <Activity.Button
