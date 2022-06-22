@@ -25,7 +25,7 @@ export default function Cta() {
             Online <span className="bullet">•</span> 22, 23 e 24 de Setembro
           </span>
           <span className={styles['button-wrapper']}>
-            <LinkButton price={EVENT_PRICE} href={REGISTER_URL} newPage>
+            <LinkButton info={EVENT_PRICE} href={REGISTER_URL} newPage>
               Inscreva-se
             </LinkButton>
           </span>
