@@ -65,3 +65,46 @@ a {
     height: 2px;
   }
 }
+
+*.tooltip {
+  position: relative;
+}
+
+*.tooltip:before {
+  content: attr(data-content);
+  background-color: $dark-gray;
+  color: $white;
+  font-size: 0.75rem;
+  padding: 10px;
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 2.875rem;
+  width: max-content;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+*.tooltip:after {
+  content: '';
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  left: 50%;
+  bottom: 2.25rem;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent $dark-gray transparent;
+  transition: all 0.4s ease;
+  transform: rotate(180deg) translate(50%);
+}
+
+*.tooltip:hover:after,
+*.tooltip:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
