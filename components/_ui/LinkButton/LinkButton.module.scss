@@ -23,11 +23,16 @@
     transform: translateY(1px);
   }
 
-  &--with-price {
+  &--with-info {
     padding-right: 0.15rem;
   }
 
-  &__price {
+  &--disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  &__info {
     display: block;
     background-color: $black;
     color: $primary;
@@ -39,7 +44,7 @@
     background-color: $white;
     transition: all 0.3s ease-in-out;
 
-    .button__price {
+    .button__info {
       color: $white;
       transition: all 0.3s ease-in-out;
     }

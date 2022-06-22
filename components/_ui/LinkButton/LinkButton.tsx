@@ -7,24 +7,26 @@ import styles from './LinkButton.module.scss';
 export type Props = {
   children: React.ReactNode;
   href: string;
-  price?: number;
+  info?: number | string;
   newPage?: boolean;
+  disabled?: boolean;
 };
 
-export default function Button({ children, href, price, newPage }: Props) {
+export default function Button({ children, href, info, newPage, disabled }: Props) {
   return (
-    <Link href={href}>
+    <Link href={disabled ? '#' : href}>
       <a
         target={newPage ? '_blank' : undefined}
         rel={newPage ? 'noopener noreferrer' : undefined}
         className={cn(styles.button, {
-          [styles['button--with-price']]: price
+          [styles['button--with-info']]: info,
+          [styles['button--disabled']]: disabled
         })}
       >
         <span>{children}</span>
-        {price && (
-          <i className={styles['button__price']}>
-            <span>R$ {price}</span>
+        {info && (
+          <i className={styles['button__info']}>
+            <span>{typeof info == 'number' ? `R$ ${info}` : info}</span>
           </i>
         )}
       </a>

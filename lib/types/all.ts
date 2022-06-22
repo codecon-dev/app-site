@@ -29,7 +29,7 @@ export type Talk = {
   speaker: Speaker[];
   place: string;
   talkType: string;
-  sponsor: {
+  sponsor?: {
     name: string;
     logo: Image;
   };
@@ -75,6 +75,10 @@ export type Workshop = {
   vagas: number;
   teacher: Speaker[];
   link?: string;
+  sponsor?: {
+    name: string;
+    logo: Image;
+  };
 };
 
 export type ConfUser = {
@@ -154,3 +158,9 @@ export type MarathonUser = {
   profileURI: string;
   userId: number | undefined;
 };
+
+export enum EVENT_DAYS {
+  THURSDAY = 0,
+  FRIDAY = 1,
+  SATURDAY = 2
+}

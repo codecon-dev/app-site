@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import { Talk } from '@lib/types/all';
+import { EVENT_DAYS, Talk } from '@lib/types/all';
 import {
   isActivityStartingTimeBetween,
   captureHourAndMinutesFromDateString,
@@ -10,12 +10,6 @@ import {
 import styles from './Schedule.module.scss';
 import Activity from '@components/_ui/Activity';
 import { useEffect, useState } from 'react';
-
-enum TABS {
-  THUSDAY = 0,
-  FRIDAY = 1,
-  SATURDAY = 2
-}
 
 type Props = {
   talks: Talk[];
@@ -48,7 +42,7 @@ function sortTalksByHourAndPlace(talks: Talk[], priorityMap: PriorityMap): Talk[
   return talksWithPriority;
 }
 
-function BgTalkContainer({ moreLines }: { moreLines?: boolean }) {
+function BgTalkCard({ moreLines }: { moreLines?: boolean }) {
   return (
     <div className={styles.bgTalkContainer}>
       <span></span>
@@ -65,7 +59,7 @@ function BgTalkContainer({ moreLines }: { moreLines?: boolean }) {
   );
 }
 
-function TalkContainer({ talk, index }: { talk: Talk; index: number }) {
+function TalkCard({ talk, index }: { talk: Talk; index: number }) {
   return (
     <div
       className={cn(styles.talkContainer, {
@@ -87,7 +81,7 @@ function TalkContainer({ talk, index }: { talk: Talk; index: number }) {
           ))}
         </Activity.Footer>
       </Activity>
-      <BgTalkContainer />
+      <BgTalkCard />
     </div>
   );
 }
@@ -97,12 +91,12 @@ export default function Schedule({ talks }: Props) {
   today.setHours(0, 0, 0, 0);
   const dayTwoDate = new Date('2022-09-23 00:00:00');
   const dayThreeDate = new Date('2022-09-24 00:00:00');
-  let actualDayTab = TABS.THUSDAY;
+  let actualDayTab = EVENT_DAYS.THURSDAY;
 
   if (today.toDateString() === dayTwoDate.toDateString()) {
-    actualDayTab = TABS.FRIDAY;
+    actualDayTab = EVENT_DAYS.FRIDAY;
   } else if (today.toDateString() === dayThreeDate.toDateString()) {
-    actualDayTab = TABS.SATURDAY;
+    actualDayTab = EVENT_DAYS.SATURDAY;
   }
 
   const [activeTab, setActiveTab] = useState(actualDayTab);
@@ -110,7 +104,7 @@ export default function Schedule({ talks }: Props) {
   const [secondBlock, setSecondBlock] = useState<Talk[]>();
   const [thirdBlock, setThirdBlock] = useState<Talk[]>();
   const [fourthBlock, setFourthBlock] = useState<Talk[]>();
-  const hasHappyHour = activeTab === TABS.SATURDAY;
+  const hasHappyHour = activeTab === EVENT_DAYS.SATURDAY;
 
   useEffect(() => {
     const talksByDay = [
@@ -141,10 +135,10 @@ export default function Schedule({ talks }: Props) {
         <div className="container">
           <button
             className={cn({
-              [styles.active]: activeTab === TABS.THUSDAY
+              [styles.active]: activeTab === EVENT_DAYS.THURSDAY
             })}
             onClick={() => {
-              setActiveTab(TABS.THUSDAY);
+              setActiveTab(EVENT_DAYS.THURSDAY);
             }}
           >
             <span className={styles['full-text']}>Quinta (22/09)</span>
@@ -152,10 +146,10 @@ export default function Schedule({ talks }: Props) {
           </button>
           <button
             className={cn({
-              [styles.active]: activeTab === TABS.FRIDAY
+              [styles.active]: activeTab === EVENT_DAYS.FRIDAY
             })}
             onClick={() => {
-              setActiveTab(TABS.FRIDAY);
+              setActiveTab(EVENT_DAYS.FRIDAY);
             }}
           >
             <span className={styles['full-text']}>Sexta (23/09)</span>
@@ -163,10 +157,10 @@ export default function Schedule({ talks }: Props) {
           </button>
           <button
             className={cn({
-              [styles.active]: activeTab === TABS.SATURDAY
+              [styles.active]: activeTab === EVENT_DAYS.SATURDAY
             })}
             onClick={() => {
-              setActiveTab(TABS.SATURDAY);
+              setActiveTab(EVENT_DAYS.SATURDAY);
             }}
           >
             <span className={styles['full-text']}>Sábado (24/09)</span>
@@ -206,7 +200,7 @@ export default function Schedule({ talks }: Props) {
           </div>
 
           {firstBlock?.map((talk, index) => (
-            <TalkContainer talk={talk} index={index} key={talk.id} />
+            <TalkCard talk={talk} index={index} key={talk.id} />
           ))}
 
           <div className={styles.hour}>
@@ -239,7 +233,7 @@ export default function Schedule({ talks }: Props) {
                 extras e fazer networking.
               </h3>
             </div>
-            <BgTalkContainer moreLines />
+            <BgTalkCard moreLines />
           </div>
 
           <div className={styles.hour}>
@@ -256,7 +250,7 @@ export default function Schedule({ talks }: Props) {
           </div>
 
           {secondBlock?.map((talk, index) => (
-            <TalkContainer talk={talk} index={index} key={talk.id} />
+            <TalkCard talk={talk} index={index} key={talk.id} />
           ))}
 
           <div className={styles.hour}>
@@ -273,7 +267,7 @@ export default function Schedule({ talks }: Props) {
           </div>
 
           {thirdBlock?.map((talk, index) => (
-            <TalkContainer talk={talk} index={index} key={talk.id} />
+            <TalkCard talk={talk} index={index} key={talk.id} />
           ))}
 
           <div className={styles.hour}>
@@ -290,7 +284,7 @@ export default function Schedule({ talks }: Props) {
           </div>
 
           {fourthBlock?.map((talk, index) => (
-            <TalkContainer talk={talk} index={index} key={talk.id} />
+            <TalkCard talk={talk} index={index} key={talk.id} />
           ))}
 
           {hasHappyHour && (
@@ -316,7 +310,7 @@ export default function Schedule({ talks }: Props) {
                   </div>
                   <h3>Happy hour virtual, com músicas e muito networking.</h3>
                 </div>
-                <BgTalkContainer />
+                <BgTalkCard />
               </div>
             </>
           )}
