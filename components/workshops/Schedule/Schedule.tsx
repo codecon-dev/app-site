@@ -1,4 +1,4 @@
-import { Workshop } from '@lib/types/all';
+import { EVENT_DAYS, Workshop } from '@lib/types/all';
 import {
   captureHourAndMinutesFromDateString,
   formatDate,
@@ -14,13 +14,9 @@ type Props = {
   workshops: Workshop[];
 };
 
-enum DAYS {
-  THUSDAY = 0,
-  FRIDAY = 1,
-  SATURDAY = 2
-}
-
 function WorkshopCard({ workshop }: { workshop: Workshop }) {
+  const isWorkshopFull = workshop.vagas === 0;
+
   return (
     <Column lg={6} sm={6} key={workshop.id}>
       <Activity sponsor={workshop.sponsor ? workshop.sponsor : undefined}>
@@ -39,11 +35,11 @@ function WorkshopCard({ workshop }: { workshop: Workshop }) {
           ))}
         </Activity.Footer>
         <Activity.Button
-          disabled={workshop.vagas === 0}
-          info={workshop.vagas === 0 ? undefined : `${workshop.vagas} vagas`}
+          disabled={isWorkshopFull}
+          info={isWorkshopFull ? undefined : `${workshop.vagas} vagas`}
           href={workshop.link || '#'}
         >
-          {workshop.vagas === 0 ? 'Esgotado' : 'Inscreva-se'}
+          {isWorkshopFull ? 'Esgotado' : 'Inscreva-se'}
         </Activity.Button>
       </Activity>
     </Column>
@@ -63,7 +59,7 @@ export default function Schedule({ workshops }: Props) {
         <Column lg={12}>
           <h3>Quinta (22/09)</h3>
         </Column>
-        {workshopsByDay[DAYS.THUSDAY].map(workshop => (
+        {workshopsByDay[EVENT_DAYS.THURSDAY].map(workshop => (
           <WorkshopCard workshop={workshop} key={workshop.id} />
         ))}
       </Grid>
@@ -71,7 +67,7 @@ export default function Schedule({ workshops }: Props) {
         <Column lg={12}>
           <h3>Sexta (23/09)</h3>
         </Column>
-        {workshopsByDay[DAYS.FRIDAY].map(workshop => (
+        {workshopsByDay[EVENT_DAYS.FRIDAY].map(workshop => (
           <WorkshopCard workshop={workshop} key={workshop.id} />
         ))}
       </Grid>
@@ -79,7 +75,7 @@ export default function Schedule({ workshops }: Props) {
         <Column lg={12}>
           <h3>Sábado (24/09)</h3>
         </Column>
-        {workshopsByDay[DAYS.SATURDAY].map(workshop => (
+        {workshopsByDay[EVENT_DAYS.SATURDAY].map(workshop => (
           <WorkshopCard workshop={workshop} key={workshop.id} />
         ))}
       </Grid>

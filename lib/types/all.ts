@@ -158,3 +158,9 @@ export type MarathonUser = {
   profileURI: string;
   userId: number | undefined;
 };
+
+export enum EVENT_DAYS {
+  THURSDAY = 0,
+  FRIDAY = 1,
+  SATURDAY = 2
+}
