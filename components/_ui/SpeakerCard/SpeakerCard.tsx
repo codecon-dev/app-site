@@ -1,4 +1,5 @@
 import NextImage from 'next/image';
+import cn from 'classnames';
 
 import Icons from './Icons';
 import styles from './Speaker.module.scss';
@@ -35,11 +36,15 @@ const About = ({ children }: PropsAbout) => {
   return <div className={styles.about}>{children}</div>;
 };
 
-const Social = ({ data, character }: PropsSocial) => {
+const Social = ({ data, character, standalone }: PropsSocial) => {
   if (!data) return null;
 
   return (
-    <div className={styles.social}>
+    <div
+      className={cn(styles.social, {
+        [styles.standalone]: standalone
+      })}
+    >
       <ul>
         {data.map(({ label, url }) => {
           const Icon = Icons[label];
@@ -53,8 +58,14 @@ const Social = ({ data, character }: PropsSocial) => {
           );
         })}
         {!!character && (
-          <li>
-            <NextImage src={character.src} alt={character.alt} width={48} height={73} />
+          <li className={styles.character}>
+            <NextImage
+              src={character.src}
+              alt={character.alt}
+              width={48}
+              height={48}
+              quality={100}
+            />
           </li>
         )}
       </ul>
