@@ -41,6 +41,16 @@ export async function getSpeaker(slug: string): Promise<Speaker | null> {
         name
         bio
         slug
+        twitter
+        github
+        linkedin
+        company
+        image {
+          url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, bri: 7, w: 500, h: 500})
+        }
+        character {
+          url
+        }
       }
     }
   `);
@@ -49,7 +59,7 @@ export async function getSpeaker(slug: string): Promise<Speaker | null> {
 
   const talkData = await fetchCmsAPI(`
     {
-      allTalks(filter: { speaker: { eq: "${speakerId}" } }) {
+      allTalks(filter: { speaker: { anyIn: "${speakerId}" } }) {
         title
         slug
         start
@@ -60,7 +70,7 @@ export async function getSpeaker(slug: string): Promise<Speaker | null> {
 
   const workshopData = await fetchCmsAPI(`
     {
-      allWorkshops(filter: { teacher: { eq: "${speakerId}" } }) {
+      allWorkshops(filter: { teacher: { anyIn: "${speakerId}" } }) {
         title
         slug
         start
@@ -68,7 +78,7 @@ export async function getSpeaker(slug: string): Promise<Speaker | null> {
       }
     }`);
 
-  return speakerData?.speaker
+  return speakerData.speaker
     ? {
         ...speakerData.speaker,
         talks: talkData.allTalks || null,
