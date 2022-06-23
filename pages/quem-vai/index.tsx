@@ -30,7 +30,6 @@ participando de palestras, painéis e workshops."
         />
         <SpeakersGrid speakers={speakers} />
       </Layout>
-      z
     </Page>
   );
 }
