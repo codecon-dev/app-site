@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Talk, Image } from './all';
+import { Image } from './all';
 
 export type Speaker = {
   id: string;
@@ -11,7 +11,23 @@ export type Speaker = {
   github: string;
   linkedin: string;
   company: string;
-  talk: Talk;
+  talks?: [
+    {
+      title: string;
+      slug: string;
+      start: string;
+      end: string;
+      talkType: string;
+    }
+  ];
+  workshops?: [
+    {
+      title: string;
+      slug: string;
+      start: string;
+      end: string;
+    }
+  ];
   image: Image;
   character: Image;
 };
