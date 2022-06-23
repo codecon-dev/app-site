@@ -23,11 +23,15 @@ const Title = ({ children }: PropsTitle) => {
 const Image = ({ href, src, alt }: PropsImage) => {
   return (
     <div className={styles.image_wrapper}>
-      <Link href={href}>
-        <a>
-          <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
-        </a>
-      </Link>
+      {href ? (
+        <Link href={href}>
+          <a>
+            <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
+          </a>
+        </Link>
+      ) : (
+        <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
+      )}
     </div>
   );
 };
