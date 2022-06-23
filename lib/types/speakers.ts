@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Image } from './all';
+import { Image, Talk, Workshop } from './all';
 
 export type Speaker = {
   id: string;
@@ -11,23 +11,8 @@ export type Speaker = {
   github: string;
   linkedin: string;
   company: string;
-  talks?: [
-    {
-      title: string;
-      slug: string;
-      start: string;
-      end: string;
-      talkType: string;
-    }
-  ];
-  workshops?: [
-    {
-      title: string;
-      slug: string;
-      start: string;
-      end: string;
-    }
-  ];
+  talks?: Talk[];
+  workshops?: Workshop[];
   image: Image;
   character: Image;
 };
@@ -59,6 +44,7 @@ type Character = {
 export type PropsSocial = {
   data?: SocialData[];
   character?: Character;
+  standalone?: boolean;
 };
 
 export type PropsSpeakerCard = {
