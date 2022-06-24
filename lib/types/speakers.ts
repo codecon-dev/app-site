@@ -44,7 +44,7 @@ type Character = {
 export type PropsSocial = {
   data?: SocialData[];
   character?: Character;
-  standalone?: boolean;
+  horizontal?: boolean;
 };
 
 export type PropsSpeakerCard = {
