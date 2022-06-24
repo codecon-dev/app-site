@@ -1,11 +1,19 @@
 @import 'styles/media-queries';
 
-.card {
-  @media #{$breakpoint-sm} {
-    margin-bottom: 10rem;
+.social {
+  margin-top: 1rem;
+}
 
-    &:nth-child(3n) {
-      transform: translateY(10rem);
-    }
+.bio {
+  margin-top: 3rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+
+  @media #{$breakpoint-sm} {
+    font-size: 1.5rem;
   }
+}
+
+.talks {
+  margin-top: 5rem;
 }
