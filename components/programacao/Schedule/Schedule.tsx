@@ -23,7 +23,7 @@ const placePriority: PriorityMap = {
   3: 'Sala 3'
 };
 
-function getPriorityByPlace(place: string, priorityMap: PriorityMap) {
+function getPriorityByPlace(place: string | undefined, priorityMap: PriorityMap) {
   const mapKeys = Object.keys(priorityMap);
   const priority = mapKeys.find((key: string) => priorityMap[Number(key)] === place);
   return Number(priority) || Infinity;
@@ -76,14 +76,15 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
         </Activity.Header>
         <Activity.Title href={`/programacao/${talk.slug}`}>{talk.title}</Activity.Title>
         <Activity.Footer>
-          {talk.speaker.map(t => (
-            <Activity.SpeakerImage
-              key={t.slug}
-              href={`/quem-vai/${t.slug}`}
-              src={t.image.url}
-              alt={t.name}
-            />
-          ))}
+          {!!talk.speaker?.length &&
+            talk.speaker.map(t => (
+              <Activity.SpeakerImage
+                key={t.slug}
+                href={`/quem-vai/${t.slug}`}
+                src={t.image.url}
+                alt={t.name}
+              />
+            ))}
         </Activity.Footer>
       </Activity>
       <BgTalkCard />
