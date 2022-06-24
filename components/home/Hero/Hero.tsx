@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
+import cn from 'classnames';
 
 import DarkModeToggle from './DarkModeToggle';
 import { Grid, Column } from '@components/_ui/Grid';
@@ -8,6 +10,8 @@ import { EVENT_PRICE, REGISTER_URL } from '@lib/constants';
 import styles from './Hero.module.scss';
 
 export default function Hero() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <header className={styles.header}>
       <Grid align="center">
@@ -26,8 +30,15 @@ export default function Hero() {
           <DarkModeToggle />
         </Column>
         <Column lg={6} sm={5} xsmOrder={1}>
-          <span className={styles['image__wrapper']}>
-            <Player autoplay loop src="/animations/hero.json" />
+          <span className={cn(styles['image__wrapper'], { [styles.loading]: isLoading })}>
+            <Player
+              autoplay
+              loop
+              onEvent={event => {
+                if (event === 'load') setIsLoading(false);
+              }}
+              src="/animations/hero.json"
+            />
           </span>
         </Column>
       </Grid>

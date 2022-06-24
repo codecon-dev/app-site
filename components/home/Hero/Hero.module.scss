@@ -21,6 +21,13 @@
     @media #{$breakpoint-lg} {
       margin-bottom: 0;
     }
+
+    &.loading {
+      background-image: url('/animations/loading.gif');
+      background-size: 5rem 5rem;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
   }
 }
 
