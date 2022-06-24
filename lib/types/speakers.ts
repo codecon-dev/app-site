@@ -22,7 +22,7 @@ export type PropsTitle = {
 };
 
 export type PropsImage = {
-  href: string;
+  href?: string;
   src: string;
   alt: string;
 };
