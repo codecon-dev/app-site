@@ -36,13 +36,13 @@ export default function SpeakerPage({ speaker }: Props) {
           <h1>{speaker.name}</h1>
           <p className="headline">{speaker.company}</p>
 
-          <div className={styles.social}>
+          <SpeakerCard>
             <SpeakerCard.Social
-              standalone
+              horizontal
               data={speakerSocial}
               character={!!speaker.character && { src: speaker.character.url, alt: speaker.name }}
             />
-          </div>
+          </SpeakerCard>
         </Column>
         <Column lg={1} sm={0} xsm={0} />
         <Column lg={4} sm={4} xsmOrder={1}>
@@ -63,48 +63,46 @@ export default function SpeakerPage({ speaker }: Props) {
             <h3>Você poderá ver {speaker.name.split(' ')[0]} em:</h3>
           </div>
           <Grid>
-            {speaker.talks &&
-              speaker.talks.map(talk => (
-                <Column lg={5} key={talk.title}>
-                  <Activity sponsor={talk.sponsor ? talk.sponsor : undefined}>
-                    <Activity.Header>
-                      <p>{talk.talkType}</p>
-                      <time>
-                        {formatDate(talk.start, 'dd/MM')} |{' '}
-                        {captureHourAndMinutesFromDateString(talk.start)} ~{' '}
-                        {captureHourAndMinutesFromDateString(talk.end)}
-                      </time>
-                    </Activity.Header>
-                    <Activity.Title href={`/programacao/${talk.slug}`}>{talk.title}</Activity.Title>
-                    <Activity.Button href={`/programacao/${talk.slug}`}>
-                      Mais detalhes
-                    </Activity.Button>
-                  </Activity>
-                </Column>
-              ))}
+            {speaker.talks?.map(talk => (
+              <Column lg={5} key={talk.title}>
+                <Activity sponsor={talk.sponsor}>
+                  <Activity.Header>
+                    <p>{talk.talkType}</p>
+                    <time>
+                      {formatDate(talk.start, 'dd/MM')} |{' '}
+                      {captureHourAndMinutesFromDateString(talk.start)} ~{' '}
+                      {captureHourAndMinutesFromDateString(talk.end)}
+                    </time>
+                  </Activity.Header>
+                  <Activity.Title href={`/programacao/${talk.slug}`}>{talk.title}</Activity.Title>
+                  <Activity.Button href={`/programacao/${talk.slug}`}>
+                    Mais detalhes
+                  </Activity.Button>
+                </Activity>
+              </Column>
+            ))}
 
-            {speaker.workshops &&
-              speaker.workshops.map(workshop => (
-                <Column lg={5} key={workshop.title}>
-                  <Activity sponsor={workshop.sponsor ? workshop.sponsor : undefined}>
-                    <Activity.Header>
-                      <p>Workshop</p>
-                      <time>
-                        {formatDate(workshop.start, 'dd/MM')} |{' '}
-                        {captureHourAndMinutesFromDateString(workshop.start)} ~{' '}
-                        {captureHourAndMinutesFromDateString(workshop.end)}
-                      </time>
-                    </Activity.Header>
-                    <Activity.Title href={`/workshops/${workshop.slug}`}>
-                      {workshop.title}
-                    </Activity.Title>
+            {speaker.workshops?.map(workshop => (
+              <Column lg={5} key={workshop.title}>
+                <Activity sponsor={workshop.sponsor}>
+                  <Activity.Header>
+                    <p>Workshop</p>
+                    <time>
+                      {formatDate(workshop.start, 'dd/MM')} |{' '}
+                      {captureHourAndMinutesFromDateString(workshop.start)} ~{' '}
+                      {captureHourAndMinutesFromDateString(workshop.end)}
+                    </time>
+                  </Activity.Header>
+                  <Activity.Title href={`/workshops/${workshop.slug}`}>
+                    {workshop.title}
+                  </Activity.Title>
 
-                    <Activity.Button href={`/workshops/${workshop.slug}`}>
-                      Mais detalhes
-                    </Activity.Button>
-                  </Activity>
-                </Column>
-              ))}
+                  <Activity.Button href={`/workshops/${workshop.slug}`}>
+                    Mais detalhes
+                  </Activity.Button>
+                </Activity>
+              </Column>
+            ))}
           </Grid>
         </>
       )}

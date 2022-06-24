@@ -40,13 +40,13 @@ const About = ({ children }: PropsAbout) => {
   return <div className={styles.about}>{children}</div>;
 };
 
-const Social = ({ data, character, standalone }: PropsSocial) => {
+const Social = ({ data, character, horizontal }: PropsSocial) => {
   if (!data) return null;
 
   return (
     <div
       className={cn(styles.social, {
-        [styles.standalone]: standalone
+        [styles.horizontal]: horizontal
       })}
     >
       <ul>
@@ -66,8 +66,8 @@ const Social = ({ data, character, standalone }: PropsSocial) => {
             <NextImage
               src={character.src}
               alt={character.alt}
-              width={48}
-              height={48}
+              width={32}
+              height={39}
               quality={100}
             />
           </li>
