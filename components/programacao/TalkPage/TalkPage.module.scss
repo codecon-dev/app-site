@@ -1,0 +1,24 @@
+@import 'styles/media-queries';
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.speakers {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.description {
+  margin: 5rem 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+
+  @media #{$breakpoint-sm} {
+    font-size: 1.5rem;
+  }
+}
