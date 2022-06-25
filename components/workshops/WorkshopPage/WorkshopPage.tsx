@@ -14,7 +14,6 @@ type Props = {
 };
 
 export default function WorkshopPage({ workshop }: Props) {
-  console.log(workshop.teacher);
   return (
     <section>
       <Grid align="center">
