@@ -1,9 +1,7 @@
-import Header from '@components/_ui/Header';
 import IconTwitter from '@components/_ui/Icons/icon-twitter';
 import InstagramIcon from '@components/_ui/Icons/icon-instagram';
 import IconGithub from '@components/_ui/Icons/icon-github';
 import IconDiscord from '@components/_ui/Icons/icon-discord';
-import LinkButton from '@components/_ui/LinkButton/LinkButton';
 
 import styles from './Contact.module.scss';
 import { Grid, Column } from '@components/_ui/Grid';

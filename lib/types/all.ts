@@ -19,15 +19,15 @@ export type Stage = {
 };
 
 export type Talk = {
-  id: string;
+  id?: string;
   title: string;
   slug: string;
-  emBreve: boolean;
-  description: string;
+  emBreve?: boolean;
+  description?: string;
   start: string;
   end: string;
-  speaker: Speaker[];
-  place: string;
+  speaker?: Speaker[];
+  place?: string;
   talkType: string;
   sponsor?: {
     name: string;
@@ -66,14 +66,14 @@ export type SponsorLink = {
 };
 
 export type Workshop = {
-  id: string;
+  id?: string;
   title: string;
   slug: string;
-  description: string;
+  description?: string;
   start: string;
   end: string;
-  vagas: number;
-  teacher: Speaker[];
+  vagas?: number;
+  teacher?: Speaker[];
   link?: string;
   sponsor?: {
     name: string;

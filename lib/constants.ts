@@ -33,10 +33,6 @@ export const NAVIGATION = [
 
 export const ATTENDEE_NAVIGATION = [
   {
-    name: 'Login',
-    route: '/login'
-  },
-  {
     name: 'Inscreva-se',
     route: REGISTER_URL,
     type: 'button'

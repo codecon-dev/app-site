@@ -29,16 +29,18 @@ function WorkshopCard({ workshop }: { workshop: Workshop }) {
           </time>
         </Activity.Header>
         <Activity.Title href={`/workshops/${workshop.slug}`}>{workshop.title}</Activity.Title>
-        <Activity.Footer>
-          {workshop.teacher.map(t => (
-            <Activity.SpeakerImage
-              key={t.slug}
-              href={`/quem-vai/${t.slug}`}
-              src={t.image.url}
-              alt={t.name}
-            />
-          ))}
-        </Activity.Footer>
+        {!!workshop.teacher && (
+          <Activity.Footer>
+            {workshop.teacher.map(t => (
+              <Activity.SpeakerImage
+                key={t.slug}
+                href={`/quem-vai/${t.slug}`}
+                src={t.image.url}
+                alt={t.name}
+              />
+            ))}
+          </Activity.Footer>
+        )}
         <Activity.Button
           disabled={isWorkshopFull}
           info={isWorkshopFull ? undefined : `${workshop.vagas} vagas`}

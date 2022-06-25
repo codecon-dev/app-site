@@ -1,0 +1,19 @@
+@import 'styles/media-queries';
+
+.social {
+  margin-top: 1rem;
+}
+
+.bio {
+  margin-top: 3rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+
+  @media #{$breakpoint-sm} {
+    font-size: 1.5rem;
+  }
+}
+
+.talks {
+  margin-top: 5rem;
+}

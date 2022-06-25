@@ -33,6 +33,60 @@ async function fetchCmsAPI(query: string, { variables }: { variables?: Record<st
   }
 }
 
+export async function getSpeaker(slug: string): Promise<Speaker | null> {
+  const speakerData = await fetchCmsAPI(`
+    {
+      speaker(filter: { slug: { eq: "${slug}" } }) {
+        id
+        name
+        bio
+        slug
+        twitter
+        github
+        linkedin
+        company
+        image {
+          url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, bri: 7, w: 500, h: 500})
+        }
+        character {
+          url
+        }
+      }
+    }
+  `);
+
+  const speakerId = speakerData.speaker.id;
+
+  const talkData = await fetchCmsAPI(`
+    {
+      allTalks(filter: { speaker: { anyIn: "${speakerId}" } }) {
+        title
+        slug
+        start
+        end
+        talkType
+      }
+    }`);
+
+  const workshopData = await fetchCmsAPI(`
+    {
+      allWorkshops(filter: { teacher: { anyIn: "${speakerId}" } }) {
+        title
+        slug
+        start
+        end
+      }
+    }`);
+
+  return speakerData.speaker
+    ? {
+        ...speakerData.speaker,
+        talks: talkData.allTalks || null,
+        workshops: workshopData.allWorkshops || null
+      }
+    : null;
+}
+
 export async function getAllSpeakers(limit: number): Promise<Speaker[]> {
   const data = await fetchCmsAPI(`
     {

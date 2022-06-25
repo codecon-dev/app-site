@@ -1,4 +1,5 @@
 import NextImage from 'next/image';
+import cn from 'classnames';
 
 import Icons from './Icons';
 import styles from './Speaker.module.scss';
@@ -22,11 +23,15 @@ const Title = ({ children }: PropsTitle) => {
 const Image = ({ href, src, alt }: PropsImage) => {
   return (
     <div className={styles.image_wrapper}>
-      <Link href={href}>
-        <a>
-          <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
-        </a>
-      </Link>
+      {href ? (
+        <Link href={href}>
+          <a>
+            <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
+          </a>
+        </Link>
+      ) : (
+        <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
+      )}
     </div>
   );
 };
@@ -35,11 +40,15 @@ const About = ({ children }: PropsAbout) => {
   return <div className={styles.about}>{children}</div>;
 };
 
-const Social = ({ data, character }: PropsSocial) => {
+const Social = ({ data, character, horizontal }: PropsSocial) => {
   if (!data) return null;
 
   return (
-    <div className={styles.social}>
+    <div
+      className={cn(styles.social, {
+        [styles.horizontal]: horizontal
+      })}
+    >
       <ul>
         {data.map(({ label, url }) => {
           const Icon = Icons[label];
@@ -53,8 +62,14 @@ const Social = ({ data, character }: PropsSocial) => {
           );
         })}
         {!!character && (
-          <li>
-            <NextImage src={character.src} alt={character.alt} width={48} height={73} />
+          <li className={styles.character}>
+            <NextImage
+              src={character.src}
+              alt={character.alt}
+              width={32}
+              height={39}
+              quality={100}
+            />
           </li>
         )}
       </ul>
