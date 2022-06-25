@@ -211,7 +211,7 @@ export async function getAllWorkshops(): Promise<Workshop[]> {
           linkedin
           company
           image {
-            url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, w: 500, h: 500})
+            url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, bri: 7, w: 500, h: 500})
           }
         }
         link

@@ -31,7 +31,7 @@ export default function SpeakerPage({ speaker }: Props) {
   return (
     <section>
       <Grid align="center">
-        <Column lg={7} sm={7}>
+        <Column lg={7} sm={8}>
           <span className="highlight">Presença confirmada</span>
           <h1>{speaker.name}</h1>
           <p className="headline">{speaker.company}</p>
