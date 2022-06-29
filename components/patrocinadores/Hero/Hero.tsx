@@ -34,7 +34,7 @@ export default function Hero({ sponsor }: Props) {
             </LinkButton>
           </span>
         </Column>
-        <Column lg={6} sm={5} xsmOrder={1}>
+        <Column lg={6} sm={5}>
           <span className={cn(styles['image__wrapper'])}>
             <Image
               src="/images/patrocinadores/illustration.svg"
