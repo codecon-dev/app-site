@@ -8,6 +8,10 @@
   padding: 4rem 0;
   margin: 0;
 
+  @media #{$breakpoint-lg} {
+    padding: 0;
+  }
+
   p {
     color: $black;
     font-size: 1.5rem;
