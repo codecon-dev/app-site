@@ -62,30 +62,36 @@ export default function Schedule({ workshops }: Props) {
 
   return (
     <section>
-      <Grid>
-        <Column lg={12}>
-          <h3>Quinta (22/09)</h3>
-        </Column>
-        {workshopsByDay[EVENT_DAYS.THURSDAY].map(workshop => (
-          <WorkshopCard workshop={workshop} key={workshop.id} />
-        ))}
-      </Grid>
-      <Grid className={styles.grid}>
-        <Column lg={12}>
-          <h3>Sexta (23/09)</h3>
-        </Column>
-        {workshopsByDay[EVENT_DAYS.FRIDAY].map(workshop => (
-          <WorkshopCard workshop={workshop} key={workshop.id} />
-        ))}
-      </Grid>
-      <Grid className={styles.grid}>
-        <Column lg={12}>
-          <h3>Sábado (24/09)</h3>
-        </Column>
-        {workshopsByDay[EVENT_DAYS.SATURDAY].map(workshop => (
-          <WorkshopCard workshop={workshop} key={workshop.id} />
-        ))}
-      </Grid>
+      {workshopsByDay[EVENT_DAYS.THURSDAY].length > 0 && (
+        <Grid>
+          <Column lg={12}>
+            <h3>Quinta (22/09)</h3>
+          </Column>
+          {workshopsByDay[EVENT_DAYS.THURSDAY].map(workshop => (
+            <WorkshopCard workshop={workshop} key={workshop.id} />
+          ))}
+        </Grid>
+      )}
+      {workshopsByDay[EVENT_DAYS.FRIDAY].length > 0 && (
+        <Grid className={styles.grid}>
+          <Column lg={12}>
+            <h3>Sexta (23/09)</h3>
+          </Column>
+          {workshopsByDay[EVENT_DAYS.FRIDAY].map(workshop => (
+            <WorkshopCard workshop={workshop} key={workshop.id} />
+          ))}
+        </Grid>
+      )}
+      {workshopsByDay[EVENT_DAYS.SATURDAY].length > 0 && (
+        <Grid className={styles.grid}>
+          <Column lg={12}>
+            <h3>Sábado (24/09)</h3>
+          </Column>
+          {workshopsByDay[EVENT_DAYS.SATURDAY].map(workshop => (
+            <WorkshopCard workshop={workshop} key={workshop.id} />
+          ))}
+        </Grid>
+      )}
     </section>
   );
 }
