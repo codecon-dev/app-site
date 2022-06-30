@@ -27,7 +27,7 @@ export default function ComoFunciona({ sponsors }: Props) {
       <Layout sponsors={sponsors}>
         <Header
           title="É um evento, mas nem parece!"
-          description="A Codecon é um festival de tecnologia online que reúne código, conteúdo, networking e muita diversão."
+          description="A Codecon é um festival online de tecnologia que reúne código, conteúdo, networking e muita diversão."
           image="/images/como-funciona/hero.svg"
         />
         <About />

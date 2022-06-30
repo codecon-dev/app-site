@@ -68,7 +68,7 @@ export default function Games() {
         image="/images/como-funciona/maratona.jpg"
       >
         <p>
-          Uma competição onde você deve criar a melhor inteligência artificial para eliminar seu
+          Uma competição onde você deve criar a melhor inteligência artificial para eliminar seus
           oponentes em diversos jogos. O mais rápido possível.
         </p>
         <p>Os melhores de cada dia de competição ganham prêmios.</p>
