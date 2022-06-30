@@ -20,6 +20,7 @@ type FooterProps = {
 
 type ActivityProps = {
   children: ReactNode;
+  soon?: boolean;
   sponsor?: { name: string; logo: Image };
 };
 
@@ -60,14 +61,20 @@ const Title = ({ children, ...rest }: TitleProps) => {
   );
 };
 
-const Activity = ({ children, sponsor }: ActivityProps) => {
+const Activity = ({ children, sponsor, soon }: ActivityProps) => {
   return (
     <article className={styles.activity}>
-      {!!sponsor?.name && !!sponsor?.logo && (
-        <OfferedBy name={sponsor.name} logo={sponsor.logo.url} />
-      )}
+      {soon ? (
+        <div className={styles.soon}>Em breve!</div>
+      ) : (
+        <>
+          {!!sponsor?.name && !!sponsor?.logo && (
+            <OfferedBy name={sponsor.name} logo={sponsor.logo.url} />
+          )}
 
-      <div className={styles.content}>{children}</div>
+          <div className={styles.content}>{children}</div>
+        </>
+      )}
     </article>
   );
 };

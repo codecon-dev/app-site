@@ -66,7 +66,7 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
         [styles.talkContainerMiddle]: index === 1
       })}
     >
-      <Activity sponsor={talk.sponsor ? talk.sponsor : undefined}>
+      <Activity sponsor={talk.sponsor ? talk.sponsor : undefined} soon={talk.emBreve}>
         <Activity.Header>
           <p>{talk.talkType}</p>
           <time>
