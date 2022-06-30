@@ -7,20 +7,23 @@ import styles from './LinkButton.module.scss';
 export type Props = {
   children: React.ReactNode;
   href: string;
+  type?: 'primary' | 'secondary';
   info?: number | string;
   newPage?: boolean;
   disabled?: boolean;
+  block?: boolean;
 };
 
-export default function Button({ children, href, info, newPage, disabled }: Props) {
+export default function Button({ children, href, type, info, newPage, disabled, block }: Props) {
   return (
     <Link href={disabled ? '#' : href}>
       <a
         target={newPage ? '_blank' : undefined}
         rel={newPage ? 'noopener noreferrer' : undefined}
-        className={cn(styles.button, {
+        className={cn(styles.button, styles[`button--${type}`], {
           [styles['button--with-info']]: info,
-          [styles['button--disabled']]: disabled
+          [styles['button--disabled']]: disabled,
+          [styles['button--block']]: block
         })}
       >
         <span>{children}</span>

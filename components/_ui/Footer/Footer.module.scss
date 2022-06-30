@@ -7,10 +7,10 @@
 }
 
 .grid {
-  padding-top: 4rem;
+  padding: 4rem 0;
 
   @media #{$breakpoint-sm} {
-    padding-top: 8rem;
+    padding: 8rem 0;
   }
 }
 
@@ -25,7 +25,6 @@
 }
 
 .footer {
-  margin-top: 4rem;
   padding-top: 2rem;
   background-color: lighten($light-gray, 18%);
   color: $black;
@@ -33,7 +32,6 @@
 
   @media #{$breakpoint-sm} {
     text-align: left;
-    margin-top: 8rem;
   }
 }
 
