@@ -4,6 +4,10 @@
 .header {
   padding: 2rem 0;
   border-bottom: 1px solid $dark-green;
+  background-color: $black;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 
   &__container {
     display: flex;
