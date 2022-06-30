@@ -17,7 +17,9 @@ type Props = {
 
 export default function ComoFunciona({ sponsors }: Props) {
   const meta = {
-    title: 'Como funciona - Codecon'
+    title: 'Como funciona - Codecon',
+    description:
+      'A Codecon é um festival de tecnologia online que reúne código, conteúdo, networking e muita diversão.'
   };
 
   return (
