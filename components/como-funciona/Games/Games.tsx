@@ -34,11 +34,11 @@ function GameSection({ title, children, image, sponsor, alternate }: Props) {
   return (
     <div className={cn(styles.game, { [styles.alternate]: alternate })}>
       <Grid align="center">
-        <Column lg={alternate ? 5 : 4} sm={6}>
+        <Column lg={5} sm={6}>
           {alternate ? fullImage : fullContent}
         </Column>
-        <Column lg={alternate ? 2 : 3} sm={0} xsm={0} />
-        <Column lg={alternate ? 4 : 5} sm={6}>
+        <Column lg={2} sm={0} xsm={0} />
+        <Column lg={5} sm={6}>
           {alternate ? fullContent : fullImage}
         </Column>
       </Grid>
