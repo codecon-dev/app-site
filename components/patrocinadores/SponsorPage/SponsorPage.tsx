@@ -42,17 +42,17 @@ export default function SponsorPage({ sponsor }: Props) {
             <div className={styles.social}>
               {sponsor.twitter && (
                 <a href={sponsor.twitter} target="_blank" rel="noreferrer noopener">
-                  <IconTwitter size={32} color="#ffffff" />
+                  <IconTwitter size={32} color="var(--white)" />
                 </a>
               )}
               {sponsor.instagram && (
                 <a href={sponsor.instagram} target="_blank" rel="noreferrer noopener">
-                  <InstagramIcon size={32} color="#ffffff" />
+                  <InstagramIcon size={32} color="var(--white)" />
                 </a>
               )}
               {sponsor.linkedin && (
                 <a href={sponsor.linkedin} target="_blank" rel="noreferrer noopener">
-                  <IconLinkedin size={32} color="#ffffff" />
+                  <IconLinkedin size={32} color="var(--white)" />
                 </a>
               )}
             </div>
