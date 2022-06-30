@@ -12,11 +12,16 @@ export default function CodeCodes() {
             É um ranking global do nosso evento, onde você acumula códigos que valem pontos e ganha
             prêmios no final.
           </p>
+          <p>
+            O primeiro colocado ganhará um Playstation 5, o segundo uma mesa GenioDesk Plus e o
+            terceiro um teclado Logitech MX Keys Mini. E teremos ainda mais premiações de
+            eletrônicos até o décimo lugar!
+          </p>
         </Column>
         <Column lg={7}>
           <Image
             src="/images/como-funciona/prizes.png"
-            alt="Imagens ilustrativas referentes a premiação da última edição da Codecon"
+            alt="Imagem de um Playstation 5, uma mesa GenioDesk Plus e um Teclado Logitech MX Keys Mini"
             width={662}
             height={335}
             layout="responsive"
