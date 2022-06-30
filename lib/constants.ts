@@ -5,8 +5,8 @@ export const SITE_NAME = 'Codecon • 22, 23 e 24 de setembro';
 export const META_DESCRIPTION =
   'A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.';
 export const REGISTER_URL = 'https://hotmart.com/checkout/918058';
-export const EVENT_PRICE = 9;
-export const WORKSHOP_PRICE = 30;
+export const EVENT_PRICE = 19;
+export const WORKSHOP_PRICE = 0;
 
 export const NAVIGATION = [
   {
