@@ -60,6 +60,10 @@
     background-color: $white;
     color: $black;
 
+    .button__info {
+      color: $white;
+    }
+
     &:hover {
       background-color: $light-gray;
       transition: all 0.3s ease-in-out;
