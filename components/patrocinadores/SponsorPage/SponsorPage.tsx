@@ -62,7 +62,7 @@ export default function SponsorPage({ sponsor }: Props) {
             </LinkButton>
 
             {sponsor.links.map(link => (
-              <LinkButton type="secondary" block href={link.url} newPage>
+              <LinkButton key={link.url} type="secondary" block href={link.url} newPage>
                 {link.text}
               </LinkButton>
             ))}
