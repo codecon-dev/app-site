@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { Speaker, SocialData } from '@lib/types/speakers';
 
 import { Column, Grid } from '@components/_ui/Grid';
@@ -29,7 +30,7 @@ export default function SpeakersGrid({ speakers }: Props) {
           }
 
           return (
-            <>
+            <Fragment key={speaker.id}>
               {!!(index % 2) && <Column key={`col-${speaker.id}`} lg={2} sm={0} xsm={0} />}
               <Column key={speaker.id} lg={5} sm={6} className={styles.card}>
                 <SpeakerCard>
@@ -50,7 +51,7 @@ export default function SpeakersGrid({ speakers }: Props) {
                   />
                 </SpeakerCard>
               </Column>
-            </>
+            </Fragment>
           );
         })}
       </Grid>
