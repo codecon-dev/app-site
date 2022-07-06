@@ -18,7 +18,7 @@ type Props = {
 export default function SponsorPage({ sponsor }: Props) {
   return (
     <section>
-      <Grid align="center">
+      <Grid>
         <Column lg={4}>
           <div className={styles.logo} style={{ backgroundColor: sponsor.color.hex }}>
             <Image src={sponsor.whiteLogo.url} alt={sponsor.name} layout="fill" />
@@ -29,8 +29,9 @@ export default function SponsorPage({ sponsor }: Props) {
             <Image
               src={sponsor.cover.url}
               alt={sponsor.name}
-              layout="fill"
-              objectFit="cover"
+              layout="responsive"
+              width={818}
+              height={400}
               quality={100}
             />
           </div>
