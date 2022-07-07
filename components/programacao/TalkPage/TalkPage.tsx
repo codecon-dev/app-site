@@ -27,10 +27,18 @@ export default function TalkPage({ talk }: Props) {
             {talk.place}
           </p>
         </Column>
-        <Column lg={talk.speaker && talk.speaker?.length > 1 ? 0 : 1} sm={0} xsm={0} />
-        <Column lg={talk.speaker && talk.speaker?.length > 1 ? 5 : 4} sm={5} xsmOrder={1}>
+        <Column
+          lg={(talk.speaker && talk.speaker?.length > 1) || talk.host ? 0 : 1}
+          sm={0}
+          xsm={0}
+        />
+        <Column
+          lg={(talk.speaker && talk.speaker?.length > 1) || talk.host ? 5 : 4}
+          sm={5}
+          xsmOrder={1}
+        >
           {talk.speaker && (
-            <div className={cn({ [styles.speakers]: talk.speaker?.length > 1 })}>
+            <div className={cn({ [styles.speakers]: talk.speaker?.length > 1 || talk.host })}>
               {talk.speaker?.map(speaker => (
                 <SpeakerCard key={speaker.id}>
                   <SpeakerCard.Image
