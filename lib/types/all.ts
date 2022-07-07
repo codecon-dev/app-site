@@ -27,6 +27,7 @@ export type Talk = {
   start: string;
   end: string;
   speaker?: Speaker[];
+  host?: Speaker;
   place?: string;
   talkType: string;
   sponsor?: {
