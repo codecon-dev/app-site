@@ -70,7 +70,7 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
         <Activity.Header>
           <p>{talk.talkType}</p>
           <time>
-            {captureHourAndMinutesFromDateString(talk.start)} ~{' '}
+            {talk.place} • {captureHourAndMinutesFromDateString(talk.start)} ~{' '}
             {captureHourAndMinutesFromDateString(talk.end)}
           </time>
         </Activity.Header>
@@ -85,6 +85,15 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
                 alt={t.name}
               />
             ))}
+
+          {talk.host && (
+            <Activity.SpeakerImage
+              key={talk.host.slug}
+              href={`/quem-vai/${talk.host.slug}`}
+              src={talk.host.image.url}
+              alt={`[Host] ${talk.host.name}`}
+            />
+          )}
         </Activity.Footer>
       </Activity>
       <BgTalkCard />

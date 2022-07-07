@@ -69,7 +69,7 @@ export default function SpeakerPage({ speaker }: Props) {
                   <Activity.Header>
                     <p>{talk.talkType}</p>
                     <time>
-                      {formatDate(talk.start, 'dd/MM')} |{' '}
+                      {talk.place} • {formatDate(talk.start, 'dd/MM')} |{' '}
                       {captureHourAndMinutesFromDateString(talk.start)} ~{' '}
                       {captureHourAndMinutesFromDateString(talk.end)}
                     </time>
