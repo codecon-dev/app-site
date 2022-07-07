@@ -38,7 +38,7 @@ function GameSection({ title, children, image, sponsor, alternate }: Props) {
           {alternate ? fullImage : fullContent}
         </Column>
         <Column lg={2} sm={0} xsm={0} />
-        <Column lg={5} sm={6}>
+        <Column lg={5} sm={6} xsmOrder={alternate ? 1 : undefined}>
           {alternate ? fullContent : fullImage}
         </Column>
       </Grid>
