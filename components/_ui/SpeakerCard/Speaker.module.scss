@@ -40,6 +40,20 @@
     grid-area: image;
     border: 5px solid $light-green;
     padding: 0.5rem;
+    position: relative;
+
+    .host {
+      display: block;
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      padding: 0 0.5rem;
+      background-color: $light-green;
+      border-radius: 2rem;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
   }
 
   .title,

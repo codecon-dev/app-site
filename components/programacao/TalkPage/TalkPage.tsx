@@ -40,6 +40,16 @@ export default function TalkPage({ talk }: Props) {
                   />
                 </SpeakerCard>
               ))}
+              {talk.host && (
+                <SpeakerCard key={talk.host.id}>
+                  <SpeakerCard.Image
+                    href={`/quem-vai/${talk.host.slug}`}
+                    src={talk.host.image.url}
+                    alt={talk.host.name}
+                    isHost
+                  />
+                </SpeakerCard>
+              )}
             </div>
           )}
         </Column>
