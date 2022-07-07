@@ -12,7 +12,6 @@
   p {
     color: $black;
     font-size: 1rem;
-    text-align: justify;
 
     @media #{$breakpoint-sm} {
       font-size: 1.25rem;
