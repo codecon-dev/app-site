@@ -12,6 +12,7 @@
   }
 
   &__input {
+    -webkit-appearance: none;
     width: 100%;
     border: 0;
     padding: 0.5rem;
@@ -19,6 +20,7 @@
   }
 
   &__button {
+    -webkit-appearance: none;
     border: 0;
     background-color: $light-green;
     font-weight: bold;
