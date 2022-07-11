@@ -42,6 +42,7 @@ function WorkshopCard({ workshop }: { workshop: Workshop }) {
           </Activity.Footer>
         )}
         <Activity.Button
+          newPage
           disabled={isWorkshopFull}
           info={isWorkshopFull ? undefined : `${workshop.vagas} vagas`}
           href={workshop.link || '#'}

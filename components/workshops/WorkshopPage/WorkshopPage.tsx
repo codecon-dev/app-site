@@ -14,6 +14,8 @@ type Props = {
 };
 
 export default function WorkshopPage({ workshop }: Props) {
+  const isWorkshopFull = workshop.vagas === 0;
+
   return (
     <section>
       <Grid align="center">
@@ -49,7 +51,15 @@ export default function WorkshopPage({ workshop }: Props) {
         </Column>
       </Grid>
 
-      <div className="container">
+      <div className={cn('container', styles.buttons)}>
+        <LinkButton
+          disabled={isWorkshopFull}
+          info={isWorkshopFull ? undefined : `${workshop.vagas} vagas`}
+          href={workshop.link || '#'}
+          newPage
+        >
+          {isWorkshopFull ? 'Esgotado' : 'Inscreva-se'}
+        </LinkButton>
         <LinkButton href="/workshops">Confira a programação completa</LinkButton>
       </div>
     </section>
