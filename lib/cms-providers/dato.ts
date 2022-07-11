@@ -62,6 +62,19 @@ export async function getSpeaker(slug: string): Promise<Speaker | null> {
       allTalks(filter: { speaker: { anyIn: "${speakerId}" } }) {
         title
         slug
+        place
+        start
+        end
+        talkType
+      }
+    }`);
+
+  const hostData = await fetchCmsAPI(`
+    {
+      allTalks(filter: { host: { eq: "${speakerId}" } }) {
+        title
+        slug
+        place
         start
         end
         talkType
@@ -78,10 +91,12 @@ export async function getSpeaker(slug: string): Promise<Speaker | null> {
       }
     }`);
 
+  const talks = [...talkData.allTalks, ...hostData.allTalks];
+
   return speakerData.speaker
     ? {
         ...speakerData.speaker,
-        talks: talkData.allTalks || null,
+        talks: talks || null,
         workshops: workshopData.allWorkshops || null
       }
     : null;
@@ -126,6 +141,18 @@ export async function getAllTalks(): Promise<Talk[]> {
         place
 		    talkType
         speaker {
+          name
+          bio
+          twitter
+          slug
+          github
+          linkedin
+          company
+          image {
+            url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, w: 500, h: 500})
+          }
+        }
+        host {
           name
           bio
           twitter

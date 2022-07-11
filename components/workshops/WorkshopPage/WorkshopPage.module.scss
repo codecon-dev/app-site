@@ -1,8 +1,14 @@
 @import 'styles/media-queries';
 
 .title {
-  font-size: 3rem;
+  font-size: 2.25rem;
+  letter-spacing: 0;
   margin-bottom: 2.5rem;
+  text-transform: none;
+
+  @media #{$breakpoint-sm} {
+    font-size: 3rem;
+  }
 }
 
 .teachers {

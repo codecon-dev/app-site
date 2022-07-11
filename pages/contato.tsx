@@ -14,7 +14,8 @@ type Props = {
 
 export default function Contato({ sponsors }: Props) {
   const meta = {
-    title: 'Contato - Codecon'
+    title: 'Contato - Codecon',
+    description: 'Quer ser nosso patrocinador? Está com alguma dúvida?'
   };
 
   return (

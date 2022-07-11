@@ -20,7 +20,7 @@ const Title = ({ children }: PropsTitle) => {
   );
 };
 
-const Image = ({ href, src, alt }: PropsImage) => {
+const Image = ({ href, src, alt, isHost }: PropsImage) => {
   return (
     <div className={styles.image_wrapper}>
       {href ? (
@@ -32,6 +32,7 @@ const Image = ({ href, src, alt }: PropsImage) => {
       ) : (
         <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
       )}
+      {isHost && <span className={styles.host}>Host</span>}
     </div>
   );
 };

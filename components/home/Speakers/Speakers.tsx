@@ -16,7 +16,7 @@ export default function Speakers({ speakers }: Props) {
       <Grid>
         <Column lg={8}>
           <h2 className={styles.title}>
-            São mais de 20 palestras e painéis com os principais nomes da área
+            São mais de 30 palestras e painéis com os principais nomes da área
           </h2>
         </Column>
       </Grid>

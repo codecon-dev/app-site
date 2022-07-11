@@ -25,6 +25,7 @@ export type PropsImage = {
   href?: string;
   src: string;
   alt: string;
+  isHost?: boolean;
 };
 
 export type PropsAbout = {

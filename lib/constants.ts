@@ -3,10 +3,11 @@ export const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN || new URL(SITE_U
 export const TWITTER_USER_NAME = 'codecondev';
 export const SITE_NAME = 'Codecon • 22, 23 e 24 de setembro';
 export const META_DESCRIPTION =
-  'Acompanhe os meetups semanais da nossa comunidade sobre desenvolvimento de software, ferramentas e tudo que há de bom.';
-export const REGISTER_URL = 'https://hotmart.com/checkout/918058';
-export const EVENT_PRICE = 9;
-export const WORKSHOP_PRICE = 30;
+  'A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.';
+export const REGISTER_URL =
+  'https://www.sympla.com.br/codecon-2022---be-the-developer-of-the-future__1631778';
+export const EVENT_PRICE = 19;
+export const WORKSHOP_PRICE = 0;
 
 export const NAVIGATION = [
   {

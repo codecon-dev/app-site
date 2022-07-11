@@ -39,6 +39,8 @@ export default function Hero() {
               }}
               src="/animations/hero.json"
             />
+            <span className={styles.detail} />
+            <span className={styles['detail-two']} />
           </span>
         </Column>
       </Grid>
