@@ -4,7 +4,7 @@ import styles from './DarkModeToggle.module.scss';
 
 export default function DarkModeToggle() {
   const [text, setText] = useState('dark mode');
-  const possibleTexts = [
+  const texts = [
     'dark mode',
     'outro dark mode',
     'só tem esse mesmo',
@@ -13,8 +13,8 @@ export default function DarkModeToggle() {
   ];
 
   const handleChange = () => {
-    const nextTextIndex = possibleTexts.indexOf(text);
-    const nextText = possibleTexts[nextTextIndex + 1] || possibleTexts[0];
+    const textIndex = texts.indexOf(text);
+    const nextText = texts[textIndex + 1] || texts[0];
     setText(nextText);
   };
 
