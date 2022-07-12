@@ -13,7 +13,9 @@ export default function DarkModeToggle() {
   ];
 
   const handleChange = () => {
-    setText(possibleTexts[Math.floor(Math.random() * possibleTexts.length)]);
+    const nextTextIndex = possibleTexts.indexOf(text);
+    const nextText = possibleTexts[nextTextIndex + 1] || possibleTexts[0];
+    setText(nextText);
   };
 
   return (
