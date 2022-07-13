@@ -19,9 +19,8 @@ export default function SpeakerImagePage({ speaker }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async args => {
-  console.log(args);
-  const slug = args.params?.speaker;
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const slug = params?.speaker;
   const speakers = await getAllSpeakers();
   const currentSpeaker = speakers.find((s: Speaker) => s.slug === slug) || null;
 
