@@ -3,7 +3,7 @@ import getScreenshot from '@lib/getScreenshot';
 
 interface ImageParams {
   name?: string;
-  type?:
+  kind?:
     | 'sponsor'
     | 'sponsor-square'
     | 'sponsor-stories'
@@ -34,12 +34,12 @@ const IMAGE_CONFIG = {
 };
 
 export default async function getImage(req: NextApiRequest, res: NextApiResponse) {
-  const { name, type = 'sponsor' }: ImageParams = req.query || {};
+  const { name, kind = 'sponsor' }: ImageParams = req.query || {};
 
   if (!name) return res.status(404).send('Not Found');
 
-  const isSponsor = type?.includes('sponsor');
-  const imageKind = (type?.split('-')[1] as ImageKind) || 'default';
+  const isSponsor = kind?.includes('sponsor');
+  const imageKind = (kind?.split('-')[1] as ImageKind) || 'default';
   const path = isSponsor ? SPONSOR_PATH : SPEAKER_PATH;
 
   const screenshotParams = { ...IMAGE_CONFIG[imageKind], url: `${path}/${name}?kind=${imageKind}` };
