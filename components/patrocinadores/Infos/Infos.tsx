@@ -1,7 +1,6 @@
 import cn from 'classnames';
 
 import { Sponsor } from '@lib/types/all';
-import { contrast } from '@lib/utils';
 import { REGISTER_URL } from '@lib/constants';
 import { Grid, Column } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton';
@@ -13,13 +12,8 @@ type Props = {
 };
 
 export default function Infos({ sponsor }: Props) {
-  const contrastRatio = contrast(sponsor.color.hex);
-
   return (
-    <section
-      className={cn(styles.section, { [styles.light]: contrastRatio < 4.5 })}
-      style={{ backgroundColor: sponsor.color.hex }}
-    >
+    <section className={cn(styles.section)} style={{ backgroundColor: sponsor.color.hex }}>
       <Grid className={styles.grid}>
         <Column lg={5} sm={6}>
           <h2>Nem Zoom, nem Google Meet, conheça a Z-City</h2>

@@ -67,8 +67,8 @@ const Social = ({ data, character, horizontal }: PropsSocial) => {
             <NextImage
               src={character.src}
               alt={character.alt}
-              width={32}
-              height={39}
+              width={64}
+              height={78}
               quality={100}
             />
           </li>
