@@ -3,14 +3,9 @@ import puppeteer from './puppeteer';
 
 export default async function getScreenshot({ url = '', width = 2000, height = 1000 } = {}) {
   try {
-    const browser = await puppeteer.launch(
-      process.env.VERCEL_ENV === 'production'
+    const options =
+      process.env.VERCEL_ENV === 'development'
         ? {
-            args: chrome.args,
-            executablePath: await chrome.executablePath,
-            headless: chrome.headless
-          }
-        : {
             args: [],
             executablePath:
               process.platform === 'win32'
@@ -19,7 +14,13 @@ export default async function getScreenshot({ url = '', width = 2000, height = 1
                 ? '/usr/bin/google-chrome'
                 : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
           }
-    );
+        : {
+            args: chrome.args,
+            executablePath: await chrome.executablePath,
+            headless: chrome.headless
+          };
+
+    const browser = await puppeteer.launch(options);
     const page = await browser.newPage();
     await page.setUserAgent(
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:86.0) Gecko/20100101 Firefox/86.0'
