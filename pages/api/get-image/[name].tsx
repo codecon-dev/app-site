@@ -1,18 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import getScreenshot from '@lib/getScreenshot';
 
+type ImageKind = 'default' | 'square' | 'stories';
 interface ImageParams {
   name?: string;
-  kind?:
-    | 'sponsor'
-    | 'sponsor-square'
-    | 'sponsor-stories'
-    | 'speaker'
-    | 'speaker-square'
-    | 'speaker-stories';
+  type?: 'sponsor' | 'speaker';
+  kind?: ImageKind;
 }
-
-type ImageKind = 'default' | 'square' | 'stories';
 
 const baseUrl =
   process.env.VERCEL_ENV === 'development' ? 'http://localhost:3000' : process.env.VERCEL_URL;
@@ -34,15 +28,17 @@ const IMAGE_CONFIG = {
 };
 
 export default async function getImage(req: NextApiRequest, res: NextApiResponse) {
-  const { name, kind = 'sponsor' }: ImageParams = req.query || {};
+  const { name, type = 'sponsor', kind = 'default' }: ImageParams = req.query || {};
 
   if (!name) return res.status(404).send('Not Found');
 
-  const isSponsor = kind?.includes('sponsor');
-  const imageKind = (kind?.split('-')[1] as ImageKind) || 'default';
+  const isSponsor = type === 'sponsor';
   const path = isSponsor ? SPONSOR_PATH : SPEAKER_PATH;
 
-  const screenshotParams = { ...IMAGE_CONFIG[imageKind], url: `${path}/${name}?kind=${imageKind}` };
+  const screenshotParams = {
+    ...IMAGE_CONFIG[kind],
+    url: `${path}/${name}?type=${type}&kind=${kind}`
+  };
 
   const file = await getScreenshot(screenshotParams);
   res.setHeader('Content-Type', `image/png`);
