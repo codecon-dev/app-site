@@ -19,6 +19,8 @@ export default async function getScreenshot({ url = '', width = 2000, height = 1
           headless: chrome.headless
         };
 
+  console.log({ VERCEL_ENV: process.env.VERCEL_ENV, options });
+
   const browser = await puppeteer.launch(options);
   const page = await browser.newPage();
   await page.setViewport({ width, height });

@@ -9,6 +9,9 @@ type ImageParams = {
 
 const baseUrl =
   process.env.VERCEL_ENV === 'development' ? 'http://localhost:3000' : process.env.VERCEL_URL;
+
+console.log({ VERCEL_ENV: process.env.VERCEL_ENV, VERCEL_URL: process.env.VERCEL_URL, baseUrl });
+
 const SPONSOR_PATH = `${baseUrl}/patrocinadores/image`;
 const SPEAKER_PATH = `${baseUrl}/quem-vai/image`;
 const IMAGE_CONFIG = {
