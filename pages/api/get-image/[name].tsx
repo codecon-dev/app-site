@@ -1,12 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import getScreenshot from '@lib/getScreenshot';
 
-type ImageKind = 'default' | 'square' | 'stories';
-interface ImageParams {
+type ImageParams = {
   name?: string;
   type?: 'sponsor' | 'speaker';
-  kind?: ImageKind;
-}
+  kind?: 'default' | 'square' | 'stories';
+};
 
 const baseUrl =
   process.env.VERCEL_ENV === 'development' ? 'http://localhost:3000' : process.env.VERCEL_URL;
