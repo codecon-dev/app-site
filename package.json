@@ -7,7 +7,7 @@
   "homepage": "https://codecon.dev",
   "license": "Apache-2.0",
   "engines": {
-    "node": "16.x"
+    "node": "^14"
   },
   "config": {
     "isRankingEnabled": true,
