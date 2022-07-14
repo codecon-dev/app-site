@@ -27,7 +27,7 @@ export default async function getScreenshot({ url = '', width = 2000, height = 1
     await page.setViewport({ width, height });
 
     await page.goto(url, { waitUntil: 'networkidle0' });
-    const screenshot = await page.screenshot();
+    const screenshot = await page.screenshot({ type: 'png' });
 
     await browser.close();
     return screenshot;
