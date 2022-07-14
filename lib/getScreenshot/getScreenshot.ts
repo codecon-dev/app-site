@@ -1,26 +1,37 @@
 import chrome from 'chrome-aws-lambda';
-import puppeteer from 'puppeteer-core';
+import puppeteer from './puppeteer';
 
 export default async function getScreenshot({ url = '', width = 2000, height = 1000 } = {}) {
-  const options = process.env.AWS_REGION
-    ? {
-        args: chrome.args,
-        executablePath: await chrome.executablePath,
-        headless: chrome.headless
-      }
-    : {
-        args: [],
-        executablePath:
-          process.platform === 'win32'
-            ? 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
-            : process.platform === 'linux'
-            ? '/usr/bin/google-chrome'
-            : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-      };
+  try {
+    const browser = await puppeteer.launch(
+      process.env.VERCEL_ENV === 'production'
+        ? {
+            args: chrome.args,
+            executablePath: await chrome.executablePath,
+            headless: chrome.headless
+          }
+        : {
+            args: [],
+            executablePath:
+              process.platform === 'win32'
+                ? 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+                : process.platform === 'linux'
+                ? '/usr/bin/google-chrome'
+                : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+          }
+    );
+    const page = await browser.newPage();
+    await page.setUserAgent(
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:86.0) Gecko/20100101 Firefox/86.0'
+    );
+    await page.setViewport({ width, height });
 
-  const browser = await puppeteer.launch(options);
-  const page = await browser.newPage();
-  await page.setViewport({ width, height });
-  await page.goto(url, { waitUntil: 'networkidle0' });
-  return await page.screenshot({ type: 'png' });
+    await page.goto(url, { waitUntil: 'networkidle0' });
+    const screenshot = await page.screenshot();
+
+    await browser.close();
+    return screenshot;
+  } catch (error) {
+    console.error(error);
+  }
 }
