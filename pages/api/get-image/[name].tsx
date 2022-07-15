@@ -42,8 +42,6 @@ export default async function getImage(req: NextApiRequest, res: NextApiResponse
     url: `${path}/${name}?type=${type}&kind=${kind}`
   };
 
-  console.log({ screenshotParams });
-
   const file = await getScreenshot(screenshotParams);
   res.setHeader('Content-Type', `image/png`);
   res.setHeader(

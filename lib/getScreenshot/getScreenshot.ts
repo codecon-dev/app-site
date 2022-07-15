@@ -5,30 +5,24 @@ export default async function getScreenshot({ url = '', width = 2000, height = 1
   let browser;
 
   async function getBrowserInstance() {
-    const executablePath = await chrome.executablePath;
-
-    if (!executablePath) {
-      // running locally
-      return puppeteer.launch({
-        args: chrome.args,
-        headless: true,
-        defaultViewport: {
-          width,
-          height
-        },
-        ignoreHTTPSErrors: true
-      });
-    }
-
-    return chrome.puppeteer.launch({
+    const browserArgs = {
       args: chrome.args,
+      headless: true,
       defaultViewport: {
         width,
         height
       },
-      executablePath,
-      headless: chrome.headless,
       ignoreHTTPSErrors: true
+    };
+
+    const executablePath = await chrome.executablePath;
+
+    // running locally
+    if (!executablePath) return puppeteer.launch(browserArgs);
+
+    return chrome.puppeteer.launch({
+      ...browserArgs,
+      executablePath
     });
   }
 
@@ -39,14 +33,11 @@ export default async function getScreenshot({ url = '', width = 2000, height = 1
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:86.0) Gecko/20100101 Firefox/86.0'
     );
     await page.setViewport({ width, height });
-
     await page.goto(url, { waitUntil: 'networkidle0' });
 
-    const screenshot = await page.screenshot({
+    return await page.screenshot({
       type: 'png'
     });
-
-    return screenshot;
   } catch (error) {
     console.error(error);
   } finally {
