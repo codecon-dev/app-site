@@ -8,7 +8,9 @@ type ImageParams = {
 };
 
 const baseUrl =
-  process.env.VERCEL_ENV === 'development' ? 'http://localhost:3000' : process.env.VERCEL_URL;
+  process.env.VERCEL_ENV === 'development'
+    ? 'http://localhost:3000'
+    : `https://${process.env.VERCEL_URL}`;
 
 const SPONSOR_PATH = `${baseUrl}/patrocinadores/image`;
 const SPEAKER_PATH = `${baseUrl}/quem-vai/image`;
@@ -39,6 +41,8 @@ export default async function getImage(req: NextApiRequest, res: NextApiResponse
     ...IMAGE_CONFIG[kind],
     url: `${path}/${name}?type=${type}&kind=${kind}`
   };
+
+  console.log({ screenshotParams });
 
   const file = await getScreenshot(screenshotParams);
   res.setHeader('Content-Type', `image/png`);
