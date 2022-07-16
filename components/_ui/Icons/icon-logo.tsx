@@ -1,4 +1,6 @@
-export default function IconLogo(props = {}) {
+import { SVGProps } from 'react';
+
+export default function IconLogo(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="225"

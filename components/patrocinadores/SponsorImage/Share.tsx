@@ -1,4 +1,6 @@
-export default function Share(props = {}) {
+import { SVGProps } from 'react';
+
+export default function Share(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg width={560} height={558} fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
