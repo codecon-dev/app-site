@@ -1,0 +1,48 @@
+@import 'styles/colors';
+
+.background {
+  background: url('/images/patrocinadores/sponsor-default-bg.png') no-repeat;
+}
+
+.sponsor_image_default {
+  display: grid;
+  grid-template-columns: 30% auto;
+  padding: 50px;
+  grid-gap: 100px;
+
+  > *:first-child {
+    margin: 0 auto;
+  }
+
+  .sponsor_logo {
+    width: max-content;
+  }
+
+  .info {
+    margin-top: 30px;
+    margin-bottom: 74px;
+    font-size: 30px;
+
+    > * {
+      font-size: 30px;
+    }
+
+    .local {
+      color: $dark-gray;
+    }
+
+    .date {
+      margin: 0;
+      color: $white;
+    }
+  }
+}
+
+.sponsor {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: $white;
+}
