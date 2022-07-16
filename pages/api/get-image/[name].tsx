@@ -1,10 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import getScreenshot from '@lib/getScreenshot';
+import { ImageKind } from '@lib/types/all';
 
 type ImageParams = {
   name?: string;
   type?: 'sponsor' | 'speaker';
-  kind?: 'default' | 'square' | 'stories';
+  kind?: ImageKind;
 };
 
 const baseUrl =

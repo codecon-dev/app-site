@@ -165,3 +165,5 @@ export enum EVENT_DAYS {
   FRIDAY = 1,
   SATURDAY = 2
 }
+
+export type ImageKind = 'default' | 'square' | 'stories';
