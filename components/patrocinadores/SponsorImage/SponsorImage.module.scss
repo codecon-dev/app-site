@@ -1,7 +1,51 @@
 @import 'styles/colors';
 
-.background {
+.default_bg {
   background: url('/images/patrocinadores/sponsor-default-bg.png') no-repeat;
+}
+
+.stories_bg {
+  background: url('/images/patrocinadores/sponsor-stories-bg.png') no-repeat;
+  background-position-y: -400px;
+}
+
+.sponsor_image_stories {
+  width: 1080px;
+  height: 1920px;
+  margin: 0 auto;
+
+  .sponsor_logo {
+    text-align: center;
+    padding-top: 130px;
+
+    .sponsor {
+      margin-bottom: 0;
+    }
+  }
+
+  .content {
+    margin: 0 auto;
+    width: max-content;
+    text-align: center;
+    padding: 100px;
+
+    > * {
+      margin: 0 auto;
+    }
+  }
+
+  .info {
+    margin-top: 150px;
+
+    > *:first-child {
+      margin: 50px auto;
+    }
+
+    > * {
+      margin: 0 auto;
+      font-size: 38px;
+    }
+  }
 }
 
 .sponsor_image_default {
@@ -25,17 +69,17 @@
 
     > * {
       font-size: 30px;
-    }
-
-    .local {
-      color: $dark-gray;
-    }
-
-    .date {
       margin: 0;
-      color: $white;
     }
   }
+}
+
+.local {
+  color: $dark-gray;
+}
+
+.date {
+  color: $white;
 }
 
 .sponsor {

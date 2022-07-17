@@ -13,8 +13,33 @@ type KindComponentProps = {
   sponsor: Sponsor;
 };
 
-const Stories = () => {
-  return <div>stories!</div>;
+const Stories = ({ sponsor }: KindComponentProps) => {
+  return (
+    <div className={styles.sponsor_image_stories}>
+      <div style={{ backgroundColor: sponsor.color.hex }} className={styles.sponsor_logo}>
+        <p className={styles.sponsor}>Patrocínio</p>
+        <Image
+          src={sponsor.whiteLogo.url}
+          width={391}
+          height={213}
+          alt={`Logo do patrocinador ${sponsor.name}`}
+        />
+      </div>
+      <div className={styles.stories_bg}>
+        <div className={styles.content}>
+          <Share kind="stories" />
+
+          <div className={styles.info}>
+            <Logo width="484" height="83" />
+            <p className={styles.local}>
+              Online <span className="bullet">•</span> Gather Town
+            </p>
+            <p className={styles.date}>22, 23 e 24 de setembro</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 const Square = () => {
   return <div>sponsor!</div>;
@@ -22,9 +47,9 @@ const Square = () => {
 
 const Default = ({ sponsor }: KindComponentProps) => {
   return (
-    <div className={styles.background}>
+    <div className={styles.default_bg}>
       <div className={styles.sponsor_image_default}>
-        <Share />
+        <Share kind="default" />
         <div>
           <Logo width="347" height="59" />
 
