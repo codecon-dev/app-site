@@ -1,10 +1,6 @@
 import { SVGProps } from 'react';
 import { ImageKind } from '@lib/types/all';
 
-type Props = {
-  kind: ImageKind;
-};
-
 const Stories = (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
   <svg width={813} height={809} fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
@@ -3966,6 +3962,10 @@ const Square = (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => {
       </defs>
     </svg>
   );
+};
+
+type Props = {
+  kind: ImageKind;
 };
 
 export default function Share({ kind, ...rest }: Props) {
