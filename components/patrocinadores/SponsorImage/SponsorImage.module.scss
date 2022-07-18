@@ -11,6 +11,11 @@
   background-position-y: -400px;
 }
 
+.square_bg {
+  background: url('/images/patrocinadores/sponsor-square-bg.png') no-repeat;
+  background-position-x: 50%;
+}
+
 .sponsor_image_stories {
   width: 1080px;
   height: 1920px;
@@ -72,6 +77,33 @@
     > * {
       font-size: 30px;
       margin: 0;
+    }
+  }
+}
+
+.sponsor_image_square {
+  width: 1080px;
+  height: 1080px;
+  margin: 0 auto;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+
+    > * {
+      text-align: center;
+      align-self: center;
+    }
+
+    .sponsor {
+      margin-top: 70px;
+      margin-bottom: 30px;
+    }
+
+    .sponsor_logo {
+      width: 100%;
+      padding: 20px 0;
     }
   }
 }

@@ -41,8 +41,26 @@ const Stories = ({ sponsor }: KindComponentProps) => {
     </div>
   );
 };
-const Square = () => {
-  return <div>sponsor!</div>;
+const Square = ({ sponsor }: KindComponentProps) => {
+  return (
+    <div className={styles.sponsor_image_square}>
+      <div className={styles.square_bg}>
+        <div className={styles.content}>
+          <Share kind="square" />
+          <Logo width="494" height="84" style={{ marginTop: '50px' }} />
+          <p className={styles.sponsor}>Patrocínio</p>
+          <div style={{ backgroundColor: sponsor.color.hex }} className={styles.sponsor_logo}>
+            <Image
+              src={sponsor.whiteLogo.url}
+              width={391}
+              height={213}
+              alt={`Logo do patrocinador ${sponsor.name}`}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 const Default = ({ sponsor }: KindComponentProps) => {

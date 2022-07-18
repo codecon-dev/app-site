@@ -21,8 +21,8 @@ const IMAGE_CONFIG = {
     height: 675
   },
   square: {
-    width: 1500,
-    height: 1500
+    width: 1080,
+    height: 1080
   },
   stories: {
     width: 1080,
