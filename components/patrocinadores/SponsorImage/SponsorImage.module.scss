@@ -2,6 +2,8 @@
 
 .default_bg {
   background: url('/images/patrocinadores/sponsor-default-bg.png') no-repeat;
+  width: 1200px;
+  height: 675px;
 }
 
 .stories_bg {
@@ -50,7 +52,7 @@
 
 .sponsor_image_default {
   display: grid;
-  grid-template-columns: 30% auto;
+  grid-template-columns: 558px auto;
   padding: 50px;
   grid-gap: 100px;
 

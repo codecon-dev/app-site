@@ -17,8 +17,8 @@ const SPONSOR_PATH = `${baseUrl}/patrocinadores/image`;
 const SPEAKER_PATH = `${baseUrl}/quem-vai/image`;
 const IMAGE_CONFIG = {
   default: {
-    width: 2000,
-    height: 1000
+    width: 1200,
+    height: 675
   },
   square: {
     width: 1500,
