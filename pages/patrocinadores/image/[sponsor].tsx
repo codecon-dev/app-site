@@ -1,22 +1,23 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 import { getAllSponsors } from '@lib/cms-api';
-import { Sponsor } from '@lib/types/all';
+import { ImageKind, Sponsor } from '@lib/types/all';
 import { useRouter } from 'next/router';
+import SponsorImage from '@components/patrocinadores/SponsorImage';
 
 type Props = {
   sponsor: Sponsor;
 };
 
-export default function SponsorImagePage({ sponsor }: Props) {
-  const router = useRouter();
+type Query = {
+  kind?: ImageKind;
+};
 
-  return (
-    <>
-      <h1>{sponsor.name}</h1>
-      <p>{JSON.stringify(router.query)}</p>
-    </>
-  );
+export default function SponsorImagePage({ sponsor }: Props) {
+  const { query } = useRouter();
+  const { kind = 'default' }: Query = query;
+
+  return <SponsorImage sponsor={sponsor} kind={kind} />;
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {

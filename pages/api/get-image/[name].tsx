@@ -1,10 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import getScreenshot from '@lib/getScreenshot';
+import { ImageKind } from '@lib/types/all';
 
 type ImageParams = {
   name?: string;
   type?: 'sponsor' | 'speaker';
-  kind?: 'default' | 'square' | 'stories';
+  kind?: ImageKind;
 };
 
 const baseUrl =
@@ -16,12 +17,12 @@ const SPONSOR_PATH = `${baseUrl}/patrocinadores/image`;
 const SPEAKER_PATH = `${baseUrl}/quem-vai/image`;
 const IMAGE_CONFIG = {
   default: {
-    width: 2000,
-    height: 1000
+    width: 1200,
+    height: 675
   },
   square: {
-    width: 1500,
-    height: 1500
+    width: 1080,
+    height: 1080
   },
   stories: {
     width: 1080,
