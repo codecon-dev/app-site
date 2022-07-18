@@ -23,7 +23,7 @@
 
   .sponsor_logo {
     text-align: center;
-    padding-top: 130px;
+    padding-top: 8rem;
 
     .sponsor {
       margin-bottom: 0;
@@ -58,8 +58,8 @@
 .sponsor_image_default {
   display: grid;
   grid-template-columns: 558px auto;
-  padding: 50px;
-  grid-gap: 100px;
+  padding: 3.125rem;
+  grid-gap: 6.25rem;
 
   > *:first-child {
     margin: 0 auto;
@@ -70,12 +70,12 @@
   }
 
   .info {
-    margin-top: 30px;
-    margin-bottom: 74px;
-    font-size: 30px;
+    margin-top: 1.875rem;
+    margin-bottom: 4.5rem;
+    font-size: 1.875rem;
 
     > * {
-      font-size: 30px;
+      font-size: 1.875rem;
       margin: 0;
     }
   }
@@ -89,7 +89,7 @@
   .content {
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
+    padding-top: 6.25rem;
 
     > * {
       text-align: center;
@@ -97,13 +97,13 @@
     }
 
     .sponsor {
-      margin-top: 70px;
-      margin-bottom: 30px;
+      margin-top: 4.5rem;
+      margin-bottom: 1.875rem;
     }
 
     .sponsor_logo {
       width: 100%;
-      padding: 20px 0;
+      padding: 1.25rem 0;
     }
   }
 }
@@ -117,10 +117,10 @@
 }
 
 .sponsor {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
   color: $white;
 }
