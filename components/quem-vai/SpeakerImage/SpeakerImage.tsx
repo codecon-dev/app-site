@@ -1,4 +1,5 @@
 import { ImageKind } from '@lib/types/all';
+import { SITE_URL } from '@lib/constants';
 import { Speaker } from '@lib/types/speakers';
 import styles from './SpeakerImage.module.scss';
 import Logo from '@components/_ui/Icons/icon-logo';
@@ -16,8 +17,41 @@ type KindComponentProps = {
 const Stories = ({ speaker }: KindComponentProps) => {
   return <div className={styles.speaker_image_stories}>stories {speaker.name}</div>;
 };
+
 const Square = ({ speaker }: KindComponentProps) => {
-  return <div className={styles.speaker_image_square}>square {speaker.name}</div>;
+  const url = new URL(SITE_URL).host;
+
+  return (
+    <div className={styles.square_bg}>
+      <div className={styles.kind_square}>
+        <div className={styles.header}>
+          <h2>
+            Presença <br /> confirmada
+          </h2>
+          <div>
+            <Logo isShort />
+            <h3>{url}</h3>
+          </div>
+        </div>
+
+        <div className={styles.image_wrapper}>
+          <SpeakerCard>
+            <SpeakerCard.Image
+              src={speaker.image.url}
+              alt={speaker.name}
+              width={494}
+              height={494}
+            />
+            <SpeakerCard.Character
+              src={speaker.character.url}
+              alt={`Avatar de ${speaker.name} criado no Gather`}
+            />
+          </SpeakerCard>
+        </div>
+        <h1>{speaker.name}</h1>
+      </div>
+    </div>
+  );
 };
 
 const Default = ({ speaker }: KindComponentProps) => {

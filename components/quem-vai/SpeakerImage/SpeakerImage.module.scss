@@ -6,6 +6,50 @@
   height: 675px;
 }
 
+.square_bg {
+  background: url('/images/quem-vai/speaker-square-bg.png') no-repeat;
+  width: 1080px;
+  height: 1080px;
+}
+
+.kind_square {
+  padding: 100px;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 80px;
+
+    h2 {
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+    }
+
+    h3 {
+      font-size: 30px;
+      font-weight: normal;
+      color: $dark-gray;
+    }
+
+    svg {
+      margin-left: auto;
+    }
+  }
+
+  .image_wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 100px;
+    color: $light-green;
+  }
+}
+
 .kind_default {
   display: grid;
   grid-template-columns: 390px auto;
