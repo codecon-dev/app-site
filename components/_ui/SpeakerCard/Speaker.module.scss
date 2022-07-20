@@ -2,6 +2,7 @@
 @import 'styles/media-queries';
 
 .speaker_card {
+  position: relative;
   display: grid;
   grid-template-areas:
     'title zero'
@@ -70,6 +71,12 @@
   .about {
     grid-area: about;
     margin-top: 0.5rem;
+  }
+
+  .large_character {
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
   }
 }
 

@@ -78,13 +78,26 @@ const Social = ({ data, character, horizontal }: PropsSocial) => {
   );
 };
 
-const SpeakerCard = ({ children }: PropsSpeakerCard) => {
-  return <div className={styles.speaker_card}>{children}</div>;
+const Character = ({ src = '', alt = '' }) => {
+  return (
+    <span className={styles.large_character}>
+      <NextImage src={src} width={151} height={198} alt={alt} />
+    </span>
+  );
+};
+
+const SpeakerCard = ({ children, ...rest }: PropsSpeakerCard) => {
+  return (
+    <div className={styles.speaker_card} {...rest}>
+      {children}
+    </div>
+  );
 };
 
 SpeakerCard.Title = Title;
 SpeakerCard.Image = Image;
 SpeakerCard.About = About;
 SpeakerCard.Social = Social;
+SpeakerCard.Character = Character;
 
 export default SpeakerCard;
