@@ -1,0 +1,41 @@
+@import 'styles/colors';
+
+.default_bg {
+  background: url('/images/quem-vai/speaker-default-bg.png') no-repeat;
+  width: 1200px;
+  height: 675px;
+}
+
+.kind_default {
+  display: grid;
+  grid-template-columns: 390px auto;
+  padding: 8rem;
+  grid-gap: 5.25rem;
+}
+
+.name {
+  color: $light-green;
+  margin-bottom: 0.75rem;
+
+  + h2 {
+    font-size: 1.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.info {
+  > * {
+    font-size: 1.875rem;
+    margin: 0;
+  }
+
+  .local {
+    color: $dark-gray;
+  }
+
+  .date {
+    color: $white;
+  }
+}

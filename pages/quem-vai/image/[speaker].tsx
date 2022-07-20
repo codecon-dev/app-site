@@ -2,21 +2,23 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 
 import { getAllSpeakers } from '@lib/cms-api';
 import { Speaker } from '@lib/types/speakers';
+import { ImageKind } from '@lib/types/all';
 import { useRouter } from 'next/router';
+import SpeakerImage from '@components/quem-vai/SpeakerImage';
 
 type Props = {
   speaker: Speaker;
 };
 
-export default function SpeakerImagePage({ speaker }: Props) {
-  const router = useRouter();
+type Query = {
+  kind?: ImageKind;
+};
 
-  return (
-    <>
-      <h1>{speaker.name}</h1>
-      <p>{JSON.stringify(router.query)}</p>
-    </>
-  );
+export default function SpeakerImagePage({ speaker }: Props) {
+  const { query } = useRouter();
+  const { kind = 'default' }: Query = query;
+
+  return <SpeakerImage speaker={speaker} kind={kind} />;
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
