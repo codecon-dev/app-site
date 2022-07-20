@@ -2,7 +2,7 @@ import NextImage from 'next/image';
 import cn from 'classnames';
 
 import Icons from './Icons';
-import styles from './Speaker.module.scss';
+import styles from './SpeakerCard.module.scss';
 import {
   PropsAbout,
   PropsImage,
