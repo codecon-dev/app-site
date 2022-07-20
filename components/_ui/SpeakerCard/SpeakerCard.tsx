@@ -20,17 +20,17 @@ const Title = ({ children }: PropsTitle) => {
   );
 };
 
-const Image = ({ href, src, alt, isHost }: PropsImage) => {
+const Image = ({ href, src, alt, isHost, width = 600, height = 600 }: PropsImage) => {
   return (
     <div className={styles.image_wrapper}>
       {href ? (
         <Link href={href}>
           <a>
-            <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
+            <NextImage src={src} alt={alt} width={width} height={height} layout="responsive" />
           </a>
         </Link>
       ) : (
-        <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
+        <NextImage src={src} alt={alt} width={width} height={height} layout="responsive" />
       )}
       {isHost && <span className={styles.host}>Host</span>}
     </div>

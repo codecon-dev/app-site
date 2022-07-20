@@ -26,6 +26,8 @@ export type PropsImage = {
   src: string;
   alt: string;
   isHost?: boolean;
+  width?: number;
+  height?: number;
 };
 
 export type PropsAbout = {
