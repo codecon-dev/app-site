@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import { Image, Talk, Workshop } from './all';
 
 export type Speaker = {
@@ -21,14 +21,14 @@ export type PropsTitle = {
   children: string;
 };
 
-export type PropsImage = {
+export interface PropsImage extends HTMLAttributes<HTMLElement> {
   href?: string;
   src: string;
   alt: string;
   isHost?: boolean;
   width?: number;
   height?: number;
-};
+}
 
 export type PropsAbout = {
   children: ReactNode;

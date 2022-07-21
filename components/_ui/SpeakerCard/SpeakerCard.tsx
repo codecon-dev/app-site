@@ -20,9 +20,9 @@ const Title = ({ children }: PropsTitle) => {
   );
 };
 
-const Image = ({ href, src, alt, isHost, width = 600, height = 600 }: PropsImage) => {
+const Image = ({ href, src, alt, isHost, width = 600, height = 600, ...rest }: PropsImage) => {
   return (
-    <div className={styles.image_wrapper}>
+    <div className={styles.image_wrapper} {...rest}>
       {href ? (
         <Link href={href}>
           <a>

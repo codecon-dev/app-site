@@ -14,13 +14,37 @@ type KindComponentProps = {
   speaker: Speaker;
 };
 
+const url = new URL(SITE_URL).host;
+
 const Stories = ({ speaker }: KindComponentProps) => {
-  return <div className={styles.speaker_image_stories}>stories {speaker.name}</div>;
+  return (
+    <div className={styles.stories_bg}>
+      <div className={styles.kind_stories}>
+        <h3>{url}</h3>
+        <div className={styles.image_wrapper}>
+          <SpeakerCard>
+            <SpeakerCard.Image
+              src={speaker.image.url}
+              alt={speaker.name}
+              width={605}
+              height={605}
+              style={{ padding: '1rem' }}
+            />
+            <SpeakerCard.Character
+              src={speaker.character.url}
+              alt={`Avatar de ${speaker.name} criado no Gather`}
+            />
+          </SpeakerCard>
+        </div>
+        <h1 className={styles.name}>{speaker.name}</h1>
+        <h2>Estará na</h2>
+        <Logo width={484} height={83} />
+      </div>
+    </div>
+  );
 };
 
 const Square = ({ speaker }: KindComponentProps) => {
-  const url = new URL(SITE_URL).host;
-
   return (
     <div className={styles.square_bg}>
       <div className={styles.kind_square}>
@@ -41,6 +65,7 @@ const Square = ({ speaker }: KindComponentProps) => {
               alt={speaker.name}
               width={494}
               height={494}
+              style={{ padding: '1rem' }}
             />
             <SpeakerCard.Character
               src={speaker.character.url}
@@ -59,7 +84,13 @@ const Default = ({ speaker }: KindComponentProps) => {
     <div className={styles.default_bg}>
       <div className={styles.kind_default}>
         <SpeakerCard>
-          <SpeakerCard.Image src={speaker.image.url} alt={speaker.name} width={390} height={390} />
+          <SpeakerCard.Image
+            src={speaker.image.url}
+            alt={speaker.name}
+            width={390}
+            height={390}
+            style={{ padding: '1rem' }}
+          />
           <SpeakerCard.Character
             src={speaker.character.url}
             alt={`Avatar de ${speaker.name} criado no Gather`}
