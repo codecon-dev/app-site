@@ -2,7 +2,7 @@ import NextImage from 'next/image';
 import cn from 'classnames';
 
 import Icons from './Icons';
-import styles from './Speaker.module.scss';
+import styles from './SpeakerCard.module.scss';
 import {
   PropsAbout,
   PropsImage,
@@ -20,17 +20,17 @@ const Title = ({ children }: PropsTitle) => {
   );
 };
 
-const Image = ({ href, src, alt, isHost }: PropsImage) => {
+const Image = ({ href, src, alt, isHost, width = 600, height = 600, ...rest }: PropsImage) => {
   return (
-    <div className={styles.image_wrapper}>
+    <div className={styles.image_wrapper} {...rest}>
       {href ? (
         <Link href={href}>
           <a>
-            <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
+            <NextImage src={src} alt={alt} width={width} height={height} layout="responsive" />
           </a>
         </Link>
       ) : (
-        <NextImage src={src} alt={alt} width={600} height={600} layout="responsive" />
+        <NextImage src={src} alt={alt} width={width} height={height} layout="responsive" />
       )}
       {isHost && <span className={styles.host}>Host</span>}
     </div>
@@ -78,13 +78,26 @@ const Social = ({ data, character, horizontal }: PropsSocial) => {
   );
 };
 
-const SpeakerCard = ({ children }: PropsSpeakerCard) => {
-  return <div className={styles.speaker_card}>{children}</div>;
+const Character = ({ src = '', alt = '' }) => {
+  return (
+    <span className={styles.large_character}>
+      <NextImage src={src} width={151} height={198} alt={alt} />
+    </span>
+  );
+};
+
+const SpeakerCard = ({ children, ...rest }: PropsSpeakerCard) => {
+  return (
+    <div className={styles.speaker_card} {...rest}>
+      {children}
+    </div>
+  );
 };
 
 SpeakerCard.Title = Title;
 SpeakerCard.Image = Image;
 SpeakerCard.About = About;
 SpeakerCard.Social = Social;
+SpeakerCard.Character = Character;
 
 export default SpeakerCard;
