@@ -13,7 +13,8 @@ type Props = {
 
 export default function QuemVai({ sponsor }: Props) {
   const meta = {
-    title: `${sponsor.name} está patrocinando a Codecon Digital 2022`
+    title: `${sponsor.name} está patrocinando a Codecon Digital 2022`,
+    image: `/api/get-image/${sponsor.slug}?type=sponsor`
   };
 
   return (
