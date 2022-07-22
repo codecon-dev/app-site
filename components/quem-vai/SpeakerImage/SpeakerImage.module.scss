@@ -89,6 +89,7 @@
 
 .kind_default {
   display: grid;
+  align-items: center;
   grid-template-columns: 410px auto;
   padding: 8rem;
   grid-gap: 5rem;
@@ -96,6 +97,7 @@
 
 .name {
   color: $light-green;
+  font-size: 3.5rem;
 
   + h2 {
     font-size: 1.875rem;
