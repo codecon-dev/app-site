@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState, RefObject } from 'react';
 import cn from 'classnames';
 
 import { EVENT_DAYS, Talk } from '@lib/types/all';
@@ -9,7 +10,6 @@ import {
 
 import styles from './Schedule.module.scss';
 import Activity from '@components/_ui/Activity';
-import { useEffect, useState } from 'react';
 
 type Props = {
   talks: Talk[];
@@ -102,24 +102,31 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
 }
 
 export default function Schedule({ talks }: Props) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const dayTwoDate = new Date('2022-09-23 00:00:00');
-  const dayThreeDate = new Date('2022-09-24 00:00:00');
-  let actualDayTab = EVENT_DAYS.THURSDAY;
-
-  if (today.toDateString() === dayTwoDate.toDateString()) {
-    actualDayTab = EVENT_DAYS.FRIDAY;
-  } else if (today.toDateString() === dayThreeDate.toDateString()) {
-    actualDayTab = EVENT_DAYS.SATURDAY;
-  }
-
-  const [activeTab, setActiveTab] = useState(actualDayTab);
+  const [activeTab, setActiveTab] = useState(EVENT_DAYS.THURSDAY);
   const [firstBlock, setFirstBlock] = useState<Talk[]>();
   const [secondBlock, setSecondBlock] = useState<Talk[]>();
   const [thirdBlock, setThirdBlock] = useState<Talk[]>();
   const [fourthBlock, setFourthBlock] = useState<Talk[]>();
-  const hasHappyHour = activeTab === EVENT_DAYS.SATURDAY;
+  const [hasHappyHour, setHasHappyHour] = useState(false);
+  const sectionRef = useRef<null | HTMLDivElement>(null);
+
+  useEffect(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const dayTwoDate = new Date('2022-09-23 00:00:00');
+    const dayThreeDate = new Date('2022-09-24 00:00:00');
+    let actualDayTab = EVENT_DAYS.THURSDAY;
+    const hash = window.location.hash;
+
+    if (today.toDateString() === dayTwoDate.toDateString() || hash === '#2') {
+      actualDayTab = EVENT_DAYS.FRIDAY;
+    } else if (today.toDateString() === dayThreeDate.toDateString() || hash === '#3') {
+      actualDayTab = EVENT_DAYS.SATURDAY;
+    }
+
+    setActiveTab(actualDayTab);
+    setHasHappyHour(activeTab === EVENT_DAYS.SATURDAY);
+  }, [activeTab]);
 
   useEffect(() => {
     const talksByDay = [
@@ -144,8 +151,17 @@ export default function Schedule({ talks }: Props) {
     );
   }, [activeTab, talks]);
 
+  function scrollToTop() {
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
   return (
-    <section>
+    <section ref={sectionRef}>
       <nav className={styles.tabs}>
         <div className="container">
           <button
@@ -154,6 +170,8 @@ export default function Schedule({ talks }: Props) {
             })}
             onClick={() => {
               setActiveTab(EVENT_DAYS.THURSDAY);
+              window.location.hash = '1';
+              scrollToTop();
             }}
           >
             <span className={styles['full-text']}>Quinta (22/09)</span>
@@ -165,6 +183,8 @@ export default function Schedule({ talks }: Props) {
             })}
             onClick={() => {
               setActiveTab(EVENT_DAYS.FRIDAY);
+              window.location.hash = '2';
+              scrollToTop();
             }}
           >
             <span className={styles['full-text']}>Sexta (23/09)</span>
@@ -176,6 +196,8 @@ export default function Schedule({ talks }: Props) {
             })}
             onClick={() => {
               setActiveTab(EVENT_DAYS.SATURDAY);
+              window.location.hash = '3';
+              scrollToTop();
             }}
           >
             <span className={styles['full-text']}>Sábado (24/09)</span>

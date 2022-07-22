@@ -16,8 +16,9 @@ type Props = {
 
 export default function QuemVai({ speaker, sponsors }: Props) {
   const meta = {
-    title: `${speaker.name} - Codecon Digital 2022`,
-    image: `/api/get-image/${speaker.slug}?type=speaker`
+    title: `${speaker.name} estará na Codecon Digital 2022`,
+    image: `/api/get-image/${speaker.slug}?type=speaker`,
+    description: speaker.bio
   };
 
   return (

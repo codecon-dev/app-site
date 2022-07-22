@@ -4,6 +4,19 @@
 .tabs {
   border-bottom: 1px solid $light-green;
   margin-bottom: 3rem;
+  padding-top: 1rem;
+  position: sticky;
+  top: 105px;
+  background-color: $black;
+  z-index: 150;
+
+  @media #{$breakpoint-sm} {
+    top: 128px;
+  }
+
+  @media #{$breakpoint-lg} {
+    top: 105px;
+  }
 
   button {
     border: 0;
