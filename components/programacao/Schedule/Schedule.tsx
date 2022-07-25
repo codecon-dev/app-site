@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState, RefObject } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
+import Image from 'next/image';
 
 import { EVENT_DAYS, Talk } from '@lib/types/all';
 import {
@@ -162,8 +163,27 @@ export default function Schedule({ talks }: Props) {
 
   return (
     <section ref={sectionRef}>
+      <div className="container">
+        <div className={cn(styles['libras'], styles['libras-mobile'])}>
+          <span className={styles['libras-image']}>
+            <Image
+              src="/icons/libras.png"
+              layout="responsive"
+              width={64}
+              height={64}
+              alt="Emoji de pessoa fazendo sinal em Libras"
+              quality={100}
+            />
+          </span>
+          <p>
+            <strong>Evento acessível!</strong> As palestras em português terão intérpretes de
+            Libras.
+          </p>
+        </div>
+      </div>
+
       <nav className={styles.tabs}>
-        <div className="container">
+        <div className={cn('container', styles['tabs-container'])}>
           <button
             className={cn({
               [styles.active]: activeTab === EVENT_DAYS.THURSDAY
@@ -203,6 +223,22 @@ export default function Schedule({ talks }: Props) {
             <span className={styles['full-text']}>Sábado (24/09)</span>
             <span className={styles['mobile-text']}>24/09</span>
           </button>
+          <div className={cn(styles['libras'], styles['libras-desktop'])}>
+            <span className={styles['libras-image']}>
+              <Image
+                src="/icons/libras.png"
+                layout="responsive"
+                width={64}
+                height={64}
+                alt="Emoji de pessoa fazendo sinal em Libras"
+                quality={100}
+              />
+            </span>
+            <p>
+              <strong>Evento acessível!</strong> As palestras em português terão intérpretes de
+              Libras.
+            </p>
+          </div>
         </div>
       </nav>
       <div className="container">
