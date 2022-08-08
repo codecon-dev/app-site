@@ -16,6 +16,9 @@ type Props = {
 };
 
 export default function Footer({ sponsors }: Props) {
+  const communities = sponsors?.filter(sponsor => sponsor.tier === 'comunidade');
+  const partners = sponsors?.filter(sponsor => sponsor.tier !== 'comunidade');
+
   return (
     <footer className={styles.wrapper}>
       {sponsors && (
@@ -25,7 +28,23 @@ export default function Footer({ sponsors }: Props) {
             <br className={styleUtils['hide-on-mobile']} /> apoio dessas marcas
           </h2>
 
-          {sponsors.map(s => (
+          {partners?.map(s => (
+            <a
+              className={styles.sponsor}
+              key={s.slug}
+              href={s.website}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image width={220} height={120} src={s.logo.url} alt={s.name} />
+            </a>
+          ))}
+
+          <hr className={styles.hr} />
+
+          <h2 className={styles.title}>Comunidades que estão com a gente nessa</h2>
+
+          {communities?.map(s => (
             <a
               className={styles.sponsor}
               key={s.slug}
