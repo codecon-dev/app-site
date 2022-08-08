@@ -46,7 +46,8 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const sponsors = await getAllSponsors();
-  const slugs = sponsors.map((s: Sponsor) => ({ params: { slug: s.slug } }));
+  const onlySponsors = sponsors.filter(sponsor => sponsor.tier !== 'comunidade');
+  const slugs = onlySponsors.map((s: Sponsor) => ({ params: { slug: s.slug } }));
 
   return {
     paths: slugs,
