@@ -34,10 +34,11 @@ export default function Programacao({ sponsors }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const sponsors = await getAllSponsors();
+  const onlySponsors = sponsors.filter(sponsor => sponsor.tier !== 'comunidade');
 
   return {
     props: {
-      sponsors
+      sponsors: onlySponsors
     }
   };
 };

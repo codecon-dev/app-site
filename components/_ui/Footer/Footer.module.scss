@@ -29,6 +29,15 @@
   }
 }
 
+.hr {
+  width: 5rem;
+  height: 5px;
+  display: block;
+  background: lighten($light-gray, 15%);
+  margin: 5rem auto;
+  border: 0;
+}
+
 .footer {
   padding-top: 2rem;
   background-color: lighten($light-gray, 18%);
