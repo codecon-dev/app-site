@@ -18,6 +18,11 @@
     top: 105px;
   }
 
+  &-container {
+    display: flex;
+    align-items: center;
+  }
+
   button {
     border: 0;
     background-color: transparent;
@@ -38,13 +43,13 @@
     .full-text {
       display: none;
 
-      @media #{$breakpoint-sm} {
+      @media #{$breakpoint-lg} {
         display: inline;
       }
     }
 
     .mobile-text {
-      @media #{$breakpoint-sm} {
+      @media #{$breakpoint-lg} {
         display: none;
       }
     }
@@ -63,6 +68,39 @@
         background-color: transparent;
         transition: background-color 0s ease-in-out;
       }
+    }
+  }
+}
+
+.libras {
+  display: flex;
+  max-width: 20rem;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  &-image {
+    flex: 0 0 2rem;
+    width: 2rem;
+    display: block;
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+
+  &-desktop {
+    display: none;
+
+    @media #{$breakpoint-sm} {
+      display: flex;
+      margin-left: auto;
+    }
+  }
+
+  &-mobile {
+    @media #{$breakpoint-sm} {
+      display: none;
     }
   }
 }

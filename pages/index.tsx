@@ -7,6 +7,7 @@ import { Speaker } from '@lib/types/speakers';
 import Layout from '@components/_ui/Layout';
 import Page from '@components/_ui/Page';
 import Hero from '@components/home/Hero';
+import Differentials from '@components/home/Differentials';
 import About from '@components/home/About';
 import ClaimCards from '@components/home/ClaimCards';
 import Gather from '@components/home/Gather';
@@ -23,6 +24,7 @@ export default function Conf({ speakers, sponsors }: Props) {
     <Page>
       <Layout sponsors={sponsors}>
         <Hero />
+        <Differentials />
         <About />
         <ClaimCards />
         <Gather />

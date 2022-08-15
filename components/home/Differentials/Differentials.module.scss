@@ -1,0 +1,22 @@
+@import 'styles/media-queries';
+@import 'styles/colors';
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  @media #{$breakpoint-lg} {
+    padding-right: 2rem;
+
+    &.last {
+      padding-right: 0;
+    }
+  }
+
+  .image {
+    flex: 0 0 4rem;
+    width: 4rem;
+    display: block;
+  }
+}
