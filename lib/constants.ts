@@ -8,6 +8,7 @@ export const REGISTER_URL =
   'https://www.sympla.com.br/codecon-2022---be-the-developer-of-the-future__1631778';
 export const EVENT_PRICE = 39;
 export const WORKSHOP_PRICE = 0;
+export const RANKING_ENABLED = true;
 
 export const NAVIGATION = [
   {
