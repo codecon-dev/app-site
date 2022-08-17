@@ -55,29 +55,27 @@ export default function PrivateArea({ children }: Props) {
     return <div className={styles.loading} />;
   }
 
-  return (
-    <>
-      {userData ? (
-        <>{React.cloneElement(children, { data: userData })}</>
-      ) : (
-        <>
-          <p>Faça login para continuar</p>
+  if (userData) {
+    return  <>{React.cloneElement(children, { data: userData })}</>
+  }
 
-          <form
-            // eslint-disable-next-line @typescript-eslint/no-misused-promises
-            onSubmit={async e => {
-              await handleSubmit(e);
-            }}
-          >
-            <input
-              onChange={event => setEmail(event.target.value)}
-              type={'email'}
-              placeholder={'Email'}
+  return (
+      <>
+        <p>Faça login para continuar</p>
+
+        <form
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          onSubmit={async e => {
+            await handleSubmit(e);
+          }}
+        >
+          <input
+            onChange={event => setEmail(event.target.value)}
+            type={'email'}
+            placeholder={'Email'}
             />
-            <input type="submit" />
-          </form>
-        </>
-      )}
-    </>
+          <input type="submit" />
+        </form>
+      </>
   );
 }
