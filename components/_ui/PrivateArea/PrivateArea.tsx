@@ -32,23 +32,23 @@ export default function PrivateArea({ children }: Props) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ email })
-    })
-      .then(response => response.json())
-      .then(({ data, success, message }: LoginResponse) => {
-        if (!success) {
-          toast.error(message);
-          return;
-        }
+    });
 
-        const firstName = data.user.name.split(' ')[0];
+    const json = await response.json();
+    const { data, success, message }: LoginResponse = json;
+    if (!success) {
+      toast.error(message);
+      return;
+    }
 
-        window.localStorage.setItem('codeconEmail', data.user.email);
-        window.localStorage.setItem('codeconFullName', data.user.name);
-        window.localStorage.setItem('codeconFirstName', firstName);
+    const firstName = data.user.name.split(' ')[0];
 
-        setUserData({ firstName, fullName: data.user.name, email: data.user.email });
-        toast.success(message);
-      });
+    window.localStorage.setItem('codeconEmail', data.user.email);
+    window.localStorage.setItem('codeconFullName', data.user.name);
+    window.localStorage.setItem('codeconFirstName', firstName);
+
+    setUserData({ firstName, fullName: data.user.name, email: data.user.email });
+    toast.success(message);
   }
 
   if (isLoading) {
