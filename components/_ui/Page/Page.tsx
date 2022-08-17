@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast';
 import cn from 'classnames';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -46,6 +47,7 @@ export default function Page({ meta, children, fullViewport = false }: Props) {
           />
         )}
       </Head>
+      <Toaster position="bottom-right" />
       {children}
     </div>
   );
