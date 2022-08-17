@@ -26,29 +26,29 @@ export default function PrivateArea({ children }: Props) {
   async function handleSubmit(e: SyntheticEvent): Promise<void> {
     e.preventDefault();
 
-    await fetch(`/api/login/check`, {
+    const response = await fetch(`/api/login/check`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ email })
     })
-      .then(response => response.json())
-      .then(({ data: { user }, success, message }: LoginResponse) => {
-        if (!success) {
-          toast.error(message);
-          return;
-        }
+    
+    const json = await response.json()
+    const { data: { user }, success, message } = json
+    if (!success) {
+      toast.error(message);
+      return;
+    }
+    
+    const firstName = user.name.split(' ')[0];
 
-        const firstName = user.name.split(' ')[0];
+    window.localStorage.setItem('codeconEmail', user.email);
+    window.localStorage.setItem('codeconFullName', user.name);
+    window.localStorage.setItem('codeconFirstName', firstName);
 
-        window.localStorage.setItem('codeconEmail', user.email);
-        window.localStorage.setItem('codeconFullName', user.name);
-        window.localStorage.setItem('codeconFirstName', firstName);
-
-        setUserData({ firstName, fullName: user.name, email: user.email });
-        toast.success(message);
-      });
+    setUserData({ firstName, fullName: user.name, email: user.email });
+    toast.success(message);
   }
 
   if (isLoading) {
