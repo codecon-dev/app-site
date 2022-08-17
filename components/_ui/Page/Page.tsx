@@ -47,7 +47,7 @@ export default function Page({ meta, children, fullViewport = false }: Props) {
           />
         )}
       </Head>
-      <Toaster position="bottom-right" />
+      <Toaster />
       {children}
     </div>
   );
