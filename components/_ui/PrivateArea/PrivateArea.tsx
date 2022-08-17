@@ -26,7 +26,7 @@ export default function PrivateArea({ children }: Props) {
   async function handleSubmit(e: SyntheticEvent): Promise<void> {
     e.preventDefault();
 
-    await fetch(`/api/login/check`, {
+    const response = await fetch(`/api/login/check`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
