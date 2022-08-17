@@ -34,19 +34,19 @@ export default function PrivateArea({ children }: Props) {
       body: JSON.stringify({ email })
     })
       .then(response => response.json())
-      .then(({ data: { user }, success, message }: LoginResponse) => {
+      .then(({ data, success, message }: LoginResponse) => {
         if (!success) {
           toast.error(message);
           return;
         }
 
-        const firstName = user.name.split(' ')[0];
+        const firstName = data.user.name.split(' ')[0];
 
-        window.localStorage.setItem('codeconEmail', user.email);
-        window.localStorage.setItem('codeconFullName', user.name);
+        window.localStorage.setItem('codeconEmail', data.user.email);
+        window.localStorage.setItem('codeconFullName', data.user.name);
         window.localStorage.setItem('codeconFirstName', firstName);
 
-        setUserData({ firstName, fullName: user.name, email: user.email });
+        setUserData({ firstName, fullName: data.user.name, email: data.user.email });
         toast.success(message);
       });
   }
@@ -60,23 +60,27 @@ export default function PrivateArea({ children }: Props) {
       {userData ? (
         <>{React.cloneElement(children, { data: userData })}</>
       ) : (
-        <>
-          <p>Faça login para continuar</p>
+        <section>
+          <div className="container">
+            <h3>Faça login para continuar</h3>
 
-          <form
-            // eslint-disable-next-line @typescript-eslint/no-misused-promises
-            onSubmit={async e => {
-              await handleSubmit(e);
-            }}
-          >
-            <input
-              onChange={event => setEmail(event.target.value)}
-              type={'email'}
-              placeholder={'Email'}
-            />
-            <input type="submit" />
-          </form>
-        </>
+            <form
+              // eslint-disable-next-line @typescript-eslint/no-misused-promises
+              onSubmit={async e => {
+                await handleSubmit(e);
+              }}
+            >
+              <input
+                onChange={event => setEmail(event.target.value)}
+                type={'email'}
+                placeholder={'Seu e-mail cadastrado'}
+                required
+                className={styles.input}
+              />
+              <input type="submit" value="Fazer login" className={styles.button} />
+            </form>
+          </div>
+        </section>
       )}
     </>
   );
