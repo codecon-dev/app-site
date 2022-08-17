@@ -1,6 +1,7 @@
 import React, { ReactElement, useState, SyntheticEvent, useCallback } from 'react';
 import toast from 'react-hot-toast';
 
+import OneInputForm from '../OneInputForm';
 import User from 'src/database/model/User';
 import { ConfUser } from '@lib/types/all';
 import { useIsLoggedIn } from '@hooks/useIsLoggedIn';
@@ -56,7 +57,7 @@ export default function PrivateArea({ children }: Props) {
   }
 
   if (userData) {
-    return <>{React.cloneElement(children, { data: userData })}</>
+    return <>{React.cloneElement(children, { ...userData })}</>;
   }
 
   return (
@@ -64,21 +65,13 @@ export default function PrivateArea({ children }: Props) {
       <div className="container">
         <h3>Faça login para continuar</h3>
 
-        <form
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          onSubmit={async e => {
-            await handleSubmit(e);
-          }}
-        >
-          <input
-            onChange={event => setEmail(event.target.value)}
-            type={'email'}
-            placeholder={'Seu e-mail cadastrado'}
-            required
-            className={styles.input}
-          />
-          <input type="submit" value="Fazer login" className={styles.button} />
-        </form>
+        <OneInputForm
+          handleSubmit={handleSubmit}
+          handleInputChange={event => setEmail(event.target.value)}
+          placeholder="Seu e-mail cadastrado"
+          buttonText="Fazer login"
+          inputType="email"
+        />
       </div>
     </section>
   );
