@@ -1,11 +1,10 @@
-import React, { ReactElement, useState, SyntheticEvent, useCallback } from 'react';
+import React, { ReactElement, useState, SyntheticEvent, useEffect } from 'react';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
 
 import OneInputForm from '../OneInputForm';
 import User from 'src/database/model/User';
 import { ConfUser } from '@lib/types/all';
-import { useIsLoggedIn } from '@hooks/useIsLoggedIn';
 
 import styles from './PrivateArea.module.scss';
 
@@ -18,12 +17,19 @@ type LoginResponse = { data: { user: User }; success: boolean; message: string }
 export default function PrivateArea({ children }: Props) {
   const [email, setEmail] = useState('');
   const [userData, setUserData] = useState<ConfUser>();
+  const [isLoading, setIsLoading] = useState(true);
 
-  const isLoading = useIsLoggedIn(
-    useCallback(data => {
-      setUserData(data);
-    }, [])
-  );
+  useEffect(() => {
+    const email = window.localStorage.getItem('codeconEmail');
+    const firstName = window.localStorage.getItem('codeconFirstName');
+    const fullName = window.localStorage.getItem('codeconFullName');
+
+    if (email && firstName && fullName) {
+      setUserData({ firstName, fullName, email });
+    }
+
+    setIsLoading(false);
+  }, []);
 
   async function handleSubmit(e: SyntheticEvent): Promise<void> {
     e.preventDefault();
