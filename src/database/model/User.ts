@@ -1,4 +1,4 @@
-import { DataTypes } from "sequelize/types"
+import { DataTypes } from "sequelize"
 import dataSource from "../DataSource"
 import ModelImpl, { commonAttributes } from "./ModelImpl"
 
