@@ -53,7 +53,9 @@ export default function CodecodesClaimForm({ firstName, fullName, email }: Props
   return (
     <section>
       <div className="container">
-        <h3>Hey, {firstName}! Digite abaixo o código que encontrou:</h3>
+        <h3>Hey, {firstName}!</h3>
+        <p>Digite abaixo o código que encontrou:</p>
+        <br />
         <OneInputForm
           handleSubmit={handleOnClaimSubmit}
           handleInputChange={event => setCode(event.target.value)}
