@@ -1,4 +1,5 @@
 import React, { ReactElement, useState, SyntheticEvent, useCallback } from 'react';
+import Image from 'next/image';
 import toast from 'react-hot-toast';
 
 import OneInputForm from '../OneInputForm';
@@ -65,13 +66,17 @@ export default function PrivateArea({ children }: Props) {
       <div className="container">
         <h3>Faça login para continuar</h3>
 
-        <OneInputForm
-          handleSubmit={handleSubmit}
-          handleInputChange={event => setEmail(event.target.value)}
-          placeholder="Seu e-mail cadastrado"
-          buttonText="Fazer login"
-          inputType="email"
-        />
+        <div className={styles.form}>
+          <Image src="/icons/locked.svg" width={100} height={100} />
+          <OneInputForm
+            handleSubmit={handleSubmit}
+            handleInputChange={event => setEmail(event.target.value)}
+            placeholder="Seu e-mail cadastrado"
+            buttonText="Fazer login"
+            inputType="email"
+            disableSubmit={!email}
+          />
+        </div>
       </div>
     </section>
   );

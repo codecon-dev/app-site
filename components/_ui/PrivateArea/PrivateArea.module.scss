@@ -1,6 +1,12 @@
 @import 'styles/colors';
 @import 'styles/media-queries';
 
+.form {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .loading {
   background-image: url('/animations/loading.gif');
   background-size: 5rem 5rem;
