@@ -5,9 +5,9 @@ import OneInputForm from '@components/_ui/OneInputForm';
 import { CodecodesClaimPayload } from '@lib/types/codecodes';
 
 type Props = {
-  firstName: string;
-  fullName: string;
-  email: string;
+  firstName?: string;
+  fullName?: string;
+  email?: string;
 };
 
 async function claim({ code, name, email }: CodecodesClaimPayload) {
