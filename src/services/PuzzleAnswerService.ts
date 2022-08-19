@@ -1,3 +1,6 @@
+import ResourceNotFoundError from "@lib/errors/ResourceNotFoundError"
+import Puzzle from "src/database/model/puzzle/Puzzle"
+import PuzzleAnswer, { PuzzleAnswerType } from "src/database/model/puzzle/PuzzleAnswer"
 import User from "src/database/model/User"
 
 export type PuzzleAnswerAttemptResponse = { 
@@ -20,6 +23,13 @@ export default class PuzzleAnswerService {
             await this.save(user, puzzle, PuzzleAnswerType.DONE)
             return { success: true, message: "Acertou, mizerávi" }
         }
+
+        const almostGotItRight: boolean = puzzle.almostList.some((almost: string) => normalizedUserGuess == this.normalize(almost))
+        if (almostGotItRight) {
+            await this.save(user, puzzle, PuzzleAnswerType.PENDING)
+            return { success: false, message: `"${userGuess}" foi quase` }
+        }
+
         return { success: false, message: "Hmmm, não é isso" }
     }
 
