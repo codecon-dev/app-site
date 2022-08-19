@@ -1,8 +1,12 @@
-import MethodNotAllowedError from "@lib/errors/MethodNotAllowedError"
 import ResourceNotFoundError from "@lib/errors/ResourceNotFoundError"
 import { StatusCodes } from "http-status-codes"
 import { NextApiResponse } from "next"
-import { getURL } from "next/dist/shared/lib/utils"
+import { getURL, NextApiRequest } from "next/dist/shared/lib/utils"
+import User from "src/database/model/User"
+
+export enum HttpMethod {
+    POST = "POST"
+}
 
 export default class ApiResponse {
 
@@ -24,15 +28,24 @@ export default class ApiResponse {
            .json(new ApiResponse(statusCode, message, data))
     }
 
-    public static async withErrorHandler(res: NextApiResponse, action: Function): Promise<void> {
+    public static async withCurrentUserAndErrorHandler(req: NextApiRequest, res: NextApiResponse, method: HttpMethod, action: Function): Promise<void> {
         try {
-            await action()
-        } catch (error) {
-            if (error instanceof MethodNotAllowedError) {
-                this.build(res, StatusCodes.METHOD_NOT_ALLOWED, error.message)
+            if (req.method != method) {
+                this.build(res, StatusCodes.METHOD_NOT_ALLOWED, "Método HTTP não permitido")
                 return
             }
 
+            const userEmail: string | null = req.body.email
+            if (!userEmail) {
+                this.build(res, StatusCodes.UNPROCESSABLE_ENTITY, "Informe o e-mail do usuário")
+                return
+            }
+
+            const user: User | null = await User.findByEmail(userEmail)
+            if (!user) throw new ResourceNotFoundError(`Usuário com e-mail ${userEmail} não encontrado`)
+
+            await action(user)
+        } catch (error) {
             if (error instanceof ResourceNotFoundError) {
                 this.build(res, StatusCodes.NOT_FOUND, error.message)
                 return

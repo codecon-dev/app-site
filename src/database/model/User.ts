@@ -6,6 +6,10 @@ class User extends ModelImpl<User> {
     
     declare name: string
     declare email: string
+
+    public static async findByEmail(email: string): Promise<User | null> {
+        return await User.findOne({ where: { email: email } })
+    }
 }
 
 User.init({
