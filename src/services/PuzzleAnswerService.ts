@@ -14,7 +14,12 @@ export default class PuzzleAnswerService {
         const answeredAlready: boolean = !!(await PuzzleAnswer.findOne({ where: { userId: user.id, puzzleId: puzzle.id, status: PuzzleAnswerType.DONE } }))
         if (answeredAlready) return { success: true, message: "Enigma já respondido" }
 
+        const normalizedUserGuess: string = this.normalize(userGuess)
         return { success: false, message: "Hmmm, não é isso" }
     }
 
+
+    private static normalize(value: string): string {
+        return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim()
+    }
 }
