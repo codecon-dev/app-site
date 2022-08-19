@@ -235,7 +235,7 @@ export default function Terminal() {
       });
     };
 
-    initTerminal();
+    void initTerminal();
   }, []);
 
   return (
