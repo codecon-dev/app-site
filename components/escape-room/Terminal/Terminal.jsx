@@ -4,168 +4,140 @@ import { useEffect, useRef } from 'react';
 import 'xterm/css/xterm.css';
 import styles from './Terminal.module.scss';
 
-export default function Terminal() {
-  const xtermRef = useRef(null);
+let command = '';
+let isPass = false;
+let level = 0;
 
-  let command = '';
-  let isPass = false;
-  let level = 0;
-
-  const commands = {
-    help: {
-      f: () => {
-        xtermRef.current.writeln(
-          [
-            'Seja bem-vindo(a) a nossa Escape Room!',
-            '',
-            'help - mostra essa ajuda',
-            'sudo - entra no sistema',
-            ''
-          ].join('\n\r')
-        );
-        prompt(xtermRef.current);
-      }
-    },
-    sudo: {
-      f: () => {
-        sudo(xtermRef.current);
-      }
-    },
-    su: {
-      f: () => {
-        sudo(xtermRef.current);
-      }
-    },
-    access: {
-      f: () => {
-        if (level === 0) {
-          xtermRef.current.writeln('access: Você precisa ser root para usar este comando.');
-          prompt(xtermRef.current);
-          return;
-        }
-
-        level = 2;
-        xtermRef.current.writeln(['Who do you want to access?'].join('\r\n'));
-        promptMatrix(xtermRef.current);
-      }
-    },
-    operator: {
-      f: () => {
-        if (level < 2) {
-          xtermRef.current.writeln('operator: Você não tem permissão para fazer isso.');
-          prompt(xtermRef.current);
-          return;
-        }
-
-        level = 3;
-        xtermRef.current.writeln(['Operator here, what can I do for ya?'].join('\r\n'));
-        promptMatrix(xtermRef.current);
-      }
-    },
-    getpassword: {
-      f: () => {
-        if (level < 3) {
-          xtermRef.current.writeln('getpassword: Você não tem permissão para fazer isso.');
-          prompt(xtermRef.current);
-          return;
-        }
-
-        level = 4;
-        xtermRef.current.writeln(['Here is: redpill'].join('\r\n'));
-        prompt(xtermRef.current);
-      }
-    },
-    matrix: {
-      f: () => {
-        // if (!isAuthenticated) {
-        //   xtermRef.current.writeln('Você precisa ser root para usar este comando.');
-        //   xtermRef.current.prompt(xtermRef.current);
-        //   return;
-        // }
-
-        const testData = [];
-        let byteCount = 0;
-        for (let i = 0; i < 50; i++) {
-          const count = 1 + Math.floor(Math.random() * 79);
-          byteCount += count + 2;
-          const data = new Uint8Array(count + 2);
-          data[0] = 0x0a; // \n
-          for (let i = 1; i < count + 1; i++) {
-            data[i] = 0x61 + Math.floor(Math.random() * (0x7a - 0x61));
-          }
-          // End each line with \r so the cursor remains constant, this is what ls/tree do and improves
-          // performance significantly due to the cursor DOM element not needing to change
-          data[data.length - 1] = 0x0d; // \r
-          testData.push(data);
-        }
-        const start = performance.now();
-        for (let i = 0; i < 1024; i++) {
-          for (const d of testData) {
-            xtermRef.current.write('\x1b[32;1m');
-            xtermRef.current.write(d);
-            xtermRef.current.write('\x1b[0m');
-            xtermRef.current.write(`\x1b[32;1m${d}\x1b[0m`);
-          }
-        }
-        // Wait for all data to be parsed before evaluating time
-        xtermRef.current.write('', () => {
-          const time = Math.round(performance.now() - start);
-          const mbs = ((byteCount / 1024) * (1 / (time / 1000))).toFixed(2);
-          xtermRef.current.write(`\n\r\n`);
-          xtermRef.current.prompt();
-        });
-      }
-    }
-  };
-
-  function prompt(term) {
-    command = '';
-
-    if (level > 1) level = 1;
-
-    term.write('\r\n$ ');
-  }
-
-  function promptMatrix(term) {
-    command = '';
-    term.write('\r\n\x1b[32;1mM >\x1b[0m ');
-  }
-
-  function sudo(term) {
-    command = '';
-    isPass = true;
-    term.write('Password: ');
-  }
-
-  function runPassword(term, text) {
-    const command = text.trim().split(' ')[0];
-    isPass = false;
-
-    if (command.length > 0) {
-      term.writeln('');
-      if (text == '1234') {
-        level = 1;
-        prompt(term);
-        return;
-      }
-
-      term.writeln(`su: Senha incorreta`);
+const commands = {
+  help: term => {
+    term.writeln(
+      [
+        'Seja bem-vindo(a) a nossa Escape Room!',
+        '',
+        'help - mostra essa ajuda',
+        'sudo - entra no sistema',
+        ''
+      ].join('\n\r')
+    );
+    prompt(term);
+  },
+  sudo: term => {
+    sudo(term);
+  },
+  su: term => {
+    sudo(term);
+  },
+  access: term => {
+    if (level === 0) {
+      term.writeln('access: Você precisa ser root para usar este comando.');
       prompt(term);
+      return;
     }
-  }
 
-  function runCommand(term, text) {
-    const command = text.trim().split(' ')[0];
-    if (command.length > 0) {
-      term.writeln('');
-      if (command in commands) {
-        commands[command].f();
-        return;
-      }
-      term.writeln(`${command}: comando não encontrado.`);
+    level = 2;
+    term.writeln(['Who do you want to access?'].join('\r\n'));
+    promptMatrix(term);
+  },
+  operator: term => {
+    if (level < 2) {
+      term.writeln('operator: Você não tem permissão para fazer isso.');
+      prompt(term);
+      return;
     }
+
+    level = 3;
+    term.writeln(['Operator here, what can I do for ya?'].join('\r\n'));
+    promptMatrix(term);
+  },
+  getpassword: term => {
+    if (level < 3) {
+      term.writeln('getpassword: Você não tem permissão para fazer isso.');
+      prompt(term);
+      return;
+    }
+
+    level = 4;
+    term.writeln(['Here is: redpill'].join('\r\n'));
+    prompt(term);
+  },
+  matrix: term => {
+    const testData = [];
+    for (let i = 0; i < 50; i++) {
+      const count = 1 + Math.floor(Math.random() * 79);
+      const data = new Uint8Array(count + 2);
+      data[0] = 0x0a; // \n
+      for (let i = 1; i < count + 1; i++) {
+        data[i] = 0x61 + Math.floor(Math.random() * (0x7a - 0x61));
+      }
+      data[data.length - 1] = 0x0d; // \r
+      testData.push(data);
+    }
+    for (let i = 0; i < 1024; i++) {
+      for (const d of testData) {
+        term.write('\x1b[32;1m');
+        term.write(d);
+        term.write('\x1b[0m');
+        term.write(`\x1b[32;1m${d}\x1b[0m`);
+      }
+    }
+    term.write('', () => {
+      term.write(`\n\r\n`);
+      term.prompt();
+    });
+  }
+};
+
+function prompt(term) {
+  command = '';
+
+  if (level > 1) level = 1;
+
+  term.write('\r\n$ ');
+}
+
+function promptMatrix(term) {
+  command = '';
+  term.write('\r\n\x1b[32;1mM >\x1b[0m ');
+}
+
+function sudo(term) {
+  command = '';
+  isPass = true;
+  term.write('Password: ');
+}
+
+function runPassword(term, text) {
+  const command = text.trim().split(' ')[0];
+  isPass = false;
+
+  if (command.length > 0) {
+    term.writeln('');
+    if (text == '1234') {
+      level = 1;
+      prompt(term);
+      return;
+    }
+
+    term.writeln(`su: Senha incorreta`);
     prompt(term);
   }
+}
+
+function runCommand(term, text) {
+  const command = text.trim().split(' ')[0];
+  if (command.length > 0) {
+    term.writeln('');
+    if (command in commands) {
+      commands[command](term);
+      return;
+    }
+    term.writeln(`${command}: comando não encontrado.`);
+  }
+  prompt(term);
+}
+
+export default function Terminal() {
+  const xtermRef = useRef(null);
 
   useEffect(() => {
     const initTerminal = async () => {
