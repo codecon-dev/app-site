@@ -10,14 +10,10 @@ type Props = {
   email?: string;
 };
 
-async function claim({ code, name, email }: CodecodesClaimPayload) {
+async function claim(payload: CodecodesClaimPayload) {
   const response = await fetch('/api/codecodes/claim', {
     method: 'POST',
-    body: JSON.stringify({
-      code,
-      name,
-      email
-    })
+    body: JSON.stringify(payload)
   });
   return response.json();
 }
