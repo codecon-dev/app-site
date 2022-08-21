@@ -5,7 +5,8 @@ import User from "src/database/model/User"
 
 export type PuzzleAnswerAttemptResponse = { 
     success: boolean, 
-    message: string 
+    message: string,
+    rewardCode?: string
 }
 
 export default class PuzzleAnswerService {
@@ -15,13 +16,13 @@ export default class PuzzleAnswerService {
         if (!puzzle) throw new ResourceNotFoundError("Enigma não encontrado")
 
         const answeredAlready: boolean = !!(await PuzzleAnswer.findOne({ where: { userId: user.id, puzzleId: puzzle.id, status: PuzzleAnswerType.DONE } }))
-        if (answeredAlready) return { success: true, message: "Enigma já respondido" }
+        if (answeredAlready) return { success: true, message: "Enigma já respondido", rewardCode: puzzle.rewardCode }
 
         const normalizedUserGuess: string = this.normalize(userGuess)
         const guessedCorrectly: boolean = normalizedUserGuess == this.normalize(puzzle.answer)
         if (guessedCorrectly) {
             await this.save(user, puzzle, PuzzleAnswerType.DONE)
-            return { success: true, message: "Acertou, mizerávi" }
+            return { success: true, message: "Acertou, mizerávi", rewardCode: puzzle.rewardCode }
         }
 
         const almostGotItRight: boolean = puzzle.almostList.some((almost: string) => normalizedUserGuess == this.normalize(almost))
