@@ -18,8 +18,14 @@ Puzzle.init({
     ...commonAttributes,
     almostList: { type: DataTypes.JSON, allowNull: true },
     answer: { type: DataTypes.STRING, allowNull: false },
-    publicId: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, allowNull: false, unique: true },
-    rewardCode: { type: DataTypes.STRING, allowNull: false, unique: true }
-}, {sequelize: dataSource})
+    publicId: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, allowNull: false },
+    rewardCode: { type: DataTypes.STRING, allowNull: false }
+}, {
+    sequelize: dataSource,
+    indexes: [ 
+        { unique: true, fields: ["public_id"] },
+        { unique: true, fields: ["reward_code"] }
+    ]
+})
 
 export default Puzzle

@@ -15,7 +15,10 @@ class User extends ModelImpl<User> {
 User.init({
     ...commonAttributes,
     name: { type: DataTypes.STRING, allowNull: false },
-    email: { type: DataTypes.STRING, allowNull: false, unique: true }
-}, {sequelize: dataSource})
+    email: { type: DataTypes.STRING, allowNull: false }
+}, {
+    sequelize: dataSource,
+    indexes: [ { unique: true, fields: ["email"] } ]
+})
 
 export default User
