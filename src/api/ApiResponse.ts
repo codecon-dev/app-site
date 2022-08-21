@@ -1,7 +1,7 @@
 import ResourceNotFoundError from "@lib/errors/ResourceNotFoundError"
 import { StatusCodes } from "http-status-codes"
 import { NextApiResponse } from "next"
-import { getURL, NextApiRequest } from "next/dist/shared/lib/utils"
+import { NextApiRequest } from "next/dist/shared/lib/utils"
 import User from "src/database/model/User"
 
 export enum HttpMethod {
@@ -51,7 +51,7 @@ export default class ApiResponse {
                 return
             }
 
-            console.error(`${getURL()} >> Erro desconhecido`, error)
+            console.error(`${req.url} >> Erro desconhecido`, error)
             this.build(res, StatusCodes.INTERNAL_SERVER_ERROR, "Ocorreu um erro desconhecido")
         }
     }
