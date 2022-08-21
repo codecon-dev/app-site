@@ -1,4 +1,4 @@
-import { DataTypes, ForeignKey } from "sequelize"
+import { DataTypes } from "sequelize"
 import dataSource from "src/database/DataSource"
 import ModelImpl, { commonAttributes } from "../ModelImpl"
 import User from "../User"
@@ -13,8 +13,8 @@ class PuzzleAnswer extends ModelImpl<PuzzleAnswer> {
     
     declare attempts: number
     declare status: PuzzleAnswerType
-    declare puzzleId: ForeignKey<number>
-    declare userId: ForeignKey<number>
+    declare puzzleId?: number
+    declare userId?: number
 }
 
 PuzzleAnswer.init({
@@ -23,7 +23,7 @@ PuzzleAnswer.init({
     status: { type: DataTypes.ENUM(...Object.keys(PuzzleAnswerType)) }
 }, {sequelize: dataSource})
 
-PuzzleAnswer.belongsTo(User)
-PuzzleAnswer.belongsTo(Puzzle)
+PuzzleAnswer.belongsTo(Puzzle, { foreignKey: "puzzleId", targetKey: "id" })
+PuzzleAnswer.belongsTo(User, { foreignKey: "userId", targetKey: "id" })
 
 export default PuzzleAnswer
