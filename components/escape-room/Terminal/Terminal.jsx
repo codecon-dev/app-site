@@ -35,7 +35,7 @@ const commands = {
     }
 
     level = 2;
-    term.writeln(['Who do you want to access?'].join('\r\n'));
+    term.writeln(['Quem você quer acessar?'].join('\r\n'));
     promptMatrix(term);
   },
   operator: term => {
@@ -46,7 +46,7 @@ const commands = {
     }
 
     level = 3;
-    term.writeln(['Operator here, what can I do for ya?'].join('\r\n'));
+    term.writeln(['Operador aqui, o que eu posso fazer pra você?'].join('\r\n'));
     promptMatrix(term);
   },
   getpassword: term => {
@@ -57,7 +57,7 @@ const commands = {
     }
 
     level = 4;
-    term.writeln(['Here is: redpill'].join('\r\n'));
+    term.writeln(['Tá aqui: redpill'].join('\r\n'));
     prompt(term);
   },
   matrix: term => {
