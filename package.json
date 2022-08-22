@@ -52,6 +52,7 @@
     "react-dom": "18.1.0",
     "react-double-marquee": "^1.1.0",
     "react-easy-emoji": "^1.6.1",
+    "react-hot-toast": "^2.3.0",
     "react-toastify": "^9.0.1",
     "sass": "^1.52.1",
     "sequelize": "^6.21.3",

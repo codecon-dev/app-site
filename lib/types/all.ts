@@ -83,12 +83,9 @@ export type Workshop = {
 };
 
 export type ConfUser = {
-  id?: string;
   email: string;
-  ticketNumber: number | undefined;
-  name?: string;
-  username?: string;
-  createdAt: string;
+  firstName: string;
+  fullName: string;
 };
 
 export type OkPacket = {
