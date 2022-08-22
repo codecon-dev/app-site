@@ -157,7 +157,8 @@ export default function Terminal() {
 
       xtermRef.current.writeln(
         [
-          'Precisamos deletar um vírus que se infiltrou nos mainframes de Zion, sua ajuda será fundamental para conter essa ameaça.',
+          'Precisamos deletar um vírus que se infiltrou nos mainframes de Zion,',
+          'sua ajuda será fundamental para conter essa ameaça.',
           'Avance pelas camadas de segurança do sistema para conseguir encontrar o vírus',
           'Estamos emulando uma \x1b[32;1mmatrix\x1b[0m para conseguir a ajuda de mais pessoas.',
           'O desafio desse quarto é montar um código para conseguir a senha de acesso ao sistema.',
