@@ -1,5 +1,6 @@
 import { claimCodecodesApiToken } from "@lib/codecodes-api"
 import ResourceNotFoundError from "@lib/errors/ResourceNotFoundError"
+import ValidationError from "@lib/errors/ValidationError"
 import { CodecodesClaimResponse } from "@lib/types/codecodes"
 import Puzzle from "src/database/model/puzzle/Puzzle"
 import PuzzleAnswer, { PuzzleAnswerType } from "src/database/model/puzzle/PuzzleAnswer"
@@ -59,6 +60,8 @@ export default class PuzzleAnswerService {
             name: user.name,
             code: code
         })
+
+        if (codecodesResponse.status === "error") throw new ValidationError(codecodesResponse.message, { user: user.email, code: code })
 
         return codecodesResponse
     }

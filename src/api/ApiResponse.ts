@@ -1,4 +1,5 @@
 import ResourceNotFoundError from "@lib/errors/ResourceNotFoundError"
+import ValidationError from "@lib/errors/ValidationError"
 import { StatusCodes } from "http-status-codes"
 import { NextApiResponse } from "next"
 import { NextApiRequest } from "next/dist/shared/lib/utils"
@@ -28,6 +29,11 @@ export default class ApiResponse {
            .json(new ApiResponse(statusCode, message, data))
     }
 
+    public static buildForValidationError(res: NextApiResponse, exception: ValidationError, url: string | undefined): void {
+        console.error(url, exception.message, exception.logData)
+        this.build(res, StatusCodes.UNPROCESSABLE_ENTITY, exception.message)
+    }
+
     public static async withCurrentUserAndErrorHandler(req: NextApiRequest, res: NextApiResponse, method: HttpMethod, action: Function): Promise<void> {
         try {
             if (req.method != method) {
@@ -48,6 +54,11 @@ export default class ApiResponse {
         } catch (error) {
             if (error instanceof ResourceNotFoundError) {
                 this.build(res, StatusCodes.NOT_FOUND, error.message)
+                return
+            }
+
+            if (error instanceof ValidationError) {
+                ApiResponse.buildForValidationError(res, error, req.url)
                 return
             }
 
