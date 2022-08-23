@@ -9,6 +9,10 @@ export enum HttpMethod {
     POST = "POST"
 }
 
+export interface WithLoggedUserRequest {
+    email: string
+}
+
 export default class ApiResponse {
 
     statusCode: number = StatusCodes.INTERNAL_SERVER_ERROR
