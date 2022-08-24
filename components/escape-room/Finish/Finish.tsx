@@ -6,7 +6,6 @@ import { useUserData } from '@lib/hooks/useUserData';
 import Image from 'next/image';
 
 type ApiResponse = {
-    data: { success: boolean; message: string };
     success: boolean;
     message: string;
 };
@@ -38,14 +37,9 @@ export default function Finish() {
         const json = await response.json();
 
         setIsLoading(false);
-        const { data, success, message }: ApiResponse = json;
+        const { success, message }: ApiResponse = json;
         if (!success) {
             toast.error(message);
-            return;
-        }
-
-        if (!data.success) {
-            toast(message, { icon: '🤔' });
             return;
         }
 
