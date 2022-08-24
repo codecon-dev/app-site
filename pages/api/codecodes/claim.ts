@@ -11,7 +11,7 @@ export interface CodecodesClaimRequest extends WithLoggedUserRequest {
 }
 
 export default async function CodeCodesClaimController(req: NextApiRequest, res: NextApiResponse) {
-    ApiResponse.withCurrentUserAndErrorHandler(req, res, HttpMethod.POST, async (user: User) => {
+    await ApiResponse.withCurrentUserAndErrorHandler(req, res, HttpMethod.POST, async (user: User) => {
         const params: CodecodesClaimRequest = req.body
         if (!params.email || !params.code) throw new ValidationError("Tão faltando alguns dados nessa requisição")
 
