@@ -3,12 +3,7 @@ import toast from 'react-hot-toast';
 
 import OneInputForm from '@components/_ui/OneInputForm';
 import { CodecodesClaimPayload } from '@lib/types/codecodes';
-
-type Props = {
-  firstName?: string;
-  fullName?: string;
-  email?: string;
-};
+import { useUserData } from '@lib/hooks/useUserData';
 
 async function claim(payload: CodecodesClaimPayload) {
   const response = await fetch('/api/codecodes/claim', {
@@ -18,9 +13,10 @@ async function claim(payload: CodecodesClaimPayload) {
   return response.json();
 }
 
-export default function CodecodesClaimForm({ firstName, fullName, email }: Props) {
+export default function CodecodesClaimForm() {
   const [code, setCode] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { fullName, firstName, email } = useUserData();
 
   async function handleOnClaimSubmit(event: FormEvent) {
     event.preventDefault();
