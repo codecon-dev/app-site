@@ -22,7 +22,7 @@ type CodecodesSuccessClaimData = {
 };
 
 export type CodecodesClaimResponse = {
-  status: string;
+  status: "success" | "error";
   message: string;
   data?: CodecodesSuccessClaimData;
 };

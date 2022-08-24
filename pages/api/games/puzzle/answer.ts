@@ -1,10 +1,10 @@
 import { StatusCodes } from "http-status-codes"
 import { NextApiRequest, NextApiResponse } from "next"
-import ApiResponse, { HttpMethod } from "src/api/ApiResponse"
+import ApiResponse, { HttpMethod, WithLoggedUserRequest } from "src/api/ApiResponse"
 import User from "src/database/model/User"
 import PuzzleAnswerService, { PuzzleAnswerAttemptResponse } from "src/services/PuzzleAnswerService"
 
-export type PuzzleAnswerRequest = {
+export interface PuzzleAnswerRequest extends WithLoggedUserRequest {
     guess: string
     puzzlePublicId: string
 }
