@@ -17,6 +17,4 @@ const dataSource: Sequelize = new Sequelize(
   }
 );
 
-dataSource.sync({ alter: true });
-
 export default dataSource;
