@@ -57,7 +57,11 @@ export default function Finish() {
         return (
             <section>
                 <div className="container">
-                    <h3>✅ Tudo certo! Obrigado.</h3>
+                    <h3>✅ Tudo certo, obrigado!</h3>
+                    <p>
+                        Os sorteios acontecerão no final do evento, entraremos em contato com os
+                        ganhadores e divulgaremos também em nosso Twitter.
+                    </p>
                 </div>
             </section>
         );
@@ -72,8 +76,9 @@ export default function Finish() {
                 <h3>Hey, {firstName}!</h3>
                 <p>Que bom que você chegou até aqui!</p>
                 <p>
-                    Para validar sua finalização da escape room e contabilizar seus pontos, escreva
-                    abaixo <strong>EUESTIVEAQUI</strong> e clique em salvar!
+                    Para validar sua finalização da escape room, contabilizar seus pontos e para
+                    você participar dos sorteios dos prêmios, escreva abaixo{' '}
+                    <strong>EUESTIVEAQUI</strong> e clique em salvar!
                 </p>
                 <br />
                 <OneInputForm
