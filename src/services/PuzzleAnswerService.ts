@@ -1,4 +1,7 @@
+import { claimCodecodesApiToken } from '@lib/codecodes-api';
 import ResourceNotFoundError from '@lib/errors/ResourceNotFoundError';
+import ValidationError from '@lib/errors/ValidationError';
+import { CodecodesClaimResponse } from '@lib/types/codecodes';
 import Puzzle from 'src/database/model/puzzle/Puzzle';
 import PuzzleAnswer, { PuzzleAnswerType } from 'src/database/model/puzzle/PuzzleAnswer';
 import User from 'src/database/model/User';
@@ -6,7 +9,6 @@ import User from 'src/database/model/User';
 export type PuzzleAnswerAttemptResponse = {
   success: boolean;
   message: string;
-  rewardCode?: string;
 };
 
 export default class PuzzleAnswerService {
@@ -21,15 +23,22 @@ export default class PuzzleAnswerService {
     const answeredAlready = !!(await PuzzleAnswer.findOne({
       where: { userId: user.id, puzzleId: puzzle.id, status: PuzzleAnswerType.DONE }
     }));
-    if (answeredAlready) return { success: true, message: 'Você já respondeu esse enigma!' };
+    if (answeredAlready)
+      return {
+        success: true,
+        message: 'O enigma já foi respondido e os pontos já foram creditados :)'
+      };
 
     const normalizedUserGuess: string = this.normalize(userGuess);
     const guessedCorrectly: boolean = normalizedUserGuess == this.normalize(puzzle.answer);
     if (guessedCorrectly) {
+      const { data } = await this.claimCode(user, puzzle.rewardCode);
+      if (!data) throw new Error('Dados do Code-Codes vieram vazios');
+
       await this.save(user, puzzle, PuzzleAnswerType.DONE);
       return {
         success: true,
-        message: 'Acertou, mizerávi! Seus pontos do code-codes já foram computados automaticamente.'
+        message: `Acertou, mizerávi! Você ganhou ${data.scoreAcquired} pts e agora tem ${data.totalScore} pts.`
       };
     }
 
@@ -64,5 +73,18 @@ export default class PuzzleAnswerService {
       .replace(/[\u0300-\u036f]/g, '')
       .toLowerCase()
       .trim();
+  }
+
+  private static async claimCode(user: User, code: string): Promise<CodecodesClaimResponse> {
+    const codecodesResponse: CodecodesClaimResponse = await claimCodecodesApiToken({
+      email: user.email,
+      name: user.name,
+      code: code
+    });
+
+    if (codecodesResponse.status === 'error')
+      throw new ValidationError(codecodesResponse.message, { user: user.email, code: code });
+
+    return codecodesResponse;
   }
 }
