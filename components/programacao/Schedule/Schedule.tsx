@@ -162,7 +162,7 @@ export default function Schedule({ talks }: Props) {
   }
 
   return (
-    <section ref={sectionRef}>
+    <section ref={sectionRef} id="grade">
       <div className="container">
         <div className={cn(styles['libras'], styles['libras-mobile'])}>
           <span className={styles['libras-image']}>
