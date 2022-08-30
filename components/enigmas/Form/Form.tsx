@@ -30,30 +30,40 @@ export default function Form({ puzzlePublicId }: Props) {
 
         setIsLoading(true);
 
-        const response = await fetch(`/api/games/puzzle/answer`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, guess, puzzlePublicId })
-        });
+        try {
+            const response = await fetch(`/api/games/puzzle/answer`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, guess, puzzlePublicId })
+            });
 
-        const json = await response.json();
+            const json = await response.json();
 
-        setIsLoading(false);
-        const { data, success, message }: ApiResponse = json;
-        if (!success) {
-            toast.error(message);
+            setIsLoading(false);
+            const { data, success, message }: ApiResponse = json;
+            if (!success) {
+                toast.error(message);
+                return;
+            }
+
+            if (!data.success) {
+                toast(message, { icon: '🤔' });
+                return;
+            }
+
+            toast.success(message, {
+                duration: 5000
+            });
+            setIsRight(true);
+        } catch (error) {
+            console.trace(error);
+            setIsLoading(false);
+
+            toast.error('Ops! Algo deu errado.');
             return;
         }
-
-        if (!data.success) {
-            toast(message, { icon: '🤔' });
-            return;
-        }
-
-        toast.success(message);
-        setIsRight(true);
     }
 
     if (isRight) {

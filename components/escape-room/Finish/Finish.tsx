@@ -43,7 +43,9 @@ export default function Finish() {
             return;
         }
 
-        toast.success(message);
+        toast.success(message, {
+            duration: 5000
+        });
         setFinished(true);
     }
 
