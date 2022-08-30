@@ -64,7 +64,7 @@ export default function PrivateArea({ children }: Props) {
   }
 
   if (userData) {
-    return React.cloneElement(children, { ...userData });
+    return children;
   }
 
   return (
