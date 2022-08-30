@@ -7,6 +7,7 @@ import User from 'src/database/model/User';
 import { ConfUser } from '@lib/types/all';
 
 import styles from './PrivateArea.module.scss';
+import TermsModal from './TermsModal';
 
 type Props = {
     children: ReactElement;
@@ -18,11 +19,17 @@ export default function PrivateArea({ children }: Props) {
     const [email, setEmail] = useState('');
     const [userData, setUserData] = useState<ConfUser>();
     const [isLoading, setIsLoading] = useState(true);
+    const [showTermsModal, setShowTermsModal] = useState(false);
 
     useEffect(() => {
         const email = window.localStorage.getItem('codeconEmail');
         const firstName = window.localStorage.getItem('codeconFirstName');
         const fullName = window.localStorage.getItem('codeconFullName');
+        const acceptedTerms = window.localStorage.getItem('codeconTerms');
+
+        if (acceptedTerms === '0') {
+            setShowTermsModal(true);
+        }
 
         if (email && firstName && fullName) {
             setUserData({ firstName, fullName, email });
@@ -49,20 +56,33 @@ export default function PrivateArea({ children }: Props) {
             return;
         }
 
+        if (!data.user.acceptedTerms) {
+            setShowTermsModal(true);
+        }
+
         const firstName = data.user.name.split(' ')[0];
 
         window.localStorage.setItem('codeconEmail', data.user.email);
         window.localStorage.setItem('codeconFullName', data.user.name);
         window.localStorage.setItem('codeconFirstName', firstName);
+        window.localStorage.setItem('codeconTerms', data.user.acceptedTerms ? '1' : '0');
 
         setUserData({ firstName, fullName: data.user.name, email: data.user.email });
-        toast.success(message, {
-            duration: 5000
-        });
+        toast.success(message);
+    }
+
+    function handleTermsModalAcceptance() {
+        window.localStorage.setItem('codeconTerms', '1');
+        setShowTermsModal(false);
+        toast.success('Obrigado e bom evento!');
     }
 
     if (isLoading) {
         return <div className={styles.loading} />;
+    }
+
+    if (showTermsModal) {
+        return <TermsModal onAccept={handleTermsModalAcceptance} />;
     }
 
     if (userData) {
