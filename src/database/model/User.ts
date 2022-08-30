@@ -17,7 +17,7 @@ User.init(
         ...commonAttributes,
         name: { type: DataTypes.STRING, allowNull: false },
         email: { type: DataTypes.STRING, allowNull: false },
-        acceptedTerms: { type: DataTypes.BOOLEAN }
+        acceptedTerms: { type: DataTypes.BOOLEAN, defaultValue: false }
     },
     {
         sequelize: dataSource,

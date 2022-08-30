@@ -7,12 +7,8 @@ export type UserResponse = {
 
 export default class UserService {
     public static async acceptTerms(user: User): Promise<UserResponse> {
-        const [userData, created] = await User.findOrCreate({
-            where: { id: user.id }
-        });
-
-        userData.acceptedTerms = true;
-        await userData.save();
+        user.acceptedTerms = true;
+        await user.save();
 
         return {
             success: true,

@@ -19,12 +19,10 @@ export default function TermsModal({ onAccept }: { onAccept: () => void }) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ email })
-        })
-            .then(response => response.json())
-            .then(() => {
-                onAccept();
-                setIsLoading(false);
-            }));
+        }).then(() => {
+            onAccept();
+            setIsLoading(false);
+        }));
     }
 
     return (
