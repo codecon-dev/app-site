@@ -16,7 +16,10 @@ export default class EscapeRoomService {
         escapeRoom.message = message;
         await escapeRoom.save();
 
-        const { data } = await CodeCodesService.claimCode(user, 'ESCAPEWJKOPEEZZ');
+        const { data } = await CodeCodesService.claimCode(
+            user,
+            `${process.env.CODECODES_ESCAPE_CODE}`
+        );
         if (!data) throw new Error('Dados do Code-Codes vieram vazios');
 
         return {
