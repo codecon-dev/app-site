@@ -40,7 +40,9 @@ export default function CodecodesClaimForm() {
             toast.error(result.message as string);
         } else {
             setCode('');
-            toast.success(result.message as string);
+            toast.success(result.message as string, {
+                duration: 5000
+            });
         }
 
         setIsLoading(false);

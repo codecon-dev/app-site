@@ -53,7 +53,9 @@ export default function Form({ puzzlePublicId }: Props) {
                 return;
             }
 
-            toast.success(message);
+            toast.success(message, {
+                duration: 5000
+            });
             setIsRight(true);
         } catch (error) {
             console.trace(error);
