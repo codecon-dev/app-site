@@ -33,7 +33,7 @@ export default class PuzzleAnswerService {
             const { data } = await CodeCodesService.claimCode(user, puzzle.rewardCode);
             if (!data) throw new Error('Dados do Code-Codes vieram vazios');
 
-            await this.save(user, puzzle, PuzzleAnswerType.DONE);
+            await this.setAsDone(puzzleAnswer);
             return {
                 success: true,
                 message: `Acertou, mizerávi! Você também ganhou ${data.scoreAcquired} pontos no Code-Codes.`
@@ -60,8 +60,9 @@ export default class PuzzleAnswerService {
             where: { userId: user.id, puzzleId: puzzle.id }
         });
 
-        puzzleAnswer.status = status;
-        puzzleAnswer.attempts++;
+    private static async setAsDone(puzzleAnswer: PuzzleAnswer): Promise<void> {
+        puzzleAnswer.status = PuzzleAnswerStatus.DONE;
+        puzzleAnswer.doneAt = new Date();
         await puzzleAnswer.save();
     }
 
