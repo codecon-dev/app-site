@@ -47,7 +47,8 @@ export default class PuzzleAnswerService {
             (almost: string) => normalizedUserGuess == this.normalize(almost)
         );
         if (almostGotItRight) {
-            await this.save(user, puzzle, PuzzleAnswerType.PENDING);
+            puzzleAnswer.almosts++;
+            await puzzleAnswer.save();
             return { success: false, message: `"${userGuess}" foi quase` };
         }
 
