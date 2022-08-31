@@ -10,11 +10,8 @@ export enum PuzzleAnswerStatus {
 }
 
 class PuzzleAnswer extends ModelImpl<PuzzleAnswer> {
-    
-    declare attempts: number
-    declare status: PuzzleAnswerType
-    declare puzzleId?: number
-    declare userId?: number
+    declare attempts: number;
+    declare almosts: number;
     declare status: PuzzleAnswerStatus;
     declare doneAt: Date;
     declare puzzleId?: number;
@@ -25,8 +22,7 @@ PuzzleAnswer.init(
     {
         ...commonAttributes,
         attempts: { type: DataTypes.INTEGER.UNSIGNED, allowNull: false, defaultValue: 0 },
-    status: { type: DataTypes.ENUM(...Object.keys(PuzzleAnswerType)) }
-}, {sequelize: dataSource})
+        almosts: { type: DataTypes.INTEGER.UNSIGNED, allowNull: false, defaultValue: 0 },
         status: { type: DataTypes.ENUM(...Object.keys(PuzzleAnswerStatus)) },
         doneAt: { type: DataTypes.DATE, allowNull: true, defaultValue: null }
     },
