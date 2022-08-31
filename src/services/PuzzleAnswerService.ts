@@ -1,6 +1,6 @@
 import ResourceNotFoundError from '@lib/errors/ResourceNotFoundError';
 import Puzzle from 'src/database/model/puzzle/Puzzle';
-import PuzzleAnswer, { PuzzleAnswerType } from 'src/database/model/puzzle/PuzzleAnswer';
+import PuzzleAnswer, { PuzzleAnswerStatus } from 'src/database/model/puzzle/PuzzleAnswer';
 import User from 'src/database/model/User';
 import CodeCodesService from './CodeCodesService';
 
@@ -19,7 +19,7 @@ export default class PuzzleAnswerService {
         if (!puzzle) throw new ResourceNotFoundError('Enigma não encontrado');
 
         const answeredAlready = !!(await PuzzleAnswer.findOne({
-            where: { userId: user.id, puzzleId: puzzle.id, status: PuzzleAnswerType.DONE }
+            where: { userId: user.id, puzzleId: puzzle.id, status: PuzzleAnswerStatus.DONE }
         }));
         if (answeredAlready)
             return {
