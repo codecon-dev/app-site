@@ -1,6 +1,7 @@
 import Header from '@components/_ui/Header';
 import Layout from '@components/_ui/Layout';
 import Page from '@components/_ui/Page';
+import Ranking, { Rankeable } from '@components/_ui/Ranking/Ranking';
 import { GetServerSideProps } from 'next';
 import dataSource from 'src/database/DataSource';
 import PuzzleAnswer, { PuzzleAnswerStatus } from 'src/database/model/puzzle/PuzzleAnswer';
@@ -19,6 +20,19 @@ export default function EnigmaRanking({ puzzleRank }: Props) {
         <Page meta={meta}>
             <Layout hideNav hideFooter>
                 <Header title="Enigmas" description="Ranking dos participantes" />
+                <Ranking
+                    data={puzzleRank}
+                    columns={[
+                        { title: 'Nome', field: 'name' },
+                        { title: 'Acertos', field: 'correctGuessCount', type: 'numeric' },
+                        { title: 'Último acerto em', field: 'lastCorrectGuessDate' }
+                    ]}
+                >
+                    <p>
+                        <strong>Critérios de desempate:</strong> quem mais acertou; quem teve o
+                        último acerto primeiro.
+                    </p>
+                </Ranking>
             </Layout>
         </Page>
     );
