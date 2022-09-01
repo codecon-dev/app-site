@@ -75,9 +75,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
             position: i + 1,
             name: user.name,
             correctGuessCount: unformattedRankingItem.correctGuessCount,
-            lastCorrectGuessDate: new Date(
-                unformattedRankingItem.lastCorrectGuessDate
-            ).toLocaleString()
+            lastCorrectGuessDate: unformattedRankingItem.lastCorrectGuessDate.toLocaleString()
         });
     }
 
