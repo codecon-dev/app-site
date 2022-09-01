@@ -44,6 +44,12 @@ interface EnigmaRankingRow extends Rankeable {
     lastCorrectGuessDate: string;
 }
 
+type RankQueryReturn = {
+    userId: number;
+    correctGuessCount: number;
+    lastCorrectGuessDate: Date;
+};
+
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
     const unformattedRankingList: Array<PuzzleAnswer> = await PuzzleAnswer.findAll({
         attributes: [
@@ -61,7 +67,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 
     const formattedRankingList: Array<EnigmaRankingRow> = [];
     for (let i = 0; i < unformattedRankingList.length; i++) {
-        const unformattedRankingItem = unformattedRankingList[i].dataValues;
+        const unformattedRankingItem: RankQueryReturn = unformattedRankingList[i].dataValues;
         const user: User | null = await User.findByPk(unformattedRankingItem.userId);
         if (!user) throw new Error(`Usuário [${unformattedRankingItem.userId}] não encontrado`);
 
