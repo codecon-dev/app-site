@@ -7,7 +7,7 @@ export interface Rankeable {
 
 type Props = {
     data: Rankeable[];
-    columns: Column<any>[];
+    columns: Column<Rankeable>[];
     children?: ReactNode;
 };
 
