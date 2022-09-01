@@ -4,7 +4,10 @@ import Page from '@components/_ui/Page';
 import { GetServerSideProps } from 'next';
 import dataSource from 'src/database/DataSource';
 import PuzzleAnswer, { PuzzleAnswerStatus } from 'src/database/model/puzzle/PuzzleAnswer';
+import User from 'src/database/model/User';
+
 type Props = {
+    puzzleRank: Array<EnigmaRankingRow>;
 };
 
 export default function EnigmaRanking({ puzzleRank }: Props) {
@@ -21,6 +24,12 @@ export default function EnigmaRanking({ puzzleRank }: Props) {
     );
 }
 
+interface EnigmaRankingRow extends Rankeable {
+    name: string;
+    correctGuessCount: number;
+    lastCorrectGuessDate: string;
+}
+
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
     const unformattedRankingList: Array<any> = await PuzzleAnswer.findAll({
         attributes: [
@@ -35,6 +44,22 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
             [dataSource.col('lastCorrectGuessDate'), 'ASC']
         ]
     });
+
+    let formattedRankingList: Array<EnigmaRankingRow> = [];
+    for (let i = 0; i < unformattedRankingList.length; i++) {
+        const unformattedRankingItem = unformattedRankingList[i].dataValues;
+        const user: User | null = await User.findByPk(unformattedRankingItem.userId);
+        if (!user) throw new Error(`Usuário [${unformattedRankingItem.userId}] não encontrado`);
+
+        formattedRankingList.push({
+            position: i + 1,
+            name: user.name,
+            correctGuessCount: unformattedRankingItem.correctGuessCount,
+            lastCorrectGuessDate: new Date(
+                unformattedRankingItem.lastCorrectGuessDate
+            ).toLocaleString()
+        });
+    }
 
     return {
         props: {
