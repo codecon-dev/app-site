@@ -45,7 +45,7 @@ interface EnigmaRankingRow extends Rankeable {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-    const unformattedRankingList: Array<any> = await PuzzleAnswer.findAll({
+    const unformattedRankingList: Array<PuzzleAnswer> = await PuzzleAnswer.findAll({
         attributes: [
             'userId',
             [dataSource.fn('COUNT', dataSource.col('id')), 'correctGuessCount'],
@@ -59,7 +59,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
         ]
     });
 
-    let formattedRankingList: Array<EnigmaRankingRow> = [];
+    const formattedRankingList: Array<EnigmaRankingRow> = [];
     for (let i = 0; i < unformattedRankingList.length; i++) {
         const unformattedRankingItem = unformattedRankingList[i].dataValues;
         const user: User | null = await User.findByPk(unformattedRankingItem.userId);
