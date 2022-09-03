@@ -1,0 +1,19 @@
+.container {
+  position: relative;
+}
+
+.book {
+  position: absolute;
+  width: 744px;
+  height: 467px;
+  z-index: 0;
+}
+
+.mug {
+  position: relative;
+  width: 525px;
+  height: 360px;
+  z-index: 1;
+  left: -45%;
+  top: 20%
+}
