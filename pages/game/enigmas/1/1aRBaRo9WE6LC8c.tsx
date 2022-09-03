@@ -1,6 +1,6 @@
 import Page from '@components/_ui/Page';
 import Layout from '@components/_ui/Layout';
-import DayOnePuzzleOne from '@components/enigmas/DayOnePuzzleOne';
+import DayOnePuzzle1 from '@components/enigmas/DayOnePuzzle1';
 import PrivateArea from '@components/_ui/PrivateArea';
 
 export default function PuzzleOne() {
@@ -12,7 +12,7 @@ export default function PuzzleOne() {
     <Page meta={meta}>
       <Layout hideNav hideFooter>
         <PrivateArea>
-          <DayOnePuzzleOne />
+          <DayOnePuzzle1 />
         </PrivateArea>
       </Layout>
     </Page>
