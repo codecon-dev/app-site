@@ -3,11 +3,9 @@ import toast from 'react-hot-toast';
 
 import OneInputForm from '@components/_ui/OneInputForm';
 import { useUserData } from '@lib/hooks/useUserData';
-import { useRouter } from 'next/router';
-import { getLastPath, removeLeadingNumbers } from '@lib/utils';
 
 type Props = {
-    puzzlePublicId?: string;
+    puzzlePublicId: string;
 };
 
 type ApiResponse = {
@@ -21,11 +19,6 @@ export default function Form({ puzzlePublicId }: Props) {
     const [isLoading, setIsLoading] = useState(false);
     const [isRight, setIsRight] = useState(false);
     const { email } = useUserData();
-    const router = useRouter()
-
-    if (!puzzlePublicId) {
-        puzzlePublicId = removeLeadingNumbers(getLastPath(router.pathname))
-    }
 
     async function handleSubmit(e: SyntheticEvent): Promise<void> {
         e.preventDefault();
