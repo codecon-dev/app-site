@@ -1,1 +1,35 @@
-// TO-DO: Cada enigma tem um layout diferente, por isso será criado um novo componente pra cada enigma onde será feito o html e css dele
+.bg {
+  height: 100%;
+}
+
+.text {
+  position: absolute;
+  width: 342px;
+  height: 160px;
+  top: 0; 
+  left: 0; 
+  bottom: 0; 
+  right: 0; 
+  margin: auto; 
+
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 200%;
+
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.formContainer {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 0; 
+
+  section {
+    margin: 40px;
+  }
+}

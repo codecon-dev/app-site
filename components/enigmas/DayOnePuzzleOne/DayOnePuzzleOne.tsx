@@ -1,13 +1,19 @@
 import Form from '../Form';
 import styles from './DayOnePuzzleOne.module.scss';
+import NextImage from 'next/image';
+import bg from './bg.png'
 
 export default function DayOnePuzzleOne() {
-  // TO-DO: Cada enigma tem um layout diferente, por isso será criado um novo componente pra cada enigma onde será feito o html e css dele
-
   return (
     <section>
-      <div className="container">
-        <Form puzzlePublicId="15RBaRo9WE6LC8c" />
+      <div className={styles.bg}>
+        <NextImage src={bg} layout="fill"/>
+      </div>
+      <p className={styles.text}>
+        Eu imagino que deva estar se sentindo um pouco como Alice, escorregando pela toca do coelho. Vejo isso em seus olhos...
+      </p>
+      <div className={styles.formContainer}>
+        <Form />
       </div>
     </section>
   );
