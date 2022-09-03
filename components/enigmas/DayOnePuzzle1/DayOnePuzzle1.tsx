@@ -1,7 +1,7 @@
-import styles from './DayOnePuzzleOne.module.scss';
+import styles from './DayOnePuzzle1.module.scss';
 import PuzzleLayout from '../PuzzleLayout';
 
-export default function DayOnePuzzleOne() {
+export default function DayOnePuzzle1() {
   return (
     <PuzzleLayout bgStyle={styles.bg}>
       <div className={styles.text}>
