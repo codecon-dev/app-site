@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import OneInputForm from '@components/_ui/OneInputForm';
 import { useUserData } from '@lib/hooks/useUserData';
 import { useRouter } from 'next/router';
-import { getLastPath } from '@lib/utils';
+import { getLastPath, removeLeadingNumbers } from '@lib/utils';
 
 type Props = {
     puzzlePublicId?: string;
@@ -24,7 +24,7 @@ export default function Form({ puzzlePublicId }: Props) {
     const router = useRouter()
 
     if (!puzzlePublicId) {
-        puzzlePublicId = getLastPath(router.pathname)
+        puzzlePublicId = removeLeadingNumbers(getLastPath(router.pathname))
     }
 
     async function handleSubmit(e: SyntheticEvent): Promise<void> {

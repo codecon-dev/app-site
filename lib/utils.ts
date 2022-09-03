@@ -43,3 +43,7 @@ export const getLastPath = (pathname: string) => {
     const paths = pathname.split('/')
     return paths[paths.length - 1]
 }
+
+export const removeLeadingNumbers = (text: string) => {
+    return text.replace(/^\d+\s*/, '')
+}
