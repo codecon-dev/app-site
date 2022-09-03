@@ -9,7 +9,6 @@ export default function DayOnePuzzle30() {
     const [bgStyle, setBgStyle] = useState('');
 
     function handleMouseOver() {
-        console.log('over');
         timer = setTimeout(() => {
             setBgStyle(styles.bg);
         }, 2000);
