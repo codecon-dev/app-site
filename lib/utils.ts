@@ -38,3 +38,8 @@ export const nl2br = (str?: string, is_xhtml?: boolean) => {
     const breakTag = is_xhtml || typeof is_xhtml === 'undefined' ? '<br />' : '<br>';
     return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
 };
+
+export const getLastPath = (pathname: string) => {
+    const paths = pathname.split('/')
+    return paths[paths.length - 1]
+}
