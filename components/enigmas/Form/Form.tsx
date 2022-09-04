@@ -67,27 +67,17 @@ export default function Form({ puzzlePublicId }: Props) {
     }
 
     if (isRight) {
-        return (
-            <section>
-                <div className="container">
-                    <h3>✅ Boa! Você acertou.</h3>
-                </div>
-            </section>
-        );
+        return <h3>✅ Boa! Você acertou.</h3>;
     }
 
     return (
-        <section>
-            <div className="container">
-                <OneInputForm
-                    handleSubmit={handleSubmit}
-                    handleInputChange={event => setGuess(event.target.value)}
-                    isLoading={isLoading}
-                    placeholder="Seu chute"
-                    buttonText="Tentar"
-                    disableSubmit={!guess || !email}
-                />
-            </div>
-        </section>
+        <OneInputForm
+            handleSubmit={handleSubmit}
+            handleInputChange={event => setGuess(event.target.value)}
+            isLoading={isLoading}
+            placeholder="Seu chute"
+            buttonText="Tentar"
+            disableSubmit={!guess || !email}
+        />
     );
 }
