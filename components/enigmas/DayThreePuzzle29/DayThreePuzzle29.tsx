@@ -4,7 +4,7 @@ import Image from 'next/image';
 import PuzzleLayout from '../PuzzleLayout';
 import styles from './DayThreePuzzle29.module.scss';
 
-export default function DayOnePuzzle30() {
+export default function DayThreePuzzle29() {
     const [showModal, setShowModal] = useState(false);
 
     return (

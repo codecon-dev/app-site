@@ -4,7 +4,7 @@ import Image from 'next/image';
 import PuzzleLayout from '../PuzzleLayout';
 import styles from './DayThreePuzzle30.module.scss';
 
-export default function DayOnePuzzle30() {
+export default function DayThreePuzzle30() {
     let timer: ReturnType<typeof setTimeout>;
     const [bgStyle, setBgStyle] = useState('');
 
