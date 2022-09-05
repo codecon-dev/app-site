@@ -3,7 +3,7 @@ import Layout from '@components/_ui/Layout';
 import PrivateArea from '@components/_ui/PrivateArea';
 import DayThreePuzzle28 from '@components/enigmas/DayThreePuzzle28';
 
-export default function PuzzleOne() {
+export default function PuzzleTwentyEight() {
     const meta = {
         title: 'Enigmas - Codecon Digital 2022'
     };
