@@ -20,7 +20,7 @@ export default function DayOnePuzzle30() {
     }
 
     return (
-        <PuzzleLayout bgStyle={bgStyle} puzzlePublicId="gUj96xtSxXjokU">
+        <PuzzleLayout bgStyle={bgStyle}>
             <div className={styles.text}>
                 <p>usual way on a</p>
                 <Image

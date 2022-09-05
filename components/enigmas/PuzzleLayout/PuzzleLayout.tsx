@@ -7,16 +7,13 @@ import { getLastPath, removeLeadingNumbers } from '@lib/utils';
 import { useRouter } from 'next/router';
 
 type Props = {
-    puzzlePublicId?: string;
     bgStyle?: string;
     children: ReactNode;
 };
 
-export default function PuzzleLayout({ puzzlePublicId, bgStyle, children }: Props) {
-    const router = useRouter()
-    if (!puzzlePublicId) {
-        puzzlePublicId = removeLeadingNumbers(getLastPath(router.pathname))
-    }
+export default function PuzzleLayout({ bgStyle, children }: Props) {
+    const router = useRouter();
+    const puzzlePublicId = removeLeadingNumbers(getLastPath(router.pathname));
 
     return (
         <section className={cn(styles.layout, bgStyle)}>
