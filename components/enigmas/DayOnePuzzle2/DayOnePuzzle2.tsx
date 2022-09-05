@@ -4,10 +4,8 @@ import Image from 'next/image';
 
 export default function DayOnePuzzle2() {
   return (
-    <PuzzleLayout bgStyle={styles.bg}>
-      <div className={styles.glasses}>
-        <Image src="/images/enigmas/2-glasses.png" layout='fill'/>
-      </div>
+    <PuzzleLayout>
+      <Image src="/images/enigmas/2-glasses.png" width={639} height={219}/>
     </PuzzleLayout>
   );
 }
