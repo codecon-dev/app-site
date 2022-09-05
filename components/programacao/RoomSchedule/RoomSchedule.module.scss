@@ -1,0 +1,37 @@
+@import 'styles/colors';
+
+.talkContainer {
+    margin-bottom: 5rem;
+}
+
+.hour {
+    font-size: 2rem;
+    position: relative;
+    margin-bottom: 1rem;
+
+    &:after {
+        height: 2px;
+        background-color: $dark-green;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 6rem;
+        right: 0;
+    }
+}
+
+.live {
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 1rem;
+    background-color: $light-green;
+    z-index: 10;
+    color: $black;
+    display: inline-block;
+    padding: 0 0.5rem;
+    border-radius: 5rem;
+    text-transform: uppercase;
+}
