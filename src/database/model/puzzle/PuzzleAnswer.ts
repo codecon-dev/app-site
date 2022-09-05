@@ -10,6 +10,7 @@ export enum PuzzleAnswerStatus {
 }
 
 class PuzzleAnswer extends ModelImpl<PuzzleAnswer> {
+    [key: string]: any;
     declare attempts: number;
     declare almosts: number;
     declare status: PuzzleAnswerStatus;
