@@ -40,10 +40,6 @@ export const nl2br = (str?: string, is_xhtml?: boolean) => {
 };
 
 export const getLastPath = (pathname: string) => {
-    const paths = pathname.split('/')
-    return paths[paths.length - 1]
-}
-
-export const removeLeadingNumbers = (text: string) => {
-    return text.replace(/^\d+\s*/, '')
-}
+    const paths = pathname.split('/');
+    return paths[paths.length - 1];
+};

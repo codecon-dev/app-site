@@ -1,9 +1,9 @@
 import Page from '@components/_ui/Page';
 import Layout from '@components/_ui/Layout';
 import PrivateArea from '@components/_ui/PrivateArea';
-import DayThreePuzzle30 from '@components/enigmas/DayThreePuzzle30';
+import DayThreePuzzle29 from '@components/enigmas/DayThreePuzzle29';
 
-export default function PuzzleThirty() {
+export default function PuzzleTwentyNine() {
     const meta = {
         title: 'Enigmas - Codecon Digital 2022'
     };
@@ -12,7 +12,7 @@ export default function PuzzleThirty() {
         <Page meta={meta}>
             <Layout hideNav hideFooter>
                 <PrivateArea>
-                    <DayThreePuzzle30 />
+                    <DayThreePuzzle29 />
                 </PrivateArea>
             </Layout>
         </Page>

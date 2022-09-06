@@ -3,20 +3,17 @@ import cn from 'classnames';
 
 import Form from '../Form';
 import styles from './PuzzleLayout.module.scss';
-import { getLastPath, removeLeadingNumbers } from '@lib/utils';
+import { getLastPath } from '@lib/utils';
 import { useRouter } from 'next/router';
 
 type Props = {
-    puzzlePublicId?: string;
     bgStyle?: string;
     children: ReactNode;
 };
 
-export default function PuzzleLayout({ puzzlePublicId, bgStyle, children }: Props) {
-    const router = useRouter()
-    if (!puzzlePublicId) {
-        puzzlePublicId = removeLeadingNumbers(getLastPath(router.pathname))
-    }
+export default function PuzzleLayout({ bgStyle, children }: Props) {
+    const router = useRouter();
+    const puzzlePublicId = getLastPath(router.pathname);
 
     return (
         <section className={cn(styles.layout, bgStyle)}>
