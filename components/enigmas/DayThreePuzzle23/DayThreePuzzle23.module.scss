@@ -1,0 +1,22 @@
+.image {
+    position: relative;
+
+    .button-1,
+    .button-2 {
+        width: 3.3%;
+        height: 4.7%;
+        position: absolute;
+        left: 77%;
+        z-index: 10;
+        background: transparent;
+        border: 0;
+    }
+
+    .button-1 {
+        top: 54%;
+    }
+
+    .button-2 {
+        top: 62%;
+    }
+}
