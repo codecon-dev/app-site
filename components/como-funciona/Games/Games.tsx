@@ -74,7 +74,11 @@ export default function Games() {
         <p>Os melhores de cada dia de competição ganham prêmios.</p>
       </GameSection>
 
-      <GameSection title="Escape Room" image="/images/como-funciona/escape-room.jpg">
+      <GameSection
+        title="Escape Room"
+        image="/images/como-funciona/escape-room.jpg"
+        sponsor={{ name: 'Cogna', logo: { url: '/images/como-funciona/cogna.svg' } }}
+      >
         <p>
           O seu objetivo (e do grupo) é conseguir finalizar todos os desafios em 20 minutos. Está na
           sua mão salvar o nosso mundo!

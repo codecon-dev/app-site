@@ -1,0 +1,48 @@
+@import 'styles/colors';
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.form {
+    border-radius: 1rem;
+    padding: 3rem;
+    margin: 3rem auto;
+    max-width: 50rem;
+    background-color: $black;
+
+    p {
+        line-height: 2rem;
+    }
+}
+
+.button {
+    margin: 2rem auto 0;
+    -webkit-appearance: none;
+    border: 0;
+    background-color: $light-green;
+    font-weight: bold;
+    line-height: 1.8;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.15rem 1.5rem;
+    color: $black;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 0;
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
