@@ -1,0 +1,14 @@
+@import 'styles/colors';
+
+.whatsapp_button {
+    position: fixed;
+    width: 3.75rem;
+    height: 3.75rem;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    background-color: $light-green;
+    border-radius: 50%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+}
