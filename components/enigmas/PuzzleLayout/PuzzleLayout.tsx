@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 
 type Props = {
     bgStyle?: string;
-    children: ReactNode;
+    children?: ReactNode;
 };
 
 export default function PuzzleLayout({ bgStyle, children }: Props) {
