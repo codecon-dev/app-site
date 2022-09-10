@@ -1,7 +1,7 @@
 import Page from '@components/_ui/Page';
 import Layout from '@components/_ui/Layout';
 import PrivateArea from '@components/_ui/PrivateArea';
-import DayThreePuzzle20 from '@components/enigmas/DayThreePuzzle20';
+import DayTwoPuzzle20 from '@components/enigmas/DayTwoPuzzle20';
 
 export default function PuzzleTwenty() {
     const meta = {
@@ -12,7 +12,7 @@ export default function PuzzleTwenty() {
         <Page meta={meta}>
             <Layout hideNav hideFooter>
                 <PrivateArea>
-                    <DayThreePuzzle20 />
+                    <DayTwoPuzzle20 />
                 </PrivateArea>
             </Layout>
         </Page>

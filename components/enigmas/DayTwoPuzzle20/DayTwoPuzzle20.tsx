@@ -1,7 +1,7 @@
 import PuzzleLayout from '../PuzzleLayout';
-import styles from './DayThreePuzzle20.module.scss';
+import styles from './DayTwoPuzzle20.module.scss';
 
-export default function DayThreePuzzle20() {
+export default function DayTwoPuzzle20() {
     return (
         <PuzzleLayout>
             <div className={styles.content}>
