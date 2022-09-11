@@ -3,7 +3,7 @@ import PuzzleLayout from '../PuzzleLayout';
 import Image from 'next/image';
 import { useState } from 'react';
 
-export default function DayOnePuzzle3() {
+export default function DayOnePuzzle2() {
     const mugImage1 = '/images/enigmas/2-m.png';
     const mugImage2 = '/images/enigmas/2-m2.png';
     const [mugImage, setMugImage] = useState(mugImage1);
