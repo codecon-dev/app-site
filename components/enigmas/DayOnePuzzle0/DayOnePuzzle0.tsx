@@ -1,5 +1,5 @@
-import styles from './DayOnePuzzle0.module.scss';
 import PuzzleLayout from '../PuzzleLayout';
+import styles from './DayOnePuzzle0.module.scss';
 
 export default function DayOnePuzzle0() {
     return (
