@@ -11,7 +11,7 @@ class EscapeRoom extends ModelImpl<EscapeRoom> {
 EscapeRoom.init(
     {
         ...commonAttributes,
-        message: { type: DataTypes.STRING, allowNull: false }
+        message: { type: DataTypes.STRING, allowNull: true }
     },
     {
         sequelize: dataSource
