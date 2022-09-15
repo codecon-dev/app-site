@@ -43,16 +43,20 @@ export default class PuzzleAnswerService {
             };
         }
 
-        const almostGotItRight: boolean = puzzle.almostList.some(
-            (almost: string) => normalizedUserGuess == this.normalize(almost)
-        );
-        if (almostGotItRight) {
-            puzzleAnswer.almosts++;
-            await puzzleAnswer.save();
-            return { success: false, message: `"${userGuess}" foi quase` };
+        const almostList: [] = JSON.parse(puzzle.almostList);
+
+        if (almostList.length) {
+            const almostGotItRight: boolean = almostList.some(
+                (almost: string) => normalizedUserGuess == this.normalize(almost)
+            );
+            if (almostGotItRight) {
+                puzzleAnswer.almosts++;
+                await puzzleAnswer.save();
+                return { success: false, message: `"${userGuess}" foi quase` };
+            }
         }
 
-        await puzzleAnswer.save()
+        await puzzleAnswer.save();
         return { success: false, message: 'Hmmm, não é isso' };
     }
 
