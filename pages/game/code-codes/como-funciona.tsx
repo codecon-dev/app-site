@@ -9,7 +9,7 @@ import Rank from '@components/code-codes/Ranking';
 
 export default function ComoFunciona() {
     const meta = {
-        title: 'Como funciona Code-codes - Codecon Digital 2021',
+        title: 'Como funciona Code-codes - Codecon Digital 2022',
     };
 
     return (
