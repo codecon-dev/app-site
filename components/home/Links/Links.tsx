@@ -1,5 +1,6 @@
 import IconLogo from '@components/_ui/Icons/icon-logo';
 import WhatsApp from '@components/_ui/Icons/icon-whatsapp';
+import { WHATSAPP_LINK } from '@lib/constants';
 
 import styles from './Links.module.scss';
 
@@ -14,7 +15,7 @@ export default function Links() {
                 <div className={styles.content}>
                     <div className={styles['links-wrapper']}>
                         <a
-                            href="https://wa.me/5547991367060"
+                            href={WHATSAPP_LINK}
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.button}
