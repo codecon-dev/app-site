@@ -69,8 +69,19 @@ export default function Finish() {
                 <Image src="/animations/sati.webp" width={241} height={170} />
                 <br />
                 <br />
-                <h3>Hey, {firstName}!</h3>
-                <p>Que bom que você chegou até aqui!</p>
+
+                <p>
+                    Muito abrigada. Smith finalmente se foi, e as coisas podem agora tentar voltar
+                    aos seus lugares.
+                </p>
+
+                <p>
+                    É a hora de vocês também voltarem aos seus lugares, ainda existem muitos
+                    acontecimentos para participar e, quem sabe, contribuir de alguma forma.
+                </p>
+
+                <p>A saída fica a esquerda.</p>
+
                 <p>
                     Para validar sua finalização da escape room, contabilizar seus pontos e para
                     você participar dos sorteios dos prêmios, escreva abaixo{' '}

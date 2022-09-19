@@ -2,22 +2,35 @@
 @import 'styles/colors';
 
 .header {
-  margin: 4rem 0;
+    margin: 4rem 0;
 
-  @media #{$breakpoint-sm} {
-    margin: 8rem 0;
-  }
+    @media #{$breakpoint-sm} {
+        margin: 8rem 0;
+    }
+
+    &.smaller {
+        margin: 3rem 0;
+
+        @media #{$breakpoint-sm} {
+            margin: 3rem 0;
+        }
+    }
 }
 
 .hero {
-  color: $primary;
+    color: $primary;
+
+    &.smaller {
+        font-size: 3rem;
+        margin-bottom: 0;
+    }
 }
 
 .description {
-  font-size: 1.25rem;
+    font-size: 1.25rem;
 
-  @media #{$breakpoint-sm} {
-    max-width: 85%;
-    font-size: 1.5rem;
-  }
+    @media #{$breakpoint-sm} {
+        max-width: 85%;
+        font-size: 1.5rem;
+    }
 }

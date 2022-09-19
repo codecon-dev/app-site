@@ -9,7 +9,7 @@ export const REGISTER_URL =
 export const EVENT_PRICE = 59;
 export const WORKSHOP_PRICE = 0;
 export const RANKING_ENABLED = true;
-export const WHATSAPP_NUMBER = '554791367060';
+export const WHATSAPP_LINK = 'https://chat.whatsapp.com/CPP0eFxck7yDhvdsnBm6Lu';
 
 export const NAVIGATION = [
     {

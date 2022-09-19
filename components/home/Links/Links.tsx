@@ -1,5 +1,7 @@
+import IconDiscord from '@components/_ui/Icons/icon-discord';
 import IconLogo from '@components/_ui/Icons/icon-logo';
 import WhatsApp from '@components/_ui/Icons/icon-whatsapp';
+import { WHATSAPP_LINK } from '@lib/constants';
 
 import styles from './Links.module.scss';
 
@@ -14,13 +16,22 @@ export default function Links() {
                 <div className={styles.content}>
                     <div className={styles['links-wrapper']}>
                         <a
-                            href="https://wa.me/5547991367060"
+                            href={WHATSAPP_LINK}
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.button}
                         >
                             <span className={styles.truncate}>Fale com a gente no WhatsApp</span>
                             <WhatsApp size={24} />
+                        </a>
+                        <a
+                            href="https://codecon.dev/discord"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.button}
+                        >
+                            <span className={styles.truncate}>Entre no nosso Discord</span>
+                            <IconDiscord color="#ffffff" size={16} />
                         </a>
                         <a
                             href="https://www.youtube.com/watch?v=tZafPe3X9XA"
@@ -69,6 +80,7 @@ export default function Links() {
                             </svg>
                         </a>
                     </div>
+                    E-mail: <a href="mailto:contato@codecon.dev">contato@codecon.dev</a>
                 </div>
             </div>
         </div>

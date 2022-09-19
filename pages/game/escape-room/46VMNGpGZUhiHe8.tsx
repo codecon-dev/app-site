@@ -12,7 +12,6 @@ export default function EscapeRoomFour() {
     return (
         <Page meta={meta}>
             <Layout hideNav hideFooter>
-                <Header title="Escape Room" description="Você chegou ao fim, parabéns!" />
                 <PrivateArea>
                     <Finish />
                 </PrivateArea>
