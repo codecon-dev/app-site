@@ -40,6 +40,7 @@ export default function ComoFunciona() {
                         , nosso jogo de caça aos códigos do evento que também vale prêmios.
                     </p>
                     <p>A premiação dos enigmas será:</p>
+                    <br />
                     <ol>
                         <li>Fone Edifier W820NB</li>
                         <li>Kindle </li>
