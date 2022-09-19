@@ -19,7 +19,7 @@ export default function EnigmaRanking({ puzzleRank }: Props) {
     return (
         <Page meta={meta}>
             <Layout hideNav hideFooter>
-                <Header title="Enigmas" description="Ranking dos participantes" smaller />
+                <Header title="Enigmas da Olist" description="Ranking dos participantes" smaller />
                 <Ranking
                     data={puzzleRank}
                     columns={[
