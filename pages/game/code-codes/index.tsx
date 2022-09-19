@@ -5,7 +5,6 @@ import Layout from '@components/_ui/Layout';
 import Header from '@components/_ui/Header';
 import Rank from '@components/code-codes/Ranking';
 
-
 import { Sponsor, UserRank } from '@lib/types/all';
 import { META_DESCRIPTION, RANKING_ENABLED } from '@lib/constants';
 import { getRank } from '@lib/codecodes-api';
@@ -24,7 +23,7 @@ export default function Ranking({ rankUsers, sponsors }: Props) {
     return (
         <Page meta={meta}>
             <Layout sponsors={sponsors} hideNav hideFooter>
-                <Header title="Code-codes" description="Ranking" />
+                <Header title="Code-codes" description="Ranking" smaller />
                 {RANKING_ENABLED ? (
                     <Rank users={rankUsers} />
                 ) : (
