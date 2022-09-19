@@ -3,11 +3,11 @@ import Layout from '@components/_ui/Layout';
 import CodeEditor from '@components/escape-room/CodeEditor';
 
 export default function EscapeRoomThree() {
-  const meta = {
-    title: 'Escape Room - Codecon Digital 2022'
-  };
+    const meta = {
+        title: 'Escape Room - Codecon Digital 2022'
+    };
 
-  const wrongCode = `function startAgent() {
+    const wrongCode = `function startAgent() {
   const agent = new Agent();
   if (!isAgentFree) return;
 
@@ -25,18 +25,18 @@ function teleport(user, x, y) {
   user.y = y;
 }`;
 
-  const rightCode = `function teleport(user, x, y) {
+    const rightCode = `function teleport(user, x, y) {
   if (!user.isTheOne) return;
 
   user.x = x;
   user.y = y;
 }`;
 
-  return (
-    <Page meta={meta}>
-      <Layout hideNav hideFooter>
-        <CodeEditor rightCode={rightCode} wrongCode={wrongCode} answer="R" />
-      </Layout>
-    </Page>
-  );
+    return (
+        <Page meta={meta}>
+            <Layout hideNav hideFooter>
+                <CodeEditor rightCode={rightCode} wrongCode={wrongCode} answer="F" />
+            </Layout>
+        </Page>
+    );
 }
