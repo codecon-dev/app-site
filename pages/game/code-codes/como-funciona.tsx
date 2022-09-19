@@ -1,10 +1,8 @@
-import { GetStaticProps } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import Page from '@components/_ui/Page';
 import Layout from '@components/_ui/Layout';
-import Header from '@components/_ui/Header';
-import Rank from '@components/code-codes/Ranking';
 
 export default function ComoFunciona() {
     const meta = {
@@ -14,10 +12,11 @@ export default function ComoFunciona() {
     return (
         <Page meta={meta}>
             <Layout hideNav hideFooter>
-                <Header title="Code-codes" description="Como funciona" smaller />
-                <div className="container">
+                <div className="container container-text">
+                    <h2>Code-codes</h2>
+                    <h3>Como funciona</h3>
+                    <p>O code-codes é uma caça aos ✨ tokens secretos ✨.</p>
                     <p>
-                        O code-codes é uma caça aos ✨ tokens secretos ✨.<br></br>
                         Durante nosso evento, você vai poder resgatar códigos que irão valer pontos
                         em uma competição e os 10 primeiros colocados ganham prêmios incríveis.
                     </p>
@@ -31,19 +30,20 @@ export default function ComoFunciona() {
                         encontrar um bug dourado.
                     </p>
                     <p>
-                        O resgate é feito em uma área específica do nosso mapa, onde você encontrará
-                        o personagem <b>Pensador Profundo</b>. Nele, você poderá digitar o código
-                        obtido para resgatar seus merecidos pontos. Algumas atividades contarão com
-                        um formato diferente, como os Enigmas que possuem resgate automático e a
-                        Escape Room que possui uma sala especifica para resgate.
+                        O resgate é feito em uma área específica do nosso mapa. No segundo andar,
+                        você encontrará o personagem <b>Pensador Profundo</b>. Nele, você poderá
+                        digitar o código obtido para resgatar seus merecidos pontos. Algumas
+                        atividades contarão com um formato diferente, como os Enigmas que possuem
+                        resgate automático e a Escape Room que possui uma sala especifica para
+                        resgate.
                     </p>
                     <p>
                         Para conseguir realizar o resgate dos seus pontos você deverá fazer login
                         com o seu e-mail e cada resgate dará pontos específicos para cada código:
                         alguns valem mais; outros, menos. Os pontos serão contados para o{' '}
-                        <a className="link" href="/game/code-codes">
-                            ranking do code-codes
-                        </a>
+                        <Link href="/game/code-codes">
+                            <a className="link">ranking do code-codes</a>
+                        </Link>
                         , onde os 10 primeiros colocados ganham prêmios.
                     </p>
                     <p>A premiação do code-codes será:</p> <br></br>
@@ -55,16 +55,24 @@ export default function ComoFunciona() {
                         layout="responsive"
                     />
                     <ol>
-                        <li>Playstation 5</li>
-                        <li>Mesa GenioDesk Plus</li>
-                        <li>Teclado Logitech MX Keys Mini</li>
-                        <li>Quarto prêmio</li>
-                        <li>Quinto prêmio</li>
-                        <li>Sexto prêmio</li>
-                        <li>Sétimo prêmio</li>
-                        <li>Oitavo prêmio</li>
-                        <li>Nono prêmio</li>
-                        <li>Décimo prêmio</li>
+                        <li>PlayStation 5 + 1 ano de Rocketseat Plus </li>
+                        <li>Mesa GenioDesks + 1 ano de Rocketseat Plus </li>
+                        <li>Teclado Logitech MX Keys Mini + 1 ano de Rocketseat Plus</li>
+                        <li>
+                            Fone Bluetooth Anker Soundcore Life Q30 + 6 meses de Rocketseat Plus
+                        </li>
+                        <li>Mouse Logitech MX Master 3 + 6 meses de Rocketseat Plus</li>
+                        <li> Divoom Ditoo plus + 6 meses de Rocketseat Plus</li>
+                        <li>Kindle + 3 meses de Rocketseat Plus</li>
+                        <li>
+                            Microfone Razer Seiren + Ebook Casa do Código + 3 meses de Rocketseat
+                            Plus
+                        </li>
+                        <li>
+                            Fone Galaxy Buds Live + Ebook Casa do Código + 3 meses de Rocketseat
+                            Plus
+                        </li>
+                        <li>Amazon Echo Dot +Ebook Casa do Código + 3 meses de Rocketseat Plus</li>
                     </ol>
                     <br></br>
                     <p>
@@ -72,7 +80,7 @@ export default function ComoFunciona() {
                         horário de Brasília. Às 17h do mesmo dia, o ranking será desabilitado e os{' '}
                         <strong>ganhadores divulgados às 19:00h nas nossas redes sociais</strong>.
                         Caso haja empate, os critérios de desempate serão: quem mais fez resgates;
-                        quem fez o primeiro resgate antes; sorteio, nessa ordem.
+                        quem fez o primeiro resgate antes e sorteio. Nessa ordem.
                     </p>
                     <p>
                         As premiações são válidas para participantes que moram no Brasil e o frete é
@@ -84,7 +92,6 @@ export default function ComoFunciona() {
                         o sistema. A organização tem o direito de remover os pontos que forem
                         identificados como fraudulentos ou até excluir o participante da competição.
                     </p>
-                    <br></br> <br></br>
                 </div>
             </Layout>
         </Page>

@@ -39,6 +39,33 @@ section {
     }
 }
 
+.container-text {
+    max-width: $max-width-sm;
+    margin: 3rem auto;
+
+    @media #{$breakpoint-sm} {
+        max-width: $max-width-xsm;
+    }
+
+    @media #{$breakpoint-lg} {
+        max-width: $max-width-xsm;
+    }
+
+    h2 {
+        text-transform: uppercase;
+        color: $primary;
+        letter-spacing: 0.5rem;
+        margin-bottom: 0;
+        font-size: 3rem;
+    }
+
+    h3 {
+        margin-bottom: 2rem;
+        color: $light-gray;
+        font-weight: normal;
+    }
+}
+
 ::selection {
     background-color: $primary;
     color: #fff;
