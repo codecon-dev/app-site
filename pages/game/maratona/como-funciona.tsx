@@ -27,8 +27,8 @@ export default function ComoFunciona() {
                     <br />
                     <br />
                     <p>
-                        Serão 3 torneios, um para cada tipo de evento. Você poderá ler mais detalhes
-                        técnicos na Wiki. Mas terá um tempo para enviar sua IA e melhorá-la, depois
+                        Serão 3 torneios, um para cada dia de evento. Você poderá ler mais detalhes
+                        técnicos na Wiki. Mas terá um tempo para enviar sua IA e melhorá-la. Depois
                         os envios serão fechados e a competição irá escolher a melhor de todas. As
                         IAs precisam ser enviadas usando Python.
                     </p>
