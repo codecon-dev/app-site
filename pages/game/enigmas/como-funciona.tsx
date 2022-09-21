@@ -33,11 +33,8 @@ export default function ComoFunciona() {
                         : os 10 primeiros colocados desse ranking ganham prêmios. Toda vez que você
                         acertar um enigma, você também ganhará automaticamente 319 pontos (o número
                         de pontos vai diminuindo a cada resgate, sendo que o valor mínimo que você
-                        ganhará é 197 pontos) no{' '}
-                        <Link href="/game/code-codes">
-                            <a className="link">Code-codes</a>
-                        </Link>
-                        , nosso jogo de caça aos códigos do evento que também vale prêmios.
+                        ganhará é 197 pontos) no Code-codes, nosso jogo de caça aos códigos do
+                        evento que também vale prêmios.
                     </p>
                     <p>A premiação dos enigmas será:</p>
                     <br />
@@ -60,7 +57,7 @@ export default function ComoFunciona() {
                         Os enigmas são baseados no universo da programação e matrix.
                     </p>
                     <p>
-                        As respostas serão aceitas até dia 24 de setembro de 2021, às 18h, horário
+                        As respostas serão aceitas até dia 24 de setembro de 2022, às 18h, horário
                         de Brasília. Caso haja empate, os critérios de desempate serão, primeiro,
                         quem acertou mais enigmas em menos tempo e, depois, sorteio.
                     </p>

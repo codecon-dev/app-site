@@ -25,9 +25,9 @@ export default function ComoFunciona() {
                         Por isso, os tokens podem ser resgatados de várias formas: respondendo
                         enigmas, tendo uma boa posição na maratona de programação, encontrando bugs
                         espalhados pelo mapa, pegando códigos que os hosts divulgarem durante as
-                        apresentações, visitando estandes de patrocinadores entre outros. Toda
-                        atividade pode valer um código e quem sabe se você tiver sorte, pode até
-                        encontrar um bug dourado.
+                        apresentações, visitando stands de patrocinadores e comunidades, entre
+                        outros. Toda atividade pode valer um código e quem sabe se você tiver sorte,
+                        pode até encontrar um bug dourado.
                     </p>
                     <p>
                         O resgate é feito em uma área específica do nosso mapa. No segundo andar,
@@ -76,10 +76,12 @@ export default function ComoFunciona() {
                     </ol>
                     <br></br>
                     <p>
-                        As respostas serão aceitas até dia 24 de setembro de 2022, às 18h30m,
-                        horário de Brasília. Às 17h do mesmo dia, o ranking será desabilitado e os{' '}
-                        <strong>ganhadores divulgados às 19:00h nas nossas redes sociais</strong>.
-                        Caso haja empate, os critérios de desempate serão: quem mais fez resgates;
+                        O ranking será desabilitado no dia 24 de setembro de 2022 às 17h, mas os
+                        resgates serão aceitos até às 18:30, horário de Brasília. Os{' '}
+                        <strong>
+                            ganhadores serão divulgados às 19:00 nas nossas redes sociais
+                        </strong>
+                        . Caso haja empate, os critérios de desempate serão: quem mais fez resgates;
                         quem fez o primeiro resgate antes e sorteio. Nessa ordem.
                     </p>
                     <p>

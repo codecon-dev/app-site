@@ -61,11 +61,11 @@ export default function ComoFunciona() {
                     </ol>
                     <br />
                     <p>
-                        Cada pessoas pode finalizar apenas uma vez a Escape Room. Mas, você pode
+                        Cada pessoa pode finalizar apenas uma vez a Escape Room. Mas, você pode
                         participar em quantos grupos quiser, se não conseguir finalizar antes.
                     </p>
                     <p>
-                        As participações poderão acontecer até dia 24 de setembro de 2021, às 18h,
+                        As participações poderão acontecer até dia 24 de setembro de 2022, às 18h,
                         horário de Brasília.
                     </p>
                     <p>
