@@ -36,7 +36,7 @@ export const NAVIGATION = [
 
 export const ATTENDEE_NAVIGATION = [
     {
-        name: 'Inscreva-se',
+        name: 'Inscrições encerradas',
         route: REGISTER_URL,
         type: 'button'
     }
