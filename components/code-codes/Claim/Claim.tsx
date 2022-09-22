@@ -51,7 +51,7 @@ export default function CodecodesClaimForm() {
     return (
         <section>
             <div className="container">
-                <h3>Hey, {firstName}!</h3>
+                <h3>Hey!</h3>
                 <p>Digite abaixo o código que encontrou:</p>
                 <br />
                 <OneInputForm

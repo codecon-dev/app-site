@@ -23,15 +23,15 @@ export default function PrivateArea({ children }: Props) {
 
     useEffect(() => {
         const email = window.localStorage.getItem('codeconEmail');
-        const firstName = window.localStorage.getItem('codeconFirstName');
-        const fullName = window.localStorage.getItem('codeconFullName');
+        const firstName = window.localStorage.getItem('codeconFirstName') ?? '';
+        const fullName = window.localStorage.getItem('codeconFullName') ?? '';
         const acceptedTerms = window.localStorage.getItem('codeconTerms');
 
         if (acceptedTerms === '0') {
             setShowTermsModal(true);
         }
 
-        if (email && firstName && fullName) {
+        if (email) {
             setUserData({ firstName, fullName, email });
         }
 
@@ -60,7 +60,7 @@ export default function PrivateArea({ children }: Props) {
             setShowTermsModal(true);
         }
 
-        const firstName = data.user.name.split(' ')[0];
+        const firstName = data.user.name.split(' ')[0] ?? data.user.name;
 
         window.localStorage.setItem('codeconEmail', data.user.email);
         window.localStorage.setItem('codeconFullName', data.user.name);
