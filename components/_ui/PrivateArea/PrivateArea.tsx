@@ -60,14 +60,15 @@ export default function PrivateArea({ children }: Props) {
             setShowTermsModal(true);
         }
 
-        const firstName = data.user.name.split(' ')[0] ?? data.user.name;
+        const fullName = data.user.name.trim();
+        const firstName = fullName.split(' ')[0];
 
         window.localStorage.setItem('codeconEmail', data.user.email);
-        window.localStorage.setItem('codeconFullName', data.user.name);
+        window.localStorage.setItem('codeconFullName', fullName);
         window.localStorage.setItem('codeconFirstName', firstName);
         window.localStorage.setItem('codeconTerms', data.user.acceptedTerms ? '1' : '0');
 
-        setUserData({ firstName, fullName: data.user.name, email: data.user.email });
+        setUserData({ firstName, fullName: fullName, email: data.user.email });
         toast.success(message);
     }
 
