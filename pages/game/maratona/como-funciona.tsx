@@ -44,6 +44,9 @@ export default function ComoFunciona() {
                     </ol>
                     <br />
                     <p>
+                        Os prêmios não são cumulativos, caso uma mesma pessoa ganhe em primeiro
+                        lugar duas vezes, a segunda vez ela ficará com os prêmios do segundo lugar,
+                        e quem ficou em segundo, pega os prêmios do primeiro, assim sucessivamente.
                         Cada participante, também ganhará pontos no Code-Codes, do primeiro ao
                         décimo colocado.
                     </p>
