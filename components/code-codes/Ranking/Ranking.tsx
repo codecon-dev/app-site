@@ -37,6 +37,13 @@ export default function Ranking({ users }: { users: UserRank[] }) {
                     </Link>{' '}
                     o code-codes.
                 </p>
+                <p>
+                    <small>
+                        Em 23/09/2022 14:28 houve uma recontagem dos pontos pois foi encontrado um
+                        problema na plataforma que estava contabilizando pontos erroneamente para
+                        alguns participantes. O ranking sofreu algumas mudanças.
+                    </small>
+                </p>
             </div>
         </section>
     );
