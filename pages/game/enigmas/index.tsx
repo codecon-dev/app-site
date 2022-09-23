@@ -75,7 +75,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
             position: i + 1,
             name: user.name,
             correctGuessCount: unformattedRankingItem.correctGuessCount,
-            lastCorrectGuessDate: unformattedRankingItem.lastCorrectGuessDate.toLocaleString()
+            lastCorrectGuessDate: unformattedRankingItem.lastCorrectGuessDate.toLocaleString(
+                'pt-BR',
+                { timeZone: 'America/Sao_Paulo' }
+            )
         });
     }
 
