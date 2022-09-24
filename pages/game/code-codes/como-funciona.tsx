@@ -77,7 +77,7 @@ export default function ComoFunciona() {
                     <br></br>
                     <p>
                         O ranking será desabilitado no dia 24 de setembro de 2022 às 17h, mas os
-                        resgates serão aceitos até às 18:30, horário de Brasília. Os{' '}
+                        resgates serão aceitos até às 18:00, horário de Brasília. Os{' '}
                         <strong>
                             ganhadores serão divulgados às 19:00 nas nossas redes sociais
                         </strong>
