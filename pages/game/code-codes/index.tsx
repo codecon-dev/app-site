@@ -28,8 +28,8 @@ export default function Ranking({ rankUsers, sponsors }: Props) {
                     <Rank users={rankUsers} />
                 ) : (
                     <p style={{ textAlign: 'center', padding: 20 }}>
-                        O ranking está desabilitado. Vamos divulgar o resultado às 18h30 em nossas
-                        redes sociais.
+                        O ranking está desabilitado. Vamos divulgar o resultado às 19h00 em nossas
+                        redes sociais. Os resgaters continuam ativos até às 18h00.
                         <br />
                         <br /> Boa sorte! :)
                     </p>
