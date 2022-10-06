@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Grid, Column } from '@components/_ui/Grid';
 
 import styles from './Newsletter.module.scss';
+import LinkButton from '@components/_ui/LinkButton';
 
 export default function Newsletter() {
   return (
@@ -28,29 +29,9 @@ export default function Newsletter() {
         </Column>
         <Column lg={2} sm={0} xsm={0} />
         <Column lg={4} sm={6}>
-          <form
-            action="https://www.getrevue.co/profile/codecon/add_subscriber"
-            method="post"
-            name="revue-form"
-            target="_blank"
-            className={styles.form}
-          >
-            <input
-              className={styles['form__input']}
-              placeholder="Seu melhor e-mail"
-              type="email"
-              name="member[email]"
-              required
-            />
-
-            <input
-              className={styles['form__button']}
-              type="submit"
-              value="Inscrever-se"
-              name="member[subscribe]"
-              id="member_submit"
-            />
-          </form>
+            <div className={styles['text-right']}>
+              <LinkButton href="https://codecon.substack.com/" newPage>Clique e inscreva-se</LinkButton>
+            </div>
         </Column>
       </Grid>
     </section>
