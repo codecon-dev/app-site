@@ -11,30 +11,30 @@ export const WORKSHOP_PRICE = 0;
 export const RANKING_ENABLED = true;
 export const WHATSAPP_LINK = 'https://chat.whatsapp.com/CPP0eFxck7yDhvdsnBm6Lu';
 
-export const NAVIGATION = [
+export const NAVIGATION_2022 = [
     {
         name: 'Quem vai',
-        route: '/quem-vai'
+        route: '/2022/quem-vai'
     },
     {
         name: 'Programação',
-        route: '/programacao'
+        route: '/2022/programacao'
     },
     {
         name: 'Como funciona',
-        route: '/como-funciona'
+        route: '/2022/como-funciona'
     },
     {
         name: 'Workshops',
-        route: '/workshops'
+        route: '/2022/workshops'
     },
     {
         name: 'Patrocinadores',
-        route: '/patrocinadores'
+        route: '/2022/patrocinadores'
     }
 ];
 
-export const ATTENDEE_NAVIGATION = [
+export const ATTENDEE_NAVIGATION_2022 = [
     {
         name: 'Inscrições encerradas',
         route: REGISTER_URL,

@@ -1,0 +1,123 @@
+@import 'styles/colors';
+
+.default_bg {
+    background: url('/images/2022/quem-vai/speaker-default-bg.png') no-repeat;
+    width: 1200px;
+    height: 675px;
+}
+
+.square_bg {
+    background: url('/images/2022/quem-vai/speaker-square-bg.png') no-repeat;
+    width: 1080px;
+    height: 1080px;
+}
+
+.stories_bg {
+    background: url('/images/2022/quem-vai/speaker-stories-bg.png') no-repeat;
+    background-position-y: -50px;
+    width: 1080px;
+    height: 1920px;
+}
+
+.kind_stories {
+    padding: 300px 200px;
+    text-align: center;
+
+    .image_wrapper {
+        max-width: 620px;
+        margin: 0 auto;
+    }
+
+    .name {
+        font-size: 5rem;
+        margin-top: 11rem;
+
+        + h2 {
+            font-size: 2.5rem;
+            margin: 2.25rem;
+        }
+    }
+
+    h3 {
+        font-size: 2.5px;
+        font-weight: normal;
+        margin-bottom: 4.5rem;
+    }
+
+    svg {
+        margin: 2.25rem auto;
+    }
+}
+
+.kind_square {
+    padding: 6.25rem;
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 5rem;
+
+        h2 {
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+        }
+
+        h3 {
+            font-size: 1.875rem;
+            font-weight: normal;
+            color: $dark-gray;
+        }
+
+        svg {
+            margin-left: auto;
+        }
+    }
+
+    .image_wrapper {
+        max-width: 500px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 6.25rem;
+        color: $light-green;
+    }
+}
+
+.kind_default {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 410px auto;
+    padding: 8rem;
+    grid-gap: 5rem;
+}
+
+.name {
+    color: $light-green;
+    font-size: 3.5rem;
+
+    + h2 {
+        font-size: 1.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        margin: 0.75rem 0;
+    }
+}
+
+.info {
+    > * {
+        font-size: 1.875rem;
+        margin: 0;
+    }
+
+    .local {
+        color: $dark-gray;
+    }
+
+    .date {
+        color: $white;
+    }
+}

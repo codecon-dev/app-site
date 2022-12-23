@@ -1,0 +1,10 @@
+import Image from 'next/image';
+import PuzzleLayout from '../PuzzleLayout';
+
+export default function DayTwoPuzzle19() {
+    return (
+        <PuzzleLayout>
+            <Image src="/images/2022/enigmas/19.png" width={1440} height={805} />
+        </PuzzleLayout>
+    );
+}
