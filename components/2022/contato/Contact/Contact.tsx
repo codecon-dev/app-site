@@ -1,10 +1,10 @@
-import IconTwitter from '@components/2022/_ui/Icons/icon-twitter';
-import InstagramIcon from '@components/2022/_ui/Icons/icon-instagram';
-import IconGithub from '@components/2022/_ui/Icons/icon-github';
-import IconDiscord from '@components/2022/_ui/Icons/icon-discord';
+import IconTwitter from '@components/_ui/Icons/icon-twitter';
+import InstagramIcon from '@components/_ui/Icons/icon-instagram';
+import IconGithub from '@components/_ui/Icons/icon-github';
+import IconDiscord from '@components/_ui/Icons/icon-discord';
 
 import styles from './Contact.module.scss';
-import { Grid, Column } from '@components/2022/_ui/Grid';
+import { Grid, Column } from '@components/_ui/Grid';
 import { WHATSAPP_LINK } from '@lib/constants';
 
 export default function Contact() {

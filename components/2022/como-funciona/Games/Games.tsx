@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import cn from 'classnames';
 import NextImage from 'next/image';
 
-import { Column, Grid } from '@components/2022/_ui/Grid';
+import { Column, Grid } from '@components/_ui/Grid';
 import OfferedBy from '@components/2022/_ui/OfferedBy';
 import { Image } from '@lib/types/all';
 

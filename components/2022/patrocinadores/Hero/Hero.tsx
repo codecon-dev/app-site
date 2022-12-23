@@ -2,7 +2,7 @@ import Image from 'next/image';
 import cn from 'classnames';
 
 import { Sponsor } from '@lib/types/all';
-import { Grid, Column } from '@components/2022/_ui/Grid';
+import { Grid, Column } from '@components/_ui/Grid';
 import LinkButton from '@components/2022/_ui/LinkButton/LinkButton';
 import { EVENT_PRICE, REGISTER_URL } from '@lib/constants';
 

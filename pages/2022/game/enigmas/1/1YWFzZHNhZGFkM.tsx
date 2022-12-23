@@ -1,4 +1,4 @@
-import Page from '@components/2022/_ui/Page';
+import Page from '@components/_ui/Page';
 import Layout from '@components/2022/_ui/Layout';
 import DayOnePuzzle1 from '@components/2022/enigmas/DayOnePuzzle1';
 import PrivateArea from '@components/2022/_ui/PrivateArea';

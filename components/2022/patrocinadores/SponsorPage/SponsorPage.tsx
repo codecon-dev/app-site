@@ -3,11 +3,11 @@ import Image from 'next/image';
 import { createMarkup } from '@lib/utils';
 import { Sponsor } from '@lib/types/all';
 
-import IconTwitter from '@components/2022/_ui/Icons/icon-twitter';
-import InstagramIcon from '@components/2022/_ui/Icons/icon-instagram';
-import IconLinkedin from '@components/2022/_ui/Icons/icon-linkedin';
+import IconTwitter from '@components/_ui/Icons/icon-twitter';
+import InstagramIcon from '@components/_ui/Icons/icon-instagram';
+import IconLinkedin from '@components/_ui/Icons/icon-linkedin';
 import LinkButton from '@components/2022/_ui/LinkButton';
-import { Column, Grid } from '@components/2022/_ui/Grid';
+import { Column, Grid } from '@components/_ui/Grid';
 
 import styles from './SponsorPage.module.scss';
 

@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { Talk } from '@lib/types/all';
 import { captureHourAndMinutesFromDateString, formatDate } from '@lib/dates';
 
-import { Column, Grid } from '@components/2022/_ui/Grid';
+import { Column, Grid } from '@components/_ui/Grid';
 import SpeakerCard from '@components/2022/_ui/SpeakerCard';
 
 import styles from './TalkPage.module.scss';

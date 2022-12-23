@@ -1,0 +1,84 @@
+@import 'styles/colors';
+@import 'styles/media-queries';
+
+.wrapper {
+  background-color: $white;
+  text-align: center;
+}
+
+.grid {
+  padding: 4rem 2rem;
+
+  @media #{$breakpoint-sm} {
+    padding: 8rem 0;
+  }
+}
+
+.title {
+  text-align: center;
+  color: $black;
+}
+
+.sponsor {
+  display: inline-block;
+  max-width: 50%;
+  margin: 0.5rem 0;
+
+  @media #{$breakpoint-sm} {
+    margin: 0.5rem 2.5rem;
+  }
+}
+
+.hr {
+  width: 5rem;
+  height: 5px;
+  display: block;
+  background: lighten($light-gray, 15%);
+  margin: 5rem auto;
+  border: 0;
+}
+
+.footer {
+  padding-top: 2rem;
+  background-color: lighten($light-gray, 18%);
+  color: $black;
+  text-align: center;
+
+  @media #{$breakpoint-sm} {
+    text-align: left;
+  }
+}
+
+.footer a {
+  text-decoration: underline;
+  color: $black;
+}
+
+.social {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+
+  @media #{$breakpoint-sm} {
+    justify-content: flex-end;
+  }
+}
+
+.icon {
+  background-color: $black;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vercel {
+  padding: 1rem 0;
+  text-align: center;
+
+  @media #{$breakpoint-sm} {
+    text-align: right;
+  }
+}

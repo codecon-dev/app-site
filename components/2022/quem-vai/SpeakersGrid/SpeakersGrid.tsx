@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { Speaker, SocialData } from '@lib/types/speakers';
 
-import { Column, Grid } from '@components/2022/_ui/Grid';
+import { Column, Grid } from '@components/_ui/Grid';
 import SpeakerCard from '@components/2022/_ui/SpeakerCard';
 
 import styles from './SpeakersGrid.module.scss';

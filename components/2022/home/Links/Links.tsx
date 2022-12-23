@@ -1,6 +1,6 @@
-import IconDiscord from '@components/2022/_ui/Icons/icon-discord';
-import IconLogo from '@components/2022/_ui/Icons/icon-logo';
-import WhatsApp from '@components/2022/_ui/Icons/icon-whatsapp';
+import IconDiscord from '@components/_ui/Icons/icon-discord';
+import IconLogo from '@components/_ui/Icons/icon-logo';
+import WhatsApp from '@components/_ui/Icons/icon-whatsapp';
 import { WHATSAPP_LINK } from '@lib/constants';
 
 import styles from './Links.module.scss';

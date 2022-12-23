@@ -2,7 +2,7 @@ import { ImageKind } from '@lib/types/all';
 import { SITE_URL } from '@lib/constants';
 import { Speaker } from '@lib/types/speakers';
 import styles from './SpeakerImage.module.scss';
-import Logo from '@components/2022/_ui/Icons/icon-logo';
+import Logo from '@components/_ui/Icons/icon-logo';
 import SpeakerCard from '@components/2022/_ui/SpeakerCard';
 
 type Props = {

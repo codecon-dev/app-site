@@ -4,7 +4,7 @@ import { getAllTalks, getAllSponsors } from '@lib/cms-api';
 import { Sponsor, Talk } from '@lib/types/all';
 
 import Layout from '@components/2022/_ui/Layout';
-import Page from '@components/2022/_ui/Page';
+import Page from '@components/_ui/Page';
 import TalkPage from '@components/2022/programacao/TalkPage';
 
 type Props = {

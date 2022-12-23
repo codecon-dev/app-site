@@ -5,7 +5,7 @@ import {
     isActivityStartingOnDay
 } from '@lib/dates';
 
-import { Grid, Column } from '@components/2022/_ui/Grid';
+import { Grid, Column } from '@components/_ui/Grid';
 import Activity from '@components/2022/_ui/Activity';
 
 import styles from './Schedule.module.scss';

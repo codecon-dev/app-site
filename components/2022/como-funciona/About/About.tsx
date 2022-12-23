@@ -1,4 +1,4 @@
-import { Column, Grid } from '@components/2022/_ui/Grid';
+import { Column, Grid } from '@components/_ui/Grid';
 import Testimonial from '../Testimonial';
 
 import styles from './About.module.scss';

@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { Speaker, SocialData } from '@lib/types/speakers';
 import { captureHourAndMinutesFromDateString, formatDate } from '@lib/dates';
 
-import { Column, Grid } from '@components/2022/_ui/Grid';
+import { Column, Grid } from '@components/_ui/Grid';
 import SpeakerCard from '@components/2022/_ui/SpeakerCard';
 
 import styles from './SpeakerPage.module.scss';

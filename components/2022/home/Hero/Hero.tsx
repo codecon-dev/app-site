@@ -3,7 +3,7 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import cn from 'classnames';
 
 import DarkModeToggle from './DarkModeToggle';
-import { Grid, Column } from '@components/2022/_ui/Grid';
+import { Grid, Column } from '@components/_ui/Grid';
 import LinkButton from '@components/2022/_ui/LinkButton/LinkButton';
 import { EVENT_PRICE, REGISTER_URL } from '@lib/constants';
 

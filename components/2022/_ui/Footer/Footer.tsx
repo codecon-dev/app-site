@@ -2,13 +2,13 @@ import Image from 'next/image';
 import cn from 'classnames';
 
 import { Sponsor } from '@lib/types/all';
-import IconDiscord from '@components/2022/_ui/Icons/icon-discord';
-import IconTwitter from '@components/2022/_ui/Icons/icon-twitter';
-import InstagramIcon from '@components/2022/_ui/Icons/icon-instagram';
+import IconDiscord from '@components/_ui/Icons/icon-discord';
+import IconTwitter from '@components/_ui/Icons/icon-twitter';
+import InstagramIcon from '@components/_ui/Icons/icon-instagram';
 
 import styles from './Footer.module.scss';
 import styleUtils from '@components/2022/_ui/Utils/Utils.module.scss';
-import { Column, Grid } from '../Grid';
+import { Column, Grid } from '../../../_ui/Grid';
 import Link from 'next/link';
 
 type Props = {

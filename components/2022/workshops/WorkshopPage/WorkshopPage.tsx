@@ -4,7 +4,7 @@ import { nl2br } from '@lib/utils';
 import { Workshop } from '@lib/types/all';
 import { captureHourAndMinutesFromDateString, formatDate } from '@lib/dates';
 
-import { Column, Grid } from '@components/2022/_ui/Grid';
+import { Column, Grid } from '@components/_ui/Grid';
 import SpeakerCard from '@components/2022/_ui/SpeakerCard';
 
 import styles from './WorkshopPage.module.scss';

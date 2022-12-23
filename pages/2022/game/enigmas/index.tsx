@@ -1,6 +1,6 @@
 import Header from '@components/2022/_ui/Header';
 import Layout from '@components/2022/_ui/Layout';
-import Page from '@components/2022/_ui/Page';
+import Page from '@components/_ui/Page';
 import Ranking, { Rankeable } from '@components/2022/_ui/Ranking/Ranking';
 import { GetServerSideProps } from 'next';
 import dataSource from 'src/database/DataSource';

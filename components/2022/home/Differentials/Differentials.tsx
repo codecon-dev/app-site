@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import cn from 'classnames';
 
-import { Grid, Column } from '@components/2022/_ui/Grid';
+import { Grid, Column } from '@components/_ui/Grid';
 import styles from './Differentials.module.scss';
 
 export default function Differentials() {

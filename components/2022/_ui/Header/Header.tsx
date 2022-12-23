@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import cn from 'classnames';
 
-import { Column, Grid } from '../Grid';
+import { Column, Grid } from '../../../_ui/Grid';
 import styles from './Header.module.scss';
 
 type Props = {

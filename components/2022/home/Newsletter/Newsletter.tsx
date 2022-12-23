@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Grid, Column } from '@components/2022/_ui/Grid';
+import { Grid, Column } from '@components/_ui/Grid';
 
 import styles from './Newsletter.module.scss';
 import LinkButton from '@components/2022/_ui/LinkButton';

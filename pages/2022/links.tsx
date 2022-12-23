@@ -1,5 +1,5 @@
 import Links from '@components/2022/home/Links';
-import Page from '@components/2022/_ui/Page';
+import Page from '@components/_ui/Page';
 
 export default function LinksPage() {
     const meta = {

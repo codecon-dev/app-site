@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import styles from './About.module.scss';
-import { Grid, Column } from '@components/2022/_ui/Grid';
+import { Grid, Column } from '@components/_ui/Grid';
 
 export default function About() {
     const blurDataUrl =

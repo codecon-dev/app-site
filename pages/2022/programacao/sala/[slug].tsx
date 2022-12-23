@@ -2,7 +2,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 
-import Page from '@components/2022/_ui/Page';
+import Page from '@components/_ui/Page';
 import Layout from '@components/2022/_ui/Layout';
 import Header from '@components/2022/_ui/Header';
 import RoomSchedule from '@components/2022/programacao/RoomSchedule';

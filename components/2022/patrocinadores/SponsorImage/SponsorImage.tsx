@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Sponsor, ImageKind } from '@lib/types/all';
 import styles from './SponsorImage.module.scss';
-import Logo from '@components/2022/_ui/Icons/icon-logo';
+import Logo from '@components/_ui/Icons/icon-logo';
 import Share from './Share';
 
 type Props = {

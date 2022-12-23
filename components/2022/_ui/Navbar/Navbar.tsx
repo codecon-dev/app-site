@@ -3,7 +3,7 @@ import { useRouter, NextRouter } from 'next/router';
 import cn from 'classnames';
 
 import { ATTENDEE_NAVIGATION_2022, NAVIGATION_2022 } from '@lib/constants';
-import Logo from '@components/2022/_ui/Icons/icon-logo';
+import Logo from '@components/_ui/Icons/icon-logo';
 import MobileMenu from '@components/2022/_ui/MobileMenu';
 
 import styles from './Navbar.module.scss';

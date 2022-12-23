@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Grid, Column } from '@components/2022/_ui/Grid';
+import { Grid, Column } from '@components/_ui/Grid';
 import LinkButton from '@components/2022/_ui/LinkButton';
 
 import styles from './Gather.module.scss';

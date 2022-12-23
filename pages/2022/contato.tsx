@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import { getAllSponsors } from '@lib/cms-api';
 import { Sponsor } from '@lib/types/all';
 
-import Page from '@components/2022/_ui/Page';
+import Page from '@components/_ui/Page';
 import Layout from '@components/2022/_ui/Layout';
 import Header from '@components/2022/_ui/Header';
 import Contact from '@components/2022/contato/Contact';

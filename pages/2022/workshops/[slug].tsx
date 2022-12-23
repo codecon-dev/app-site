@@ -4,7 +4,7 @@ import { getAllWorkshops, getAllSponsors } from '@lib/cms-api';
 import { Sponsor, Workshop } from '@lib/types/all';
 
 import Layout from '@components/2022/_ui/Layout';
-import Page from '@components/2022/_ui/Page';
+import Page from '@components/_ui/Page';
 import WorkshopPage from '@components/2022/workshops/WorkshopPage';
 
 type Props = {

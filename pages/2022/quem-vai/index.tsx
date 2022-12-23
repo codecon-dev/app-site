@@ -6,7 +6,7 @@ import { Speaker } from '@lib/types/speakers';
 
 import Header from '@components/2022/_ui/Header';
 import Layout from '@components/2022/_ui/Layout';
-import Page from '@components/2022/_ui/Page';
+import Page from '@components/_ui/Page';
 import SpeakersGrid from '@components/2022/quem-vai/SpeakersGrid';
 
 type Props = {

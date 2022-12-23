@@ -5,7 +5,7 @@ import { Sponsor } from '@lib/types/all';
 import { Speaker } from '@lib/types/speakers';
 
 import Layout from '@components/2022/_ui/Layout';
-import Page from '@components/2022/_ui/Page';
+import Page from '@components/_ui/Page';
 import Hero from '@components/2022/home/Hero';
 import Differentials from '@components/2022/home/Differentials';
 import About from '@components/2022/home/About';

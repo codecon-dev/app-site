@@ -4,7 +4,7 @@ import { getAllSponsors } from '@lib/cms-api';
 import { Sponsor } from '@lib/types/all';
 
 import Layout from '@components/2022/_ui/Layout';
-import Page from '@components/2022/_ui/Page';
+import Page from '@components/_ui/Page';
 import Hero from '@components/2022/patrocinadores/Hero';
 import About from '@components/2022/patrocinadores/About';
 import Infos from '@components/2022/patrocinadores/Infos';

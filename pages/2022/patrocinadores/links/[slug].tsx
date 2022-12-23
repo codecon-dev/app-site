@@ -3,7 +3,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { getAllSponsors } from '@lib/cms-api';
 import { Sponsor } from '@lib/types/all';
 import SponsorLinks from '@components/2022/patrocinadores/SponsorLinks';
-import Page from '@components/2022/_ui/Page';
+import Page from '@components/_ui/Page';
 
 type Props = {
     sponsor: Sponsor;

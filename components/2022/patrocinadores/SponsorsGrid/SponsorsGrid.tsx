@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Sponsor } from '@lib/types/all';
 
-import { Column, Grid } from '@components/2022/_ui/Grid';
+import { Column, Grid } from '@components/_ui/Grid';
 
 import styles from './SponsorsGrid.module.scss';
 

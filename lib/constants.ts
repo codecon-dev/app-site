@@ -1,3 +1,5 @@
+import { MenuItem } from './types/all';
+
 export const SITE_URL = 'https://www.codecon.dev';
 export const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN || new URL(SITE_URL).origin;
 export const TWITTER_USER_NAME = 'codecondev';
@@ -11,7 +13,7 @@ export const WORKSHOP_PRICE = 0;
 export const RANKING_ENABLED = true;
 export const WHATSAPP_LINK = 'https://chat.whatsapp.com/CPP0eFxck7yDhvdsnBm6Lu';
 
-export const NAVIGATION_2022 = [
+export const NAVIGATION_2022: MenuItem[] = [
     {
         name: 'Quem vai',
         route: '/2022/quem-vai'
@@ -34,7 +36,7 @@ export const NAVIGATION_2022 = [
     }
 ];
 
-export const ATTENDEE_NAVIGATION_2022 = [
+export const ATTENDEE_NAVIGATION_2022: MenuItem[] = [
     {
         name: 'Inscrições encerradas',
         route: REGISTER_URL,

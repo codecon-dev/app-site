@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Column, Grid } from '@components/2022/_ui/Grid';
+import { Column, Grid } from '@components/_ui/Grid';
 
 export default function CodeCodes() {
     return (

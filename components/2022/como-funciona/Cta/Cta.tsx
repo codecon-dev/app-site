@@ -1,4 +1,4 @@
-import { Column, Grid } from '@components/2022/_ui/Grid';
+import { Column, Grid } from '@components/_ui/Grid';
 import LinkButton from '@components/2022/_ui/LinkButton';
 import { EVENT_PRICE, REGISTER_URL } from '@lib/constants';
 import Testimonial from '../Testimonial';
