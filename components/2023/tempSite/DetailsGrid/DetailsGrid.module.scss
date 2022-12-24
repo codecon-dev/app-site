@@ -1,0 +1,145 @@
+@import '/styles/colors';
+@import '/styles/media-queries';
+
+.grid {
+    display: grid;
+    grid-template-areas:
+        'digital digital'
+        'summit summit'
+        'feature feature'
+        'dvlpr dvlpr'
+        'newsletter newsletter'
+        'discord discord'
+        'instagram twitter'
+        'antigo antigo';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 15rem) 25rem repeat(2, 15rem) 10rem 20rem;
+    gap: 1rem;
+
+    @media #{$breakpoint-sm} {
+        grid-template-areas:
+            'digital summit feature feature'
+            'dvlpr newsletter instagram twitter'
+            'dvlpr newsletter antigo antigo'
+            'dvlpr discord antigo antigo';
+        grid-template-columns: 1fr 1fr 0.5fr 0.5fr;
+        grid-template-rows: 16rem 10rem 4rem 15rem;
+    }
+}
+
+.block {
+    background-color: $main-black;
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: $main-white;
+    transition: all ease 0.2s;
+
+    @media #{$breakpoint-lg} {
+        padding: 2rem;
+    }
+
+    h3 {
+        text-transform: uppercase;
+        font-size: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        font-size: 0.9rem;
+        margin: 0;
+        color: $main-gray-dark;
+    }
+
+    &:hover {
+        transform: scale(105%);
+        box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+            12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+            41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
+        transition: all ease 0.2s;
+        z-index: 200;
+    }
+}
+
+.digital {
+    grid-area: digital;
+    background-image: url('/images/2023/bg-codecon-digital.png');
+
+    p {
+        color: $main-white;
+    }
+}
+
+.summit {
+    grid-area: summit;
+    background-image: url('/images/2023/bg-codecon-summit.png');
+
+    p {
+        color: $main-white;
+    }
+}
+
+.feature {
+    grid-area: feature;
+    background-image: url('/images/2023/bg-codecon-feature.png');
+
+    p {
+        color: $main-white;
+    }
+}
+
+.dvlpr {
+    grid-area: dvlpr;
+    justify-content: flex-start;
+    padding-top: 3.5rem;
+    background-image: url('/images/2023/bg-dvlpr.png');
+}
+
+.newsletter {
+    grid-area: newsletter;
+}
+
+.instagram {
+    grid-area: instagram;
+    justify-content: flex-start;
+    background-image: url('/images/2023/instagram.svg');
+    background-size: 50% auto;
+    background-position: center bottom;
+
+    h3 {
+        margin-top: 0;
+    }
+}
+
+.twitter {
+    grid-area: twitter;
+    justify-content: flex-start;
+    background-image: url('/images/2023/twitter.svg');
+    background-size: 50% auto;
+    background-position: center bottom;
+
+    h3 {
+        margin-top: 0;
+    }
+}
+
+.antigo {
+    grid-area: antigo;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    background-image: url('/images/2023/bg-antigo.png');
+    background-position: center bottom;
+}
+
+.discord {
+    grid-area: discord;
+}

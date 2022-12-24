@@ -3,10 +3,8 @@
 
 .header {
     padding: 2rem 0;
-    border-bottom: 1px solid $dark-green;
-    background-color: $black;
-    position: sticky;
-    top: 0;
+    border-bottom: 1px solid $main-black;
+    position: relative;
     z-index: 999;
 
     &__container {
@@ -35,10 +33,11 @@
 
     &__logo {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
 
         @media #{$breakpoint-sm} {
+            justify-content: space-between;
             width: auto;
         }
     }
@@ -66,7 +65,7 @@
             padding: 0.5rem 1.5rem;
             font-weight: bold;
             transition: all 0.2s ease;
-            background-color: $black;
+            background-color: $main-black-light;
 
             &:before {
                 position: absolute;
@@ -110,8 +109,8 @@
             }
 
             &:hover {
-                color: $black;
-                background-color: $white;
+                color: $main-black-light;
+                background-color: $main-white;
                 transition: all 0.2s ease;
             }
         }

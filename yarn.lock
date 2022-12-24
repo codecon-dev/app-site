@@ -1683,6 +1683,14 @@ bl@^4.0.3:
     inherits "^2.0.4"
     readable-stream "^3.4.0"
 
+blobity@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/blobity/-/blobity-0.2.1.tgz#a6806a9218bf10660a4fe7e63993cebc4ff60687"
+  integrity sha512-Soxkt4ILpL6sUR76WmAJBApZJ1A7i69527TVk2S1wmTIo0Httv4gS+IaSSsDTUGtQLqIZTwdmgMGpfK0bP58Cg==
+  dependencies:
+    kinet "^2.2.1"
+    lodash "^4.17.21"
+
 brace-expansion@^1.1.7:
   version "1.1.11"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
@@ -3112,6 +3120,11 @@ jss@^9.7.0:
   dependencies:
     array-includes "^3.1.1"
     object.assign "^4.1.1"
+
+kinet@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/kinet/-/kinet-2.2.1.tgz#25aa218fb510e7c649197041ed5a8901d3f29e08"
+  integrity sha512-UmnTPmnEokjxBeB3gPkOnTwRlIUaAeB+t21E+HJGzRKCGdJTUF3CTztK5yzzEuBQ1BZ0I0ovrY73+ctpPWFIOg==
 
 lambdafs@^2.0.3:
   version "2.1.1"

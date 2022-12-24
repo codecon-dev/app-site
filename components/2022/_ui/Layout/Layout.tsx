@@ -1,7 +1,7 @@
 import cn from 'classnames';
 
 import { Sponsor } from '@lib/types/all';
-import Navbar from '@components/_ui/Navbar';
+import Navbar from '@components/2022/_ui/Navbar';
 import Footer from '@components/2022/_ui/Footer';
 import WhatsappFloatingButton from '@components/2022/_ui/WhatsappFloatingButton';
 

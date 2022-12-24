@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import useBlobity from 'blobity/lib/react/useBlobity';
 
 import { Sponsor } from '@lib/types/all';
 import Navbar from '../Navbar';
@@ -14,8 +15,18 @@ type Props = {
 };
 
 export default function Layout({ children, hideNav, hideFooter, sponsors }: Props) {
+    const blobity = useBlobity({
+        licenseKey: 'opensource',
+        color: 'rgb(0, 0, 0)',
+        magnetic: false,
+        zIndex: 200,
+        size: 100,
+        invert: true,
+        focusableElements: undefined
+    });
+
     return (
-        <>
+        <div className={styles.wrapper}>
             {!hideNav && (
                 <Navbar
                     navigation={[]}
@@ -26,6 +37,6 @@ export default function Layout({ children, hideNav, hideFooter, sponsors }: Prop
             )}
             <main className={cn(styles.main)}>{children}</main>
             {!hideFooter && <Footer sponsors={sponsors} />}
-        </>
+        </div>
     );
 }

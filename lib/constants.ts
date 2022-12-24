@@ -3,7 +3,7 @@ import { MenuItem } from './types/all';
 export const SITE_URL = 'https://www.codecon.dev';
 export const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN || new URL(SITE_URL).origin;
 export const TWITTER_USER_NAME = 'codecondev';
-export const SITE_NAME = 'Codecon • 22, 23 e 24 de setembro';
+export const SITE_NAME = 'Codecon • Festival de código e tecnologia';
 export const META_DESCRIPTION =
     'A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.';
 export const REGISTER_URL =

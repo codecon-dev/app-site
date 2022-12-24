@@ -1,10 +1,17 @@
 import Layout from '@components/2023/_ui/Layout';
 import Page from '@components/_ui/Page';
+import Hero from '@components/2023/tempSite/Hero';
+import DetailsGrid from '@components/2023/tempSite/DetailsGrid';
+import Contact from '@components/2023/tempSite/Contact';
 
 export default function Index() {
     return (
         <Page>
-            <Layout>oioio</Layout>
+            <Layout>
+                <Hero />
+                <DetailsGrid />
+                <Contact />
+            </Layout>
         </Page>
     );
 }
