@@ -15,7 +15,8 @@ type Props = {
 export default function Contato({ sponsors }: Props) {
     const meta = {
         title: 'Contato - Codecon',
-        description: 'Quer ser nosso patrocinador? Está com alguma dúvida?'
+        description: 'Quer ser nosso patrocinador? Está com alguma dúvida?',
+        image: '/images/2022/share-image.png'
     };
 
     return (

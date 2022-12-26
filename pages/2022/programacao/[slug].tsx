@@ -14,7 +14,8 @@ type Props = {
 
 export default function QuemVai({ talk, sponsors }: Props) {
     const meta = {
-        title: `${talk.title} - Codecon Digital 2022`
+        title: `${talk.title} - Codecon Digital 2022`,
+        image: '/images/2022/share-image.png'
     };
 
     return (

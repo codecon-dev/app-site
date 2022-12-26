@@ -21,7 +21,12 @@ type Props = {
 
 export default function Conf({ speakers, sponsors }: Props) {
     return (
-        <Page>
+        <Page
+            meta={{
+                title: 'Codecon Digital 22 - 22, 23 e 24 de setembro',
+                image: '/images/2022/share-image.png'
+            }}
+        >
             <Layout sponsors={sponsors}>
                 <Hero />
                 <Differentials />

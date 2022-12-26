@@ -6,7 +6,8 @@ import Layout from '@components/2022/_ui/Layout';
 
 export default function ComoFunciona() {
     const meta = {
-        title: 'Como funciona Code-codes - Codecon Digital 2022'
+        title: 'Como funciona Code-codes - Codecon Digital 2022',
+        image: '/images/2022/share-image.png'
     };
 
     return (

@@ -20,7 +20,7 @@ type Props = {
 
 export default function Page({ meta, children, fullViewport = false }: Props) {
     const router = useRouter();
-    const image = meta?.image || '/images/2022/share-image.png';
+    const image = meta?.image || '/images/share-image.png';
     const title = meta?.title || SITE_NAME;
     const url = meta?.url || `${SITE_URL}${router.asPath}`;
     const description = meta?.description || META_DESCRIPTION;

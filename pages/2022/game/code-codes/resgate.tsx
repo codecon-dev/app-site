@@ -6,7 +6,8 @@ import Header from '@components/2022/_ui/Header';
 
 export default function CodeCodesResgate() {
     const meta = {
-        title: 'Resgate Code-codes - Codecon Digital 2022'
+        title: 'Resgate Code-codes - Codecon Digital 2022',
+        image: '/images/2022/share-image.png'
     };
 
     return (

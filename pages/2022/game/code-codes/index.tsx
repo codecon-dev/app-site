@@ -17,7 +17,7 @@ type Props = {
 export default function Ranking({ rankUsers, sponsors }: Props) {
     const meta = {
         title: 'Ranking Code-codes - Codecon Digital 2021',
-        description: META_DESCRIPTION
+        image: '/images/2022/share-image.png'
     };
 
     return (

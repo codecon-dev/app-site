@@ -17,7 +17,8 @@ export default function Programacao({ talks, sponsors }: Props) {
     const meta = {
         title: 'Programação - Codecon Digital 2022',
         description:
-            'Programe-se! São 3 salas simultâneas, workshops e muitas atividades extras rolando nos três dias de evento.'
+            'Programe-se! São 3 salas simultâneas, workshops e muitas atividades extras rolando nos três dias de evento.',
+        image: '/images/2022/share-image.png'
     };
 
     return (

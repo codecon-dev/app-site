@@ -17,7 +17,8 @@ export default function Programacao({ workshops, sponsors }: Props) {
     const meta = {
         title: 'Workshops - Codecon Digital 2022',
         description:
-            'Uma forma gratuita de pessoas da área aprenderem na prática sobre as principais tecnologias do mercado.'
+            'Uma forma gratuita de pessoas da área aprenderem na prática sobre as principais tecnologias do mercado.',
+        image: '/images/2022/share-image.png'
     };
 
     return (
