@@ -53,7 +53,7 @@ const Square = ({ speaker }: KindComponentProps) => {
                         Presença <br /> confirmada
                     </h2>
                     <div>
-                        <Logo isShort />
+                        <Logo isSymbol />
                         <h3>{url}</h3>
                     </div>
                 </div>
