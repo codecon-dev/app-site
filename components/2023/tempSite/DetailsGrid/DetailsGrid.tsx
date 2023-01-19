@@ -43,7 +43,7 @@ export default function DetailsGrid() {
                 >
                     <Image src="/images/2023/codecon-feature.svg" width={213} height={22} />
                     <p>
-                        <strong>Outubro de 2023</strong>
+                        <strong>28 de outubro de 2023</strong>
                         <br />
                         Evento para profissionais sênior ou cargos superiores em Floripa, SC
                     </p>
