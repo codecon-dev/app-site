@@ -7,7 +7,7 @@ export default function Hero() {
         <section>
             <div className="container">
                 <h1 className={styles.title}>
-                    Eventos de tecnologia que fogem do <span>comum</span>
+                    Eventos de tecnologia que fogem do <span>comum</span> teste
                 </h1>
                 <h2 className={styles.subtitle}>
                     Aqui a gente realmente acredita em criar eventos com experiências e conteúdos
