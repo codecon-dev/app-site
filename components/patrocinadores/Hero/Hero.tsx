@@ -37,7 +37,7 @@ export default function Hero({ sponsor }: Props) {
                 <Column lg={6} sm={5}>
                     <span className={cn(styles['image__wrapper'])}>
                         <Image
-                            src="/images/2022/patrocinadores/illustration.svg"
+                            src="/images/patrocinadores/illustration.svg"
                             width={590}
                             height={590}
                             alt="O personagem Neo em meio a várias referências de programação"

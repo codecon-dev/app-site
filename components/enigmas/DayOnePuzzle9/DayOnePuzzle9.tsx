@@ -11,7 +11,7 @@ export default function DayOnePuzzle9() {
         <PuzzleLayout bgStyle={styles.bg}>
             {showModal && (
                 <div className={styles.modal} onMouseOut={() => setShowModal(false)}>
-                    <Image src="/images/2022/enigmas/9-z.png" width={637} height={545} />
+                    <Image src="/images/enigmas/9-z.png" width={637} height={545} />
                 </div>
             )}
             <div className={styles.image}>
@@ -19,10 +19,10 @@ export default function DayOnePuzzle9() {
                 <button onClick={() => setShowModal(true)} className={styles['button-2']} />
                 {showHover && (
                     <span className={styles.hover} onMouseOut={() => setShowHover(false)}>
-                        <Image src="/images/2022/enigmas/9-h.png" width={98} height={152} />
+                        <Image src="/images/enigmas/9-h.png" width={98} height={152} />
                     </span>
                 )}
-                <Image src="/images/2022/enigmas/9.png" width={738} height={584} />
+                <Image src="/images/enigmas/9.png" width={738} height={584} />
             </div>
         </PuzzleLayout>
     );

@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 export default function DayOnePuzzle2() {
-    const mugImage1 = '/images/2022/enigmas/2-m.png';
-    const mugImage2 = '/images/2022/enigmas/2-m2.png';
+    const mugImage1 = '/images/enigmas/2-m.png';
+    const mugImage2 = '/images/enigmas/2-m2.png';
     const [mugImage, setMugImage] = useState(mugImage1);
 
     function handleMouseOver() {
@@ -20,7 +20,7 @@ export default function DayOnePuzzle2() {
         <PuzzleLayout bgStyle={styles.bg}>
             <div className={styles.container}>
                 <div className={styles.book}>
-                    <Image src="/images/2022/enigmas/2.png" width={744} height={467} />
+                    <Image src="/images/enigmas/2.png" width={744} height={467} />
                 </div>
                 <div className={styles.mug}>
                     <Image

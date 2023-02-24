@@ -37,7 +37,7 @@ export default function Hero() {
                             onEvent={event => {
                                 if (event === 'load') setIsLoading(false);
                             }}
-                            src="/animations/2022/hero.json"
+                            src="/animations/hero.json"
                         />
                         <span className={styles.detail} />
                         <span className={styles['detail-two']} />

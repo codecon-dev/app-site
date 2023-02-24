@@ -1,11 +1,11 @@
-@import 'styles/colors';
+
 
 .wrapper {
   margin-top: 2rem;
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: $dark-gray;
+  color: var(--color-gray);
 }
 
 .toggle {
@@ -19,7 +19,7 @@
     height: 2.25rem;
     border-radius: 4rem;
     background: #000;
-    border: 2px solid $dark-gray;
+    border: 2px solid var(--color-gray);
 
     &::after {
       content: '';
@@ -28,7 +28,7 @@
       left: -2px;
       height: 2.25rem;
       width: 2.25rem;
-      background-color: $dark-gray;
+      background-color: var(--color-gray);
       box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.45);
       border-radius: 4rem;
       transition: transform 0.2s, background-position 0.2s;

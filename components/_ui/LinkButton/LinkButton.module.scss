@@ -1,14 +1,14 @@
-@import 'styles/colors';
+
 
 .button {
-  background-color: $light-green;
+  background-color: var(--color-primary);
   font-weight: bold;
   line-height: 1.8;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.15rem 1.5rem;
-  color: $black;
+  color: var(--color-dark-gray);
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 0.1rem;
@@ -40,36 +40,36 @@
 
   &__info {
     display: block;
-    background-color: $black;
-    color: $primary;
+    background-color: var(--color-dark-gray);
+    color: var(--color-primary);
     padding: 0 0.6rem;
     transition: all 0.3s ease-in-out;
   }
 
   &:hover {
-    background-color: $white;
+    background-color: var(--color-white);
     transition: all 0.3s ease-in-out;
 
     .button__info {
-      color: $white;
+      color: var(--color-white);
       transition: all 0.3s ease-in-out;
     }
   }
 
   &--secondary {
-    background-color: $white;
-    color: $black;
+    background-color: var(--color-white);
+    color: var(--color-dark-gray);
 
     .button__info {
-      color: $white;
+      color: var(--color-white);
     }
 
     &:hover {
-      background-color: $light-gray;
+      background-color: var(--color-ligth-gray);
       transition: all 0.3s ease-in-out;
 
       .button__info {
-        color: $light-gray;
+        color: var(--color-ligth-gray);
         transition: all 0.3s ease-in-out;
       }
     }

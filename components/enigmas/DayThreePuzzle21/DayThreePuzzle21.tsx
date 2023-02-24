@@ -11,7 +11,7 @@ export default function DayThreePuzzle21() {
                     prenda às cores: o olho que se retrai à forte luz do conhecimento é o mesmo que
                     abraça a escuridão.”
                 </p>
-                <Image src="/images/2022/enigmas/21-v.svg" width={49} height={44} />
+                <Image src="/images/enigmas/21-v.svg" width={49} height={44} />
             </div>
         </PuzzleLayout>
     );

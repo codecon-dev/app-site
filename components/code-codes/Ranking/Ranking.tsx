@@ -32,7 +32,7 @@ export default function Ranking({ users }: { users: UserRank[] }) {
                 </p>
                 <p>
                     Está com dúvidas? Veja{' '}
-                    <Link href="/game/code-codes/2022/como-funciona">
+                    <Link href="/game/code-codes/como-funciona">
                         <a>como funciona</a>
                     </Link>{' '}
                     o code-codes.

@@ -1,5 +1,5 @@
 @import 'styles/media-queries';
-@import 'styles/colors';
+
 
 .nav-overlay {
   position: fixed;
@@ -8,11 +8,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: $black;
+  background: var(--color-dark-gray);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid $dark-green;
+  border-top: 1px solid var(--color-primary-dark);
 }
 
 .nav {
@@ -26,18 +26,18 @@
   font-size: 2rem;
   letter-spacing: -0.05em;
   font-weight: 800;
-  color: $white;
+  color: var(--color-white);
   margin-bottom: 1rem;
   line-height: 1.5;
   width: fit-content;
 }
 
 .nav-item:focus {
-  outline: 1px dotted $primary;
+  outline: 1px dotted var(--color-primary);
 }
 
 .nav-active {
-  color: $primary;
+  color: var(--color-primary);
 }
 
 .button {
@@ -52,6 +52,6 @@
 }
 
 .icon {
-  color: $white;
+  color: var(--color-white);
   display: block;
 }

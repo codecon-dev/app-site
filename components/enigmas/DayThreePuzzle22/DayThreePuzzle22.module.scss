@@ -1,7 +1,7 @@
-@import '/styles/colors';
+
 
 .bg {
-    background-image: url('/images/2022/enigmas/22.jpg');
+    background-image: url('/images/enigmas/22.jpg');
     background-position: top center;
 }
 
@@ -11,6 +11,6 @@
 
     p {
         margin-bottom: 2rem;
-        color: $white;
+        color: var(--color-white);
     }
 }

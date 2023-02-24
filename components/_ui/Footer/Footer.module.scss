@@ -1,8 +1,8 @@
-@import 'styles/colors';
+
 @import 'styles/media-queries';
 
 .wrapper {
-  background-color: $white;
+  background-color: var(--color-white);
   text-align: center;
 }
 
@@ -16,7 +16,7 @@
 
 .title {
   text-align: center;
-  color: $black;
+  color: var(--color-dark-gray);
 }
 
 .sponsor {
@@ -33,15 +33,15 @@
   width: 5rem;
   height: 5px;
   display: block;
-  background: lighten($light-gray, 15%);
+  background: var(--color-ligth-gray);
   margin: 5rem auto;
   border: 0;
 }
 
 .footer {
   padding-top: 2rem;
-  background-color: lighten($light-gray, 18%);
-  color: $black;
+  background-color: var(--color-ligth-gray);
+  color: var(--color-dark-gray);
   text-align: center;
 
   @media #{$breakpoint-sm} {
@@ -51,7 +51,7 @@
 
 .footer a {
   text-decoration: underline;
-  color: $black;
+  color: var(--color-dark-gray);
 }
 
 .social {
@@ -66,7 +66,7 @@
 }
 
 .icon {
-  background-color: $black;
+  background-color: var(--color-dark-gray);
   width: 2rem;
   height: 2rem;
   display: inline-flex;

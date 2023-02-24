@@ -1,4 +1,4 @@
-@import '/styles/colors';
+
 
 .img-wrapper {
     display: block;
@@ -19,12 +19,12 @@
 }
 
 .button {
-    background-color: $primary;
+    background-color: var(--color-primary);
     display: block;
     width: 100%;
     padding: 20px;
     text-align: center;
-    color: $black;
+    color: var(--color-dark-gray);
     font-size: 18px;
     display: flex;
     align-items: center;

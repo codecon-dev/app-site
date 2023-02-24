@@ -1,8 +1,8 @@
-@import 'styles/colors';
+
 @import 'styles/media-queries';
 
 .testimonial {
-  background-color: $primary;
+  background-color: var(--color-primary);
   padding: 2rem;
 
   @media #{$breakpoint-sm} {
@@ -10,7 +10,7 @@
   }
 
   p {
-    color: $black;
+    color: var(--color-dark-gray);
     font-size: 1rem;
 
     @media #{$breakpoint-sm} {

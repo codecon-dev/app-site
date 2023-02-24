@@ -17,7 +17,7 @@ export default function Navbar() {
             <header className={cn(styles.header)}>
                 <div className={cn('container', styles['header__container'])}>
                     <div className={styles['header__logo']}>
-                        <Link href="/2022">
+                        <Link href="/">
                             <a className={styles.logo}>
                                 <Logo />
                             </a>

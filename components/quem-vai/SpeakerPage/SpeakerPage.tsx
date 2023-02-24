@@ -79,10 +79,10 @@ export default function SpeakerPage({ speaker }: Props) {
                                             {captureHourAndMinutesFromDateString(talk.end)}
                                         </time>
                                     </Activity.Header>
-                                    <Activity.Title href={`/2022/programacao/${talk.slug}`}>
+                                    <Activity.Title href={`/programacao/${talk.slug}`}>
                                         {talk.title}
                                     </Activity.Title>
-                                    <Activity.Button href={`/2022/programacao/${talk.slug}`}>
+                                    <Activity.Button href={`/programacao/${talk.slug}`}>
                                         Mais detalhes
                                     </Activity.Button>
                                 </Activity>
@@ -100,11 +100,11 @@ export default function SpeakerPage({ speaker }: Props) {
                                             {captureHourAndMinutesFromDateString(workshop.end)}
                                         </time>
                                     </Activity.Header>
-                                    <Activity.Title href={`/2022/workshops/${workshop.slug}`}>
+                                    <Activity.Title href={`/workshops/${workshop.slug}`}>
                                         {workshop.title}
                                     </Activity.Title>
 
-                                    <Activity.Button href={`/2022/workshops/${workshop.slug}`}>
+                                    <Activity.Button href={`/workshops/${workshop.slug}`}>
                                         Mais detalhes
                                     </Activity.Button>
                                 </Activity>

@@ -12,7 +12,7 @@ export default function DayThreePuzzle28() {
             {showModal && (
                 <div onMouseOut={() => setShowModal(false)} className={styles.modal}>
                     <Image
-                        src="/images/2022/enigmas/28-2.png"
+                        src="/images/enigmas/28-2.png"
                         width={1208}
                         height={441}
                         layout="responsive"

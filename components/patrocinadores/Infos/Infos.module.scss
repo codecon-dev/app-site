@@ -1,5 +1,5 @@
 @import 'styles/media-queries';
-@import 'styles/colors';
+
 
 .section {
   margin: 0;
@@ -11,6 +11,6 @@
 
   p {
     margin-bottom: 2rem;
-    color: $white;
+    color: var(--color-white);
   }
 }

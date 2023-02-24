@@ -1,13 +1,13 @@
 @import 'styles/media-queries';
-@import 'styles/colors';
+
 
 .tabs {
-  border-bottom: 1px solid $light-green;
+  border-bottom: 1px solid var(--color-primary);
   margin-bottom: 3rem;
   padding-top: 1rem;
   position: sticky;
   top: 105px;
-  background-color: $black;
+  background-color: var(--color-dark-gray);
   z-index: 150;
 
   @media #{$breakpoint-sm} {
@@ -26,7 +26,7 @@
   button {
     border: 0;
     background-color: transparent;
-    color: $white;
+    color: var(--color-white);
     font-size: 1.25rem;
     font-weight: 600;
     margin-right: 0.5rem;
@@ -55,12 +55,12 @@
     }
 
     &:hover {
-      background-color: $dark-green;
+      background-color: var(--color-primary-dark);
       transition: background-color 0.2s ease-in-out;
     }
 
     &.active {
-      border-bottom: 5px solid $light-green;
+      border-bottom: 5px solid var(--color-primary);
       margin-bottom: 0;
       padding-bottom: 1.5rem;
 
@@ -132,7 +132,7 @@
   }
 
   .space {
-    border-left: 1px solid $dark-green;
+    border-left: 1px solid var(--color-primary-dark);
     height: 3rem;
   }
 }
@@ -164,14 +164,14 @@
 }
 
 .mediumHour {
-  color: $dark-gray;
+  color: var(--color-gray);
 
   &::before {
     content: '';
     display: block;
     width: 1.5rem;
     height: 1px;
-    background: $dark-green;
+    background: var(--color-primary-dark);
     position: absolute;
     top: 0;
     right: 0;
@@ -188,7 +188,7 @@
     display: block;
     width: 3rem;
     height: 1px;
-    background: $dark-green;
+    background: var(--color-primary-dark);
     position: absolute;
     top: 0;
     right: 0;
@@ -199,8 +199,8 @@
   position: relative;
 
   @media #{$breakpoint-sm} {
-    border-left: 1px solid $dark-green;
-    border-top: 1px solid $dark-green;
+    border-left: 1px solid var(--color-primary-dark);
+    border-top: 1px solid var(--color-primary-dark);
     padding: 0 0.5rem;
     min-height: 28rem;
     padding-bottom: 9rem;
@@ -245,7 +245,7 @@
 
   span {
     @media #{$breakpoint-sm} {
-      border-top: 1px solid $dark-green;
+      border-top: 1px solid var(--color-primary-dark);
       height: 0;
 
       &:first-child,
@@ -257,7 +257,7 @@
 }
 
 .intervalCard {
-  background: rgba($dark-green, 0.4);
+  background: rgba(var(--color-primary-dark), 0.4);
   height: 100%;
   position: relative;
   z-index: 10;
@@ -271,11 +271,11 @@
     justify-content: space-between;
 
     span {
-      color: $white;
+      color: var(--color-white);
       font-size: 0.75rem;
 
       &.type {
-        color: $light-green;
+        color: var(--color-primary);
       }
     }
   }

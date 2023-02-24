@@ -8,7 +8,7 @@ export default function Testimonial({ children }: { children: ReactNode }) {
         <article className={styles.testimonial}>
             {children}
             <span className={styles.image}>
-                <Image src="/icons/2022/quote.svg" alt="Aspas" width={40} height={40} />
+                <Image src="/icons/quote.svg" alt="Aspas" width={40} height={40} />
             </span>
         </article>
     );

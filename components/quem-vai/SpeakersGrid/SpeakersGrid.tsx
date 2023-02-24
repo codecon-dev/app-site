@@ -46,7 +46,7 @@ export default function SpeakersGrid({ speakers }: Props) {
                             <Column key={speaker.id} lg={5} sm={6} className={styles.card}>
                                 <SpeakerCard>
                                     <SpeakerCard.Image
-                                        href={`/2022/quem-vai/${speaker.slug}`}
+                                        href={`/quem-vai/${speaker.slug}`}
                                         src={speaker.image.url}
                                         alt={speaker.name}
                                     />

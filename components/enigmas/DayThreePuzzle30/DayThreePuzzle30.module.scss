@@ -1,7 +1,7 @@
-@import '/styles/colors';
+
 
 .bg {
-    background-image: url('/images/2022/enigmas/30-2.png');
+    background-image: url('/images/enigmas/30-2.png');
 }
 
 .text {
@@ -11,7 +11,7 @@
     gap: 3rem;
 
     p {
-        color: $light-green;
+        color: var(--color-primary);
         font-size: 1.2rem;
     }
 }

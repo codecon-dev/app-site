@@ -17,18 +17,18 @@ export default function DayThreePuzzle26() {
                 <p>SCUTUM FIDEI, the 303.</p>
                 <div className={styles.image}>
                     <button
-                        onMouseOver={() => setModalContent('/images/2022/enigmas/26-a.png')}
+                        onMouseOver={() => setModalContent('/images/enigmas/26-a.png')}
                         className={styles['button-1']}
                     />
                     <button
-                        onMouseOver={() => setModalContent('/images/2022/enigmas/26-b.png')}
+                        onMouseOver={() => setModalContent('/images/enigmas/26-b.png')}
                         className={styles['button-2']}
                     />
                     <button
-                        onMouseOver={() => setModalContent('/images/2022/enigmas/26-c.png')}
+                        onMouseOver={() => setModalContent('/images/enigmas/26-c.png')}
                         className={styles['button-3']}
                     />
-                    <Image src="/images/2022/enigmas/26.png" width={715} height={666} />
+                    <Image src="/images/enigmas/26.png" width={715} height={666} />
                 </div>
                 <p>SCUTUM FIDEI, the 303.</p>
             </div>

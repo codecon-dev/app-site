@@ -6,7 +6,7 @@ export default function DayTwoPuzzle20() {
         <PuzzleLayout>
             <div className={styles.content}>
                 <audio controls>
-                    <source src="/audio/2022/enigmas/20.mp3" type="audio/mpeg" />
+                    <source src="/audio/enigmas/20.mp3" type="audio/mpeg" />
                 </audio>
             </div>
         </PuzzleLayout>

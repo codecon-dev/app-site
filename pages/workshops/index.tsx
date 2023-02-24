@@ -18,14 +18,14 @@ export default function Programacao({ workshops, sponsors }: Props) {
         title: 'Workshops - Codecon Digital 2022',
         description:
             'Uma forma gratuita de pessoas da área aprenderem na prática sobre as principais tecnologias do mercado.',
-        image: '/images/2022/share-image.png'
+        image: '/images/share-image.png'
     };
 
     return (
         <Page meta={meta}>
             <Layout sponsors={sponsors}>
                 <Header
-                    image="/images/2022/workshops/hero.svg"
+                    image="/images/workshops/hero.svg"
                     title="Workshops"
                     description="Uma forma gratuita de pessoas da área aprenderem na prática sobre as principais tecnologias do mercado."
                 />

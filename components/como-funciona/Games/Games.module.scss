@@ -1,8 +1,8 @@
-@import 'styles/colors';
+
 @import 'styles/media-queries';
 
 .game {
-  background-color: $dark-green;
+  background-color: var(--color-primary-dark);
   padding: 4rem 0;
 
   @media #{$breakpoint-sm} {

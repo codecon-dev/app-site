@@ -16,7 +16,7 @@ export default function SponsorsGrid({ sponsors }: Props) {
             <Grid>
                 {sponsors.map(sponsor => (
                     <Column lg={4} sm={4} key={sponsor.slug}>
-                        <Link href={`/2022/patrocinadores/${sponsor.slug}`}>
+                        <Link href={`/patrocinadores/${sponsor.slug}`}>
                             <a
                                 className={styles.sponsor}
                                 style={{ backgroundColor: sponsor.color.hex }}

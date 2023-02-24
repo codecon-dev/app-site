@@ -1,5 +1,5 @@
 @import 'styles/media-queries';
-@import 'styles/colors';
+
 
 .header {
     margin: 4rem 0;
@@ -31,7 +31,7 @@
             left: 0;
             width: 90%;
             height: 90%;
-            background-color: $dark-green;
+            background-color: var(--color-primary-dark);
             border-radius: 100%;
             filter: blur(3rem);
             z-index: -1;
@@ -51,7 +51,7 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            background-image: url('/images/2022/detail.svg');
+            background-image: url('/images/detail.svg');
             background-size: 100% auto;
             background-repeat: no-repeat;
             background-position: right bottom;
@@ -65,7 +65,7 @@
             position: absolute;
             top: 0;
             left: 15%;
-            background-image: url('/images/2022/detail-2.svg');
+            background-image: url('/images/detail-2.svg');
             background-size: auto 100%;
             background-repeat: no-repeat;
             background-position: left top;

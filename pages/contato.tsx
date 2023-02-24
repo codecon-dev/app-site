@@ -16,7 +16,7 @@ export default function Contato({ sponsors }: Props) {
     const meta = {
         title: 'Contato - Codecon',
         description: 'Quer ser nosso patrocinador? Está com alguma dúvida?',
-        image: '/images/2022/share-image.png'
+        image: '/images/share-image.png'
     };
 
     return (
@@ -25,7 +25,7 @@ export default function Contato({ sponsors }: Props) {
                 <Header
                     title="Entre em contato"
                     description="Quer ser nosso patrocinador? Está com alguma dúvida?"
-                    image="/images/2022/contato/hero.svg"
+                    image="/images/contato/hero.svg"
                 />
                 <Contact />
             </Layout>

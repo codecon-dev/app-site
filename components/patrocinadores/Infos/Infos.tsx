@@ -22,7 +22,7 @@ export default function Infos({ sponsor }: Props) {
                         encontrará salas diversas, estandes, pessoas de todo o Brasil e até vários
                         easter eggs.
                     </p>
-                    <LinkButton href="/2022/como-funciona" type="secondary">
+                    <LinkButton href="/como-funciona" type="secondary">
                         Como funciona
                     </LinkButton>
                 </Column>

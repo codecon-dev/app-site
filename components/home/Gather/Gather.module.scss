@@ -1,9 +1,9 @@
 @import 'styles/media-queries';
-@import 'styles/colors';
+
 
 .section {
-  background-color: $dark-green;
-  color: $black;
+  background-color: var(--color-primary-dark);
+  color: var(--color-dark-gray);
   padding: 4rem 0;
   margin: 0;
 
@@ -12,10 +12,10 @@
   }
 
   h2 {
-    color: $white;
+    color: var(--color-white);
 
     strong {
-      color: $primary;
+      color: var(--color-primary);
     }
   }
 
@@ -30,7 +30,7 @@
 
 .image {
   &__wrapper {
-    background-color: $dark-green;
+    background-color: var(--color-primary-dark);
     display: flex;
   }
 }

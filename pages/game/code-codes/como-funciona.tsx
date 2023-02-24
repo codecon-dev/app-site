@@ -7,7 +7,7 @@ import Layout from '@components/_ui/Layout';
 export default function ComoFunciona() {
     const meta = {
         title: 'Como funciona Code-codes - Codecon Digital 2022',
-        image: '/images/2022/share-image.png'
+        image: '/images/share-image.png'
     };
 
     return (
@@ -49,7 +49,7 @@ export default function ComoFunciona() {
                     </p>
                     <p>A premiação do code-codes será:</p> <br></br>
                     <Image
-                        src="/images/2022/como-funciona/prizes.png"
+                        src="/images/como-funciona/prizes.png"
                         alt="Imagem de um Playstation 5, uma mesa GenioDesk Plus e um Teclado Logitech MX Keys Mini"
                         width={662}
                         height={335}

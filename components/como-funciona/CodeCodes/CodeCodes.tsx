@@ -20,7 +20,7 @@ export default function CodeCodes() {
                 </Column>
                 <Column lg={7}>
                     <Image
-                        src="/images/2022/como-funciona/prizes.png"
+                        src="/images/como-funciona/prizes.png"
                         alt="Imagem de um Playstation 5, uma mesa GenioDesk Plus e um Teclado Logitech MX Keys Mini"
                         width={662}
                         height={335}

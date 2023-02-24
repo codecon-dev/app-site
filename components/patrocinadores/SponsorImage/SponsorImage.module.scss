@@ -1,18 +1,18 @@
-@import 'styles/colors';
+
 
 .default_bg {
-    background: url('/images/2022/patrocinadores/sponsor-default-bg.png') no-repeat;
+    background: url('/images/patrocinadores/sponsor-default-bg.png') no-repeat;
     width: 1200px;
     height: 675px;
 }
 
 .stories_bg {
-    background: url('/images/2022/patrocinadores/sponsor-stories-bg.png') no-repeat;
+    background: url('/images/patrocinadores/sponsor-stories-bg.png') no-repeat;
     background-position-y: -400px;
 }
 
 .square_bg {
-    background: url('/images/2022/patrocinadores/sponsor-square-bg.png') no-repeat;
+    background: url('/images/patrocinadores/sponsor-square-bg.png') no-repeat;
     background-position-x: 50%;
 }
 
@@ -109,11 +109,11 @@
 }
 
 .local {
-    color: $dark-gray;
+    color: var(--color-gray);
 }
 
 .date {
-    color: $white;
+    color: var(--color-white);
 }
 
 .sponsor {
@@ -122,5 +122,5 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     margin-bottom: 0.75rem;
-    color: $white;
+    color: var(--color-white);
 }

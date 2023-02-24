@@ -16,23 +16,23 @@ export const WHATSAPP_LINK = 'https://chat.whatsapp.com/CPP0eFxck7yDhvdsnBm6Lu';
 export const NAVIGATION_2022: MenuItem[] = [
     {
         name: 'Quem vai',
-        route: '/2022/quem-vai'
+        route: '/quem-vai'
     },
     {
         name: 'Programação',
-        route: '/2022/programacao'
+        route: '/programacao'
     },
     {
         name: 'Como funciona',
-        route: '/2022/como-funciona'
+        route: '/como-funciona'
     },
     {
         name: 'Workshops',
-        route: '/2022/workshops'
+        route: '/workshops'
     },
     {
         name: 'Patrocinadores',
-        route: '/2022/patrocinadores'
+        route: '/patrocinadores'
     }
 ];
 

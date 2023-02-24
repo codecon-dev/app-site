@@ -1,4 +1,4 @@
-@import 'styles/colors';
+
 @import 'styles/media-queries';
 
 .form {
@@ -22,14 +22,14 @@
   &__button {
     -webkit-appearance: none;
     border: 0;
-    background-color: $light-green;
+    background-color: var(--color-primary);
     font-weight: bold;
     line-height: 1.8;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0.15rem 1.5rem;
-    color: $black;
+    color: var(--color-dark-gray);
     text-transform: uppercase;
     font-size: 1rem;
     letter-spacing: 0.1rem;
@@ -38,7 +38,7 @@
     border-radius: 0;
 
     &:hover {
-      background-color: $white;
+      background-color: var(--color-white);
       transition: all 0.3s ease-in-out;
     }
   }

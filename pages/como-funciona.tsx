@@ -20,7 +20,7 @@ export default function ComoFunciona({ sponsors }: Props) {
         title: 'Como funciona - Codecon',
         description:
             'A Codecon é um festival de tecnologia online que reúne código, conteúdo, networking e muita diversão.',
-        image: '/images/2022/share-image.png'
+        image: '/images/share-image.png'
     };
 
     return (
@@ -29,7 +29,7 @@ export default function ComoFunciona({ sponsors }: Props) {
                 <Header
                     title="É um evento, mas nem parece!"
                     description="A Codecon é um festival online de tecnologia que reúne código, conteúdo, networking e muita diversão."
-                    image="/images/2022/como-funciona/hero.svg"
+                    image="/images/como-funciona/hero.svg"
                 />
                 <About />
                 <CodeCodes />

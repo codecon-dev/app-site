@@ -19,7 +19,7 @@ export default function ClaimCards() {
                             São várias atividades paralelas valendo prêmios, onde você pode provar
                             suas habilidades de lógica, destreza e soft skills.
                         </p>
-                        <LinkButton href="/2022/como-funciona">Conheça as atividades</LinkButton>
+                        <LinkButton href="/como-funciona">Conheça as atividades</LinkButton>
                     </div>
                 </Column>
                 <Column lg={4}>
@@ -32,7 +32,7 @@ export default function ClaimCards() {
                             São vários workshops com 3 horas de duração para você aprender
                             habilidades novas e incrementar seu currículo.
                         </p>
-                        <LinkButton href="/2022/workshops">Veja os workshops</LinkButton>
+                        <LinkButton href="/workshops">Veja os workshops</LinkButton>
                     </div>
                 </Column>
                 <Column lg={4}>
@@ -45,7 +45,7 @@ export default function ClaimCards() {
                             Grandes empresas da área de tecnologia estarão presentes no evento com
                             estandes para que você possa interagir de verdade.
                         </p>
-                        <LinkButton href="/2022/patrocinadores">Nossos patrocinadores</LinkButton>
+                        <LinkButton href="/patrocinadores">Nossos patrocinadores</LinkButton>
                     </div>
                 </Column>
             </Grid>

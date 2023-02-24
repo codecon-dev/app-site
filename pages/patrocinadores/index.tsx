@@ -16,14 +16,14 @@ export default function Programacao({ sponsors }: Props) {
     const meta = {
         title: 'Patrocinadores - Codecon Digital 2022',
         description: 'Somos um evento que só é capaz graças ao patrocínio dessas empresas.',
-        image: '/images/2022/share-image.png'
+        image: '/images/share-image.png'
     };
 
     return (
         <Page meta={meta}>
             <Layout>
                 <Header
-                    image="/images/2022/patrocinadores/hero.svg"
+                    image="/images/patrocinadores/hero.svg"
                     title="marcas que apoiam a gente"
                     description="Somos um evento que só é capaz graças ao patrocínio dessas empresas. Clique nas marcas para saber mais sobre cada uma."
                 />

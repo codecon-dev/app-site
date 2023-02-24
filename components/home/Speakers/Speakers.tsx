@@ -31,7 +31,7 @@ export default function Speakers({ speakers }: Props) {
                         <SpeakerCard>
                             <SpeakerCard.Title>{speaker.name}</SpeakerCard.Title>
                             <SpeakerCard.Image
-                                href={`/2022/quem-vai/${speaker.slug}`}
+                                href={`/quem-vai/${speaker.slug}`}
                                 src={speaker.image.url}
                                 alt={speaker.name}
                             />
@@ -43,7 +43,7 @@ export default function Speakers({ speakers }: Props) {
             <Grid>
                 <Column lg={12}>
                     <div className={styles.cta}>
-                        <LinkButton href="/2022/programacao">Programação completa</LinkButton>
+                        <LinkButton href="/programacao">Programação completa</LinkButton>
                     </div>
                 </Column>
             </Grid>

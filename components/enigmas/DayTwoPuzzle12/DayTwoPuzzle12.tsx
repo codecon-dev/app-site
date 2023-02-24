@@ -11,12 +11,12 @@ export default function DayTwoPuzzle12() {
         <PuzzleLayout bgStyle={styles.bg}>
             {showModal && (
                 <div className={styles.modal} onClick={() => setShowModal(false)}>
-                    <Image src="/images/2022/enigmas/12-p.png" width={268} height={268} />
+                    <Image src="/images/enigmas/12-p.png" width={268} height={268} />
                 </div>
             )}
             <div className={styles.image}>
                 <button onClick={() => setShowModal(!showModal)} className={styles['button']} />
-                <Image src="/images/2022/enigmas/12.png" width={678} height={684} />
+                <Image src="/images/enigmas/12.png" width={678} height={684} />
             </div>
         </PuzzleLayout>
     );

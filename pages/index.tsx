@@ -24,7 +24,7 @@ export default function Conf({ speakers, sponsors }: Props) {
         <Page
             meta={{
                 title: 'Codecon Digital 22 - 22, 23 e 24 de setembro',
-                image: '/images/2022/share-image.png'
+                image: '/images/share-image.png'
             }}
         >
             <Layout sponsors={sponsors}>

@@ -21,7 +21,7 @@ export default function Gather() {
                         encontrará salas diversas, estandes, pessoas de todo o Brasil e até vários
                         easter eggs.
                     </p>
-                    <LinkButton href="/2022/como-funciona">Como funciona</LinkButton>
+                    <LinkButton href="/como-funciona">Como funciona</LinkButton>
                 </Column>
                 <Column lg={2} sm={0} />
                 <Column lg={6} sm={6}>
@@ -32,7 +32,7 @@ export default function Gather() {
                             className={styles['image__wrapper']}
                         >
                             <Image
-                                src="/images/2022/javaescripto.jpg"
+                                src="/images/javaescripto.jpg"
                                 width={594}
                                 height={544}
                                 alt="Captura de tela de uma pessoa dizendo que está morrendo de rir vendo um meme do elefante do PHP falando 'eu vou matar o javaescripto'"

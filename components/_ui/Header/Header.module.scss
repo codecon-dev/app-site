@@ -1,5 +1,5 @@
 @import 'styles/media-queries';
-@import 'styles/colors';
+
 
 .header {
     margin: 4rem 0;
@@ -18,7 +18,7 @@
 }
 
 .hero {
-    color: $primary;
+    color: var(--color-primary);
 
     &.smaller {
         font-size: 3rem;

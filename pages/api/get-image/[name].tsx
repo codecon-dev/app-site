@@ -13,8 +13,8 @@ const baseUrl =
         ? 'http://localhost:3000'
         : `https://${process.env.VERCEL_URL}`;
 
-const SPONSOR_PATH = `${baseUrl}/2022/patrocinadores/image`;
-const SPEAKER_PATH = `${baseUrl}/2022/quem-vai/image`;
+const SPONSOR_PATH = `${baseUrl}/patrocinadores/image`;
+const SPEAKER_PATH = `${baseUrl}/quem-vai/image`;
 const IMAGE_CONFIG = {
     default: {
         width: 1200,

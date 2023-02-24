@@ -26,7 +26,7 @@ export default function DayThreePuzzle30() {
                 <Image
                     onMouseOver={handleMouseOver}
                     onMouseOut={handleMouseOut}
-                    src="/images/2022/enigmas/30.png"
+                    src="/images/enigmas/30.png"
                     width={472}
                     height={116}
                 />

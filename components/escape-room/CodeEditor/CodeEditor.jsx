@@ -31,7 +31,7 @@ export default function CodeEditor({ wrongCode, rightCode, answer }) {
         return (
             <section>
                 <div className="container">
-                    <Image src="/animations/2022/matrix-neo.gif" width={220} height={165} />
+                    <Image src="/animations/matrix-neo.gif" width={220} height={165} />
                     <br />
                     <br />
                     <h2>Boa! Você conseguiu remover todos as informações do vírus deste código.</h2>

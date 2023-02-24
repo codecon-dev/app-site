@@ -1,19 +1,19 @@
-@import 'styles/colors';
+
 
 .default_bg {
-    background: url('/images/2022/quem-vai/speaker-default-bg.png') no-repeat;
+    background: url('/images/quem-vai/speaker-default-bg.png') no-repeat;
     width: 1200px;
     height: 675px;
 }
 
 .square_bg {
-    background: url('/images/2022/quem-vai/speaker-square-bg.png') no-repeat;
+    background: url('/images/quem-vai/speaker-square-bg.png') no-repeat;
     width: 1080px;
     height: 1080px;
 }
 
 .stories_bg {
-    background: url('/images/2022/quem-vai/speaker-stories-bg.png') no-repeat;
+    background: url('/images/quem-vai/speaker-stories-bg.png') no-repeat;
     background-position-y: -50px;
     width: 1080px;
     height: 1920px;
@@ -66,7 +66,7 @@
         h3 {
             font-size: 1.875rem;
             font-weight: normal;
-            color: $dark-gray;
+            color: var(--color-gray);
         }
 
         svg {
@@ -83,7 +83,7 @@
     h1 {
         text-align: center;
         margin-top: 6.25rem;
-        color: $light-green;
+        color: var(--color-primary);
     }
 }
 
@@ -96,7 +96,7 @@
 }
 
 .name {
-    color: $light-green;
+    color: var(--color-primary);
     font-size: 3.5rem;
 
     + h2 {
@@ -114,10 +114,10 @@
     }
 
     .local {
-        color: $dark-gray;
+        color: var(--color-gray);
     }
 
     .date {
-        color: $white;
+        color: var(--color-white);
     }
 }

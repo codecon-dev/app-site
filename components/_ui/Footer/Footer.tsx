@@ -75,7 +75,7 @@ export default function Footer({ sponsors }: Props) {
                     </Column>
                     <Column lg={6} sm={6}>
                         <div className={styles.social}>
-                            <Link href="/2022/contato">
+                            <Link href="/contato">
                                 <a>Fale com a gente</a>
                             </Link>
                             <a

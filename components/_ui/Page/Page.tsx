@@ -16,9 +16,10 @@ type Props = {
     meta?: Meta;
     children: React.ReactNode;
     fullViewport?: boolean;
+    theme: 'digital' | 'summit' | 'feature';
 };
 
-export default function Page({ meta, children, fullViewport = false }: Props) {
+export default function Page({ meta, children, fullViewport = false, theme = 'digital' }: Props) {
     const router = useRouter();
     const image = meta?.image || '/share-image.png';
     const title = meta?.title || SITE_NAME;
@@ -46,6 +47,42 @@ export default function Page({ meta, children, fullViewport = false }: Props) {
                         content={image.startsWith('https://') ? image : `${SITE_URL}${image}`}
                     />
                 )}
+
+                {theme == 'digital' &&
+                    <style type="text/css">
+                        {`
+                            :root {
+                                --color-primary: #45E27F;
+                                --color-primary-dark: #006C68;
+                                --color-background: #0E1116;
+                            }
+                        `}
+                    </style>
+                }
+
+                {theme == 'summit' &&
+                    <style type="text/css">
+                        {`
+                            :root {
+                                --color-primary: #8800FF;
+                                --color-primary-dark: #280075;
+                                --color-background: #120E16;
+                            }
+                        `}
+                    </style>
+                }
+
+                {theme == 'feature' &&
+                    <style type="text/css">
+                        {`
+                            :root {
+                                --color-primary: #0055FF;
+                                --color-primary-dark: #001EA6;
+                                --color-background: #0E1116;
+                            }
+                        `}
+                    </style>
+                }
             </Head>
             <Toaster />
             {children}

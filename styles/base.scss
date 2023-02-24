@@ -3,17 +3,22 @@
 @import 'reset';
 @import 'media-queries';
 @import 'typography';
-@import 'colors';
+
 
 :root {
-    --light-green: #{$light-green};
-    --white: #{$white};
+    --color-black: #000000;
+    --color-dark-gray: #0E1116;
+    --color-gray: #8B949E;
+    --color-ligth-gray: #CACED2;
+    --color-white: #FFFFFF;
+    --color-black-60: rgba(0,0,0,0.6);
+    --color-black-40: rgba(0,0,0,0.4);
 }
 
 body {
     font-family: 'Space Grotesk', sans-serif;
-    background: $black url('/images/2023/bg.jpg');
-    color: $white;
+    background-color: var(--color-background);
+    color: var(--color-white);
 }
 
 section {
@@ -53,7 +58,7 @@ section {
 
     h2 {
         text-transform: uppercase;
-        color: $primary;
+        color: var(--color-primary);
         letter-spacing: 0.5rem;
         margin-bottom: 0;
         font-size: 3rem;
@@ -61,20 +66,20 @@ section {
 
     h3 {
         margin-bottom: 2rem;
-        color: $light-gray;
+        color: var(--color-ligth-gray);
         font-weight: normal;
     }
 }
 
 ::selection {
-    background-color: $primary;
+    background-color: var(--color-primary);
     color: #fff;
 }
 
 a {
     text-decoration: none;
     transition: color 0.2s ease;
-    color: $primary;
+    color: var(--color-primary);
 
     &.link {
         text-decoration: underline;
@@ -85,7 +90,7 @@ a {
     pointer-events: none;
 
     .bar {
-        background: $primary;
+        background: var(--color-primary);
         position: fixed;
         z-index: 1031;
         top: 0;
@@ -101,8 +106,8 @@ a {
 
 *.tooltip:before {
     content: attr(data-content);
-    background-color: $dark-gray;
-    color: $white;
+    background-color: var(--color-gray);
+    color: var(--color-white);
     font-size: 0.75rem;
     padding: 10px;
     box-sizing: border-box;
@@ -127,7 +132,7 @@ a {
     bottom: 2.25rem;
     border-style: solid;
     border-width: 0 10px 10px 10px;
-    border-color: transparent transparent $dark-gray transparent;
+    border-color: transparent transparent var(--color-gray) transparent;
     transition: all 0.4s ease;
     transform: rotate(180deg) translate(50%);
 }

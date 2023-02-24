@@ -28,7 +28,7 @@ function WorkshopCard({ workshop }: { workshop: Workshop }) {
                         {captureHourAndMinutesFromDateString(workshop.end)}
                     </time>
                 </Activity.Header>
-                <Activity.Title href={`/2022/workshops/${workshop.slug}`}>
+                <Activity.Title href={`/workshops/${workshop.slug}`}>
                     {workshop.title}
                 </Activity.Title>
                 {!!workshop.teacher && (
@@ -36,7 +36,7 @@ function WorkshopCard({ workshop }: { workshop: Workshop }) {
                         {workshop.teacher.map(t => (
                             <Activity.SpeakerImage
                                 key={t.slug}
-                                href={`/2022/quem-vai/${t.slug}`}
+                                href={`/quem-vai/${t.slug}`}
                                 src={t.image.url}
                                 alt={t.name}
                             />

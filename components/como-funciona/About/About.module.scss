@@ -1,13 +1,13 @@
-@import 'styles/colors';
+
 
 .section {
-  background-color: $white;
-  color: $black;
+  background-color: var(--color-white);
+  color: var(--color-dark-gray);
   padding: 4rem 0;
 }
 
 .content {
   p {
-    color: $dark-gray;
+    color: var(--color-gray);
   }
 }

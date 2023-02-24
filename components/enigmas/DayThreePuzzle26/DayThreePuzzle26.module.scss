@@ -1,11 +1,11 @@
-@import '/styles/colors';
+
 
 .content {
     display: flex;
     align-items: center;
 
     p {
-        color: $dark-gray;
+        color: var(--color-gray);
         font-size: 1rem;
     }
 }

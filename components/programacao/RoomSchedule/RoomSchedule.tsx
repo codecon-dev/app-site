@@ -40,7 +40,7 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
                         {captureHourAndMinutesFromDateString(talk.end)}
                     </time>
                 </Activity.Header>
-                <Activity.Title href={`/2022/programacao/${talk.slug}`}>
+                <Activity.Title href={`/programacao/${talk.slug}`}>
                     {talk.title}
                 </Activity.Title>
                 <Activity.Footer>
@@ -48,7 +48,7 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
                         talk.speaker.map(t => (
                             <Activity.SpeakerImage
                                 key={t.slug}
-                                href={`/2022/quem-vai/${t.slug}`}
+                                href={`/quem-vai/${t.slug}`}
                                 src={t.image.url}
                                 alt={t.name}
                             />
@@ -57,7 +57,7 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
                     {talk.host && (
                         <Activity.SpeakerImage
                             key={talk.host.slug}
-                            href={`/2022/quem-vai/${talk.host.slug}`}
+                            href={`/quem-vai/${talk.host.slug}`}
                             src={talk.host.image.url}
                             alt={`[Host] ${talk.host.name}`}
                         />

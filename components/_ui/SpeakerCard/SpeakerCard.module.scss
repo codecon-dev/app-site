@@ -1,4 +1,4 @@
-@import 'styles/colors';
+
 @import 'styles/media-queries';
 
 .speaker_card {
@@ -18,7 +18,7 @@
   h5,
   small {
     display: block;
-    color: $black;
+    color: var(--color-dark-gray);
     text-align: center;
     text-transform: uppercase;
   }
@@ -39,7 +39,7 @@
 
   .image_wrapper {
     grid-area: image;
-    border: 5px solid $light-green;
+    border: 5px solid var(--color-primary);
     padding: 0.5rem;
     position: relative;
 
@@ -49,7 +49,7 @@
       bottom: 1rem;
       right: 1rem;
       padding: 0 0.5rem;
-      background-color: $light-green;
+      background-color: var(--color-primary);
       border-radius: 2rem;
       text-transform: uppercase;
       font-size: 0.75rem;
@@ -59,7 +59,7 @@
 
   .title,
   .about {
-    background-color: $light-green;
+    background-color: var(--color-primary);
     padding: 0.5rem;
   }
 
@@ -112,7 +112,7 @@
       transition: all 0.2s ease-in-out;
 
       &:hover {
-        background-color: $dark-green;
+        background-color: var(--color-primary-dark);
         transition: all 0.2s ease-in-out;
       }
     }

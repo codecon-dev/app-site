@@ -12,7 +12,7 @@ export default function Differentials() {
                     <div className={styles.content}>
                         <span className={styles.image}>
                             <Image
-                                src="/icons/2022/libras.png"
+                                src="/icons/libras.png"
                                 layout="responsive"
                                 width={64}
                                 height={64}
@@ -30,7 +30,7 @@ export default function Differentials() {
                     <div className={styles.content}>
                         <span className={styles.image}>
                             <Image
-                                src="/icons/2022/certificado.png"
+                                src="/icons/certificado.png"
                                 layout="responsive"
                                 width={64}
                                 height={64}
@@ -49,7 +49,7 @@ export default function Differentials() {
                         <span className={styles.image}>
                             <Image
                                 layout="responsive"
-                                src="/icons/2022/pesquisa.png"
+                                src="/icons/pesquisa.png"
                                 width={64}
                                 height={64}
                                 alt="Emoji de lupa"

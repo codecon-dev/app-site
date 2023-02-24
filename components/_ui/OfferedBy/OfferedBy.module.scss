@@ -1,4 +1,4 @@
-@import 'styles/colors';
+
 @import 'styles/media-queries';
 
 .sponsor {
@@ -10,13 +10,13 @@
   letter-spacing: 0.1em;
   padding-left: 1rem;
   text-transform: uppercase;
-  background-color: $white;
-  color: $dark-gray;
+  background-color: var(--color-white);
+  color: var(--color-gray);
 
   &-black {
     background-color: transparent;
-    border: 1px solid $primary;
-    color: $white;
+    border: 1px solid var(--color-primary);
+    color: var(--color-white);
   }
 
   .type {

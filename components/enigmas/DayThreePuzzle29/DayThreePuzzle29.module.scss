@@ -1,7 +1,7 @@
-@import '/styles/colors';
+
 
 .bg {
-    background-image: url('/images/2022/enigmas/29.jpg');
+    background-image: url('/images/enigmas/29.jpg');
 }
 
 .link {
@@ -18,20 +18,20 @@
     left: 50%;
     transform: translateX(-50%);
     max-width: 30rem;
-    background-color: $white;
+    background-color: var(--color-white);
     border-radius: 0.5rem;
     padding: 2rem;
 
     h3 {
         font-size: 0.875rem;
-        color: $primary;
+        color: var(--color-primary);
         text-transform: uppercase;
     }
 
     p {
         font-size: 0.875rem;
         line-height: 1.2;
-        color: $black;
+        color: var(--color-dark-gray);
         margin-bottom: 1.5rem;
     }
 }

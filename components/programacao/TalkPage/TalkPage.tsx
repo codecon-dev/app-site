@@ -46,7 +46,7 @@ export default function TalkPage({ talk }: Props) {
                             {talk.speaker?.map(speaker => (
                                 <SpeakerCard key={speaker.id}>
                                     <SpeakerCard.Image
-                                        href={`/2022/quem-vai/${speaker.slug}`}
+                                        href={`/quem-vai/${speaker.slug}`}
                                         src={speaker.image.url}
                                         alt={speaker.name}
                                     />
@@ -55,7 +55,7 @@ export default function TalkPage({ talk }: Props) {
                             {talk.host && (
                                 <SpeakerCard key={talk.host.id}>
                                     <SpeakerCard.Image
-                                        href={`/2022/quem-vai/${talk.host.slug}`}
+                                        href={`/quem-vai/${talk.host.slug}`}
                                         src={talk.host.image.url}
                                         alt={talk.host.name}
                                         isHost
@@ -73,7 +73,7 @@ export default function TalkPage({ talk }: Props) {
             </Grid>
 
             <div className="container">
-                <LinkButton href="/2022/programacao">Confira a programação completa</LinkButton>
+                <LinkButton href="/programacao">Confira a programação completa</LinkButton>
             </div>
         </section>
     );

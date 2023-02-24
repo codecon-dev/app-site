@@ -75,7 +75,7 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
                         {captureHourAndMinutesFromDateString(talk.end)}
                     </time>
                 </Activity.Header>
-                <Activity.Title href={`/2022/programacao/${talk.slug}`}>
+                <Activity.Title href={`/programacao/${talk.slug}`}>
                     {talk.title}
                 </Activity.Title>
                 <Activity.Footer>
@@ -83,7 +83,7 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
                         talk.speaker.map(t => (
                             <Activity.SpeakerImage
                                 key={t.slug}
-                                href={`/2022/quem-vai/${t.slug}`}
+                                href={`/quem-vai/${t.slug}`}
                                 src={t.image.url}
                                 alt={t.name}
                             />
@@ -92,7 +92,7 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
                     {talk.host && (
                         <Activity.SpeakerImage
                             key={talk.host.slug}
-                            href={`/2022/quem-vai/${talk.host.slug}`}
+                            href={`/quem-vai/${talk.host.slug}`}
                             src={talk.host.image.url}
                             alt={`[Host] ${talk.host.name}`}
                         />
@@ -172,7 +172,7 @@ export default function Schedule({ talks }: Props) {
                 <div className={cn(styles['libras'], styles['libras-mobile'])}>
                     <span className={styles['libras-image']}>
                         <Image
-                            src="/icons/2022/libras.png"
+                            src="/icons/libras.png"
                             layout="responsive"
                             width={64}
                             height={64}
@@ -231,7 +231,7 @@ export default function Schedule({ talks }: Props) {
                     <div className={cn(styles['libras'], styles['libras-desktop'])}>
                         <span className={styles['libras-image']}>
                             <Image
-                                src="/icons/2022/libras.png"
+                                src="/icons/libras.png"
                                 layout="responsive"
                                 width={64}
                                 height={64}

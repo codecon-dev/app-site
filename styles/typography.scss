@@ -1,5 +1,5 @@
 @import 'media-queries';
-@import 'colors';
+
 
 h1 {
   font-size: 2rem;
@@ -40,7 +40,7 @@ h3 {
 
 .highlight {
   text-transform: uppercase;
-  color: $primary;
+  color: var(--color-primary);
   letter-spacing: 0.1rem;
   margin-bottom: 2.5rem;
   display: block;
@@ -49,21 +49,21 @@ h3 {
 .headline {
   display: block;
   font-size: 1.5rem;
-  color: $light-gray;
+  color: var(--color-ligth-gray);
 
   &__darker {
-    color: $dark-gray;
+    color: var(--color-gray);
   }
 }
 
 .bullet {
-  color: $white;
+  color: var(--color-white);
 }
 
 p {
   font-size: 1rem;
   line-height: 1.5;
-  color: $light-gray;
+  color: var(--color-ligth-gray);
 
   & + p {
     margin-top: 1rem;

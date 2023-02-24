@@ -13,7 +13,7 @@ export default function About() {
                 <Column lg={6} sm={5} smOrder={1}>
                     <div className={styles['image__wrapper']}>
                         <Image
-                            src="/images/2022/developer.png"
+                            src="/images/developer.png"
                             width={594}
                             height={544}
                             alt="Programador usando um notebook"
@@ -23,7 +23,7 @@ export default function About() {
                         />
                         <div className={styles['image__badge']}>
                             <Image
-                                src="/images/2022/badge.svg"
+                                src="/images/badge.svg"
                                 width={238}
                                 height={238}
                                 alt="Texto escrito workshops, painéis e palestras"
@@ -40,7 +40,7 @@ export default function About() {
                     </p>
                     <div className={styles['image__mobile']}>
                         <Image
-                            src="/images/2022/gather.png"
+                            src="/images/gather.png"
                             width={479}
                             height={218}
                             quality={100}
@@ -50,7 +50,7 @@ export default function About() {
             </Grid>
             <div className={styles['video']}>
                 <video autoPlay muted loop>
-                    <source src="/animations/2022/gather.mp4" type="video/mp4" />
+                    <source src="/animations/gather.mp4" type="video/mp4" />
                 </video>
             </div>
         </section>

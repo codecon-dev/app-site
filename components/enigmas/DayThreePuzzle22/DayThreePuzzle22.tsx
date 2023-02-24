@@ -11,7 +11,7 @@ export default function DayThreePuzzle22() {
                     momento. As máquinas os executavam, de modo ou outro, desde o início do 101.
                 </p>
                 <audio controls>
-                    <source src="/audio/2022/enigmas/22.mp3" type="audio/mpeg" />
+                    <source src="/audio/enigmas/22.mp3" type="audio/mpeg" />
                 </audio>
             </div>
         </PuzzleLayout>

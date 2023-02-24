@@ -44,7 +44,7 @@ export default function WorkshopPage({ workshop }: Props) {
                             {workshop.teacher?.map(teacher => (
                                 <SpeakerCard key={teacher.id}>
                                     <SpeakerCard.Image
-                                        href={`/2022/quem-vai/${teacher.slug}`}
+                                        href={`/quem-vai/${teacher.slug}`}
                                         src={teacher.image.url}
                                         alt={teacher.name}
                                     />
@@ -72,7 +72,7 @@ export default function WorkshopPage({ workshop }: Props) {
                 >
                     {isWorkshopFull ? 'Esgotado' : 'Inscreva-se'}
                 </LinkButton>
-                <LinkButton href="/2022/workshops">Confira a programação completa</LinkButton>
+                <LinkButton href="/workshops">Confira a programação completa</LinkButton>
             </div>
         </section>
     );

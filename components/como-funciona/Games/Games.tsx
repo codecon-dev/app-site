@@ -58,9 +58,9 @@ export default function Games() {
                 title="Enigmas da Olist"
                 sponsor={{
                     name: 'Olist',
-                    logo: { url: '/images/2022/como-funciona/olist.svg' }
+                    logo: { url: '/images/como-funciona/olist.svg' }
                 }}
-                image="/images/2022/como-funciona/enigmas.jpg"
+                image="/images/como-funciona/enigmas.jpg"
             >
                 <p>
                     Cada sala esconde um enigma que deve ser decifrado. Só você é capaz de descobrir
@@ -74,9 +74,9 @@ export default function Games() {
                 title="Maratona da Alura"
                 sponsor={{
                     name: 'Alura',
-                    logo: { url: '/images/2022/como-funciona/alura.svg' }
+                    logo: { url: '/images/como-funciona/alura.svg' }
                 }}
-                image="/images/2022/como-funciona/maratona.jpg"
+                image="/images/como-funciona/maratona.jpg"
             >
                 <p>
                     Uma competição onde você deve criar a melhor inteligência artificial para
@@ -87,10 +87,10 @@ export default function Games() {
 
             <GameSection
                 title="Escape Room"
-                image="/images/2022/como-funciona/escape-room.jpg"
+                image="/images/como-funciona/escape-room.jpg"
                 sponsor={{
                     name: 'Cogna',
-                    logo: { url: '/images/2022/como-funciona/cogna.svg' }
+                    logo: { url: '/images/como-funciona/cogna.svg' }
                 }}
             >
                 <p>
