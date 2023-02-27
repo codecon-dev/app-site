@@ -9,7 +9,7 @@ export default function PuzzleTwentyTwo() {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout hideNav hideFooter>
                 <PrivateArea>
                     <DayThreePuzzle22 />

@@ -10,7 +10,7 @@ export default function ComoFunciona() {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout hideNav hideFooter>
                 <div className="container container-text">
                     <h2>Enigmas da Olist</h2>

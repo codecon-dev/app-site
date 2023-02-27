@@ -22,7 +22,7 @@ export default function Programacao({ workshops, sponsors }: Props) {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout sponsors={sponsors}>
                 <Header
                     image="/images/workshops/hero.svg"

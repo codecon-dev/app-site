@@ -19,7 +19,7 @@ export default function QuemVai({ workshop, sponsors }: Props) {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout sponsors={sponsors}>
                 <WorkshopPage workshop={workshop} />
             </Layout>

@@ -19,7 +19,7 @@ export default function QuemVai({ talk, sponsors }: Props) {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout sponsors={sponsors}>
                 <TalkPage talk={talk} />
             </Layout>

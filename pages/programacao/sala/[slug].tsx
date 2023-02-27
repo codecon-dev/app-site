@@ -23,7 +23,7 @@ export default function TalkPage({ talks }: Props) {
     const activeRouter = router.asPath.substring(router.asPath.lastIndexOf('/') + 1);
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout hideNav hideFooter>
                 <RoomSchedule talks={talks} title={`Sala ${activeRouter}`} />
             </Layout>

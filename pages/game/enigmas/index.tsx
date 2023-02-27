@@ -17,7 +17,7 @@ export default function EnigmaRanking({ puzzleRank }: Props) {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout hideNav hideFooter>
                 <Header title="Enigmas da Olist" description="Ranking dos participantes" smaller />
                 <Ranking

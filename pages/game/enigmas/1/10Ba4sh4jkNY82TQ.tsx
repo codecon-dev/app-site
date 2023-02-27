@@ -9,7 +9,7 @@ export default function PuzzleTen() {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout hideNav hideFooter>
                 <PrivateArea>
                     <DayOnePuzzle10 />

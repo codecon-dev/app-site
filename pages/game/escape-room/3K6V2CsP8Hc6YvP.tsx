@@ -33,7 +33,7 @@ function teleport(user, x, y) {
 }`;
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout hideNav hideFooter>
                 <CodeEditor rightCode={rightCode} wrongCode={wrongCode} answer="F" />
             </Layout>

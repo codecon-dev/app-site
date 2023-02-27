@@ -20,7 +20,7 @@ export default function Programacao({ sponsors }: Props) {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout>
                 <Header
                     image="/images/patrocinadores/hero.svg"

@@ -8,7 +8,7 @@ export default function LinksPage() {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Links />
         </Page>
     );

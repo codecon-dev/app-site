@@ -66,7 +66,7 @@ function createBirdsAndTrees(city) {
   }`;
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout hideNav hideFooter>
                 <CodeEditor rightCode={rightCode} wrongCode={wrongCode} answer="R" />
             </Layout>

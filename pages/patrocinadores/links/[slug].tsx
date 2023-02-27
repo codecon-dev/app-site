@@ -16,7 +16,7 @@ export default function SponsorPageLinks({ sponsor }: Props) {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <SponsorLinks sponsor={sponsor} />
         </Page>
     );

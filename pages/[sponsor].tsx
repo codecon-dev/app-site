@@ -20,7 +20,7 @@ export default function SponsorLP({ sponsor }: Props) {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout hideNav>
                 <Hero sponsor={sponsor} />
                 <About />

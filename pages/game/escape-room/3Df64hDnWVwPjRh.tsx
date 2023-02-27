@@ -63,7 +63,7 @@ function handleTransit(user) {
 }`;
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout hideNav hideFooter>
                 <CodeEditor rightCode={rightCode} wrongCode={wrongCode} answer="M" />
             </Layout>

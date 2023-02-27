@@ -24,7 +24,7 @@ export default function ComoFunciona({ sponsors }: Props) {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout sponsors={sponsors}>
                 <Header
                     title="É um evento, mas nem parece!"

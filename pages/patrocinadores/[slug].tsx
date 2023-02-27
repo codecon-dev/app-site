@@ -18,7 +18,7 @@ export default function QuemVai({ sponsor }: Props) {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout>
                 <SponsorPage sponsor={sponsor} />
             </Layout>

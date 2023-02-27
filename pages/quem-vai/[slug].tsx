@@ -22,7 +22,7 @@ export default function QuemVai({ speaker, sponsors }: Props) {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout sponsors={sponsors}>
                 <SpeakerPage speaker={speaker} />
             </Layout>

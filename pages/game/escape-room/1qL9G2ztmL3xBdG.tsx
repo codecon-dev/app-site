@@ -8,7 +8,7 @@ export default function EscapeRoomOne() {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout hideNav hideFooter>
                 <Terminal />
             </Layout>

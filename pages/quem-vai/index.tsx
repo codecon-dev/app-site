@@ -23,7 +23,7 @@ export default function QuemVai({ speakers, sponsors }: Props) {
     };
 
     return (
-        <Page meta={meta}>
+        <Page theme='digital' meta={meta}>
             <Layout sponsors={sponsors}>
                 <Header
                     title="Aprenda com os principais nomes da área tech"
