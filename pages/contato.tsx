@@ -4,7 +4,6 @@ import { getAllSponsors } from '@lib/cms-api';
 import { Sponsor } from '@lib/types/all';
 
 import Page from '@components/_ui/Page';
-import Layout from '@components/_ui/Layout';
 import Header from '@components/_ui/Header';
 import Contact from '@components/contato/Contact';
 
@@ -20,15 +19,13 @@ export default function Contato({ sponsors }: Props) {
     };
 
     return (
-        <Page theme='digital' meta={meta}>
-            <Layout sponsors={sponsors}>
-                <Header
-                    title="Entre em contato"
-                    description="Quer ser nosso patrocinador? Está com alguma dúvida?"
-                    image="/images/contato/hero.svg"
-                />
-                <Contact />
-            </Layout>
+        <Page theme="digital" meta={meta} sponsors={sponsors}>
+            <Header
+                title="Entre em contato"
+                description="Quer ser nosso patrocinador? Está com alguma dúvida?"
+                image="/images/contato/hero.svg"
+            />
+            <Contact />
         </Page>
     );
 }

@@ -1,7 +1,6 @@
 import { GetStaticProps } from 'next';
 
 import Page from '@components/_ui/Page';
-import Layout from '@components/_ui/Layout';
 import Header from '@components/_ui/Header';
 import Rank from '@components/code-codes/Ranking';
 
@@ -21,20 +20,18 @@ export default function Ranking({ rankUsers, sponsors }: Props) {
     };
 
     return (
-        <Page theme='digital' meta={meta}>
-            <Layout sponsors={sponsors} hideNav hideFooter>
-                <Header title="Code-codes" description="Ranking" smaller />
-                {RANKING_ENABLED ? (
-                    <Rank users={rankUsers} />
-                ) : (
-                    <p style={{ textAlign: 'center', padding: 20 }}>
-                        O ranking está desabilitado. Vamos divulgar o resultado às 19h00 em nossas
-                        redes sociais. Os resgaters continuam ativos até às 18h00.
-                        <br />
-                        <br /> Boa sorte! :)
-                    </p>
-                )}
-            </Layout>
+        <Page theme="digital" meta={meta} sponsors={sponsors} hideNav hideFooter>
+            <Header title="Code-codes" description="Ranking" smaller />
+            {RANKING_ENABLED ? (
+                <Rank users={rankUsers} />
+            ) : (
+                <p style={{ textAlign: 'center', padding: 20 }}>
+                    O ranking está desabilitado. Vamos divulgar o resultado às 19h00 em nossas redes
+                    sociais. Os resgaters continuam ativos até às 18h00.
+                    <br />
+                    <br /> Boa sorte! :)
+                </p>
+            )}
         </Page>
     );
 }

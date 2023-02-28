@@ -1,5 +1,4 @@
 import Page from '@components/_ui/Page';
-import Layout from '@components/_ui/Layout';
 import Terminal from '@components/escape-room/Terminal';
 
 export default function EscapeRoomOne() {
@@ -8,10 +7,8 @@ export default function EscapeRoomOne() {
     };
 
     return (
-        <Page theme='digital' meta={meta}>
-            <Layout hideNav hideFooter>
-                <Terminal />
-            </Layout>
+        <Page theme="digital" meta={meta} hideNav hideFooter>
+            <Terminal />
         </Page>
     );
 }

@@ -4,7 +4,6 @@ import { getAllSpeakers, getAllSponsors } from '@lib/cms-api';
 import { Sponsor } from '@lib/types/all';
 import { Speaker } from '@lib/types/speakers';
 
-import Layout from '@components/_ui/Layout';
 import Page from '@components/_ui/Page';
 import { getSpeaker } from '@lib/cms-providers/dato';
 import SpeakerPage from '@components/quem-vai/SpeakerPage';
@@ -22,10 +21,8 @@ export default function QuemVai({ speaker, sponsors }: Props) {
     };
 
     return (
-        <Page theme='digital' meta={meta}>
-            <Layout sponsors={sponsors}>
-                <SpeakerPage speaker={speaker} />
-            </Layout>
+        <Page theme="digital" meta={meta} sponsors={sponsors}>
+            <SpeakerPage speaker={speaker} />
         </Page>
     );
 }

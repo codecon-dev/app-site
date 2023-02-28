@@ -3,7 +3,6 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { getAllSponsors } from '@lib/cms-api';
 import { Sponsor } from '@lib/types/all';
 
-import Layout from '@components/_ui/Layout';
 import Page from '@components/_ui/Page';
 import Hero from '@components/patrocinadores/Hero';
 import About from '@components/patrocinadores/About';
@@ -20,12 +19,10 @@ export default function SponsorLP({ sponsor }: Props) {
     };
 
     return (
-        <Page theme='digital' meta={meta}>
-            <Layout hideNav>
-                <Hero sponsor={sponsor} />
-                <About />
-                <Infos sponsor={sponsor} />
-            </Layout>
+        <Page theme="digital" meta={meta} hideNav>
+            <Hero sponsor={sponsor} />
+            <About />
+            <Infos sponsor={sponsor} />
         </Page>
     );
 }

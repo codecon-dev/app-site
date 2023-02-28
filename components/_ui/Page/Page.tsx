@@ -3,6 +3,11 @@ import cn from 'classnames';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+import { Sponsor } from '@lib/types/all';
+import Navbar from '@components/_ui/Navbar';
+import Footer from '@components/_ui/Footer';
+import WhatsappFloatingButton from '@components/_ui/WhatsappFloatingButton';
+
 import { META_DESCRIPTION, SITE_NAME, SITE_URL, TWITTER_USER_NAME } from '@lib/constants';
 
 type Meta = {
@@ -15,11 +20,20 @@ type Meta = {
 type Props = {
     meta?: Meta;
     children: React.ReactNode;
-    fullViewport?: boolean;
     theme: 'digital' | 'summit' | 'feature';
+    hideNav?: boolean;
+    hideFooter?: boolean;
+    sponsors?: Sponsor[];
 };
 
-export default function Page({ meta, children, fullViewport = false, theme = 'digital' }: Props) {
+export default function Page({
+    meta,
+    children,
+    theme = 'digital',
+    hideNav,
+    hideFooter,
+    sponsors
+}: Props) {
     const router = useRouter();
     const image = meta?.image || '/share-image.png';
     const title = meta?.title || SITE_NAME;
@@ -27,7 +41,7 @@ export default function Page({ meta, children, fullViewport = false, theme = 'di
     const description = meta?.description || META_DESCRIPTION;
 
     return (
-        <div className={cn('page-container', { full: fullViewport })}>
+        <div className={cn('page-container', `theme-${theme}`)}>
             <Head>
                 <title>{title}</title>
                 <meta property="og:title" content={title} />
@@ -48,7 +62,7 @@ export default function Page({ meta, children, fullViewport = false, theme = 'di
                     />
                 )}
 
-                {theme == 'digital' &&
+                {theme == 'digital' && (
                     <style type="text/css">
                         {`
                             :root {
@@ -58,9 +72,9 @@ export default function Page({ meta, children, fullViewport = false, theme = 'di
                             }
                         `}
                     </style>
-                }
+                )}
 
-                {theme == 'summit' &&
+                {theme == 'summit' && (
                     <style type="text/css">
                         {`
                             :root {
@@ -70,9 +84,9 @@ export default function Page({ meta, children, fullViewport = false, theme = 'di
                             }
                         `}
                     </style>
-                }
+                )}
 
-                {theme == 'feature' &&
+                {theme == 'feature' && (
                     <style type="text/css">
                         {`
                             :root {
@@ -82,10 +96,13 @@ export default function Page({ meta, children, fullViewport = false, theme = 'di
                             }
                         `}
                     </style>
-                }
+                )}
             </Head>
             <Toaster />
-            {children}
+            {!hideNav && <Navbar />}
+            <main>{children}</main>
+            {(!hideNav || !hideFooter) && <WhatsappFloatingButton />}
+            {!hideFooter && <Footer sponsors={sponsors} />}
         </div>
     );
 }

@@ -1,5 +1,4 @@
 import Page from '@components/_ui/Page';
-import Layout from '@components/_ui/Layout';
 import CodeEditor from '@components/escape-room/CodeEditor';
 
 export default function EscapeRoomThree() {
@@ -63,10 +62,8 @@ function handleTransit(user) {
 }`;
 
     return (
-        <Page theme='digital' meta={meta}>
-            <Layout hideNav hideFooter>
-                <CodeEditor rightCode={rightCode} wrongCode={wrongCode} answer="M" />
-            </Layout>
+        <Page theme="digital" meta={meta} hideNav hideFooter>
+            <CodeEditor rightCode={rightCode} wrongCode={wrongCode} answer="M" />
         </Page>
     );
 }

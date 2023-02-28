@@ -1,5 +1,4 @@
 import Header from '@components/_ui/Header';
-import Layout from '@components/_ui/Layout';
 import Page from '@components/_ui/Page';
 import Ranking, { Rankeable } from '@components/_ui/Ranking/Ranking';
 import { GetServerSideProps } from 'next';
@@ -17,23 +16,21 @@ export default function EnigmaRanking({ puzzleRank }: Props) {
     };
 
     return (
-        <Page theme='digital' meta={meta}>
-            <Layout hideNav hideFooter>
-                <Header title="Enigmas da Olist" description="Ranking dos participantes" smaller />
-                <Ranking
-                    data={puzzleRank}
-                    columns={[
-                        { title: 'Nome', field: 'name' },
-                        { title: 'Acertos', field: 'correctGuessCount', type: 'numeric' },
-                        { title: 'Último acerto em', field: 'lastCorrectGuessDate' }
-                    ]}
-                >
-                    <p>
-                        <strong>Critérios de desempate:</strong> quem mais acertou; quem teve o
-                        último acerto primeiro.
-                    </p>
-                </Ranking>
-            </Layout>
+        <Page theme="digital" meta={meta} hideNav hideFooter>
+            <Header title="Enigmas da Olist" description="Ranking dos participantes" smaller />
+            <Ranking
+                data={puzzleRank}
+                columns={[
+                    { title: 'Nome', field: 'name' },
+                    { title: 'Acertos', field: 'correctGuessCount', type: 'numeric' },
+                    { title: 'Último acerto em', field: 'lastCorrectGuessDate' }
+                ]}
+            >
+                <p>
+                    <strong>Critérios de desempate:</strong> quem mais acertou; quem teve o último
+                    acerto primeiro.
+                </p>
+            </Ranking>
         </Page>
     );
 }

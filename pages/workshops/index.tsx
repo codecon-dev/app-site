@@ -3,7 +3,6 @@ import { GetStaticProps } from 'next';
 import { getAllSponsors, getAllWorkshops } from '@lib/cms-api';
 import { Sponsor, Workshop } from '@lib/types/all';
 
-import Layout from '@components/_ui/Layout';
 import Page from '@components/_ui/Page';
 import Header from '@components/_ui/Header';
 import Schedule from '@components/workshops/Schedule';
@@ -22,15 +21,13 @@ export default function Programacao({ workshops, sponsors }: Props) {
     };
 
     return (
-        <Page theme='digital' meta={meta}>
-            <Layout sponsors={sponsors}>
-                <Header
-                    image="/images/workshops/hero.svg"
-                    title="Workshops"
-                    description="Uma forma gratuita de pessoas da área aprenderem na prática sobre as principais tecnologias do mercado."
-                />
-                <Schedule workshops={workshops} />
-            </Layout>
+        <Page theme="digital" meta={meta} sponsors={sponsors}>
+            <Header
+                image="/images/workshops/hero.svg"
+                title="Workshops"
+                description="Uma forma gratuita de pessoas da área aprenderem na prática sobre as principais tecnologias do mercado."
+            />
+            <Schedule workshops={workshops} />
         </Page>
     );
 }

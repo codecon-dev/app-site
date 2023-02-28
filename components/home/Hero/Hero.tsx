@@ -31,14 +31,6 @@ export default function Hero() {
                 </Column>
                 <Column lg={6} sm={5} xsmOrder={1}>
                     <span className={cn(styles['image__wrapper'], { [styles.loading]: isLoading })}>
-                        <Player
-                            autoplay
-                            loop
-                            onEvent={event => {
-                                if (event === 'load') setIsLoading(false);
-                            }}
-                            src="/animations/hero.json"
-                        />
                         <span className={styles.detail} />
                         <span className={styles['detail-two']} />
                     </span>

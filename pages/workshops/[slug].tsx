@@ -3,7 +3,6 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { getAllWorkshops, getAllSponsors } from '@lib/cms-api';
 import { Sponsor, Workshop } from '@lib/types/all';
 
-import Layout from '@components/_ui/Layout';
 import Page from '@components/_ui/Page';
 import WorkshopPage from '@components/workshops/WorkshopPage';
 
@@ -19,10 +18,8 @@ export default function QuemVai({ workshop, sponsors }: Props) {
     };
 
     return (
-        <Page theme='digital' meta={meta}>
-            <Layout sponsors={sponsors}>
-                <WorkshopPage workshop={workshop} />
-            </Layout>
+        <Page theme="digital" meta={meta} sponsors={sponsors}>
+            <WorkshopPage workshop={workshop} />
         </Page>
     );
 }

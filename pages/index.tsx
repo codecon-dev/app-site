@@ -4,7 +4,6 @@ import { getAllSpeakers, getAllSponsors } from '@lib/cms-api';
 import { Sponsor } from '@lib/types/all';
 import { Speaker } from '@lib/types/speakers';
 
-import Layout from '@components/_ui/Layout';
 import Page from '@components/_ui/Page';
 import Hero from '@components/home/Hero';
 import Differentials from '@components/home/Differentials';
@@ -22,21 +21,20 @@ type Props = {
 export default function Conf({ speakers, sponsors }: Props) {
     return (
         <Page
-            theme='digital'
+            theme="digital"
             meta={{
                 title: 'Codecon Digital 22 - 22, 23 e 24 de setembro',
                 image: '/images/share-image.png'
             }}
+            sponsors={sponsors}
         >
-            <Layout sponsors={sponsors}>
-                <Hero />
-                <Differentials />
-                <About />
-                <ClaimCards />
-                <Gather />
-                <Speakers speakers={speakers} />
-                <Newsletter />
-            </Layout>
+            <Hero />
+            <Differentials />
+            <About />
+            <ClaimCards />
+            <Gather />
+            <Speakers speakers={speakers} />
+            <Newsletter />
         </Page>
     );
 }

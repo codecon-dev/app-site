@@ -3,7 +3,6 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { getAllTalks, getAllSponsors } from '@lib/cms-api';
 import { Sponsor, Talk } from '@lib/types/all';
 
-import Layout from '@components/_ui/Layout';
 import Page from '@components/_ui/Page';
 import TalkPage from '@components/programacao/TalkPage';
 
@@ -19,10 +18,8 @@ export default function QuemVai({ talk, sponsors }: Props) {
     };
 
     return (
-        <Page theme='digital' meta={meta}>
-            <Layout sponsors={sponsors}>
-                <TalkPage talk={talk} />
-            </Layout>
+        <Page theme="digital" meta={meta} sponsors={sponsors}>
+            <TalkPage talk={talk} />
         </Page>
     );
 }

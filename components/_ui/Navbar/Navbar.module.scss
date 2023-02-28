@@ -1,86 +1,85 @@
-
 @import '/styles/media-queries';
 
 .header {
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--color-primary-dark);
-  background-color: var(--color-dark-gray);
-  position: sticky;
-  top: 0;
-  z-index: 999;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--color-black-60);
+    background-color: var(--color-dark-gray);
+    position: sticky;
+    top: 0;
+    z-index: 999;
 
-  &__container {
-    display: flex;
-    align-items: center;
+    &__container {
+        display: flex;
+        align-items: center;
 
-    @media #{$breakpoint-sm} {
-      gap: 2rem;
-    }
-  }
-
-  &__navigation {
-    @media #{$breakpoint-sm} {
-      display: flex;
-      flex-direction: column-reverse;
-      align-items: flex-end;
-      width: 100%;
-      gap: 1rem;
+        @media #{$breakpoint-sm} {
+            gap: 2rem;
+        }
     }
 
-    @media #{$breakpoint-lg} {
-      flex-direction: row;
-      align-items: center;
-    }
-  }
+    &__navigation {
+        @media #{$breakpoint-sm} {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: flex-end;
+            width: 100%;
+            gap: 1rem;
+        }
 
-  &__logo {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-
-    @media #{$breakpoint-sm} {
-      width: auto;
+        @media #{$breakpoint-lg} {
+            flex-direction: row;
+            align-items: center;
+        }
     }
-  }
+
+    &__logo {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        @media #{$breakpoint-sm} {
+            width: auto;
+        }
+    }
 }
 
 .nav {
-  display: none;
-  gap: 2rem;
-  text-transform: lowercase;
+    display: none;
+    gap: 2rem;
+    text-transform: lowercase;
 
-  @media #{$breakpoint-sm} {
-    display: flex;
-  }
-
-  &__item {
-    color: var(--color-ligth-gray);
-
-    &:hover {
-      color: var(--color-white);
+    @media #{$breakpoint-sm} {
+        display: flex;
     }
 
-    &--button {
-      background-color: var(--color-primary);
-      color: var(--color-dark-gray);
-      padding: 0 0.75rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      transition: all 0.2s ease;
+    &__item {
+        color: var(--color-ligth-gray);
 
-      &:hover {
-        color: var(--color-dark-gray);
-        background-color: var(--color-white);
-        transition: all 0.2s ease;
-      }
+        &:hover {
+            color: var(--color-white);
+        }
+
+        &--button {
+            background-color: var(--color-primary);
+            color: var(--color-dark-gray);
+            padding: 0 0.75rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: all 0.2s ease;
+
+            &:hover {
+                color: var(--color-dark-gray);
+                background-color: var(--color-white);
+                transition: all 0.2s ease;
+            }
+        }
+
+        &--active {
+            color: var(--color-primary);
+        }
     }
 
-    &--active {
-      color: var(--color-primary);
+    &--attendee {
+        margin-left: auto;
     }
-  }
-
-  &--attendee {
-    margin-left: auto;
-  }
 }

@@ -3,7 +3,6 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 
 import Page from '@components/_ui/Page';
-import Layout from '@components/_ui/Layout';
 import Header from '@components/_ui/Header';
 import RoomSchedule from '@components/programacao/RoomSchedule';
 
@@ -23,10 +22,8 @@ export default function TalkPage({ talks }: Props) {
     const activeRouter = router.asPath.substring(router.asPath.lastIndexOf('/') + 1);
 
     return (
-        <Page theme='digital' meta={meta}>
-            <Layout hideNav hideFooter>
-                <RoomSchedule talks={talks} title={`Sala ${activeRouter}`} />
-            </Layout>
+        <Page theme="digital" meta={meta} hideNav hideFooter>
+            <RoomSchedule talks={talks} title={`Sala ${activeRouter}`} />
         </Page>
     );
 }

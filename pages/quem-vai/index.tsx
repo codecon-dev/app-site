@@ -5,7 +5,6 @@ import { Sponsor } from '@lib/types/all';
 import { Speaker } from '@lib/types/speakers';
 
 import Header from '@components/_ui/Header';
-import Layout from '@components/_ui/Layout';
 import Page from '@components/_ui/Page';
 import SpeakersGrid from '@components/quem-vai/SpeakersGrid';
 
@@ -23,16 +22,14 @@ export default function QuemVai({ speakers, sponsors }: Props) {
     };
 
     return (
-        <Page theme='digital' meta={meta}>
-            <Layout sponsors={sponsors}>
-                <Header
-                    title="Aprenda com os principais nomes da área tech"
-                    description="Pessoas que tem destaque na comunidade de tecnologia estarão
+        <Page theme="digital" meta={meta} sponsors={sponsors}>
+            <Header
+                title="Aprenda com os principais nomes da área tech"
+                description="Pessoas que tem destaque na comunidade de tecnologia estarão
 participando de palestras, painéis e workshops."
-                    image="/images/quem-vai/hero.svg"
-                />
-                <SpeakersGrid speakers={speakers} />
-            </Layout>
+                image="/images/quem-vai/hero.svg"
+            />
+            <SpeakersGrid speakers={speakers} />
         </Page>
     );
 }

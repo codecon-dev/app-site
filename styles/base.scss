@@ -4,15 +4,18 @@
 @import 'media-queries';
 @import 'typography';
 
-
 :root {
     --color-black: #000000;
-    --color-dark-gray: #0E1116;
-    --color-gray: #8B949E;
-    --color-ligth-gray: #CACED2;
-    --color-white: #FFFFFF;
-    --color-black-60: rgba(0,0,0,0.6);
-    --color-black-40: rgba(0,0,0,0.4);
+    --color-dark-gray: #0e1116;
+    --color-gray: #8b949e;
+    --color-ligth-gray: #caced2;
+    --color-white: #ffffff;
+    --color-black-60: rgba(0, 0, 0, 0.6);
+    --color-black-40: rgba(0, 0, 0, 0.4);
+}
+
+.theme-digital {
+    background-image: url('/images/bg-digital.png');
 }
 
 body {

@@ -3,7 +3,6 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { getAllSponsors } from '@lib/cms-api';
 import { Sponsor } from '@lib/types/all';
 
-import Layout from '@components/_ui/Layout';
 import Page from '@components/_ui/Page';
 import SponsorPage from '@components/patrocinadores/SponsorPage';
 
@@ -18,10 +17,8 @@ export default function QuemVai({ sponsor }: Props) {
     };
 
     return (
-        <Page theme='digital' meta={meta}>
-            <Layout>
-                <SponsorPage sponsor={sponsor} />
-            </Layout>
+        <Page theme="digital" meta={meta}>
+            <SponsorPage sponsor={sponsor} />
         </Page>
     );
 }
