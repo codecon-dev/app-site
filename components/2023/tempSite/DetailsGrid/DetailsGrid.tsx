@@ -44,7 +44,7 @@ export default function DetailsGrid() {
                     <p>Ingressos early bird disponíveis.</p>
                 </a>
                 <a
-                    href="https://tally.so/r/w8NDPA"
+                    href="https://tally.so/r/w5X0GM"
                     target="_blank"
                     rel="noreferrer noopener"
                     className={cn(styles.block, styles['papers-summit'])}
