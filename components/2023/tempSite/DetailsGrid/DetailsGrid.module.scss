@@ -5,7 +5,9 @@
     display: grid;
     grid-template-areas:
         'digital digital'
+        'papersdigital papersdigital'
         'summit summit'
+        'paperssummit paperssummit'
         'feature feature'
         'dvlpr dvlpr'
         'newsletter newsletter'
@@ -13,17 +15,18 @@
         'instagram twitter'
         'antigo antigo';
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, 15rem) 25rem repeat(2, 15rem) 10rem 20rem;
+    grid-template-rows: 15rem 5rem 15rem 5rem 15rem 25rem repeat(2, 15rem) 10rem 20rem;
     gap: 1rem;
 
     @media #{$breakpoint-sm} {
         grid-template-areas:
             'digital summit feature feature'
+            'papersdigital paperssummit feature feature'
             'dvlpr newsletter instagram twitter'
             'dvlpr newsletter antigo antigo'
             'dvlpr discord antigo antigo';
         grid-template-columns: 1fr 1fr 0.5fr 0.5fr;
-        grid-template-rows: 16rem 10rem 4rem 15rem;
+        grid-template-rows: 16rem auto 10rem 4rem 15rem;
     }
 }
 
@@ -79,6 +82,14 @@
     }
 }
 
+.papers-digital {
+    grid-area: papersdigital;
+    background-image: url('/images/2023/bg-codecon-digital.png');
+    background-size: 200%;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 .summit {
     grid-area: summit;
     background-image: url('/images/2023/bg-codecon-summit.png');
@@ -86,6 +97,14 @@
     p {
         color: $main-white;
     }
+}
+
+.papers-summit {
+    grid-area: paperssummit;
+    background-image: url('/images/2023/bg-codecon-summit.png');
+    background-size: 200%;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .feature {

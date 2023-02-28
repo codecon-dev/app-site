@@ -19,7 +19,15 @@ export default function DetailsGrid() {
                         <br />
                         Numa cidade medieval no Gather.
                     </p>
-                    <p>Ingressos early bird disponíveis.</p>
+                    <p>Ingressos disponíveis.</p>
+                </a>
+                <a
+                    href="https://tally.so/r/w8NDPA"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className={cn(styles.block, styles['papers-digital'])}
+                >
+                    Call4papers Codecon Digital
                 </a>
                 <a
                     href="https://www.sympla.com.br/evento/codecon-summit-2023/1829544"
@@ -34,6 +42,14 @@ export default function DetailsGrid() {
                         Presencial em Joinville, SC
                     </p>
                     <p>Ingressos early bird disponíveis.</p>
+                </a>
+                <a
+                    href="https://tally.so/r/w8NDPA"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className={cn(styles.block, styles['papers-summit'])}
+                >
+                    Call4papers Codecon Summit
                 </a>
                 <a
                     href="https://www.sympla.com.br/evento/codecon-feature-2023/1829552"
