@@ -5,7 +5,7 @@ import cn from 'classnames';
 import DarkModeToggle from './DarkModeToggle';
 import { Grid, Column } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton/LinkButton';
-import { EVENT_PRICE, REGISTER_URL } from '@lib/constants';
+import { EVENT_PRICE, DIGITAL_REGISTER_URL } from '@lib/constants';
 
 import styles from './Hero.module.scss';
 
@@ -22,7 +22,7 @@ export default function Hero() {
                     </span>
 
                     <span className={styles['button__wrapper']}>
-                        <LinkButton href={REGISTER_URL} newPage>
+                        <LinkButton href={DIGITAL_REGISTER_URL} newPage>
                             Inscrições encerradas
                         </LinkButton>
                     </span>
@@ -31,6 +31,14 @@ export default function Hero() {
                 </Column>
                 <Column lg={6} sm={5} xsmOrder={1}>
                     <span className={cn(styles['image__wrapper'], { [styles.loading]: isLoading })}>
+                        <Player
+                            autoplay
+                            loop
+                            onEvent={event => {
+                                if (event === 'load') setIsLoading(false);
+                            }}
+                            src="/animations/hero.json"
+                        />
                         <span className={styles.detail} />
                         <span className={styles['detail-two']} />
                     </span>

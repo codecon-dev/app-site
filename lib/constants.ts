@@ -6,40 +6,90 @@ export const TWITTER_USER_NAME = 'codecondev';
 export const SITE_NAME = 'Codecon • Festival de código e tecnologia';
 export const META_DESCRIPTION =
     'A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.';
-export const REGISTER_URL =
+export const DIGITAL_REGISTER_URL =
     'https://www.sympla.com.br/codecon-2022---be-the-developer-of-the-future__1631778';
 export const EVENT_PRICE = 59;
 export const WORKSHOP_PRICE = 0;
 export const RANKING_ENABLED = true;
 export const WHATSAPP_LINK = 'https://chat.whatsapp.com/CPP0eFxck7yDhvdsnBm6Lu';
 
-export const NAVIGATION_2022: MenuItem[] = [
+export const DIGITAL_MENU_NAV: MenuItem[] = [
     {
         name: 'Quem vai',
-        route: '/quem-vai'
+        route: '/digital/quem-vai'
     },
     {
         name: 'Programação',
-        route: '/programacao'
+        route: '/digital/programacao'
     },
     {
         name: 'Como funciona',
-        route: '/como-funciona'
-    },
-    {
-        name: 'Workshops',
-        route: '/workshops'
+        route: '/digital/como-funciona'
     },
     {
         name: 'Patrocinadores',
-        route: '/patrocinadores'
+        route: '/digital/patrocinadores'
     }
 ];
 
-export const ATTENDEE_NAVIGATION_2022: MenuItem[] = [
+export const DIGITAL_ATTENDEE_NAV: MenuItem[] = [
     {
         name: 'Inscrições encerradas',
-        route: REGISTER_URL,
+        route: DIGITAL_REGISTER_URL,
+        type: 'button'
+    }
+];
+
+export const SUMMIT_MENU_NAV: MenuItem[] = [
+    {
+        name: 'Quem vai',
+        route: '/summit/quem-vai'
+    },
+    {
+        name: 'Programação',
+        route: '/summit/programacao'
+    },
+    {
+        name: 'Como funciona',
+        route: '/summit/como-funciona'
+    },
+    {
+        name: 'Patrocinadores',
+        route: '/summit/patrocinadores'
+    }
+];
+
+export const SUMMIT_ATTENDEE_NAV: MenuItem[] = [
+    {
+        name: 'Inscrições encerradas',
+        route: DIGITAL_REGISTER_URL,
+        type: 'button'
+    }
+];
+
+export const FEATURE_MENU_NAV: MenuItem[] = [
+    {
+        name: 'Quem vai',
+        route: '/feature/quem-vai'
+    },
+    {
+        name: 'Programação',
+        route: '/feature/programacao'
+    },
+    {
+        name: 'Como funciona',
+        route: '/feature/como-funciona'
+    },
+    {
+        name: 'Patrocinadores',
+        route: '/feature/patrocinadores'
+    }
+];
+
+export const FEATURE_ATTENDEE_NAV: MenuItem[] = [
+    {
+        name: 'Inscrições encerradas',
+        route: DIGITAL_REGISTER_URL,
         type: 'button'
     }
 ];

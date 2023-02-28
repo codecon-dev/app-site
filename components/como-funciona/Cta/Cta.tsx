@@ -1,6 +1,6 @@
 import { Column, Grid } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton';
-import { EVENT_PRICE, REGISTER_URL } from '@lib/constants';
+import { EVENT_PRICE, DIGITAL_REGISTER_URL } from '@lib/constants';
 import Testimonial from '../Testimonial';
 
 import styles from './Cta.module.scss';
@@ -26,7 +26,7 @@ export default function Cta() {
                         Online <span className="bullet">•</span> 22, 23 e 24 de Setembro
                     </span>
                     <span className={styles['button-wrapper']}>
-                        <LinkButton href={REGISTER_URL} newPage>
+                        <LinkButton href={DIGITAL_REGISTER_URL} newPage>
                             Inscrições encerradas
                         </LinkButton>
                     </span>

@@ -99,7 +99,7 @@ export default function Page({
                 )}
             </Head>
             <Toaster />
-            {!hideNav && <Navbar />}
+            {!hideNav && <Navbar theme={theme} />}
             <main>{children}</main>
             {(!hideNav || !hideFooter) && <WhatsappFloatingButton />}
             {!hideFooter && <Footer sponsors={sponsors} />}
