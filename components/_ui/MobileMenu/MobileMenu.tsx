@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import cn from 'classnames';
 
-import { NAVIGATION_2022, ATTENDEE_NAVIGATION_2022 } from '@lib/constants';
+import { DIGITAL_MENU_NAV, DIGITAL_ATTENDEE_NAV } from '@lib/constants';
 
 import styles from './MobileMenu.module.scss';
 
@@ -21,7 +21,7 @@ function ModalDialog(props: Parameters<typeof useOverlay>[0] & Parameters<typeof
     const { overlayProps } = useOverlay(props, ref);
     const { dialogProps } = useDialog(props, ref);
 
-    const allNavigation = [...NAVIGATION_2022, ...ATTENDEE_NAVIGATION_2022];
+    const allNavigation = [...DIGITAL_MENU_NAV, ...DIGITAL_ATTENDEE_NAV];
 
     usePreventScroll();
 
