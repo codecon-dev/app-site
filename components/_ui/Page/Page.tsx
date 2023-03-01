@@ -8,7 +8,7 @@ import Navbar from '@components/_ui/Navbar';
 import Footer from '@components/_ui/Footer';
 import WhatsappFloatingButton from '@components/_ui/WhatsappFloatingButton';
 
-import { META_DESCRIPTION, SITE_NAME, SITE_URL, TWITTER_USER_NAME } from '@lib/constants';
+import { SITE_URL, TWITTER_USER_NAME, getEventData } from '@lib/constants';
 
 type Meta = {
     title: string;
@@ -34,11 +34,12 @@ export default function Page({
     hideFooter,
     sponsors
 }: Props) {
+    const eventData = getEventData(theme);
     const router = useRouter();
-    const image = meta?.image || '/share-image.png';
-    const title = meta?.title || SITE_NAME;
-    const url = meta?.url || `${SITE_URL}${router.asPath}`;
-    const description = meta?.description || META_DESCRIPTION;
+    const image = meta?.image || eventData.shareImage;
+    const title = meta?.title || eventData.siteName;
+    const url = meta?.url || `${eventData.homeUrl}${router.asPath}`;
+    const description = meta?.description || eventData.metaDescription;
 
     return (
         <div className={cn('page-container', `theme-${theme}`)}>
@@ -62,41 +63,15 @@ export default function Page({
                     />
                 )}
 
-                {theme == 'digital' && (
-                    <style type="text/css">
-                        {`
-                            :root {
-                                --color-primary: #45E27F;
-                                --color-primary-dark: #006C68;
-                                --color-background: #0E1116;
-                            }
-                        `}
-                    </style>
-                )}
-
-                {theme == 'summit' && (
-                    <style type="text/css">
-                        {`
-                            :root {
-                                --color-primary: #8800FF;
-                                --color-primary-dark: #280075;
-                                --color-background: #120E16;
-                            }
-                        `}
-                    </style>
-                )}
-
-                {theme == 'feature' && (
-                    <style type="text/css">
-                        {`
-                            :root {
-                                --color-primary: #0055FF;
-                                --color-primary-dark: #001EA6;
-                                --color-background: #0E1116;
-                            }
-                        `}
-                    </style>
-                )}
+                <style type="text/css">
+                    {`
+                        :root {
+                            --color-primary: ${eventData.colors.primary};
+                            --color-primary-dark: ${eventData.colors.primaryDark};
+                            --color-background: ${eventData.colors.background};
+                        }
+                    `}
+                </style>
             </Head>
             <Toaster />
             {!hideNav && <Navbar theme={theme} />}

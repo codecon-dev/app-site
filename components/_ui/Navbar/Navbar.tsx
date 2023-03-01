@@ -2,14 +2,7 @@ import Link from 'next/link';
 import { useRouter, NextRouter } from 'next/router';
 import cn from 'classnames';
 
-import {
-    DIGITAL_MENU_NAV,
-    DIGITAL_ATTENDEE_NAV,
-    SUMMIT_MENU_NAV,
-    SUMMIT_ATTENDEE_NAV,
-    FEATURE_MENU_NAV,
-    FEATURE_ATTENDEE_NAV
-} from '@lib/constants';
+import { getEventData } from '@lib/constants';
 import Logo from '@components/_ui/Icons/icon-logo';
 import MobileMenu from '@components/_ui/MobileMenu';
 
@@ -22,23 +15,7 @@ type Props = {
 export default function Navbar({ theme }: Props) {
     const router: NextRouter = useRouter();
     const activeRoute: string = router.asPath;
-    let MENU_NAV;
-    let ATTENDEE_NAV;
-
-    switch (theme) {
-        case 'digital':
-            MENU_NAV = DIGITAL_MENU_NAV;
-            ATTENDEE_NAV = DIGITAL_ATTENDEE_NAV;
-            break;
-        case 'summit':
-            MENU_NAV = SUMMIT_MENU_NAV;
-            ATTENDEE_NAV = SUMMIT_ATTENDEE_NAV;
-            break;
-        case 'feature':
-            MENU_NAV = FEATURE_MENU_NAV;
-            ATTENDEE_NAV = FEATURE_ATTENDEE_NAV;
-            break;
-    }
+    const eventData = getEventData(theme);
 
     return (
         <>
@@ -50,11 +27,11 @@ export default function Navbar({ theme }: Props) {
                                 <Logo theme={theme} />
                             </a>
                         </Link>
-                        <MobileMenu key={router.asPath} />
+                        <MobileMenu key={router.asPath} theme={theme} />
                     </div>
                     <div className={styles['header__navigation']}>
                         <nav className={styles['nav']}>
-                            {MENU_NAV.map(({ name, route }) => (
+                            {eventData.menuNav.map(({ name, route }) => (
                                 <Link key={name} href={route}>
                                     <a
                                         className={cn(styles['nav__item'], {
@@ -68,7 +45,7 @@ export default function Navbar({ theme }: Props) {
                             ))}
                         </nav>
                         <nav className={cn(styles['nav'], styles['nav--attendee'])}>
-                            {ATTENDEE_NAV.map(({ name, route, type }) => (
+                            {eventData.attendeeNav.map(({ name, route, type }) => (
                                 <Link key={name} href={route}>
                                     <a
                                         target={type == 'button' ? '_blank' : undefined}

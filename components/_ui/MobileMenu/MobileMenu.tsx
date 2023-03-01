@@ -8,20 +8,27 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import cn from 'classnames';
 
-import { DIGITAL_MENU_NAV, DIGITAL_ATTENDEE_NAV } from '@lib/constants';
+import { getEventData } from '@lib/constants';
 
 import styles from './MobileMenu.module.scss';
 
-function ModalDialog(props: Parameters<typeof useOverlay>[0] & Parameters<typeof useDialog>[0]) {
+type Props = {
+    theme: 'digital' | 'summit' | 'feature';
+};
+
+function ModalDialog(
+    props: Parameters<typeof useOverlay>[0] & Parameters<typeof useDialog>[0] & Props
+) {
     const router = useRouter();
     const activeRoute = router.asPath;
+    const eventData = getEventData(props.theme);
 
     const ref = useRef<HTMLElement | null>(null);
     const { modalProps } = useModal();
     const { overlayProps } = useOverlay(props, ref);
     const { dialogProps } = useDialog(props, ref);
 
-    const allNavigation = [...DIGITAL_MENU_NAV, ...DIGITAL_ATTENDEE_NAV];
+    const allNavigation = [...eventData.menuNav, ...eventData.attendeeNav];
 
     usePreventScroll();
 
@@ -52,7 +59,7 @@ function ModalDialog(props: Parameters<typeof useOverlay>[0] & Parameters<typeof
     );
 }
 
-export default function Overlay() {
+export default function Overlay({ theme }: Props) {
     const state = useOverlayTriggerState({});
     const ref = useRef<HTMLButtonElement | null>(null);
     const { buttonProps } = useButton(
@@ -108,7 +115,7 @@ export default function Overlay() {
             </button>
             {state.isOpen && (
                 <OverlayContainer>
-                    <ModalDialog isOpen onClose={() => state.close()} />
+                    <ModalDialog isOpen onClose={() => state.close()} theme={theme} />
                 </OverlayContainer>
             )}
         </>
