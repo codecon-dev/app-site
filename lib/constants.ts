@@ -22,10 +22,6 @@ export const TWITTER_USER_NAME = 'codecondev';
 export const SITE_NAME = 'Codecon • Festival de código e tecnologia';
 export const META_DESCRIPTION =
     'A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.';
-export const DIGITAL_REGISTER_URL =
-    'https://www.sympla.com.br/codecon-2022---be-the-developer-of-the-future__1631778';
-export const EVENT_PRICE = 59;
-export const WORKSHOP_PRICE = 0;
 export const RANKING_ENABLED = true;
 export const WHATSAPP_LINK = 'https://chat.whatsapp.com/CPP0eFxck7yDhvdsnBm6Lu';
 

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 import { useOverlay, usePreventScroll, useModal, OverlayContainer } from '@react-aria/overlays';
 import { useDialog } from '@react-aria/dialog';
 import { FocusScope } from '@react-aria/focus';
@@ -8,20 +8,16 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import cn from 'classnames';
 
+import ThemeContext from 'context/ThemeContext';
 import { getEventData } from '@lib/constants';
 
 import styles from './MobileMenu.module.scss';
 
-type Props = {
-    theme: 'digital' | 'summit' | 'feature';
-};
-
-function ModalDialog(
-    props: Parameters<typeof useOverlay>[0] & Parameters<typeof useDialog>[0] & Props
-) {
+function ModalDialog(props: Parameters<typeof useOverlay>[0] & Parameters<typeof useDialog>[0]) {
+    const theme = useContext(ThemeContext);
     const router = useRouter();
     const activeRoute = router.asPath;
-    const eventData = getEventData(props.theme);
+    const eventData = getEventData(theme);
 
     const ref = useRef<HTMLElement | null>(null);
     const { modalProps } = useModal();
@@ -59,7 +55,7 @@ function ModalDialog(
     );
 }
 
-export default function Overlay({ theme }: Props) {
+export default function Overlay() {
     const state = useOverlayTriggerState({});
     const ref = useRef<HTMLButtonElement | null>(null);
     const { buttonProps } = useButton(
@@ -115,7 +111,7 @@ export default function Overlay({ theme }: Props) {
             </button>
             {state.isOpen && (
                 <OverlayContainer>
-                    <ModalDialog isOpen onClose={() => state.close()} theme={theme} />
+                    <ModalDialog isOpen onClose={() => state.close()} />
                 </OverlayContainer>
             )}
         </>

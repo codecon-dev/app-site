@@ -1,19 +1,20 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import cn from 'classnames';
 
-import DarkModeToggle from './DarkModeToggle';
+import ThemeContext from 'context/ThemeContext';
+
+import DarkModeToggle from '../../_ui/DarkModeToggle';
 import { Grid, Column } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton/LinkButton';
-import { EVENT_PRICE, DIGITAL_REGISTER_URL } from '@lib/constants';
 
 import styles from './Hero.module.scss';
 
 export default function Hero() {
-    const [isLoading, setIsLoading] = useState(true);
+    const theme = useContext(ThemeContext);
 
     return (
-        <header className={styles.header}>
+        <header className={cn(styles.header, styles[`theme-${theme}`])}>
             <Grid align="center">
                 <Column lg={6} sm={7} smOrder={1}>
                     <h1>Be the developer of the future</h1>
@@ -22,7 +23,7 @@ export default function Hero() {
                     </span>
 
                     <span className={styles['button__wrapper']}>
-                        <LinkButton href={DIGITAL_REGISTER_URL} newPage>
+                        <LinkButton href="" newPage>
                             Inscrições encerradas
                         </LinkButton>
                     </span>
@@ -30,18 +31,7 @@ export default function Hero() {
                     <DarkModeToggle />
                 </Column>
                 <Column lg={6} sm={5} xsmOrder={1}>
-                    <span className={cn(styles['image__wrapper'], { [styles.loading]: isLoading })}>
-                        <Player
-                            autoplay
-                            loop
-                            onEvent={event => {
-                                if (event === 'load') setIsLoading(false);
-                            }}
-                            src="/animations/hero.json"
-                        />
-                        <span className={styles.detail} />
-                        <span className={styles['detail-two']} />
-                    </span>
+                    oioi
                 </Column>
             </Grid>
         </header>

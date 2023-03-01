@@ -1,25 +1,32 @@
+import { useContext, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, NextRouter } from 'next/router';
 import cn from 'classnames';
 
+import ThemeContext from 'context/ThemeContext';
 import { getEventData } from '@lib/constants';
 import Logo from '@components/_ui/Icons/icon-logo';
 import MobileMenu from '@components/_ui/MobileMenu';
 
 import styles from './Navbar.module.scss';
 
-type Props = {
-    theme: 'digital' | 'summit' | 'feature';
-};
-
-export default function Navbar({ theme }: Props) {
+export default function Navbar() {
+    const theme = useContext(ThemeContext);
+    const eventData = getEventData(theme);
     const router: NextRouter = useRouter();
     const activeRoute: string = router.asPath;
-    const eventData = getEventData(theme);
+
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            setIsScrolled(window.scrollY > 100);
+        });
+    }, []);
 
     return (
         <>
-            <header className={cn(styles.header, `theme-${theme}`)}>
+            <header className={cn(styles.header, { [`theme-${theme}`]: isScrolled })}>
                 <div className={cn('container', styles['header__container'])}>
                     <div className={styles['header__logo']}>
                         <Link href="/">
@@ -27,7 +34,7 @@ export default function Navbar({ theme }: Props) {
                                 <Logo theme={theme} />
                             </a>
                         </Link>
-                        <MobileMenu key={router.asPath} theme={theme} />
+                        <MobileMenu key={router.asPath} />
                     </div>
                     <div className={styles['header__navigation']}>
                         <nav className={styles['nav']}>

@@ -1,0 +1,13 @@
+@import '/styles/media-queries';
+
+.page {
+    padding-top: 6.25rem;
+
+    @media #{$breakpoint-sm} {
+        padding-top: 7.5rem;
+    }
+
+    @media #{$breakpoint-lg} {
+        padding-top: 6.25rem;
+    }
+}

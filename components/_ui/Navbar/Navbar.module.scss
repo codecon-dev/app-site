@@ -3,7 +3,9 @@
 .header {
     padding: 2rem 0;
     border-bottom: 1px solid var(--color-black-60);
-    position: sticky;
+    position: fixed;
+    width: 100%;
+    left: 0;
     top: 0;
     z-index: 999;
 
