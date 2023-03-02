@@ -1,7 +1,6 @@
 import cn from 'classnames';
 
 import { Sponsor } from '@lib/types/all';
-import { DIGITAL_REGISTER_URL } from '@lib/constants';
 import { Grid, Column } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton';
 
@@ -34,9 +33,6 @@ export default function Infos({ sponsor }: Props) {
                         pessoas desenvolvedoras em eventos que tragam conteúdo, networking e muito
                         código.
                     </p>
-                    <LinkButton href={DIGITAL_REGISTER_URL} type="secondary">
-                        IInscrições encerradas
-                    </LinkButton>
                 </Column>
             </Grid>
         </section>

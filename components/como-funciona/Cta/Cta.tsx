@@ -1,11 +1,18 @@
+import { useContext } from 'react';
+
+import ThemeContext from 'context/ThemeContext';
+
 import { Column, Grid } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton';
-import { EVENT_PRICE, DIGITAL_REGISTER_URL } from '@lib/constants';
+import { getEventData } from '@lib/constants';
 import Testimonial from '../Testimonial';
 
 import styles from './Cta.module.scss';
 
 export default function Cta() {
+    const theme = useContext(ThemeContext);
+    const eventData = getEventData(theme);
+
     return (
         <section>
             <Grid align="center">
@@ -26,7 +33,7 @@ export default function Cta() {
                         Online <span className="bullet">•</span> 22, 23 e 24 de Setembro
                     </span>
                     <span className={styles['button-wrapper']}>
-                        <LinkButton href={DIGITAL_REGISTER_URL} newPage>
+                        <LinkButton href={eventData.registerUrl} newPage>
                             Inscrições encerradas
                         </LinkButton>
                     </span>
