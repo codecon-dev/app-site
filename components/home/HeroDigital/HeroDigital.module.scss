@@ -6,29 +6,43 @@
     background-size: cover;
     padding: 4rem 0 4rem;
     position: relative;
+    overflow: hidden;
 
     @media #{$breakpoint-sm} {
-        padding: 14.25rem 0 8rem;
+        padding: 15rem 0 10rem;
+    }
+
+    &-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
     }
 }
 
 .title {
     font-family: var(--heading-font-face);
     font-size: 6rem;
+    position: relative;
+    z-index: 1;
+    width: 70%;
 
     span {
         color: var(--color-primary);
     }
 }
 
+.button {
+    position: relative;
+    z-index: 100;
+}
+
 .image {
-    width: 40%;
-    height: 300px;
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
+    width: 85%;
+    margin-right: -25%;
+    height: 100%;
+    position: relative;
 
     &-wrapper {
-        z-index: 0;
         position: absolute;
         top: 0;
         bottom: 0;
@@ -40,52 +54,25 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        z-index: 10;
     }
 
-    &-src {
+    &-animated {
+        transform-style: preserve-3d;
+        transform: perspective(1000px);
+        position: relative;
+        z-index: 200;
+    }
+
+    &-bg {
+        z-index: 0;
+    }
+
+    img {
         position: absolute;
         top: 0;
         left: 0;
-
-        &:nth-child(1) {
-            transform: translateZ(10px);
-        }
-
-        &:nth-child(2) {
-            transform: translateZ(10px);
-        }
-
-        &:nth-child(3) {
-            transform: translateZ(10px);
-        }
-
-        &:nth-child(4) {
-            transform: translateZ(100px);
-        }
-
-        &:nth-child(5) {
-            transform: translateZ(140px);
-        }
-
-        &:nth-child(6) {
-            transform: translateZ(200px);
-        }
-
-        &:nth-child(7) {
-            transform: translateZ(250px);
-        }
-
-        &:nth-child(8) {
-            transform: translateZ(300px);
-        }
-
-        &:nth-child(9) {
-            transform: translateZ(350px);
-        }
-
-        &:nth-child(10) {
-            transform: translateZ(400px);
-        }
+        max-width: 100%;
     }
 }
 
