@@ -14,6 +14,9 @@ type EventData = {
         primaryDark: string;
         background: string;
     };
+    heading: {
+        fontFace: string;
+    };
 };
 
 export const SITE_URL = 'https://www.codecon.dev';
@@ -67,6 +70,9 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature') => {
                     primary: '#45E27F',
                     primaryDark: '#006C68',
                     background: '#0E1116'
+                },
+                heading: {
+                    fontFace: 'Neue Machina'
                 }
             };
             break;
@@ -108,6 +114,9 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature') => {
                     primary: '#8800FF',
                     primaryDark: '#280075',
                     background: '#120E16'
+                },
+                heading: {
+                    fontFace: 'Jost'
                 }
             };
             break;
@@ -150,6 +159,9 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature') => {
                     primary: '#0055FF',
                     primaryDark: '#001EA6',
                     background: '#0E1116'
+                },
+                heading: {
+                    fontFace: 'Neue Metana'
                 }
             };
             break;

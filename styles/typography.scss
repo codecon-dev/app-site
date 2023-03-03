@@ -1,71 +1,67 @@
 @import 'media-queries';
 
-
 h1 {
-  font-size: 2rem;
-  line-height: 1.2;
-  letter-spacing: 0.75rem;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
 
-  @media #{$breakpoint-sm} {
-    font-size: 3rem;
-  }
+    @media #{$breakpoint-sm} {
+        font-size: 3rem;
+    }
 
-  @media #{$breakpoint-lg} {
-    font-size: 4rem;
-    letter-spacing: 1.1rem;
-  }
+    @media #{$breakpoint-lg} {
+        font-size: 4rem;
+    }
 }
 
 h2 {
-  font-size: 1.5rem;
-  line-height: 1.2;
-  margin-bottom: 1.25rem;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
 
-  @media #{$breakpoint-sm} {
-    font-size: 2rem;
-  }
+    @media #{$breakpoint-sm} {
+        font-size: 2rem;
+    }
 
-  @media #{$breakpoint-lg} {
-    font-size: 2.5rem;
-  }
+    @media #{$breakpoint-lg} {
+        font-size: 2.5rem;
+    }
 }
 
 h3 {
-  font-size: 1.25rem;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
 }
 
 .highlight {
-  text-transform: uppercase;
-  color: var(--color-primary);
-  letter-spacing: 0.1rem;
-  margin-bottom: 2.5rem;
-  display: block;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    letter-spacing: 0.1rem;
+    margin-bottom: 2.5rem;
+    display: block;
 }
 
 .headline {
-  display: block;
-  font-size: 1.5rem;
-  color: var(--color-ligth-gray);
+    display: block;
+    font-size: 1.5rem;
+    color: var(--color-ligth-gray);
 
-  &__darker {
-    color: var(--color-gray);
-  }
+    &__darker {
+        color: var(--color-gray);
+    }
 }
 
 .bullet {
-  color: var(--color-white);
+    color: var(--color-white);
 }
 
 p {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--color-ligth-gray);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-ligth-gray);
 
-  & + p {
-    margin-top: 1rem;
-  }
+    & + p {
+        margin-top: 1rem;
+    }
 }

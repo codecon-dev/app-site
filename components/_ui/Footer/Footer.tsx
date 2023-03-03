@@ -10,6 +10,7 @@ import styles from './Footer.module.scss';
 import styleUtils from '@components/_ui/Utils/Utils.module.scss';
 import { Column, Grid } from '../../_ui/Grid';
 import Link from 'next/link';
+import DarkModeToggle from '../DarkModeToggle/DarkModeToggle';
 
 type Props = {
     sponsors?: Sponsor[];
@@ -72,6 +73,7 @@ export default function Footer({ sponsors }: Props) {
                             código de conduta da Codamos
                         </a>
                         .
+                        <DarkModeToggle />
                     </Column>
                     <Column lg={6} sm={6}>
                         <div className={styles.social}>

@@ -25,10 +25,19 @@ type Props = {
     theme: ThemeContextType;
     hideNav?: boolean;
     hideFooter?: boolean;
+    noPadding?: boolean;
     sponsors?: Sponsor[];
 };
 
-export default function Page({ meta, children, theme, hideNav, hideFooter, sponsors }: Props) {
+export default function Page({
+    meta,
+    children,
+    theme,
+    hideNav,
+    hideFooter,
+    noPadding,
+    sponsors
+}: Props) {
     const eventData = getEventData(theme);
     const router = useRouter();
     const image = meta?.image || eventData.shareImage;
@@ -38,7 +47,9 @@ export default function Page({ meta, children, theme, hideNav, hideFooter, spons
 
     return (
         <ThemeContext.Provider value={theme}>
-            <div className={cn(styles.page, `theme-${theme}`)}>
+            <div
+                className={cn(styles.page, `theme-${theme}`, { [styles['no-padding']]: noPadding })}
+            >
                 <Head>
                     <title>{title}</title>
                     <meta property="og:title" content={title} />
@@ -65,6 +76,7 @@ export default function Page({ meta, children, theme, hideNav, hideFooter, spons
                             --color-primary: ${eventData.colors.primary};
                             --color-primary-dark: ${eventData.colors.primaryDark};
                             --color-background: ${eventData.colors.background};
+                            --heading-font-face: '${eventData.heading.fontFace}', sans-serif;
                         }
                     `}
                     </style>
