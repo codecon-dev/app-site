@@ -1,5 +1,37 @@
 @import 'media-queries';
 
+@font-face {
+    font-family: 'Jost';
+    src: url('/fonts/jost-900-black-webfont.woff2') format('woff2'),
+        url('/fonts/jost-900-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jost';
+    src: url('/fonts/jost-900-blackitalic-webfont.woff2') format('woff2'),
+        url('/fonts/jost-900-blackitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neu Metana';
+    src: url('/fonts/neuemetana-bold-webfont.woff2') format('woff2'),
+        url('/fonts/neuemetana-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neue Machina';
+    src: url('/fonts/neuemachina-ultrabold-webfont.woff2') format('woff2'),
+        url('/fonts/neuemachina-ultrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 h1 {
     font-size: 2rem;
     line-height: 1;
