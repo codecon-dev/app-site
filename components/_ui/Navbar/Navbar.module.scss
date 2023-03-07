@@ -68,10 +68,10 @@
         &--button {
             background-color: var(--color-primary);
             color: var(--color-dark-gray);
-            padding: 0 0.75rem;
+            padding: 0.25rem 1.25rem;
             font-weight: bold;
-            letter-spacing: 2px;
             transition: all 0.2s ease;
+            border-radius: 3rem;
 
             &:hover {
                 color: var(--color-dark-gray);

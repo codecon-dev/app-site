@@ -77,6 +77,8 @@ export default function HeroDigital() {
                     <img src="/images/hero-digital/digital-bg-8.png" />
                 </div>
             </div>
+
+            <img src="/images/hero-digital/banner-mobile.png" className={styles['image-mobile']} />
         </header>
     );
 }
