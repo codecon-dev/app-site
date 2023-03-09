@@ -12,7 +12,7 @@ import ClaimCards from '@components/home/ClaimCards';
 import Gather from '@components/home/Gather';
 import Speakers from '@components/home/Speakers';
 import Newsletter from '@components/home/Newsletter';
-import Blocks from '@components/_ui/Blocks/Blocks';
+import Blocks from '@components/home/Blocks';
 
 type Props = {
     speakers: Speaker[];
@@ -24,24 +24,36 @@ export default function Conf({ speakers, sponsors }: Props) {
         <Page theme="digital" noPadding sponsors={sponsors}>
             <HeroDigital />
             <Blocks>
+                <Blocks.Countdown
+                    message="Tá chegando!"
+                    local="Digital"
+                    city="Gather Town"
+                    initialDate={new Date('2023-06-22 00:00:00')}
+                    finalDate={new Date('2023-06-23 00:00:00')}
+                />
                 <Blocks.Block
                     lg={6}
-                    backgroundImage="/images/gather.png"
+                    sm={4}
+                    backgroundImage="/images/digital/cidade-gather.png"
+                    backgroundImageMobile="/images/digital/cidade-gather-m.png"
                     title="Pela honra. Pelo código. Pelo café!"
-                    description="Deployr é uma cidade virtual inspirada nas fantasias e  RPGs mais legais que você conhece."
+                    description="Uma cidade virtual inspirada nas fantasias e  RPGs mais legais."
                 />
                 <Blocks.Block
                     lg={3}
-                    backgroundImage="/images/bg-digital.jpg"
+                    sm={4}
+                    backgroundImage="/images/digital/enigmas.png"
                     title="É um jogo?"
-                    description="Não. É no Gather Town, uma ferramenta que permite conexões reais."
+                    description="É no Gather Town, uma ferramenta que permite conexões reais."
                 />
                 <Blocks.Block
                     lg={3}
-                    backgroundImage="/images/bg-digital.jpg"
+                    sm={4}
+                    backgroundImage="/images/digital/network.png"
                     title="Network"
                     description="Converse com outras devas, devs e patrocinadores."
                 />
+                <Blocks.Video code="M51w8zk3QuQ" />
             </Blocks>
             <Differentials />
             <About />
