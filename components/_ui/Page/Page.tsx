@@ -42,7 +42,7 @@ export default function Page({
     const router = useRouter();
     const image = meta?.image || eventData.shareImage;
     const title = meta?.title || eventData.siteName;
-    const url = meta?.url || `${eventData.homeUrl}${router.asPath}`;
+    const url = meta?.url || `${SITE_URL}${eventData.homeUrl}${router.asPath}`;
     const description = meta?.description || eventData.metaDescription;
 
     return (

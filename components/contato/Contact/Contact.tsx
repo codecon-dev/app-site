@@ -34,28 +34,28 @@ export default function Contact() {
                             target="_blank"
                             rel="noreferrer noopener"
                         >
-                            <IconTwitter size={24} color="var(--light-green)" />
+                            <IconTwitter size={24} color="var(--color-primary)" />
                         </a>
                         <a
                             href="https://instagram.com/codecon.dev"
                             target="_blank"
                             rel="noreferrer noopener"
                         >
-                            <InstagramIcon size={24} color="var(--light-green)" />
+                            <InstagramIcon size={24} color="var(--color-primary)" />
                         </a>
                         <a
                             href="https://github.com/codecon-dev"
                             target="_blank"
                             rel="noreferrer noopener"
                         >
-                            <IconGithub size={24} color="var(--light-green)" />
+                            <IconGithub size={24} color="var(--color-primary)" />
                         </a>
                         <a
                             href="https://codecon.dev/discord"
                             target="_blank"
                             rel="noreferrer noopener"
                         >
-                            <IconDiscord size={24} color="var(--light-green)" />
+                            <IconDiscord size={24} color="var(--color-primary)" />
                         </a>
                     </div>
                 </Column>

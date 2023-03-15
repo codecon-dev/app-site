@@ -1,0 +1,105 @@
+@import 'styles/media-queries';
+
+.grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 2rem;
+
+    @media #{$breakpoint-sm} {
+        flex-direction: row;
+        row-gap: 0;
+        gap: 4rem;
+    }
+
+    @media #{$breakpoint-lg} {
+        gap: 8.3333333%;
+    }
+}
+
+.text {
+    width: 100%;
+
+    @media #{$breakpoint-sm} {
+        width: calc(50% - 2rem);
+    }
+
+    @media #{$breakpoint-lg} {
+        width: 41.666666667%;
+    }
+}
+
+.image {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    width: 100%;
+
+    @media #{$breakpoint-sm} {
+        width: calc(50% - 2rem);
+    }
+
+    @media #{$breakpoint-lg} {
+        width: 41.666666667%;
+    }
+}
+
+.testimonial {
+    width: 100%;
+    position: relative;
+    border-radius: 1.25rem;
+    color: var(--color-white);
+    padding: 4px;
+    transition: all 0.2s ease;
+    background: conic-gradient(
+            from 180deg at 50% 50%,
+            rgba(0, 0, 0, 1) 0deg,
+            rgba(255, 255, 255, 0.7) 17deg,
+            rgba(0, 0, 0, 1) 88deg,
+            rgba(255, 255, 255, 0.7) 152deg,
+            rgba(0, 0, 0, 1) 225deg,
+            rgba(255, 255, 255, 0.7) 289deg,
+            rgba(0, 0, 0, 1) 360deg
+        ),
+        conic-gradient(
+            from 180deg at 50% 50%,
+            rgba(0, 0, 0, 1) 0deg,
+            rgba(255, 255, 255, 1) 30deg,
+            rgba(0, 0, 0, 1) 96deg,
+            rgba(255, 255, 255, 1) 169deg,
+            rgba(0, 0, 0, 1) 229deg,
+            rgba(255, 255, 255, 1) 285deg,
+            rgba(0, 0, 0, 1) 360deg
+        ),
+        radial-gradient(
+            88% 127% at 13% 13%,
+            rgba(42, 168, 208, 1) 0%,
+            rgba(250, 191, 165, 1) 32%,
+            rgba(252, 244, 171, 1) 56%,
+            rgba(93, 247, 164, 1) 76%,
+            rgba(88, 208, 246, 1) 100%
+        );
+    background-blend-mode: screen, difference, normal;
+
+    @media #{$breakpoint-sm} {
+        width: calc(50% - 2rem);
+    }
+
+    @media #{$breakpoint-lg} {
+        width: 41.666666667%;
+    }
+
+    p {
+        color: var(--color-white);
+        font-size: 1rem;
+        background-color: var(--color-background);
+        padding: 3rem;
+        border-radius: 1.1rem;
+
+        @media #{$breakpoint-sm} {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            letter-spacing: 0.1rem;
+        }
+    }
+}

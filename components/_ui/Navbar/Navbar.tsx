@@ -29,7 +29,7 @@ export default function Navbar() {
             <header className={cn(styles.header, { [styles.scroll]: isScrolled })}>
                 <div className={cn('container', styles['header__container'])}>
                     <div className={styles['header__logo']}>
-                        <Link href="/">
+                        <Link href={eventData.homeUrl}>
                             <a className={styles.logo}>
                                 <Logo theme={theme} />
                             </a>

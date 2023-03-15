@@ -14,16 +14,14 @@ type Props = {
 export default function Contato({ sponsors }: Props) {
     const meta = {
         title: 'Contato - Codecon',
-        description: 'Quer ser nosso patrocinador? Está com alguma dúvida?',
-        image: '/images/share-image.png'
+        description: 'Quer ser nosso patrocinador? Está com alguma dúvida?'
     };
 
     return (
-        <Page theme="digital" meta={meta} sponsors={sponsors}>
+        <Page theme="digital" meta={meta}>
             <Header
                 title="Entre em contato"
                 description="Quer ser nosso patrocinador? Está com alguma dúvida?"
-                image="/images/contato/hero.svg"
             />
             <Contact />
         </Page>

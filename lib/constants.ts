@@ -34,7 +34,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | undefined
     switch (event) {
         case 'digital':
             eventData = {
-                homeUrl: 'https://codecon.dev/digital',
+                homeUrl: '/digital',
                 siteName: 'Codecon Digital • Festival de código e tecnologia',
                 shareImage: 'https://codecon.dev/share-digital.jpg',
                 metaDescription:

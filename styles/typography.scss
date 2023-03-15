@@ -80,15 +80,11 @@ h3 {
 .headline {
     display: block;
     font-size: 1.5rem;
-    color: var(--color-ligth-gray);
-
-    &__darker {
-        color: var(--color-gray);
-    }
+    color: var(--color-gray);
 }
 
 .bullet {
-    color: var(--color-white);
+    color: var(--color-primary);
 }
 
 p {
@@ -99,4 +95,8 @@ p {
     & + p {
         margin-top: 1rem;
     }
+}
+
+.text-center {
+    text-align: center;
 }
