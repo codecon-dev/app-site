@@ -2,7 +2,6 @@
     "redirects": [
         { "source": "/discord", "destination": "https://discord.gg/invite/Cz4zgUr" },
         { "source": "/lojinha", "destination": "https://umapenca.com/dvlpr" },
-        { "source": "/feature", "destination": "https://codecon.substack.com" },
         { "source": "/newsletter", "destination": "https://codecon.substack.com" },
         {
             "source": "/midia-kit",
