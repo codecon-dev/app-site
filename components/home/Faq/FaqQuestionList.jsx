@@ -178,7 +178,7 @@ export const faqQuestionListFeature = [
         answer: 'A forma como estamos planejando a Codecon Feature é diferente de qualquer evento que você deva ter participado no Brasil. Nós queremos gerar conexões reais entre quem estiver presente, os palestrantes e a organização. Queremos que você faça parte disso e que realmente aprenda e possa compartilhar o que sabe no evento.'
     },
     {
-        question: 'Qual o valor da insrição?',
+        question: 'Qual o valor da inscrição?',
         answer: 'Os ingressos Early Bird (para quem compra bem cedo) são R$ 890. O primeiro lote será R$ 1.290 e o segundo e último lote R$ 1.490. Na inscrição está incluso o almoço, brindes legais, happy hour e coffee break.'
     },
     {
