@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
 
@@ -8,20 +9,17 @@ export default function DetailsGrid() {
     return (
         <section>
             <div className={cn('container', styles.grid)}>
-                <a
-                    href="https://www.sympla.com.br/evento-online/codecon-digital-2023/1829527"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className={cn(styles.block, styles.digital)}
-                >
-                    <IconLogo theme="digital" width={192} />
-                    <p>
-                        <strong>22 e 23 de junho de 2023</strong>
-                        <br />
-                        Numa cidade medieval no Gather.
-                    </p>
-                    <p>Ingressos disponíveis.</p>
-                </a>
+                <Link href="/digital">
+                    <a className={cn(styles.block, styles.digital)}>
+                        <IconLogo theme="digital" width={192} />
+                        <p>
+                            <strong>22 e 23 de junho de 2023</strong>
+                            <br />
+                            Numa cidade medieval no Gather.
+                        </p>
+                        <p>Ingressos disponíveis.</p>
+                    </a>
+                </Link>
                 <a
                     href="https://tally.so/r/w8NDPA"
                     target="_blank"

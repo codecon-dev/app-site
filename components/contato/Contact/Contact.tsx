@@ -21,9 +21,9 @@ export default function Contact() {
                 </Column>
                 <Column lg={3} sm={6}>
                     <h3>Prefere falar por Whatsapp?</h3>
-                    Acesse{' '}
+                    Mande{' '}
                     <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer noopener">
-                        nosso grupo de suporte
+                        uma mensagem
                     </a>
                 </Column>
                 <Column lg={3} sm={6}>

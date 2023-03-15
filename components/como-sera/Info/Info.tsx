@@ -2,8 +2,6 @@ import { ReactNode } from 'react';
 import cn from 'classnames';
 import NextImage from 'next/image';
 
-import { Column, Grid } from '@components/_ui/Grid';
-
 import styles from './Info.module.scss';
 
 type PropsText = {
