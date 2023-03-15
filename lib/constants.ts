@@ -26,9 +26,9 @@ export const SITE_NAME = 'Codecon • Festival de código e tecnologia';
 export const META_DESCRIPTION =
     'A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.';
 export const RANKING_ENABLED = true;
-export const WHATSAPP_LINK = 'https://chat.whatsapp.com/CPP0eFxck7yDhvdsnBm6Lu';
+export const WHATSAPP_LINK = 'https://wa.me/+5547991367060';
 
-export const getEventData = (event: 'digital' | 'summit' | 'feature') => {
+export const getEventData = (event: 'digital' | 'summit' | 'feature' | undefined) => {
     let eventData: EventData;
 
     switch (event) {
@@ -42,27 +42,28 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature') => {
                 registerUrl: 'https://www.sympla.com.br/evento-online/codecon-digital-2023/1829527',
                 menuNav: [
                     {
-                        name: 'Quem vai',
-                        route: '/digital/quem-vai'
+                        name: 'Home',
+                        route: '/digital'
                     },
                     {
-                        name: 'Programação',
-                        route: '/digital/programacao'
+                        name: 'Como será',
+                        route: '/digital/como-sera'
                     },
                     {
-                        name: 'Como funciona',
-                        route: '/digital/como-funciona'
+                        name: 'Outros eventos',
+                        route: '/'
                     },
                     {
-                        name: 'Patrocinadores',
-                        route: '/digital/patrocinadores'
+                        name: 'Contato',
+                        route: '/digital/contato'
                     }
                 ],
                 attendeeNav: [
                     {
                         name: 'inscreva-se',
                         route: 'https://www.sympla.com.br/evento-online/codecon-digital-2023/1829527',
-                        type: 'button'
+                        type: 'button',
+                        target: '_blank'
                     }
                 ],
                 eventPrice: 39,
@@ -106,7 +107,8 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature') => {
                     {
                         name: 'inscreva-se',
                         route: 'https://www.sympla.com.br/evento/codecon-summit-2023/1829544',
-                        type: 'button'
+                        type: 'button',
+                        target: '_blank'
                     }
                 ],
                 eventPrice: 99,
@@ -151,7 +153,8 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature') => {
                     {
                         name: 'inscreva-se',
                         route: 'https://www.sympla.com.br/evento/codecon-feature-2023/1829552',
-                        type: 'button'
+                        type: 'button',
+                        target: '_blank'
                     }
                 ],
                 eventPrice: 890,
@@ -162,6 +165,46 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature') => {
                 },
                 heading: {
                     fontFace: 'Neue Metana'
+                }
+            };
+            break;
+        default:
+            eventData = {
+                homeUrl: 'https://codecon.dev/',
+                siteName: 'Codecon • Eventos de tecnologia que fogem do comum',
+                shareImage: 'https://codecon.dev/share.jpg',
+                metaDescription:
+                    'A Codecon organiza eventos de tecnologia que juntam código, networking e diversão.',
+                registerUrl: '#',
+                menuNav: [
+                    {
+                        name: 'Codecon Digital',
+                        route: '/digital'
+                    },
+                    {
+                        name: 'Codecon Summit',
+                        route: '/summit'
+                    },
+                    {
+                        name: 'Codecon Feature',
+                        route: '/feature'
+                    }
+                ],
+                attendeeNav: [
+                    {
+                        name: 'Fale com a gente',
+                        route: '#contato',
+                        type: 'button'
+                    }
+                ],
+                eventPrice: 0,
+                colors: {
+                    primary: '#FAF1C5',
+                    primaryDark: '#D4FDE0',
+                    background: '#0E1116'
+                },
+                heading: {
+                    fontFace: 'Space Grotesk'
                 }
             };
             break;

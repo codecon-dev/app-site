@@ -8,7 +8,7 @@ export default function LinksPage() {
     };
 
     return (
-        <Page theme='digital' meta={meta}>
+        <Page hideNav hideFooter theme="digital" meta={meta}>
             <Links />
         </Page>
     );

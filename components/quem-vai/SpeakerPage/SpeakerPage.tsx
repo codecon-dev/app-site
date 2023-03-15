@@ -37,16 +37,7 @@ export default function SpeakerPage({ speaker }: Props) {
                     <p className="headline">{speaker.company}</p>
 
                     <SpeakerCard>
-                        <SpeakerCard.Social
-                            horizontal
-                            data={speakerSocial}
-                            character={
-                                !!speaker.character && {
-                                    src: speaker.character.url,
-                                    alt: speaker.name
-                                }
-                            }
-                        />
+                        <SpeakerCard.Social horizontal data={speakerSocial} />
                     </SpeakerCard>
                 </Column>
                 <Column lg={1} sm={0} xsm={0} />

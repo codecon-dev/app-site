@@ -1,7 +1,24 @@
 @import 'styles/media-queries';
 
 .blocks {
-    margin: 8rem auto;
+    margin: 4rem auto;
+
+    @media #{$breakpoint-lg} {
+        margin: 8rem auto;
+    }
+}
+
+.title {
+    text-align: center;
+
+    span {
+        color: var(--color-primary);
+    }
+
+    @media #{$breakpoint-lg} {
+        max-width: 50%;
+        margin: 0 auto 5rem;
+    }
 }
 
 .block {

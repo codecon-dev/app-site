@@ -1,84 +1,84 @@
-
 @import 'styles/media-queries';
 
 .wrapper {
-  background-color: var(--color-white);
-  text-align: center;
+    background-color: var(--color-white);
+    text-align: center;
 }
 
 .grid {
-  padding: 4rem 2rem;
+    padding: 4rem 2rem;
 
-  @media #{$breakpoint-sm} {
-    padding: 8rem 0;
-  }
+    @media #{$breakpoint-sm} {
+        padding: 8rem 0;
+    }
 }
 
 .title {
-  text-align: center;
-  color: var(--color-dark-gray);
+    text-align: center;
+    color: var(--color-dark-gray);
 }
 
 .sponsor {
-  display: inline-block;
-  max-width: 50%;
-  margin: 0.5rem 0;
+    display: inline-block;
+    max-width: 50%;
+    margin: 0.5rem 0;
 
-  @media #{$breakpoint-sm} {
-    margin: 0.5rem 2.5rem;
-  }
+    @media #{$breakpoint-sm} {
+        margin: 0.5rem 2.5rem;
+    }
 }
 
 .hr {
-  width: 5rem;
-  height: 5px;
-  display: block;
-  background: var(--color-ligth-gray);
-  margin: 5rem auto;
-  border: 0;
+    width: 5rem;
+    height: 5px;
+    display: block;
+    background: var(--color-ligth-gray);
+    margin: 5rem auto;
+    border: 0;
 }
 
 .footer {
-  padding-top: 2rem;
-  background-color: var(--color-ligth-gray);
-  color: var(--color-dark-gray);
-  text-align: center;
+    padding-bottom: 3rem;
+    padding-top: 2rem;
+    background-color: var(--color-ligth-gray);
+    color: var(--color-dark-gray);
+    text-align: center;
 
-  @media #{$breakpoint-sm} {
-    text-align: left;
-  }
+    @media #{$breakpoint-sm} {
+        text-align: left;
+    }
 }
 
 .footer a {
-  text-decoration: underline;
-  color: var(--color-dark-gray);
+    text-decoration: underline;
+    color: var(--color-dark-gray);
 }
 
 .social {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 1rem;
 
-  @media #{$breakpoint-sm} {
-    justify-content: flex-end;
-  }
+    @media #{$breakpoint-sm} {
+        justify-content: flex-end;
+    }
 }
 
 .icon {
-  background-color: var(--color-dark-gray);
-  width: 2rem;
-  height: 2rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+    background-color: var(--color-dark-gray);
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .vercel {
-  padding: 1rem 0;
-  text-align: center;
+    padding: 1rem 0;
+    text-align: center;
 
-  @media #{$breakpoint-sm} {
-    text-align: right;
-  }
+    @media #{$breakpoint-sm} {
+        text-align: right;
+    }
 }

@@ -42,8 +42,7 @@ export default function Navbar() {
                                 <Link key={name} href={route}>
                                     <a
                                         className={cn(styles['nav__item'], {
-                                            [styles['nav__item--active']]:
-                                                activeRoute.startsWith(route)
+                                            [styles['nav__item--active']]: activeRoute === route
                                         })}
                                     >
                                         {name}
@@ -52,10 +51,10 @@ export default function Navbar() {
                             ))}
                         </nav>
                         <nav className={cn(styles['nav'], styles['nav--attendee'])}>
-                            {eventData.attendeeNav.map(({ name, route, type }) => (
+                            {eventData.attendeeNav.map(({ name, route, type, target }) => (
                                 <Link key={name} href={route}>
                                     <a
-                                        target={type == 'button' ? '_blank' : undefined}
+                                        target={target}
                                         rel={type == 'button' ? 'noopener noreferrer' : undefined}
                                         className={cn(styles['nav__item'], {
                                             [styles['nav__item--active']]:

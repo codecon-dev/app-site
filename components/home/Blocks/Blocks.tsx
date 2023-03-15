@@ -146,6 +146,20 @@ const Video = ({ code }: PropsVideo) => {
     );
 };
 
+type PropsTitle = {
+    children: ReactNode;
+};
+
+const Title = ({ children }: PropsTitle) => {
+    return (
+        <Column lg={12}>
+            <h2 className={cn(styles.title)}>
+                {children}
+            </h2>
+        </Column>
+    )
+};
+
 type PropsBlocks = {
     children: ReactNode;
 };
@@ -161,5 +175,6 @@ const Blocks = ({ children, ...rest }: PropsBlocks) => {
 Blocks.Countdown = Countdown;
 Blocks.Block = Block;
 Blocks.Video = Video;
+Blocks.Title = Title;
 
 export default Blocks;

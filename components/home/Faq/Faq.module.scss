@@ -1,0 +1,13 @@
+@import 'styles/media-queries';
+
+.faq {
+    margin-bottom: 3rem;
+
+    @media #{$breakpoint-lg} {
+        margin-bottom: 8rem;
+    }
+}
+
+.title {
+    text-align: center;
+}

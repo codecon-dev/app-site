@@ -1,0 +1,17 @@
+@import '/styles/media-queries';
+
+.section {
+    text-align: center;
+
+    h2 {
+        text-transform: uppercase;
+
+        @media #{$breakpoint-sm} {
+            margin-bottom: 5rem;
+        }
+    }
+
+    a {
+        color: var(--color-gray);
+    }
+}

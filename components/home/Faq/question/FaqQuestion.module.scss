@@ -1,0 +1,51 @@
+@import 'styles/media-queries';
+
+$arrow-size: 1rem;
+
+.faqQuestion {
+    border-bottom: solid 1px var(--color-black);
+    width: 100%;
+
+    .question {
+        position: relative;
+        padding: 1.5rem 0;
+        font-weight: bold;
+        list-style: none;
+        width: 100%;
+        cursor: pointer;
+
+        @media #{$breakpoint-lg} {
+            font-size: 1.5rem;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border-right: 2px solid var(--color-gray);
+            border-bottom: 2px solid var(--color-gray);
+            width: $arrow-size;
+            height: $arrow-size;
+            transform: rotate(45deg);
+        }
+    }
+
+    .answer {
+        margin-bottom: 1rem;
+        font-size: clamp(1rem, 1vw, 1.2vw);
+        line-height: 1.8;
+        width: calc(100% - $arrow-size);
+    }
+
+    &[open] {
+        .question {
+            &:after {
+                top: $arrow-size;
+                transform: rotate(225deg);
+            }
+        }
+    }
+}

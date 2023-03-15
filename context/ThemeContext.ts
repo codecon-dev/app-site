@@ -1,8 +1,8 @@
 import { createContext } from 'react';
 
-export type ThemeContextType = 'digital' | 'summit' | 'feature';
+export type ThemeContextType = 'digital' | 'summit' | 'feature' | undefined;
 
-const defaultContext = 'digital';
+const defaultContext = undefined;
 
 const ThemeContext = createContext<ThemeContextType>(defaultContext);
 

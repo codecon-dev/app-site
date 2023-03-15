@@ -1,7 +1,32 @@
+@import 'styles/media-queries';
+
 .title {
-  margin-bottom: 3rem;
+    text-align: center;
+
+    span {
+        color: var(--color-primary);
+    }
+
+    @media #{$breakpoint-lg} {
+        max-width: 70%;
+        margin: 0 auto 8rem;
+    }
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 18rem 18rem;
+    grid-template-areas:
+        'big one two'
+        'big three four';
+
+    *:first-child {
+        grid-area: big;
+    }
 }
 
 .cta {
-  margin-top: 3rem;
+    margin-top: 3rem;
 }

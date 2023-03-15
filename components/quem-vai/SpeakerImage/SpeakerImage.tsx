@@ -30,10 +30,6 @@ const Stories = ({ speaker }: KindComponentProps) => {
                             height={605}
                             style={{ padding: '1rem' }}
                         />
-                        <SpeakerCard.Character
-                            src={speaker.character.url}
-                            alt={`Avatar de ${speaker.name} criado no Gather`}
-                        />
                     </SpeakerCard>
                 </div>
                 <h1 className={styles.name}>{speaker.name}</h1>
@@ -67,10 +63,6 @@ const Square = ({ speaker }: KindComponentProps) => {
                             height={494}
                             style={{ padding: '1rem' }}
                         />
-                        <SpeakerCard.Character
-                            src={speaker.character.url}
-                            alt={`Avatar de ${speaker.name} criado no Gather`}
-                        />
                     </SpeakerCard>
                 </div>
                 <h1>{speaker.name}</h1>
@@ -90,10 +82,6 @@ const Default = ({ speaker }: KindComponentProps) => {
                         width={390}
                         height={390}
                         style={{ padding: '1rem' }}
-                    />
-                    <SpeakerCard.Character
-                        src={speaker.character.url}
-                        alt={`Avatar de ${speaker.name} criado no Gather`}
                     />
                 </SpeakerCard>
 

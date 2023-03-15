@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { Speaker } from '@lib/types/speakers';
 
 import { Grid, Column } from '@components/_ui/Grid';
@@ -8,45 +9,29 @@ import styles from './Speakers.module.scss';
 
 type Props = {
     speakers: Speaker[];
+    children: ReactNode;
 };
 
-export default function Speakers({ speakers }: Props) {
+export default function Speakers({ speakers, children }: Props) {
     return (
-        <section>
-            <Grid>
-                <Column lg={8}>
-                    <h2 className={styles.title}>
-                        São mais de 30 palestras e painéis com os principais nomes da área
-                    </h2>
-                </Column>
-            </Grid>
-            <Grid>
-                {speakers.map((speaker, index) => (
-                    <Column
-                        key={speaker.id}
-                        lg={3}
-                        sm={!!(index > 5) ? 0 : 4}
-                        xsm={!!(index > 2) ? 0 : 12}
-                    >
-                        <SpeakerCard>
-                            <SpeakerCard.Title>{speaker.name}</SpeakerCard.Title>
-                            <SpeakerCard.Image
-                                href={`/quem-vai/${speaker.slug}`}
-                                src={speaker.image.url}
-                                alt={speaker.name}
-                            />
-                        </SpeakerCard>
-                    </Column>
-                ))}
-            </Grid>
+        <section className="container">
+            <h2 className={styles.title}>{children}</h2>
 
-            <Grid>
-                <Column lg={12}>
-                    <div className={styles.cta}>
-                        <LinkButton href="/programacao">Programação completa</LinkButton>
-                    </div>
-                </Column>
-            </Grid>
+            <div className={styles.grid}>
+                {speakers.map((speaker, index) => (
+                    <SpeakerCard>
+                        <SpeakerCard.About>
+                            <h5>{speaker.name}</h5>
+                            <small>{speaker.company}</small>
+                        </SpeakerCard.About>
+                        <SpeakerCard.Image
+                            href={`/quem-vai/${speaker.slug}`}
+                            src={speaker.image.url}
+                            alt={speaker.name}
+                        />
+                    </SpeakerCard>
+                ))}
+            </div>
         </section>
     );
 }

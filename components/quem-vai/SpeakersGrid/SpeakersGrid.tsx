@@ -54,15 +54,7 @@ export default function SpeakersGrid({ speakers }: Props) {
                                         <h5>{speaker.name}</h5>
                                         <small>{speaker.company}</small>
                                     </SpeakerCard.About>
-                                    <SpeakerCard.Social
-                                        data={speakerSocial}
-                                        character={
-                                            !!speaker.character && {
-                                                src: speaker.character.url,
-                                                alt: speaker.name
-                                            }
-                                        }
-                                    />
+                                    <SpeakerCard.Social data={speakerSocial} />
                                 </SpeakerCard>
                             </Column>
                         </Fragment>

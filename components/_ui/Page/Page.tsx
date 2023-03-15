@@ -22,7 +22,7 @@ type Meta = {
 type Props = {
     meta?: Meta;
     children: React.ReactNode;
-    theme: ThemeContextType;
+    theme?: ThemeContextType;
     hideNav?: boolean;
     hideFooter?: boolean;
     noPadding?: boolean;
