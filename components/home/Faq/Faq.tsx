@@ -30,7 +30,7 @@ export default function Faq() {
         <section className={cn(styles.faq, 'container')}>
             <h2 className={styles.title}>Perguntas frequentes</h2>
 
-            {faqQuestionList.map((item, index) => (
+            {faqQuestionList?.map((item, index) => (
                 <FaqQuestion question={item.question} answer={item.answer} key={index} />
             ))}
         </section>
