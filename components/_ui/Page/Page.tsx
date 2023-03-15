@@ -1,4 +1,5 @@
 import { Toaster } from 'react-hot-toast';
+import useBlobity from 'blobity/lib/react/useBlobity';
 import cn from 'classnames';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -45,6 +46,16 @@ export default function Page({
     const url = meta?.url || `${SITE_URL}${eventData.homeUrl}${router.asPath}`;
     const description = meta?.description || eventData.metaDescription;
 
+    const blobity = useBlobity({
+        licenseKey: 'opensource',
+        color: 'rgb(0, 0, 0)',
+        magnetic: false,
+        zIndex: 200,
+        size: 100,
+        invert: true,
+        focusableElements: undefined
+    });
+
     return (
         <ThemeContext.Provider value={theme}>
             <div
@@ -77,6 +88,7 @@ export default function Page({
                             --color-primary-dark: ${eventData.colors.primaryDark};
                             --color-background: ${eventData.colors.background};
                             --heading-font-face: '${eventData.heading.fontFace}', sans-serif;
+                            --heading-text-transform: ${eventData.heading.textTransform};
                         }
                     `}
                     </style>

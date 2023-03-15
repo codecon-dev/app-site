@@ -16,7 +16,7 @@
     }
 
     @media #{$breakpoint-lg} {
-        max-width: 50%;
+        max-width: 70%;
         margin: 0 auto 5rem;
     }
 }
@@ -34,7 +34,7 @@
     &-lg-6 {
         @media #{$breakpoint-lg} {
             p {
-                max-width: 60%;
+                max-width: 75%;
             }
         }
     }

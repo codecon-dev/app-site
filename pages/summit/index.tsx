@@ -5,7 +5,7 @@ import { Sponsor } from '@lib/types/all';
 import { Speaker } from '@lib/types/speakers';
 
 import Page from '@components/_ui/Page';
-import HeroDigital from '@components/home/HeroDigital';
+import HeroSummit from '@components/home/HeroSummit';
 import Differentials from '@components/home/Differentials';
 import About from '@components/home/About';
 import ClaimCards from '@components/home/ClaimCards';
@@ -22,42 +22,42 @@ type Props = {
 
 export default function Conf({ speakers, sponsors }: Props) {
     return (
-        <Page theme="digital" noPadding>
-            <HeroDigital />
+        <Page theme="summit" noPadding>
+            <HeroSummit />
             <Blocks>
                 <Blocks.Title>
-                    Um festival de tecnologia,
-                    <br /> <span>código</span> e inovação
+                    Inovação, tecnologia, experiências e <span>muito código</span>
                 </Blocks.Title>
                 <Blocks.Countdown
-                    message="Tá chegando!"
-                    local="Digital"
-                    city="Gather Town"
-                    initialDate={new Date('2023-06-22 00:00:00')}
-                    finalDate={new Date('2023-06-23 00:00:00')}
+                    message="Garanta sua vaga!"
+                    local="Campus Park"
+                    city="Joinville, SC"
+                    initialDate={new Date('2023-08-25 00:00:00')}
+                    finalDate={new Date('2023-08-26 00:00:00')}
                 />
                 <Blocks.Block
                     lg={6}
                     sm={4}
-                    backgroundImage="/images/digital/cidade-gather.png"
-                    backgroundImageMobile="/images/digital/cidade-gather-m.png"
-                    title="Pela honra. Pelo código. Pelo café!"
-                    description="Uma cidade virtual inspirada nas fantasias e  RPGs mais legais que você conhece."
+                    backgroundImage="/images/summit/futuro-programado.jpg"
+                    title="Onde o futuro será programado"
+                    description="O maior evento para pessoas programadoras de Santa Catarina, com grandes nomes nacionais."
                 />
                 <Blocks.Block
-                    lg={3}
+                    lg={6}
                     sm={4}
-                    backgroundImage="/images/digital/enigmas.png"
-                    title="É um jogo?"
-                    description="É no Gather Town, uma ferramenta que permite conexões reais."
+                    backgroundImage="/images/summit/discussoes-reais.jpg"
+                    title="Discussões reais"
+                    description="Nossa curadoria busca temas mais atuais em tecnologias, soft skills e design de software."
                 />
+                <Blocks.Block lg={3} sm={4} backgroundImage="/images/summit/foto-1.jpg" />
                 <Blocks.Block
-                    lg={3}
+                    lg={6}
                     sm={4}
-                    backgroundImage="/images/digital/network.png"
-                    title="Networking"
-                    description="Converse com outras devas, devs e patrocinadores."
+                    backgroundImage="/images/summit/campus-park.jpg"
+                    title="Campus park Unisociesc"
+                    description="Um espaço que respira inovação e tecnologia."
                 />
+                <Blocks.Block lg={3} sm={4} backgroundImage="/images/summit/foto-2.jpg" />
                 {/* <Blocks.Video code="M51w8zk3QuQ" />*/}
             </Blocks>
             {/* <Speakers speakers={speakers}>

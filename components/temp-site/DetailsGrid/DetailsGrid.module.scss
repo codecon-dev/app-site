@@ -90,7 +90,7 @@
 
 .summit {
     grid-area: summit;
-    background-image: url('/images/hero-summit.jpg');
+    background-image: url('/images/summit/hero/hero-summit.jpg');
 
     p {
         color: var(--color-white);
@@ -99,7 +99,7 @@
 
 .papers-summit {
     grid-area: paperssummit;
-    background-image: url('/images/hero-summit.jpg');
+    background-image: url('/images/summit/hero/hero-summit.jpg');
     background-size: 200%;
     font-weight: bold;
 
@@ -110,7 +110,7 @@
 
 .feature {
     grid-area: feature;
-    background-image: url('/images/hero-feature.jpg');
+    background-image: url('/images/feature/hero/hero-feature.jpg');
 
     p {
         color: var(--color-white);

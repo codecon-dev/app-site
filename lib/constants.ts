@@ -16,6 +16,7 @@ type EventData = {
     };
     heading: {
         fontFace: string;
+        textTransform: 'uppercase' | 'none';
     };
 };
 
@@ -73,13 +74,14 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | undefined
                     background: '#0E1116'
                 },
                 heading: {
-                    fontFace: 'Neue Machina'
+                    fontFace: 'Neue Machina',
+                    textTransform: 'none'
                 }
             };
             break;
         case 'summit':
             eventData = {
-                homeUrl: 'https://codecon.dev/summit',
+                homeUrl: '/summit',
                 siteName: 'Codecon Summit • Inovação, tecnologia, experiências e muito código',
                 shareImage: 'https://codecon.dev/share-summit.jpg',
                 metaDescription:
@@ -87,20 +89,20 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | undefined
                 registerUrl: 'https://www.sympla.com.br/evento/codecon-summit-2023/1829544',
                 menuNav: [
                     {
-                        name: 'Quem vai',
-                        route: '/summit/quem-vai'
+                        name: 'Home',
+                        route: '/summit'
                     },
                     {
-                        name: 'Programação',
-                        route: '/summit/programacao'
+                        name: 'Como será',
+                        route: '/summit/como-sera'
                     },
                     {
-                        name: 'Como funciona',
-                        route: '/summit/como-funciona'
+                        name: 'Outros eventos',
+                        route: '/'
                     },
                     {
-                        name: 'Patrocinadores',
-                        route: '/summit/patrocinadores'
+                        name: 'Contato',
+                        route: '/summit/contato'
                     }
                 ],
                 attendeeNav: [
@@ -118,13 +120,14 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | undefined
                     background: '#120E16'
                 },
                 heading: {
-                    fontFace: 'Jost'
+                    fontFace: 'Jost',
+                    textTransform: 'uppercase'
                 }
             };
             break;
         case 'feature':
             eventData = {
-                homeUrl: 'https://codecon.dev/feature',
+                homeUrl: '/feature',
                 siteName:
                     'Codecon Feature • Um evento de tecnologia para profissionais em cargos sênior+',
                 shareImage: 'https://codecon.dev/share-feature.jpg',
@@ -133,20 +136,20 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | undefined
                 registerUrl: 'https://www.sympla.com.br/evento/codecon-feature-2023/1829552',
                 menuNav: [
                     {
-                        name: 'Quem vai',
-                        route: '/feature/quem-vai'
+                        name: 'Home',
+                        route: '/feature'
                     },
                     {
-                        name: 'Programação',
-                        route: '/feature/programacao'
+                        name: 'Como será',
+                        route: '/feature/como-sera'
                     },
                     {
-                        name: 'Como funciona',
-                        route: '/feature/como-funciona'
+                        name: 'Outros eventos',
+                        route: '/'
                     },
                     {
-                        name: 'Patrocinadores',
-                        route: '/feature/patrocinadores'
+                        name: 'Contato',
+                        route: '/feature/contato'
                     }
                 ],
                 attendeeNav: [
@@ -164,7 +167,8 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | undefined
                     background: '#0E1116'
                 },
                 heading: {
-                    fontFace: 'Neue Metana'
+                    fontFace: 'Neue Metana',
+                    textTransform: 'none'
                 }
             };
             break;
@@ -199,12 +203,13 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | undefined
                 ],
                 eventPrice: 0,
                 colors: {
-                    primary: '#FAF1C5',
-                    primaryDark: '#D4FDE0',
+                    primary: '#8b949e',
+                    primaryDark: '#caced2',
                     background: '#0E1116'
                 },
                 heading: {
-                    fontFace: 'Space Grotesk'
+                    fontFace: 'Space Grotesk',
+                    textTransform: 'none'
                 }
             };
             break;

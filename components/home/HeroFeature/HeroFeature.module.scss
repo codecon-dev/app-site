@@ -1,0 +1,130 @@
+@import 'styles/media-queries';
+
+.header {
+    background-image: url('/images/feature/hero/hero-feature.jpg');
+    background-position: center;
+    background-size: cover;
+    padding: 10rem 0 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    @media #{$breakpoint-sm} {
+        padding: 15rem 0 10rem;
+        text-align: left;
+    }
+
+    &-wrapper {
+        max-width: $max-width-xsm;
+        margin: 0 auto;
+        padding: 0 2rem;
+
+        @media #{$breakpoint-sm} {
+            max-width: $max-width-sm;
+        }
+
+        @media #{$breakpoint-lg} {
+            max-width: $max-width-lg;
+        }
+    }
+}
+
+.title {
+    font-family: var(--heading-font-face);
+    text-transform: var(--heading-text-transform);
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 1;
+
+    @media #{$breakpoint-sm} {
+        font-size: 4rem;
+        width: 70%;
+    }
+
+    @media #{$breakpoint-lg} {
+        font-size: 6rem;
+    }
+
+    span {
+        color: var(--color-primary);
+    }
+}
+
+.button {
+    position: relative;
+    z-index: 100;
+}
+
+.image {
+    display: none;
+    width: 95%;
+    height: 95%;
+    position: relative;
+    margin-right: -25%;
+
+    @media #{$breakpoint-sm} {
+        display: block;
+    }
+
+    @media #{$breakpoint-lg} {
+        width: 85%;
+    }
+
+    &-wrapper {
+        margin: 0 auto;
+        width: 100%;
+        max-width: $max-width-xsm;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        z-index: 10;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @media #{$breakpoint-sm} {
+            max-width: $max-width-sm;
+        }
+
+        @media #{$breakpoint-lg} {
+            max-width: $max-width-lg;
+        }
+    }
+
+    &-animated {
+        transform-style: preserve-3d;
+        transform: perspective(1000px);
+        position: relative;
+        z-index: 200;
+    }
+
+    &-bg {
+        z-index: 0;
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 100%;
+    }
+
+    &-mobile {
+        position: static;
+        top: auto;
+        left: auto;
+
+        @media #{$breakpoint-sm} {
+            display: none;
+        }
+    }
+}
+
+.button {
+    &__wrapper {
+        display: block;
+        margin-top: 2rem;
+    }
+}

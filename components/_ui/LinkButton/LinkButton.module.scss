@@ -39,7 +39,7 @@
     &__info {
         display: block;
         background-color: var(--color-primary);
-        color: var(--color-black);
+        color: var(--color-white);
         padding: 0 1rem;
         transition: all 0.3s ease-in-out;
         border-radius: 5rem;
@@ -51,6 +51,7 @@
 
         .button__info {
             background-color: var(--color-white);
+            color: var(--color-black);
             transition: all 0.3s ease-in-out;
         }
     }

@@ -34,6 +34,7 @@
 
 h1 {
     font-family: var(--heading-font-face);
+    text-transform: var(--heading-text-transform);
     font-size: 2rem;
     line-height: 1;
     margin-bottom: 1.5rem;
@@ -49,6 +50,7 @@ h1 {
 
 h2 {
     font-family: var(--heading-font-face);
+    text-transform: var(--heading-text-transform);
     font-size: 1.5rem;
     line-height: 1.2;
     margin-bottom: 1.25rem;
@@ -64,6 +66,7 @@ h2 {
 
 h3 {
     font-family: var(--heading-font-face);
+    text-transform: var(--heading-text-transform);
     font-size: 1.25rem;
     line-height: 1.5;
     margin-bottom: 1.25rem;

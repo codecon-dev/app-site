@@ -19,7 +19,7 @@ export const faqQuestionListDigital = [
     },
     {
         question: 'Qual o valor da inscrição?',
-        answer: 'No primeiro lote sai por R$ 39. No segundo lote por R$ 49 e no terceiro lote por R$ 59. Todas as opções possuem meia entrada para estudantes e pessoas que contribuem com open-source.'
+        answer: 'No early bird  (para quem compra bem cedo) é R$ 19, já no primeiro lote sai por R$ 39. No segundo lote por R$ 49 e no terceiro lote por R$ 59. Todas as opções possuem meia entrada para estudantes e pessoas que contribuem com open-source.'
     },
     {
         question: 'É verdade que o Princesa Peach estará presente?',
@@ -47,19 +47,19 @@ export const faqQuestionListDigital = [
 
 export const faqQuestionListSummit = [
     {
-        question: 'Onde vai ser?',
-        answer: 'Em Joinville/SC, no Ágora Tech Park: rua Dona Francisca, nº 8300 - Distrito Industrial.'
+        question: 'O que é a Codecon Summit?',
+        answer: 'Um evento onde você poderá participar de palestras, painéis, fish bowls e outras experiências que vão te fazer se sentir em um festival de música. A Codecon Summit terá 2 salas simultâneas e outras atividades extras, com destaque para o Hackathon de Projetos denecessários e ideias que ninguém precisa.'
     },
     {
-        question: 'Que dia vai rolar mesmo?',
-        answer: 'Dia 03 de dezembro, a partir das 9h.'
+        question: 'Como participar?',
+        answer: 'Basta se inscrever no link para o Sympla aqui no site. No dia do evento é só apresentar o seu celular com o comprovante de compra para realizar o check-in.'
     },
     {
-        question: 'Meio longe esse lugar, né? Como que é lá?',
-        answer: 'O Ágora Tech Park é um empreendimento incrível aqui em Joinville e une tecnologia, natureza e espaços abertos. Perfeito para a troca de ideias e para promover essa quebra na rotina, que a gente tanto precisa de vez em quando.'
+        question: 'Qual a data e onde vai acontecer?',
+        answer: 'O evento acontece dias 25 e 26 de agosto em Joinville/SC, no Campus Park Unisociesc: R. Albano Schmidt, 3333 - Boa Vista.'
     },
     {
-        question: 'Como eu chego lá?',
+        question: 'Como faz para chegar até lá?',
         answer: (
             <>
                 Bom, aqui estão algumas opções:
@@ -71,50 +71,21 @@ export const faqQuestionListSummit = [
                 <a href="https://onibus.info/" target="_blank" rel="noreferrer noopener">
                     conferir aqui
                 </a>{' '}
-                a melhor rota.
-                <br />
-                Alguns horários saindo do terminal Norte: 07:35 | 08:00 | 08:15 | 08:30 | 08:40 |
-                09:37
-                <br />
-                E para voltar, lembrando que tem happy hour pra finalizar (saída do ponto de ônibus
-                em frente ao Perini Business Park): 18:33 | 18:20 | 19:05 | 20:15
-                <br />
-                <br />
-                <strong>Carona:</strong>
-                <br />
-                Se você pode oferecer carona ou precisa de uma, preencha{' '}
-                <a
-                    href="https://forms.gle/94UhJDywBd6r5pfVA"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                >
-                    esse forms
-                </a>
-                . Vamos conectar quem precisa.
+                a melhor rota. O evento acontece em frente ao terminal da Tupy.
                 <br />
                 <br />
                 <strong>Carro:</strong>
-                <br />O estacionamento lá é gratuito! E se tiver lugar no carro, não esquece de
-                preencher{' '}
-                <a
-                    href="https://forms.gle/94UhJDywBd6r5pfVA"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                >
-                    esse forms
-                </a>
-                para oferecer carona.<strong>Carro:</strong>
+                <br />O estacionamento lá é gratuito! Só chegar.
                 <br />
                 <br />
                 <strong>Helicóptero:</strong>
                 <br />
-                O espaço em frente ao Ágora serve como heliponto.
+                O espaço em frente ao auditório principal serve como heliponto.
                 <br />
                 <br />
                 <strong>Teletransporte:</strong>
                 <br />
-                Favor não se teletransportar para o espaço na hora em que os mini-foguetes serão
-                lançados.
+                Favor não se teletransportar para o espaço na hora das palestras
             </>
         )
     },
@@ -123,11 +94,11 @@ export const faqQuestionListSummit = [
         answer: (
             <>
                 Primeiro: traz um guarda-chuva. Segundo: chegar ao local do evento é tranquilo,
-                apesar de ser meio afastado da cidade. Também tem desconto de 15% pra participante
-                no hotel Ibis Joinville, basta entrar em contato direto com o hotel por Whatapp (47
-                3489-9000), Telefone ou E-mail (
-                <a href="mailto:h5633-re@accor.com">h5633-re@accor.com</a>) e informar que está
-                vindo para o evento.
+                apesar de ser meio afastado do centro da cidade, mas você consegue ir de ônibus ou
+                de Uber até lá. Recomendamos ficar no hotel Ibis Joinville, que fica no centro,
+                basta entrar em contato direto com o hotel por Whatapp (47 3489-9000), Telefone ou
+                E-mail (<a href="mailto:h5633-re@accor.com">h5633-re@accor.com</a>) e informar que
+                está vindo para o evento.
             </>
         )
     },
@@ -136,41 +107,10 @@ export const faqQuestionListSummit = [
         answer: 'Porque conhecimento nunca é demais. Porque temos certeza de que você tem muito a crescer, pessoal e profissionalmente. Porque, se você chegou até aqui, com certeza também curte fazer e participar de coisas incríveis. E também porque a gente quer te conhecer. Deu pra ver que já somos amigos, né? Porque nós aqui já sentimos a conexão.'
     },
     {
-        question: 'Qual o valor do passaporte?',
-        answer: 'No primeiro lote sai por R$ 119. No segundo lote por R$ 139 e no terceiro lote por R$ 159. Todas as opções possuem meia entrada.'
+        question: 'Qual o valor da inscrição?',
+        answer: 'No early bird  (para quem compra bem cedo) o valor é R$ 99, já no primeiro lote sai por R$ 119. No segundo lote por R$ 159 e no terceiro lote por R$ 199. Todas as opções possuem meia entrada para estudantes e pessoas que contribuem com projetos open-source.'
     },
-    {
-        question: 'Não consigo pagar o valor do passaporte, existe outra forma de participar?',
-        answer: (
-            <>
-                Entendemos que o cenário econômico não está pra brincadeira. Sabendo disso, não
-                queremos deixar ninguém de fora por motivos financeiros. Vamos disponibilizar 15%
-                dos ingressos de maneira gratuita! Para solicitar, você deve preencher{' '}
-                <a href="https://forms.gle/jzFqjYkJxNrQYii99">este formulário</a> que nossa equipe
-                irá avaliar e entrar em contato.
-                <br />
-                Também possuimos um{' '}
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9BAWAHxyDQS0-sT0I1tDCs-V0-1hZu0PXALe6bbfYOaccGA/viewform?usp=sf_link">
-                    programa de embaixadores
-                </a>
-                , onde você pode ajudar a divulgar o evento e ganhar ingresso ou camiseta por isso.
-            </>
-        )
-    },
-    {
-        question: 'Posso levar crianças?',
-        answer: (
-            <>
-                Vamos ter um Espaço Kids funcionando das 9h às 12h e das 13h às 17h que contará com
-                uma monitora. O espaço tem capacidade para receber até 15 crianças (de 2 a 6 anos) e
-                será delimitado com um cercadinho para maior segurança. Contará com brinquedos de
-                madeira e educativos que estimulem a criatividade, mesa para atividades e oficina de
-                massinha. Às 10:30h a Fabiana Caetano, pós-graduada em Neurociência e Comportamento
-                Humano, vai trazer uma roda de conversa dentro do Espaço Kids, falando um pouco
-                sobre o brincar no desenvolvimento infantil.
-            </>
-        )
-    },
+
     {
         question: 'É verdade que o Nicolas Cage estará presente?',
         answer: 'O Nicolas Cage é uma entidade onipresente em todo lugar em que 4 ou mais pessoas legais se reúnem. Ele vai tá lá sim, confia.'
@@ -187,9 +127,9 @@ export const faqQuestionListSummit = [
         question: 'Ainda tenho dúvidas',
         answer: (
             <>
-                Se ainda ficaram dúvidas, não se acanhe. É só chamar a gente no Zap{' '}
-                <a href="https://wa.me/5547999159929">(47) 99915-9929</a> ou procurar a gente no{' '}
-                <a href="https://shiftfestival.cc/discord">Discord</a>.
+                Se ainda ficaram dúvidas, não se acanhe. É só{' '}
+                <a href={WHATSAPP_LINK}>chamar a gente no WhatsApp</a> procurar a gente no{' '}
+                <a href="https://codecon.dev/discord">Discord</a>.
             </>
         )
     }
@@ -197,7 +137,58 @@ export const faqQuestionListSummit = [
 
 export const faqQuestionListFeature = [
     {
-        question: 'Onde vai ser?',
-        answer: 'Em Joinville/SC, no Ágora Tech Park: rua Dona Francisca, nº 8300 - Distrito Industrial.'
+        question: 'O que é a Codecon Feature?',
+        answer: (
+            <>
+                <p>
+                    Um evento direcionado a pessoas desenvolvedoras em cargos sênior ou superiores
+                    que desejam crescimento profissional e sair da inércia, trazendo discussões para
+                    aprendizagem e inspiração em temas relacionados a equipe, processo, tecnologia e
+                    desenvolvimento pessoal.
+                </p>
+
+                <p>
+                    Mentorias, atividades e painéis com nomes de referência tanto da comunidade tech
+                    como fora dela, pois entendemos que o desenvolvimento profissional vai além dos
+                    conteúdos técnicos e ferramentas de gerenciamento, é necessário desenvolver
+                    habilidades e competências necessárias para liderar ou manter-se em evolução
+                    diante dos desafios atuais e das tendências futuras.
+                </p>
+            </>
+        )
+    },
+    {
+        question: 'Como participar?',
+        answer: 'Basta se inscrever no link para o Sympla aqui no site. No dia do evento é só apresentar o seu celular com o comprovante de compra para realizar o check-in.'
+    },
+    {
+        question: 'Qual a data e onde vai acontecer?',
+        answer: 'O evento acontece dia 28 de outubro, no Hotel Faial Prime Suites em Florianópolis, SC: R. Felipe Schmidt, 603 - Centro.'
+    },
+    {
+        question: 'Como faz para chegar até lá?',
+        answer: 'O hotel fica muito próximo do terminal rodoviário, também tem várioas estacionamentos próximos ao local e é fácil de chegar de Uber.'
+    },
+    {
+        question: 'E se eu vier de outra cidade?',
+        answer: 'Você pode ficar hospedado no próprio Hotel Faial Prime Suites, caso queira dormir pela cidade ou encontrar um outro hotel próximo. Como o evento será no centro, opções não faltam.'
+    },
+    {
+        question: 'Por que eu deveria participar?',
+        answer: 'A forma como estamos planejando a Codecon Feature é diferente de qualquer evento que você deva ter participado no Brasil. Nós queremos gerar conexões reais entre quem estiver presente, os palestrantes e a organização. Queremos que você faça parte disso e que realmente aprenda e possa compartilhar o que sabe no evento.'
+    },
+    {
+        question: 'Qual o valor da insrição?',
+        answer: 'Os ingressos Early Bird (para quem compra bem cedo) são R$ 890. O primeiro lote será R$ 1.290 e o segundo e último lote R$ 1.490. Na inscrição está incluso o almoço, brindes legais, happy hour e coffee break.'
+    },
+    {
+        question: 'Ainda tenho dúvidas',
+        answer: (
+            <>
+                Se ainda ficaram dúvidas, não se acanhe. É só{' '}
+                <a href={WHATSAPP_LINK}>chamar a gente no WhatsApp</a> procurar a gente no{' '}
+                <a href="https://codecon.dev/discord">Discord</a>.
+            </>
+        )
     }
 ];
