@@ -48,7 +48,7 @@ export const faqQuestionListDigital = [
 export const faqQuestionListSummit = [
     {
         question: 'O que é a Codecon Summit?',
-        answer: 'Um evento onde você poderá participar de palestras, painéis, fish bowls e outras experiências que vão te fazer se sentir em um festival de música. A Codecon Summit terá 2 salas simultâneas e outras atividades extras, com destaque para o Hackathon de Projetos denecessários e ideias que ninguém precisa.'
+        answer: 'Um evento onde você poderá participar de palestras, painéis, fish bowls e outras experiências que vão te fazer se sentir em um festival de música. A Codecon Summit terá 2 salas e outras atividades extras simultâneas.'
     },
     {
         question: 'Como participar?',

@@ -63,7 +63,7 @@ export default function ComoFunciona({ sponsors }: Props) {
                 </Info.Text>
             </Info>
             <Info>
-                <Info.Text title="Palestras, painéis, fish bowls, hackathon e muito mais">
+                <Info.Text title="Palestras, painéis, fish bowls e muito mais">
                     <p>
                         Nossos conteúdos são pensados para que você aprenda sem que seja algo
                         maçante e sem graça. Além de sair por dentro do que há de melhor na
