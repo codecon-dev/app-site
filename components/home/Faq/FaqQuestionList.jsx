@@ -56,7 +56,7 @@ export const faqQuestionListSummit = [
     },
     {
         question: 'Qual a data e onde vai acontecer?',
-        answer: 'O evento acontece dias 25 e 26 de agosto em Joinville/SC, no Campus Park Unisociesc: R. Albano Schmidt, 3333 - Boa Vista.'
+        answer: 'O evento acontece dia 26 de agosto (sábado) em Joinville/SC, no Campus Park Unisociesc: R. Albano Schmidt, 3333 - Boa Vista.'
     },
     {
         question: 'Como faz para chegar até lá?',
@@ -108,7 +108,7 @@ export const faqQuestionListSummit = [
     },
     {
         question: 'Qual o valor da inscrição?',
-        answer: 'No early bird  (para quem compra bem cedo) o valor é R$ 99, já no primeiro lote sai por R$ 119. No segundo lote por R$ 159 e no terceiro lote por R$ 199. Todas as opções possuem meia entrada para estudantes e pessoas que contribuem com projetos open-source.'
+        answer: 'No early bird  (para quem compra bem cedo) o valor é R$ 99, já no primeiro lote sai por R$ 129. No segundo lote por R$ 159 e no terceiro lote por R$ 199. Todas as opções possuem meia entrada para estudantes e pessoas que contribuem com projetos open-source.'
     },
 
     {

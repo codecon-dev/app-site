@@ -32,8 +32,7 @@ export default function Conf({ speakers, sponsors }: Props) {
                     message="Garanta sua vaga!"
                     local="Campus Park"
                     city="Joinville, SC"
-                    initialDate={new Date('2023-08-25 00:00:00')}
-                    finalDate={new Date('2023-08-26 00:00:00')}
+                    initialDate={new Date('2023-08-26 00:00:00')}
                 />
                 <Blocks.Block
                     lg={6}

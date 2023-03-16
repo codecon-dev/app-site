@@ -33,7 +33,7 @@ export default function DetailsGrid() {
                     <a className={cn(styles.block, styles.summit)}>
                         <IconLogo theme="summit" width={215} />
                         <p>
-                            <strong>25 e 26 de agosto de 2023</strong>
+                            <strong>26 de agosto de 2023</strong>
                             <br />
                             Presencial em Joinville, SC
                         </p>

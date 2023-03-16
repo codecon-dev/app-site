@@ -74,13 +74,18 @@ export default function ComoFunciona({ sponsors }: Props) {
                 <Info.Image src="/images/digital/muito-mais.jpg" />
             </Info>
             <Info>
-                <Info.Testimonial>
+                <Info.Image src="/images/summit/blob.jpg" />
+
+                <Info.Text title="Hackathon de projetos desnecessários & ideias que ninguém precisa">
                     <p>
-                        “A Codecon é um dos melhores eventos (se não o melhor!) em atividade hoje.
-                        Tirei um tempo pra passar pelo mapa, parei nos estandes, estou esperando um
-                        painel. Melhor experiência em eventos remotos!”
+                        Sabe aquele site onde tem um grande botão vermelho escrito “não aperte”, mas
+                        quando você aperta algo muito legal acontece? Começa a tocar uma música de
+                        fundo e aparecem animações psicodélicas. São esses tipos de projetos que
+                        queremos que você crie.
                     </p>
-                </Info.Testimonial>
+                </Info.Text>
+            </Info>
+            <Info>
                 <Info.Text title="My sword is my code.">
                     <p className="headline">
                         Online <span className="bullet">&bull;</span> 22 e 23 de junho
@@ -90,6 +95,13 @@ export default function ComoFunciona({ sponsors }: Props) {
                         Inscreva-se
                     </LinkButton>
                 </Info.Text>
+                <Info.Testimonial>
+                    <p>
+                        “A Codecon é um dos melhores eventos (se não o melhor!) em atividade hoje.
+                        Tirei um tempo pra passar pelo mapa, parei nos estandes, estou esperando um
+                        painel. Melhor experiência em eventos remotos!”
+                    </p>
+                </Info.Testimonial>
             </Info>
         </Page>
     );

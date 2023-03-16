@@ -58,16 +58,14 @@ export default function ComoFunciona({ sponsors }: Props) {
                 </Info.Text>
             </Info>
             <Info>
-                <Info.Text title="Hackathon de projetos desnecessários & ideias que ninguém precisa">
+                <Info.Text title="Espaços para troca de conhecimento">
                     <p>
-                        Sabe aquele site onde tem um grande botão vermelho escrito “não aperte”, mas
-                        quando você aperta algo muito legal acontece? Começa a tocar uma música de
-                        fundo e aparecem animações psicodélicas. São esses tipos de projetos que
-                        queremos que você crie.
+                        Além do conteúdo tradicional, outros espaços para rodas de discussão e "open
+                        space", onde pessoas podem trazer temas e dicustir sobre software e código e
+                        uma forma totalmente diferente.
                     </p>
                 </Info.Text>
-
-                <Info.Image src="/images/summit/blob.jpg" />
+                <Info.Image src="/images/summit/espacos.jpg" />
             </Info>
         </Page>
     );
