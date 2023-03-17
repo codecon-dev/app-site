@@ -37,7 +37,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | undefined
             eventData = {
                 homeUrl: '/digital',
                 siteName: 'Codecon Digital • Festival de código e tecnologia',
-                shareImage: 'https://codecon.dev/share-digital.jpg',
+                shareImage: 'https://codecon.dev/digital-share.png',
                 metaDescription:
                     'A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.',
                 registerUrl: 'https://www.sympla.com.br/evento-online/codecon-digital-2023/1829527',
@@ -83,7 +83,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | undefined
             eventData = {
                 homeUrl: '/summit',
                 siteName: 'Codecon Summit • Inovação, tecnologia, experiências e muito código',
-                shareImage: 'https://codecon.dev/share-summit.jpg',
+                shareImage: 'https://codecon.dev/summit-share.png',
                 metaDescription:
                     'O maior evento para pessoas programadoras de Santa Catarina, com grandes nomes nacionais.',
                 registerUrl: 'https://www.sympla.com.br/evento/codecon-summit-2023/1829544',
@@ -130,7 +130,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | undefined
                 homeUrl: '/feature',
                 siteName:
                     'Codecon Feature • Um evento de tecnologia para profissionais em cargos sênior+',
-                shareImage: 'https://codecon.dev/share-feature.jpg',
+                shareImage: 'https://codecon.dev/feature-share.png',
                 metaDescription:
                     'O evento será repleto de sessões e workshops onde todos podem trazer problemas que enfrentam e todos tem locais de fala.',
                 registerUrl: 'https://www.sympla.com.br/evento/codecon-feature-2023/1829552',
@@ -176,7 +176,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | undefined
             eventData = {
                 homeUrl: 'https://codecon.dev/',
                 siteName: 'Codecon • Eventos de tecnologia que fogem do comum',
-                shareImage: 'https://codecon.dev/share.jpg',
+                shareImage: 'https://codecon.dev/share-image.png',
                 metaDescription:
                     'A Codecon organiza eventos de tecnologia que juntam código, networking e diversão.',
                 registerUrl: '#',
