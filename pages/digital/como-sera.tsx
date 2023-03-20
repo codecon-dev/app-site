@@ -34,8 +34,8 @@ export default function ComoFunciona({ sponsors }: Props) {
             <Info>
                 <Info.Text title="Uma experiência imersiva em pixel art">
                     <p>
-                        Uma cidade inteira em 16bits repleta de easter eggs, referências à saga
-                        Matrix, estandes de patrocinadores, salas de conteúdo e muitas outras
+                        Uma cidade inteira em 16bits repleta de easter eggs, referências a RPGs e
+                        era medieval, estandes de patrocinadores, salas de conteúdo e muitas outras
                         surpresas.{' '}
                     </p>
                     <p>
