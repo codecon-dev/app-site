@@ -45,8 +45,7 @@ export default function HeroSummit() {
                     <br />
                     Do it by code.
                 </h1>
-            </div>
-            <div className={cn(styles['header-wrapper'], styles.button)}>
+
                 <LinkButton href={eventData.registerUrl} info={eventData.eventPrice}>
                     Inscreva-se
                 </LinkButton>

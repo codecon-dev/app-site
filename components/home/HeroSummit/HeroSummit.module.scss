@@ -10,7 +10,7 @@
     text-align: center;
 
     @media #{$breakpoint-sm} {
-        padding: 15rem 0 10rem;
+        padding: 20rem 0 15rem;
         text-align: left;
     }
 
@@ -58,7 +58,7 @@
 .image {
     display: none;
     width: 95%;
-    height: 95%;
+    height: 100%;
     position: relative;
     margin-right: -25%;
 
