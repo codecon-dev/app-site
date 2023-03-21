@@ -4,7 +4,7 @@
     background-image: url('/images/summit/hero/hero-summit.jpg');
     background-position: center;
     background-size: cover;
-    padding: 10rem 0 5rem;
+    padding: 10rem 0 0;
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -38,11 +38,11 @@
     z-index: 1;
 
     @media #{$breakpoint-sm} {
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     @media #{$breakpoint-lg} {
-        font-size: 6rem;
+        font-size: 4.7rem;
     }
 
     span {

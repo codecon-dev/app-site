@@ -36,14 +36,14 @@ export default function Conf({ speakers, sponsors }: Props) {
                 />
                 <Blocks.Block
                     lg={6}
-                    sm={4}
+                    sm={6}
                     backgroundImage="/images/summit/futuro-programado.jpg"
                     title="Onde o futuro será programado"
                     description="O maior evento para pessoas programadoras de Santa Catarina, com grandes nomes nacionais."
                 />
                 <Blocks.Block
                     lg={6}
-                    sm={4}
+                    sm={6}
                     backgroundImage="/images/summit/discussoes-reais.jpg"
                     title="Discussões reais"
                     description="Nossa curadoria busca temas mais atuais em tecnologias, soft skills e design de software."
