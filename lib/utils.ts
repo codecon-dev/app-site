@@ -1,3 +1,6 @@
+import nodemailer from 'nodemailer';
+import SMTPTransport from 'nodemailer/lib/smtp-transport';
+
 export const createMarkup = (text: string) => {
     return { __html: text.replace(/(?:\r\n|\r|\n)/g, '<br>') };
 };
@@ -43,3 +46,23 @@ export const getLastPath = (pathname: string) => {
     const paths = pathname.split('/');
     return paths[paths.length - 1];
 };
+
+export async function sendEmail(email: string, subject: string, text: string, html: string) {
+    const transporter = nodemailer.createTransport({
+        host: process.env.SMTP_SERVER,
+        port: Number(process.env.SMTP_PORT),
+        secure: true,
+        auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASSWORD,
+        },
+    } as SMTPTransport.Options);
+
+    await transporter.sendMail({
+        from: '"SH*FT FESTIVAL" <shiftfestival@shiftfestival.cc>',
+        to: email,
+        subject: subject,
+        text: text,
+        html: html,
+    });
+}

@@ -1,0 +1,267 @@
+datasource db {
+    url      = env("DATABASE_URL")
+    provider = "mysql"
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model configuration {
+    id        BigInt   @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    deleted   Boolean  @default(false)
+    name      String
+    value     String
+}
+
+model faq {
+    id        BigInt   @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    deleted   Boolean  @default(false)
+    question  String
+    answer    String
+}
+
+enum sponsor_type {
+    APRESENTA
+    PATROCINADOR
+    APOIO
+}
+
+model sponsor {
+    id        BigInt       @id @default(autoincrement())
+    createdAt DateTime     @default(now())
+    updatedAt DateTime     @updatedAt
+    deleted   Boolean      @default(false)
+    logo      String       @unique
+    type      sponsor_type
+    website   String
+    title     String
+}
+
+enum type {
+    PAINEL
+    PALESTRA
+    ENTREVISTA
+    CUMBUCA_DE_PEIXE
+    HAPPY_HOUR
+}
+
+model talk {
+    id            BigInt          @id @default(autoincrement())
+    createdAt     DateTime        @default(now())
+    updatedAt     DateTime        @updatedAt
+    deleted       Boolean         @default(false)
+    date          DateTime
+    place         String
+    type          type
+    name          String
+    description   String          @db.Text
+    hour          String
+    talk_reaction talk_reaction[]
+    speakers      speaker[]
+    thumb         String          @unique
+    soon          Boolean         @default(false)
+}
+
+model talk_reaction {
+    id        BigInt   @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    deleted   Boolean  @default(false)
+    uuid      String
+    talk      talk     @relation(references: [id], fields: [talk_id])
+    talk_id   BigInt
+}
+
+model speaker {
+    id                   BigInt                 @id @default(autoincrement())
+    createdAt            DateTime               @default(now())
+    updatedAt            DateTime               @updatedAt
+    deleted              Boolean                @default(false)
+    name                 String
+    photo                String                 @unique
+    thumb                String                 @unique
+    description          String                 @db.Text
+    excerpt              String
+    relevance            Int                    @default(0)
+    talk                 talk                   @relation(fields: [talk_id], references: [id])
+    talk_id              BigInt
+    speaker_reaction     speaker_reaction[]
+    speaker_social_media speaker_social_media[]
+}
+
+model speaker_reaction {
+    id         BigInt   @id @default(autoincrement())
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+    deleted    Boolean  @default(false)
+    uuid       String
+    speaker    speaker  @relation(fields: [speaker_id], references: [id])
+    speaker_id BigInt
+}
+
+enum social_media {
+    LINKEDIN
+    INSTAGRAM
+    FACEBOOK
+    TWITTER
+}
+
+model speaker_social_media {
+    id         BigInt       @id @default(autoincrement())
+    createdAt  DateTime     @default(now())
+    updatedAt  DateTime     @updatedAt
+    deleted    Boolean      @default(false)
+    type       social_media
+    value      String
+    speaker    speaker      @relation(fields: [speaker_id], references: [id])
+    speaker_id BigInt
+}
+
+enum discount_type {
+    FIXED_VALUE
+    PERCENTAGE
+}
+
+model coupon {
+    id             BigInt           @id @default(autoincrement())
+    createdAt      DateTime         @default(now())
+    updatedAt      DateTime         @updatedAt
+    deleted        Boolean          @default(false)
+    code           String           @unique
+    max_usages     Int
+    value          Decimal          @db.Decimal(5, 2)
+    discount_type  discount_type
+    ticket_payment ticket_payment[]
+}
+
+model user {
+    id             BigInt           @id @default(autoincrement())
+    createdAt      DateTime         @default(now())
+    updatedAt      DateTime         @updatedAt
+    deleted        Boolean          @default(false)
+    email          String           @unique
+    referral       referral[]
+    asaas_id       String?          @unique
+    ticket_payment ticket_payment[]
+}
+
+model login_link {
+    id         BigInt   @id @default(autoincrement())
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+    deleted    Boolean  @default(false)
+    expires_at DateTime
+    hash       String   @unique
+    ticket     ticket   @relation(fields: [ticket_id], references: [id])
+    ticket_id  BigInt
+}
+
+enum billing_type {
+    BOLETO
+    CREDIT_CARD
+}
+
+enum payment_status {
+    PAID
+    PENDING
+    OVERDUE
+}
+
+model ticket_payment {
+    id           BigInt         @id @default(autoincrement())
+    createdAt    DateTime       @default(now())
+    updatedAt    DateTime       @updatedAt
+    deleted      Boolean        @default(false)
+    billing_type billing_type
+    value        Decimal        @db.Decimal(5, 2)
+    status       payment_status
+    due_date     DateTime
+    asaas_id     String
+    coupon       coupon?        @relation(fields: [coupon_id], references: [id])
+    coupon_id    BigInt?
+    user         user           @relation(fields: [user_id], references: [id])
+    user_id      BigInt
+
+    @@unique([asaas_id])
+}
+
+model ticket {
+    id                BigInt         @id @default(autoincrement())
+    createdAt         DateTime       @default(now())
+    updatedAt         DateTime       @updatedAt
+    deleted           Boolean        @default(false)
+    email             String?
+    first_name        String?
+    last_name         String?
+    nickname          String?
+    avatar            String?        
+    username          String?    
+    sympla_order      String?  
+    ticket_image      String?
+    login_link        login_link[]  
+}
+
+enum state {
+    AC
+    AL
+    AP
+    AM
+    BA
+    CE
+    DF
+    ES
+    GO
+    MA
+    MT
+    MS
+    MG
+    PA
+    PB
+    PR
+    PE
+    PI
+    RJ
+    RN
+    RS
+    RO
+    RR
+    SC
+    SP
+    SE
+    TO
+}
+
+model attendee {
+    id                           BigInt     @id @default(autoincrement())
+    createdAt                    DateTime   @default(now())
+    updatedAt                    DateTime   @updatedAt
+    deleted                      Boolean    @default(false)
+    first_name                   String
+    last_name                    String
+    email                        String     @unique
+    city                         String?
+    state                        state?
+    nickname                     String?
+    company                      String?
+    segment                      String?
+    experience                   String?
+    allow_sponsor_content        Boolean
+    allow_register_on_newsletter Boolean
+    referral                     referral[]
+}
+
+model referral {
+    id          BigInt   @id @default(autoincrement())
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    deleted     Boolean  @default(false)
+    attendee    attendee @relation(fields: [attendee_id], references: [id])
+    attendee_id BigInt
+    user        user     @relation(fields: [user_id], references: [id])
+    user_id     BigInt
+}
