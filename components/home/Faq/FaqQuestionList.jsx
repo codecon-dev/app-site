@@ -192,3 +192,30 @@ export const faqQuestionListFeature = [
         )
     }
 ];
+
+export const faqQuestionListIa = [
+    {
+        question: 'O que significa CodeSNR?',
+        answer: 'O nome Code vem de código, e também de Codecon. Já o SNR é uma abreviação de SENIOR, já que a nossa IA tem o objetivo de atuar como uma pessoa desenvolvedora sênior.'
+    },
+    {
+        question: 'Vou poder instalar no VSCode?',
+        answer: 'Claro. Mas recomendamos que você use o vim.'
+    },
+    {
+        question: 'Que informações foram usadas para treinar esse modelo?',
+        answer: 'Simplemente ele leu todos os livros sobre design de software, padrões, clean code, SOLID e também leu comentários no GitHub em projetos abertos feito por profissionais em nível sênior.'
+    },
+    {
+        question: 'Ele é confiável?',
+        answer: 'Claro que é. Ele demorou 2 anos para ficar pronto. Ele é um sênior de 2 anos.'
+    },
+    {
+        question: 'Isso tudo é verdade?',
+        answer: 'Se você não sacou ainda, isso é uma brincadeira de primeiro de abril, hehe. Esperamos que você tenha se divertido.'
+    },
+    {
+        question: 'O que é a Codecon?',
+        answer: 'Somos uma comunidade que organiza vários eventos diferentes para pessoas desenvolvedoras. Entendemos que é possível ter diversão e networking enquanto aprendemos e temos uma experiência incrível.'
+    }
+];

@@ -3,7 +3,8 @@ import { useContext } from 'react';
 import {
     faqQuestionListDigital,
     faqQuestionListSummit,
-    faqQuestionListFeature
+    faqQuestionListFeature,
+    faqQuestionListIa
 } from './FaqQuestionList.jsx';
 import FaqQuestion from './question/FaqQuestion';
 import ThemeContext from 'context/ThemeContext';
@@ -23,6 +24,9 @@ export default function Faq() {
             break;
         case 'feature':
             faqQuestionList = faqQuestionListFeature;
+            break;
+        case 'ia':
+            faqQuestionList = faqQuestionListIa;
             break;
     }
 

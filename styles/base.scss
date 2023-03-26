@@ -26,6 +26,12 @@
     background-image: url('/images/bg-feature.jpg');
 }
 
+.theme-ia {
+    background-image: url('/images/ia/bg-ia.png');
+    background-position: right 10%;
+    background-repeat: no-repeat;
+}
+
 body {
     font-family: 'Space Grotesk', sans-serif;
     background-color: var(--color-background);
