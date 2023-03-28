@@ -136,11 +136,12 @@ export default function Chat() {
                     onSubmit={e => void handleSubmit(e)}
                 >
                     <input
-                        type="submit"
+                        type="text"
                         disabled={isLoading}
                         value={userType}
                         onChange={e => setUserType(e.currentTarget.value)}
                         placeholder="Faça uma pergunta"
+                        enterKeyHint="send"
                     />
 
                     <button type="submit">
