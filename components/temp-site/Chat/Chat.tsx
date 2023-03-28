@@ -136,6 +136,7 @@ export default function Chat() {
                     onSubmit={e => void handleSubmit(e)}
                 >
                     <input
+                        type="submit"
                         disabled={isLoading}
                         value={userType}
                         onChange={e => setUserType(e.currentTarget.value)}
@@ -165,7 +166,7 @@ export default function Chat() {
                             Ser feliz e viver experiências incríveis, como participar da Codecon.
                         </Message>
                         <div className={styles.form}>
-                            <input disabled placeholder="Faça uma pergunta" />
+                            <input type="text" disabled placeholder="Faça uma pergunta" />
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
