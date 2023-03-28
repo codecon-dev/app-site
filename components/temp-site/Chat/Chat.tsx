@@ -69,6 +69,9 @@ export default function Chat() {
 
         if (!userType) return;
 
+        setMessages([...messages, { by: 'anonymous', text: userType }]);
+        setIsLoading(true);
+
         void (await fetch(`/api/ia/save`, {
             method: 'POST',
             headers: {
@@ -78,9 +81,6 @@ export default function Chat() {
                 content: `**Nova pergunta recebida**:\n${userType}\n--`
             })
         }));
-
-        setMessages([...messages, { by: 'anonymous', text: userType }]);
-        setIsLoading(true);
     };
 
     useEffect(() => {
