@@ -29,7 +29,7 @@ export const META_DESCRIPTION =
 export const RANKING_ENABLED = true;
 export const WHATSAPP_LINK = 'https://wa.me/+5547991367060';
 
-export const getEventData = (event: 'digital' | 'summit' | 'feature' | undefined) => {
+export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | undefined) => {
     let eventData: EventData;
 
     switch (event) {
@@ -197,7 +197,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | undefined
                 attendeeNav: [
                     {
                         name: 'Fale com a gente',
-                        route: '#contato',
+                        route: '/#contato',
                         type: 'button'
                     }
                 ],
