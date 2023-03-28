@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { animateScroll as scroll } from 'react-scroll';
 import { useState, useEffect, useRef, FormEvent } from 'react';
 import cn from 'classnames';
@@ -11,7 +12,6 @@ const possibleAnswers = [
     'Você já leu a documentação?',
     'Hm... estranho na minha máquina tá funcionando.',
     'Parece estranho... e não somos todos?',
-    '🤔',
     'Já tentou parar e rodar de novo o server?',
     'Isso dai é pau de máquina.',
     'Talvez seja cache.',
@@ -62,10 +62,6 @@ export default function Chat() {
             setIsModalOpen(true);
             document.body.classList.add('modal-open');
         }
-    };
-
-    const stopPropagation = (e: React.MouseEvent<HTMLElement>) => {
-        e.stopPropagation();
     };
 
     const handleSubmit = async (e: FormEvent<Element>) => {
@@ -126,7 +122,7 @@ export default function Chat() {
     return (
         <>
             <div onClick={toggleModal} className={cn(styles.modal, { [styles.open]: isModalOpen })}>
-                <div onClick={stopPropagation} id="modal" className={styles.chat}>
+                <div onClick={e => e.stopPropagation()} id="modal" className={styles.chat}>
                     {messages.map((message, index) => (
                         <Message key={`${index}+${message.text}`} by={message.by}>
                             {message.text}
@@ -134,7 +130,11 @@ export default function Chat() {
                     ))}
                 </div>
 
-                <form onClick={stopPropagation} className={styles.form} onSubmit={handleSubmit}>
+                <form
+                    onClick={e => e.stopPropagation()}
+                    className={styles.form}
+                    onSubmit={e => void handleSubmit(e)}
+                >
                     <input
                         disabled={isLoading}
                         value={userType}
