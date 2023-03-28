@@ -31,7 +31,17 @@ const possibleAnswers = [
     'No momento não posso responder, saí para o almoço.',
     'O problema é com a peçinha na frente do computador.',
     'Para resolver pressione Ctrl + W',
-    'Já está no JIRA?'
+    'Já está no JIRA?',
+    'Fala pro cliente que um erro não identificado causou o bug na compilação de templates literais.',
+    'Explica pro Product Onwer que um erro não identificado facilitou a resolução de conflito de uma compilação com tempo acima da media.',
+    'Explica pro Product Onwer que o último pull request desse SCRUM causou a race condition na interpolação dinâmica de strings.',
+    'Desde ontem a noite o deploy automatizado no Heroku complexificou o merge na compilação de templates literais. Dai tá complicado.',
+    'Parece que as memórias de build de test impactaram em allocation de high levels.',
+    'O deploy do blockchain da master precisa de merge para rodar a abstração do DNS.',
+    'Você poderia tentar utilizar elvis operator para criar um endpoint para essa branch actions.',
+    'Parece que o gerenciador de dependências do frontend causou o bug de uma compilação com tempo acima da media.',
+    'A equipe de suporte precisa saber que a otimização de performance da renderização do DOM corrigiu o bug na criação de novos polyfills para suportar os processos.',
+    'Acho que a compilação final do programa facilitou a resolução de conflito da execução parelela de funções em multi-threads.'
 ];
 
 type MessageProps = {
