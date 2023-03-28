@@ -36,7 +36,7 @@
             position: absolute;
             left: 0;
             right: 0;
-            bottom: 10px;
+            bottom: 3px;
             height: 5px;
             border-radius: 2rem;
             background: radial-gradient(
@@ -47,6 +47,10 @@
                 rgba(93, 247, 164, 1) 76%,
                 rgba(88, 208, 246, 1) 100%
             );
+
+            @media #{$breakpoint-sm} {
+                bottom: 10px;
+            }
         }
     }
 }

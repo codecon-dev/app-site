@@ -8,13 +8,24 @@
     width: 100%;
     height: 100%;
     z-index: 999;
+    display: none;
+
+    &.open {
+        display: block;
+    }
 
     .chat {
         width: 800px;
+        border-radius: 0;
         max-width: 90%;
-        margin: 5vh auto;
-        max-height: 90vh;
+        height: calc(100vh - 9rem);
+        margin: 5vh auto 0;
+        position: absolute;
+        bottom: 8rem;
         overflow-y: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        padding-bottom: 0;
 
         /* width */
         &::-webkit-scrollbar {
@@ -36,6 +47,16 @@
             background: #555;
         }
     }
+
+    .form {
+        position: fixed;
+        bottom: 5vh;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 800px;
+        max-width: 90%;
+        margin: 0;
+    }
 }
 
 .chat {
@@ -49,9 +70,17 @@
     color: var(--color-gray);
     padding: 2.5rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 2rem;
     border-bottom: 1px solid var(--color-dark-gray);
+
+    @media #{$breakpoint-sm} {
+        align-items: center;
+    }
+
+    img {
+        max-width: 15%;
+    }
 
     &:nth-child(2n + 1) {
         background-color: var(--color-dark-gray);
@@ -69,7 +98,6 @@
     padding: 1.25rem;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 2rem;
 
     &:focus-within {
         border-color: var(--color-gray);
@@ -95,8 +123,13 @@
 
 .buttons {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 1.25rem;
-    margin: 2rem 0;
+    margin: 2rem;
+
+    @media #{$breakpoint-sm} {
+        flex-direction: row;
+        justify-content: center;
+    }
 }

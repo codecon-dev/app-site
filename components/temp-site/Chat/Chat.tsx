@@ -1,10 +1,38 @@
+import { animateScroll as scroll } from 'react-scroll';
 import { useState, useEffect, useRef, FormEvent } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
 
-import LinkButton from '@components/_ui/LinkButton';
+import Button from '@components/_ui/Button';
 
 import styles from './Chat.module.scss';
+
+const possibleAnswers = [
+    'Você já leu a documentação?',
+    'Hm... estranho na minha máquina tá funcionando.',
+    'Parece estranho... e não somos todos?',
+    '🤔',
+    'Já tentou parar e rodar de novo o server?',
+    'Isso dai é pau de máquina.',
+    'Talvez seja cache.',
+    'Limpa os cookies e tenta de novo.',
+    'Pergunta lá pro ChatGPT não sei essa.',
+    'Putz, eu só manjo de Javascript.',
+    'Vai abrindo o PR que depois eu faço o code review.',
+    'Depende...',
+    'Abre um ticket que logo eu respondo.',
+    'Parece ser um problema de BIOS (Bicho Ignorante Operando o Sistema)',
+    'Parece ser um problema no USB (Usuário Super Burro).',
+    'Já tentou desligar e ligar novamente?',
+    'Tenta tirar o roteador da tomada, esperar uns 15 segundos e botar de novo.',
+    'Não sei a resposta, mas pode mandar pra QA mesmo assim.',
+    'Não posso responder no momento, tente novamente amanhã.',
+    'Para mais opções tecle HELP.',
+    'No momento não posso responder, saí para o almoço.',
+    'O problema é com a peçinha na frente do computador.',
+    'Para resolver pressione Ctrl + W',
+    'Já está no JIRA?'
+];
 
 type MessageProps = {
     children: React.ReactNode;
@@ -23,23 +51,47 @@ function Message({ children, by }: MessageProps) {
 export default function Chat() {
     const [messages, setMessages] = useState([{ by: 'codesnr', text: 'Qual sua dúvida?' }]);
     const [userType, setUserType] = useState('');
-    const [iseLoading, setIsLoading] = useState(false);
-    const bottomRef = useRef();
+    const [isLoading, setIsLoading] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handleSubmit = (e: FormEvent<Element>) => {
+    const toggleModal = () => {
+        if (isModalOpen) {
+            setIsModalOpen(false);
+            document.body.classList.remove('modal-open');
+        } else {
+            setIsModalOpen(true);
+            document.body.classList.add('modal-open');
+        }
+    };
+
+    const stopPropagation = (e: React.MouseEvent<HTMLElement>) => {
+        e.stopPropagation();
+    };
+
+    const handleSubmit = async (e: FormEvent<Element>) => {
         e.preventDefault();
 
         if (!userType) return;
 
-        setMessages([...messages, { by: 'annonymous', text: userType }]);
-        //setIsLoading(true);
+        void (await fetch(`/api/ia/save`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                content: `**Nova pergunta recebida**:\n${userType}\n--`
+            })
+        }));
+
+        setMessages([...messages, { by: 'anonymous', text: userType }]);
+        setIsLoading(true);
     };
 
     useEffect(() => {
         const makeMagic = () => {
             let i = 0;
-            const txt = ' Lorem ipsum typing effect!';
-            const speed = 100;
+            const txt = ' ' + possibleAnswers[Math.floor(Math.random() * possibleAnswers.length)];
+            const speed = 70;
             let newMessagesArray = [...messages, { by: 'codesnr', text: '' }];
 
             const typeWriter = setInterval(() => {
@@ -49,9 +101,18 @@ export default function Chat() {
                 newMessagesArray[newMessagesArray.length - 1].text += txt.charAt(i);
 
                 setMessages(newMessagesArray);
-                bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                scroll.scrollToBottom({
+                    containerId: 'modal',
+                    duration: 100,
+                    delay: 0,
+                    smooth: true
+                });
 
-                if (i == txt.length) clearInterval(typeWriter);
+                if (i == txt.length) {
+                    setIsLoading(false);
+
+                    clearInterval(typeWriter);
+                }
             }, speed);
         };
 
@@ -64,42 +125,42 @@ export default function Chat() {
 
     return (
         <>
-            <div className={cn(styles.modal)}>
-                <div className={styles.chat}>
-                    {messages.map(message => (
-                        <Message by={message.by}>{message.text}</Message>
+            <div onClick={toggleModal} className={cn(styles.modal, { [styles.open]: isModalOpen })}>
+                <div onClick={stopPropagation} id="modal" className={styles.chat}>
+                    {messages.map((message, index) => (
+                        <Message key={`${index}+${message.text}`} by={message.by}>
+                            {message.text}
+                        </Message>
                     ))}
-
-                    <form className={styles.form} onSubmit={handleSubmit}>
-                        <input
-                            disabled={iseLoading}
-                            value={userType}
-                            onChange={e => setUserType(e.currentTarget.value)}
-                            placeholder="Faça uma pergunta"
-                        />
-
-                        <button type="submit">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    fill="var(--color-gray)"
-                                    d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"
-                                />
-                            </svg>
-                        </button>
-                    </form>
-
-                    <div ref={bottomRef} />
                 </div>
+
+                <form onClick={stopPropagation} className={styles.form} onSubmit={handleSubmit}>
+                    <input
+                        disabled={isLoading}
+                        value={userType}
+                        onChange={e => setUserType(e.currentTarget.value)}
+                        placeholder="Faça uma pergunta"
+                    />
+
+                    <button type="submit">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                fill="var(--color-gray)"
+                                d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"
+                            />
+                        </svg>
+                    </button>
+                </form>
             </div>
             <section>
                 <div className="container">
                     <div className={styles.chat}>
-                        <Message by="pessoa">Hey, CodeSNR, qual o sentido da vida?</Message>
+                        <Message by="pessoa">Hey, Senior-GPT, qual o sentido da vida?</Message>
                         <Message by="codesnr">
                             Ser feliz e viver experiências incríveis, como participar da Codecon.
                         </Message>
@@ -121,7 +182,7 @@ export default function Chat() {
                 </div>
 
                 <div className={styles.buttons}>
-                    <LinkButton href="#">Experimente grátis</LinkButton>
+                    <Button onClick={toggleModal}>Experimente grátis</Button>
                     <Link href="/">Conheça a Codecon</Link>
                 </div>
             </section>
