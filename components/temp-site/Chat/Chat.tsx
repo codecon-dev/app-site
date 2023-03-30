@@ -59,7 +59,9 @@ function Message({ children, by }: MessageProps) {
 }
 
 export default function Chat() {
-    const [messages, setMessages] = useState([{ by: 'codesnr', text: 'Qual sua dúvida?' }]);
+    const [messages, setMessages] = useState([
+        { by: 'codesnr', text: 'Qual problema você quer ajuda pra resolver?' }
+    ]);
     const [userType, setUserType] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -176,7 +178,7 @@ export default function Chat() {
                         <Message by="codesnr">
                             Ser feliz e viver experiências incríveis, como participar da Codecon.
                         </Message>
-                        <div className={styles.form}>
+                        <div className={styles.form} onClick={toggleModal}>
                             <input type="text" disabled placeholder="Faça uma pergunta" />
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

@@ -10,7 +10,7 @@ export default function HeroIa() {
                 </h1>
                 <h2 className={styles.subtitle}>
                     A Senior-GPT é um modelo treinado com milhões de comentários e análises de
-                    código feitos pro profissionais sênior. Nossa inteligência artificial é capaz de
+                    código feitos por profissionais sênior. Nossa inteligência artificial é capaz de
                     trazer um precisão incrível nas respostas e ajudar profissionais em todos os
                     níveis a aumentarem sua produtividade em até 300%.
                 </h2>
