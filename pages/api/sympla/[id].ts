@@ -47,7 +47,7 @@ export default async function SymplaController(
             return;
         }
 
-        AttendeeService.createFromSympla(`${id}`, symplaData.data.data);
+        await AttendeeService.createFromSympla(`${id}`, symplaData.data.data);
 
         ApiResponse.build(res, StatusCodes.OK, 'Login realizado com sucesso');
     } catch (exception) {

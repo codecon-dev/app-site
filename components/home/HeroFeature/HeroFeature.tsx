@@ -1,6 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { useEffect } from 'react';
-
 import cn from 'classnames';
 
 import LinkButton from '@components/_ui/LinkButton/LinkButton';

@@ -19,7 +19,7 @@ async function claim(payload: CodecodesClaimPayload) {
 export default function CodecodesClaimForm() {
     const [code, setCode] = useState<string>('');
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const { fullName, firstName, email } = useUserData();
+    const { fullName, email } = useUserData();
 
     async function handleOnClaimSubmit(event: FormEvent) {
         event.preventDefault();

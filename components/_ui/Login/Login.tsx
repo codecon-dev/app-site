@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useContext, FormEvent, useState } from 'react';
 
 import ThemeContext from 'context/ThemeContext';

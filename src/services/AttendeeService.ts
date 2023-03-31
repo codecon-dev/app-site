@@ -1,7 +1,7 @@
 import Attendee from 'src/database/model/Attendee';
 
 export default class AttendeeService {
-    public static async createFromSympla(symplaId: string, symplaData: any[]): Promise<void> {
+    public static async createFromSympla(symplaId: string, symplaData: any): Promise<void> {
         const attendee: Attendee | null = await Attendee.findBySymplaId(symplaId);
 
         if (attendee) return;

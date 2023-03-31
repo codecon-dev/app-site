@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { animateScroll as scroll } from 'react-scroll';
-import { useState, useEffect, useRef, FormEvent } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
 

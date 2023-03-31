@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import PuzzleLayout from '../PuzzleLayout';
 import styles from './DayThreePuzzle22.module.scss';
 
