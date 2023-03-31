@@ -6,13 +6,13 @@ export default class AttendeeService {
 
         if (attendee) return;
 
-        symplaData.map(async t => {
-            await Attendee.create({
+        symplaData.map(async (t: any) => {
+            void (await Attendee.create({
                 symplaId: t.order_id,
                 name: t.first_name,
                 lastName: t.last_name,
                 email: t.email
-            });
+            }));
         });
     }
 }
