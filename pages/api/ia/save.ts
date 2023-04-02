@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
 import { NextApiRequest, NextApiResponse } from 'next';
-import ApiResponse, { HttpMethod } from 'src/api/ApiResponse';
+import ApiResponse from 'src/api/ApiResponse';
 
 export default async function SendMessage(
     req: NextApiRequest,

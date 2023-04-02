@@ -46,7 +46,7 @@ export default function Page({
     const url = meta?.url || `${SITE_URL}${eventData.homeUrl}${router.asPath}`;
     const description = meta?.description || eventData.metaDescription;
 
-    const blobity = useBlobity({
+    useBlobity({
         licenseKey: 'opensource',
         color: 'rgb(0, 0, 0)',
         magnetic: false,

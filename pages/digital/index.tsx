@@ -6,12 +6,6 @@ import { Speaker } from '@lib/types/speakers';
 
 import Page from '@components/_ui/Page';
 import HeroDigital from '@components/home/HeroDigital';
-import Differentials from '@components/home/Differentials';
-import About from '@components/home/About';
-import ClaimCards from '@components/home/ClaimCards';
-import Gather from '@components/home/Gather';
-import Speakers from '@components/home/Speakers';
-import Newsletter from '@components/home/Newsletter';
 import Blocks from '@components/home/Blocks';
 import Faq from '@components/home/Faq/Faq';
 

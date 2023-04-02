@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, SyntheticEvent, useEffect } from 'react';
+import React, { useState, SyntheticEvent } from 'react';
 import toast from 'react-hot-toast';
 
 import OneInputForm from '@components/_ui/OneInputForm';
