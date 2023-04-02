@@ -4,7 +4,7 @@ import LoginLinkService from 'src/services/LoginLinkService';
 import Attendee from 'src/database/model/Attendee';
 
 import Page from '@components/_ui/Page';
-import Login from '@components/_ui/Login';
+import Login from '@components/ticket/Login';
 
 type Props = {
     isLogged: boolean;
@@ -17,7 +17,7 @@ export default function Ticket({ isLogged, attendee }: Props) {
     };
 
     return (
-        <Page meta={meta}>
+        <Page meta={meta} theme="digital" noPadding>
             <Head>
                 <meta name="robots" content="noindex" />
             </Head>

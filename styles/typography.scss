@@ -55,6 +55,10 @@ h2 {
     line-height: 1.2;
     margin-bottom: 1.25rem;
 
+    span {
+        color: var(--color-primary);
+    }
+
     @media #{$breakpoint-sm} {
         font-size: 2rem;
     }
