@@ -5,8 +5,7 @@ import Attendee from 'src/database/model/Attendee';
 
 import Page from '@components/_ui/Page';
 import Login from '@components/ticket/Login';
-import TheTicket from '@components/ticket/TheTicket';
-import Form from '@components/ticket/Form';
+import AttendeeArea from '@components/ticket/AttendeeArea';
 
 type Props = {
     isLogged: boolean;
@@ -19,18 +18,11 @@ export default function Ticket({ isLogged, attendee }: Props) {
     };
 
     return (
-        <Page meta={meta} theme="digital">
+        <Page meta={meta} theme="digital" noPadding>
             <Head>
                 <meta name="robots" content="noindex" />
             </Head>
-            {isLogged ? (
-                <>
-                    <TheTicket />
-                    <Form attendee={attendee} />
-                </>
-            ) : (
-                <Login />
-            )}
+            {isLogged ? <AttendeeArea attendee={attendee} /> : <Login />}
         </Page>
     );
 }
