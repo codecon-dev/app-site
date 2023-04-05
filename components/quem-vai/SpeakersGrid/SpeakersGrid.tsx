@@ -12,11 +12,11 @@ type Props = {
 
 export default function SpeakersGrid({ speakers }: Props) {
     function parseCompany(company: string) {
-        const text = company.split(/ na | no | at /);
-        if (!text[1]) return company;
+        const [role, ...companyName] = company.split(/ na | no | at | nos | do /);
+        if (!companyName || !companyName.length) return company;
         return (
             <>
-                {text[0]} <span>•</span> {text[1]}
+                {role} <span>•</span> {companyName}
             </>
         );
     }
