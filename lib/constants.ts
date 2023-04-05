@@ -20,7 +20,7 @@ type EventData = {
     };
 };
 
-export const SITE_URL = 'https://www.codecon.dev';
+export const SITE_URL = 'https://codecon.dev';
 export const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN || new URL(SITE_URL).origin;
 export const TWITTER_USER_NAME = 'codecondev';
 export const SITE_NAME = 'Codecon • Festival de código e tecnologia';

@@ -6,7 +6,8 @@ class Attendee extends ModelImpl<Attendee> {
     declare name: string;
     declare lastName: string;
     declare email: string;
-    declare githubId?: string;
+    declare githubFullName?: string;
+    declare githubUsername?: string;
     declare symplaId?: string;
 
     public static async findByEmail(email: string): Promise<Attendee | null> {
@@ -24,7 +25,8 @@ Attendee.init(
         name: { type: DataTypes.STRING, allowNull: false },
         lastName: { type: DataTypes.STRING, allowNull: true },
         email: { type: DataTypes.STRING, allowNull: false },
-        githubId: { type: DataTypes.STRING, allowNull: true },
+        githubFullName: { type: DataTypes.STRING, allowNull: true },
+        githubUsername: { type: DataTypes.STRING, allowNull: true },
         symplaId: { type: DataTypes.STRING, allowNull: true }
     },
     {

@@ -23,7 +23,7 @@ export default function OneInputForm({
 }: Props) {
     return (
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        <form onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
             <input
                 type={inputType}
                 onChange={event => handleInputChange(event)}

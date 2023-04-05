@@ -55,6 +55,10 @@ h2 {
     line-height: 1.2;
     margin-bottom: 1.25rem;
 
+    span {
+        color: var(--color-primary);
+    }
+
     @media #{$breakpoint-sm} {
         font-size: 2rem;
     }
@@ -82,8 +86,12 @@ h3 {
 
 .headline {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--color-gray);
+
+    @media #{$breakpoint-sm} {
+        font-size: 1.5rem;
+    }
 }
 
 .bullet {

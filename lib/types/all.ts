@@ -99,16 +99,11 @@ export type OkPacket = {
     changedRows?: number;
 };
 
-export type GitHubOAuthData =
-    | {
-          type: 'token';
-          token: string;
-      }
-    | {
-          type: 'user';
-          name: string;
-          login: string;
-      };
+export type GitHubOAuthData = {
+    id: string;
+    name: string;
+    login: string;
+};
 
 export type Puzzle = {
     id: number;

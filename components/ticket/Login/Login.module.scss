@@ -1,0 +1,44 @@
+@import 'styles/media-queries';
+
+.wrapper {
+    background-position: center;
+    background-size: cover;
+    padding: 7rem 0 0;
+    position: relative;
+    text-align: center;
+
+    &.theme-digital {
+        background-image: url('/images/digital/hero/hero-digital.jpg');
+    }
+
+    &.theme-summit {
+        background-image: url('/images/summit/hero/hero-summit.jpg');
+    }
+
+    &.theme-feature {
+        background-image: url('/images/feature/hero/hero-feature.jpg');
+    }
+
+    @media #{$breakpoint-sm} {
+        padding: 12rem 0 7rem;
+        text-align: left;
+    }
+}
+
+.formContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    h2 {
+        margin-bottom: 3rem;
+    }
+}
+
+.link {
+    color: var(--color-light-gray);
+    cursor: pointer;
+}

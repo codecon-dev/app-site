@@ -1,0 +1,58 @@
+@import 'styles/media-queries';
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.5rem;
+
+    @media #{$breakpoint-sm} {
+        align-items: flex-end;
+    }
+
+    p {
+        font-size: 0.875rem;
+    }
+}
+
+.button {
+    -webkit-appearance: none;
+    border: 3px solid var(--color-primary);
+    background-color: transparent;
+    font-weight: bold;
+    line-height: 1.5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem 0.75rem 0.5rem 2rem;
+    color: var(--color-white);
+    font-size: 1.25rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 5rem;
+
+    &:hover {
+        border-color: var(--color-white);
+        background-color: var(--color-black-40);
+    }
+
+    &:disabled {
+        background-color: var(--color-black-40);
+        cursor: default;
+
+        &:hover {
+            border-color: var(--color-primary);
+        }
+    }
+
+    &.error {
+        border-color: red;
+    }
+}
+
+.icon {
+    background-color: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 100%;
+}
