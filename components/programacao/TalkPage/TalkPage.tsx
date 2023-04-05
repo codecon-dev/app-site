@@ -44,18 +44,16 @@ export default function TalkPage({ talk }: Props) {
                             })}
                         >
                             {talk.speaker?.map(speaker => (
-                                <SpeakerCard key={speaker.id}>
-                                    <SpeakerCard.Image
-                                        href={`/quem-vai/${speaker.slug}`}
-                                        src={speaker.image.url}
-                                        alt={speaker.name}
-                                    />
+                                <SpeakerCard href={`/quem-vai/${speaker.slug}`} key={speaker.id}>
+                                    <SpeakerCard.Image src={speaker.image.url} alt={speaker.name} />
                                 </SpeakerCard>
                             ))}
                             {talk.host && (
-                                <SpeakerCard key={talk.host.id}>
+                                <SpeakerCard
+                                    href={`/quem-vai/${talk.host.slug}`}
+                                    key={talk.host.id}
+                                >
                                     <SpeakerCard.Image
-                                        href={`/quem-vai/${talk.host.slug}`}
                                         src={talk.host.image.url}
                                         alt={talk.host.name}
                                         isHost

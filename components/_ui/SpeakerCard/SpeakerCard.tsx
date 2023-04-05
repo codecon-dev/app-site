@@ -12,6 +12,8 @@ import {
 } from '@lib/types/speakers';
 import Link from 'next/link';
 import React from 'react';
+import { useRouter } from 'next/router';
+import { addBasePath } from '@lib/utils';
 
 const Title = ({ children }: PropsTitle) => {
     return (
@@ -60,9 +62,11 @@ const Social = ({ data, horizontal }: PropsSocial) => {
     );
 };
 
-const SpeakerCard = ({ children, href, ...rest }: PropsSpeakerCard) => {
+const SpeakerCard = ({ children, href = '', ...rest }: PropsSpeakerCard) => {
+    const router = useRouter();
+    const path = addBasePath(router, href);
     return (
-        <Link href={href}>
+        <Link href={path}>
             <a>
                 <div className={styles.speaker_card} {...rest}>
                     {children}
