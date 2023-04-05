@@ -10,10 +10,10 @@ type Props = {
     sponsor: Sponsor;
 };
 
-export default function QuemVai({ sponsor }: Props) {
+export default function Patrocinadores({ sponsor }: Props) {
     const meta = {
         title: `${sponsor.name} está patrocinando a Codecon Digital 2022`,
-        image: `/api/get-image/${sponsor.slug}?type=sponsor`
+        image: `/api/get-image?title=${sponsor.slug}&type=sponsor`
     };
 
     return (

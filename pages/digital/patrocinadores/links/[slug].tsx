@@ -12,11 +12,11 @@ type Props = {
 export default function SponsorPageLinks({ sponsor }: Props) {
     const meta = {
         title: `${sponsor.name} - Codecon`,
-        image: `/api/get-image/${sponsor.slug}?type=sponsor`
+        image: `/api/get-image?title=${sponsor.slug}&type=sponsor`
     };
 
     return (
-        <Page theme='digital' meta={meta}>
+        <Page theme="digital" meta={meta}>
             <SponsorLinks sponsor={sponsor} />
         </Page>
     );

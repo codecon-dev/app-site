@@ -16,7 +16,7 @@ export interface WithLoggedUserRequest {
 export default class ApiResponse {
 
     statusCode: number = StatusCodes.INTERNAL_SERVER_ERROR
-    success: boolean = false
+    success = false
     message: Array<string>
     data?: any
 
@@ -30,7 +30,7 @@ export default class ApiResponse {
 
     public static build(res: NextApiResponse, statusCode: number, message: string | Array<string>, data?: any): void {
         res.status(statusCode)
-           .json(new ApiResponse(statusCode, message, data))
+            .json(new ApiResponse(statusCode, message, data))
     }
 
     public static buildForValidationError(res: NextApiResponse, exception: ValidationError, url: string | undefined): void {
@@ -38,7 +38,7 @@ export default class ApiResponse {
         this.build(res, StatusCodes.UNPROCESSABLE_ENTITY, exception.message)
     }
 
-    public static async withCurrentUserAndErrorHandler(req: NextApiRequest, res: NextApiResponse, method: HttpMethod, action: Function): Promise<void> {
+    public static async withCurrentUserAndErrorHandler(req: NextApiRequest, res: NextApiResponse, method: HttpMethod, action: any): Promise<void> {
         try {
             if (req.method != method) {
                 this.build(res, StatusCodes.METHOD_NOT_ALLOWED, "Método HTTP não permitido")
@@ -54,6 +54,7 @@ export default class ApiResponse {
             const user: User | null = await User.findByEmail(userEmail)
             if (!user) throw new ResourceNotFoundError(`Usuário com e-mail ${userEmail} não encontrado`)
 
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call
             await action(user)
         } catch (error) {
             if (error instanceof ResourceNotFoundError) {

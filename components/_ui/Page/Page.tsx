@@ -45,6 +45,10 @@ export default function Page({
     const title = meta?.title || eventData.siteName;
     const url = meta?.url || `${SITE_URL}${eventData.homeUrl}${router.asPath}`;
     const description = meta?.description || eventData.metaDescription;
+    const imageBaseUrl =
+        process.env.VERCEL_ENV === 'development'
+            ? 'http://localhost:3000'
+            : `https://${process.env.VERCEL_URL}`;
 
     useBlobity({
         licenseKey: 'opensource',
@@ -75,7 +79,9 @@ export default function Page({
                     {image && (
                         <meta
                             property="og:image"
-                            content={image.startsWith('https://') ? image : `${SITE_URL}${image}`}
+                            content={
+                                image.startsWith('https://') ? image : `${imageBaseUrl}${image}`
+                            }
                         />
                     )}
 
