@@ -2,11 +2,15 @@
 
 .speaker_card {
     border-radius: 10px;
-    margin-bottom: 10rem;
+    margin-bottom: 0;
     background-color: black;
     border: 1px solid rgba(202, 206, 210, 0.2);
     padding: 32px 32px 26.5px 26.5px;
     border-radius: 20px;
+
+    @media #{$breakpoint-lg} {
+        margin-bottom: 10rem;
+    }
 
     h5 {
         font-size: 1.25rem;
@@ -103,11 +107,13 @@
         transform: none;
         display: block;
         grid-area: auto;
+        
 
         ul {
             flex-direction: row;
             padding: 0;
             transform: translateX(-1rem);
+            
 
             li {
                 margin-bottom: 0;
