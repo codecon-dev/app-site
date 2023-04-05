@@ -21,18 +21,10 @@ const Title = ({ children }: PropsTitle) => {
     );
 };
 
-const Image = ({ href, src, alt, isHost, width = 600, height = 600, ...rest }: PropsImage) => {
+const Image = ({ src, alt, isHost, width = 600, height = 600, ...rest }: PropsImage) => {
     return (
         <div className={styles.image_wrapper} {...rest}>
-            {href ? (
-                <Link href={href}>
-                    <a>
-                        <NextImage src={src} alt={alt} width={width} height={height} layout="responsive" />
-                    </a>
-                </Link>
-            ) : (
-                <NextImage src={src} alt={alt} width={width} height={height} layout="responsive" />
-            )}
+            <NextImage src={src} alt={alt} width={width} height={height} layout="responsive" />
             {isHost && <span className={styles.host}>Host</span>}
         </div>
     );
@@ -68,11 +60,15 @@ const Social = ({ data, horizontal }: PropsSocial) => {
     );
 };
 
-const SpeakerCard = ({ children, ...rest }: PropsSpeakerCard) => {
+const SpeakerCard = ({ children, href, ...rest }: PropsSpeakerCard) => {
     return (
-        <div className={styles.speaker_card} {...rest}>
-            {children}
-        </div>
+        <Link href={href}>
+            <a>
+                <div className={styles.speaker_card} {...rest}>
+                    {children}
+                </div>
+            </a>
+        </Link>
     );
 };
 

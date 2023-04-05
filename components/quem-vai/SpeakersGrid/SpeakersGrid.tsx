@@ -5,12 +5,17 @@ import { Column, Grid } from '@components/_ui/Grid';
 import SpeakerCard from '@components/_ui/SpeakerCard';
 
 import styles from './SpeakersGrid.module.scss';
+import { useRouter } from 'next/router';
 
 type Props = {
     speakers: Speaker[];
 };
 
 export default function SpeakersGrid({ speakers }: Props) {
+    const router = useRouter();
+    const event = router?.asPath?.split('/')[1] || '';
+    const eventPath = event ? `/${event}` : '';
+
     function parseCompany(company: string) {
         const text = company.split(/ na | no | at /);
         if (!text[1]) return company;
@@ -24,6 +29,7 @@ export default function SpeakersGrid({ speakers }: Props) {
         <section>
             <Grid>
                 {speakers?.map((speaker, index) => {
+                    const href = `${eventPath}/quem-vai/${speaker.slug}`;
                     let speakerSocial: SocialData[] = [];
 
                     if (speaker.twitter) {
@@ -53,12 +59,8 @@ export default function SpeakersGrid({ speakers }: Props) {
                                 <Column key={`col-${speaker.id}`} lg={2} sm={0} xsm={0} />
                             )}
                             <Column key={speaker.id} lg={5} sm={6} className={styles.card}>
-                                <SpeakerCard>
-                                    <SpeakerCard.Image
-                                        href={`/quem-vai/${speaker.slug}`}
-                                        src={speaker.image.url}
-                                        alt={speaker.name}
-                                    />
+                                <SpeakerCard href={href}>
+                                    <SpeakerCard.Image src={speaker.image.url} alt={speaker.name} />
                                     <SpeakerCard.About>
                                         <h5>{speaker.name}</h5>
                                         <small>{parseCompany(speaker.company)}</small>

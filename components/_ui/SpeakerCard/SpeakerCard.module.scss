@@ -3,6 +3,11 @@
 .speaker_card {
     position: relative;
     border-radius: 10px;
+    margin-bottom: 10rem;
+    background-color: black;
+    border: 1px solid rgba(202, 206, 210, 0.2);
+    padding: 32px 32px 26.5px 26.5px;
+    border-radius: 20px;
 
     h5 {
         font-size: 1.25rem;
@@ -12,16 +17,6 @@
     small {
         display: block;
         color: var(--color-white);
-    }
-
-    a {
-        opacity: 0.7;
-        transition: opacity 0.2s ease-in-out;
-
-        &:hover {
-            opacity: 1;
-            transition: opacity 0.2s ease-in-out;
-        }
     }
 
     .container {
@@ -60,7 +55,6 @@
             color: var(--color-primary);
         }
     }
-
 }
 
 .social {
@@ -68,11 +62,11 @@
     display: none;
     top: 50%;
     transform: translate(0%, -50%);
-    right: -100px;
+    right: -15%;
     grid-area: social;
     align-self: flex-end;
 
-    @media #{$breakpoint-sm} {
+    @media #{$breakpoint-lg} {
         display: block;
     }
 
