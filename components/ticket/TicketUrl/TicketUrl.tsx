@@ -13,11 +13,8 @@ type Props = {
 
 export default function TicketCopy({ username }: Props) {
     const theme = useContext(ThemeContext);
-    const [fadeOpacity, setFadeOpacity] = useState(1);
-    const [scrolling, setScrolling] = useState(false);
     const [copyEnabled, setCopyEnabled] = useState(false);
     const [copied, setCopied] = useState(false);
-    const scrollRef = useRef<HTMLSpanElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
     const url = `${SITE_URL}/${theme}/tickets/${username}`;
     useEffect(() => {

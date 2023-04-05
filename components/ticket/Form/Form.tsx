@@ -38,8 +38,13 @@ export default function Form({ attendee, setGithubData }: Props) {
 
         const windowWidth = 600;
         const windowHeight = 700;
-        const windowTop = window.top.outerHeight / 2 + window.top.screenY - 700 / 2;
-        const windowLeft = window.top.outerWidth / 2 + window.top.screenX - 600 / 2;
+        let windowTop = 50;
+        let windowLeft = 50;
+
+        if (window.top) {
+            windowTop = window.top.outerHeight / 2 + window.top.screenY - 700 / 2;
+            windowLeft = window.top.outerWidth / 2 + window.top.screenX - 600 / 2;
+        }
 
         const openedWindow = window.open(
             `https://github.com/login/oauth/authorize?client_id=${encodeURIComponent(
