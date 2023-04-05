@@ -19,7 +19,7 @@ export default function Header({ title, description, image, smaller }: Props) {
             })}
         >
             <Grid align="center">
-                <Column lg={9}>
+                <Column lg={image ? 9 : 10}>
                     <h1
                         className={cn(styles.hero, {
                             [styles.smaller]: smaller

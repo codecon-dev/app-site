@@ -11,6 +11,15 @@ type Props = {
 };
 
 export default function SpeakersGrid({ speakers }: Props) {
+    function parseCompany(company:string) {
+        const text = company.split(/ na | no | at /)
+        if(!text[1]) return company
+        return (
+            <>
+            {text[0]} <span>•</span> {text[1]}
+            </>
+        )
+    }
     return (
         <section>
             <Grid>
@@ -52,7 +61,7 @@ export default function SpeakersGrid({ speakers }: Props) {
                                     />
                                     <SpeakerCard.About>
                                         <h5>{speaker.name}</h5>
-                                        <small>{speaker.company}</small>
+                                        <small>{parseCompany(speaker.company)}</small>
                                     </SpeakerCard.About>
                                     <SpeakerCard.Social data={speakerSocial} />
                                 </SpeakerCard>

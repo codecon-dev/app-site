@@ -11,6 +11,7 @@ import {
     PropsTitle
 } from '@lib/types/speakers';
 import Link from 'next/link';
+import React from 'react';
 
 const Title = ({ children }: PropsTitle) => {
     return (
@@ -26,7 +27,7 @@ const Image = ({ href, src, alt, isHost, width = 600, height = 600, ...rest }: P
             {href ? (
                 <Link href={href}>
                     <a>
-                        <NextImage src={src} alt={alt} layout="fill" objectFit="cover" />
+                        <NextImage src={src} alt={alt} width={width} height={height} layout="responsive" />
                     </a>
                 </Link>
             ) : (
@@ -57,7 +58,7 @@ const Social = ({ data, horizontal }: PropsSocial) => {
                     return (
                         <li key={label}>
                             <a href={url}>
-                                <div>{Icon}</div>
+                                <div>{React.cloneElement(Icon, { color: 'black' })}</div>
                             </a>
                         </li>
                     );

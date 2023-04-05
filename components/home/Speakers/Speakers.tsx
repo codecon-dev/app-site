@@ -18,15 +18,15 @@ export default function Speakers({ speakers, children }: Props) {
             <div className={styles.grid}>
                 {speakers.map((speaker, index) => (
                     <SpeakerCard>
-                        <SpeakerCard.About>
-                            <h5>{speaker.name}</h5>
-                            <small>{speaker.company}</small>
-                        </SpeakerCard.About>
                         <SpeakerCard.Image
                             href={`/quem-vai/${speaker.slug}`}
                             src={speaker.image.url}
                             alt={speaker.name}
                         />
+                        <SpeakerCard.About>
+                            <h5>{speaker.name}</h5>
+                            <small>{speaker.company}</small>
+                        </SpeakerCard.About>
                     </SpeakerCard>
                 ))}
             </div>

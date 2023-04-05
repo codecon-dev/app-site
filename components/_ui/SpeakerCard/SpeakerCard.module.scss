@@ -2,9 +2,7 @@
 
 .speaker_card {
     position: relative;
-    border-radius: 1.25rem;
-    overflow: hidden;
-    border: 1px solid rgba(202, 206, 210, 0.2);
+    border-radius: 10px;
 
     h5 {
         font-size: 1.25rem;
@@ -31,23 +29,19 @@
     }
 
     .image_wrapper {
+        img {
+            border-radius: 10px;
+        }
         .host {
             display: block;
-            position: absolute;
             bottom: 1rem;
             right: 1rem;
             padding: 0 0.5rem;
             background-color: var(--color-primary);
-            border-radius: 2rem;
             text-transform: uppercase;
             font-size: 0.75rem;
             font-weight: bold;
         }
-    }
-
-    .title,
-    .about {
-        padding: 0.5rem;
     }
 
     .title {
@@ -57,17 +51,24 @@
 
     .about {
         width: 100%;
-        position: absolute;
         bottom: 0;
         left: 0;
         z-index: 10;
-        padding: 7%;
+        padding: 10px 0 0 0;
         background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 94.69%);
+        span {
+            color: var(--color-primary);
+        }
     }
+
 }
 
 .social {
+    position: absolute;
     display: none;
+    top: 50%;
+    transform: translate(0%, -50%);
+    right: -100px;
     grid-area: social;
     align-self: flex-end;
 
@@ -96,9 +97,9 @@
             border-radius: 50%;
             display: block;
             transition: all 0.2s ease-in-out;
+            background-color: var(--color-primary);
 
             &:hover {
-                background-color: var(--color-primary-dark);
                 transition: all 0.2s ease-in-out;
             }
         }

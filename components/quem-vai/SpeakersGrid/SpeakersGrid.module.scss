@@ -2,7 +2,12 @@
 
 .card {
   @media #{$breakpoint-sm} {
+    min-width: 390.5px;
     margin-bottom: 10rem;
+    background-color: black;
+    border: 1px solid rgba(202, 206, 210, 0.2);
+    padding: 32px 32px 26.5px 26.5px;
+    border-radius: 20px;
 
     &:nth-child(3n) {
       transform: translateY(10rem);
