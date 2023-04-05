@@ -1,0 +1,118 @@
+@import 'styles/media-queries';
+
+.ticket {
+    position: relative;
+    width: 100%;
+    padding-top: 209%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &.theme-digital {
+        background-image: url('/images/ticket/ticket-digital-vertical.svg');
+    }
+
+    &.theme-summit {
+        background-image: url('/images/ticket/ticket-summit-vertical.svg');
+    }
+
+    &.theme-feature {
+        background-image: url('/images/ticket/ticket-feature-vertical.svg');
+    }
+
+    &.responsive {
+        @media #{$breakpoint-sm} {
+            padding-top: 48%;
+
+            &.theme-digital {
+                background-image: url('/images/ticket/ticket-digital.svg');
+            }
+
+            &.theme-summit {
+                background-image: url('/images/ticket/ticket-summit.svg');
+            }
+
+            &.theme-feature {
+                background-image: url('/images/ticket/ticket-feature.svg');
+            }
+        }
+    }
+}
+
+.avatar {
+    width: 20%;
+    border-radius: 100%;
+    background-color: var(--color-primary);
+    position: absolute;
+    left: 14%;
+    top: 10%;
+
+    img {
+        width: 100%;
+    }
+
+    &.responsive {
+        @media #{$breakpoint-sm} {
+            width: 7%;
+            left: 10%;
+            top: 18%;
+        }
+    }
+}
+
+.name {
+    width: 73%;
+    position: absolute;
+    top: 21%;
+    left: 14%;
+
+    .title {
+        width: 100%;
+        font-weight: bold;
+    }
+
+    .username {
+        width: 100%;
+    }
+
+    &.responsive {
+        .title {
+            @media #{$breakpoint-sm} {
+                width: 75%;
+            }
+        }
+
+        .username {
+            @media #{$breakpoint-sm} {
+                width: 75%;
+            }
+        }
+
+        @media #{$breakpoint-sm} {
+            width: 56%;
+            top: 18%;
+            left: 19%;
+        }
+    }
+}
+
+.number {
+    position: absolute;
+    top: 80%;
+    left: 21%;
+    color: var(--color-black);
+    font-weight: bold;
+    width: 80%;
+    text-align: center;
+
+    &.responsive {
+        @media #{$breakpoint-sm} {
+            transform: rotate(-90deg);
+            transform-origin: bottom right;
+            top: -10%;
+            left: auto;
+            right: 12%;
+            width: 35%;
+        }
+    }
+}

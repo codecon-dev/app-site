@@ -5,6 +5,8 @@ import Attendee from 'src/database/model/Attendee';
 
 import Page from '@components/_ui/Page';
 import Login from '@components/ticket/Login';
+import TheTicket from '@components/ticket/TheTicket';
+import Form from '@components/ticket/Form';
 
 type Props = {
     isLogged: boolean;
@@ -17,11 +19,18 @@ export default function Ticket({ isLogged, attendee }: Props) {
     };
 
     return (
-        <Page meta={meta} theme="digital" noPadding>
+        <Page meta={meta} theme="digital">
             <Head>
                 <meta name="robots" content="noindex" />
             </Head>
-            {isLogged ? <>{attendee.name}</> : <Login />}
+            {isLogged ? (
+                <>
+                    <TheTicket />
+                    <Form attendee={attendee} />
+                </>
+            ) : (
+                <Login />
+            )}
         </Page>
     );
 }
@@ -53,9 +62,11 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
         props: {
             isLogged: true,
             attendee: {
+                id: attendee?.id,
                 name: attendee?.name,
                 email: attendee?.email,
-                githubId: attendee?.githubId,
+                githubFullName: attendee?.githubFullName,
+                githubUsername: attendee?.githubUsername,
                 symplaId: attendee?.symplaId
             }
         }
