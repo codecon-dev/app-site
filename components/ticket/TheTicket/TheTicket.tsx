@@ -30,7 +30,13 @@ export default function TheTicket({
             })}
         >
             <div className={cn(styles.avatar, { [styles.responsive]: responsive })}>
-                <img src="/images/ticket/user.png" />
+                <img
+                    src={
+                        username !== 'username'
+                            ? `https://github.com/${username}.png`
+                            : '/images/ticket/user.png'
+                    }
+                />
             </div>
             <div className={cn(styles.name, { [styles.responsive]: responsive })}>
                 <svg className={styles.title} viewBox="0 0 200 20">

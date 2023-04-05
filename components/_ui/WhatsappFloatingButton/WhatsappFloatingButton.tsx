@@ -9,7 +9,7 @@ export default function WhatsappFloatingButton() {
     return (
         <Link href={WHATSAPP_LINK}>
             <a target="_blank" rel="noopener noreferrer" className={styles.whatsapp_button}>
-                <WhatsappIcon />
+                <WhatsappIcon size={24} />
             </a>
         </Link>
     );

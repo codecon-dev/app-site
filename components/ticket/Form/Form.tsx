@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import cn from 'classnames';
 import { SITE_ORIGIN } from '@lib/constants';
 import { GitHubOAuthData } from '@lib/types/all';
@@ -12,11 +12,12 @@ type FormState = 'default' | 'loading' | 'error';
 
 type Props = {
     attendee: Attendee;
+    setGithubData: (data: GitHubOAuthData) => void;
 };
 
 const githubEnabled = Boolean(process.env.NEXT_PUBLIC_GITHUB_OAUTH_CLIENT_ID);
 
-export default function Form({ attendee }: Props) {
+export default function Form({ attendee, setGithubData }: Props) {
     const [username, setUsername] = useState('');
     const [formState, setFormState] = useState<FormState>('default');
     const [errorMsg, setErrorMsg] = useState('');
@@ -64,7 +65,10 @@ export default function Form({ attendee }: Props) {
                 if (openedWindow) {
                     openedWindow.close();
                 }
-                resolve(msgEvent.data);
+
+                const githubData: GitHubOAuthData = msgEvent.data;
+
+                resolve(githubData);
             });
         })
             .then(async data => {
@@ -87,6 +91,7 @@ export default function Form({ attendee }: Props) {
                     })
                 });
 
+                setGithubData(data);
                 setUsername(usernameFromResponse);
                 setFormState('default');
 

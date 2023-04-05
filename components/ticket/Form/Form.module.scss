@@ -1,8 +1,14 @@
+@import 'styles/media-queries';
+
 .form {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+
     gap: 0.5rem;
+
+    @media #{$breakpoint-sm} {
+        align-items: flex-end;
+    }
 
     p {
         font-size: 0.875rem;
@@ -26,9 +32,18 @@
     cursor: pointer;
     border-radius: 5rem;
 
+    &:hover {
+        border-color: var(--color-white);
+        background-color: var(--color-black-40);
+    }
+
     &:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
+        background-color: var(--color-black-40);
+        cursor: default;
+
+        &:hover {
+            border-color: var(--color-primary);
+        }
     }
 
     &.error {
