@@ -53,14 +53,19 @@ export default function SpeakersGrid({ speakers }: Props) {
                                 <Column key={`col-${speaker.id}`} lg={2} sm={0} xsm={0} />
                             )}
                             <Column key={speaker.id} lg={5} sm={6} className={styles.card}>
-                                <SpeakerCard href={`/quem-vai/${speaker.slug}`}>
-                                    <SpeakerCard.Image src={speaker.image.url} alt={speaker.name} />
-                                    <SpeakerCard.About>
-                                        <h5>{speaker.name}</h5>
-                                        <small>{parseCompany(speaker.company)}</small>
-                                    </SpeakerCard.About>
+                                <div className={styles.card_content}>
+                                    <SpeakerCard href={`/quem-vai/${speaker.slug}`}>
+                                        <SpeakerCard.Image
+                                            src={speaker.image.url}
+                                            alt={speaker.name}
+                                        />
+                                        <SpeakerCard.About>
+                                            <h5>{speaker.name}</h5>
+                                            <small>{parseCompany(speaker.company)}</small>
+                                        </SpeakerCard.About>
+                                    </SpeakerCard>
                                     <SpeakerCard.Social data={speakerSocial} />
-                                </SpeakerCard>
+                                </div>
                             </Column>
                         </Fragment>
                     );

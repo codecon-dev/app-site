@@ -1,7 +1,6 @@
 @import 'styles/media-queries';
 
 .speaker_card {
-    position: relative;
     border-radius: 10px;
     margin-bottom: 10rem;
     background-color: black;
@@ -100,6 +99,8 @@
     }
 
     &.horizontal {
+        position: static;
+        transform: none;
         display: block;
         grid-area: auto;
 
