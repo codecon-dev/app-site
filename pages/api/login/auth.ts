@@ -24,16 +24,24 @@ export default async function AuthController(req: NextApiRequest, res: NextApiRe
 }
 
 async function login(req: NextApiRequest, res: NextApiResponse) {
-    const email: string = req.query.email.toString();
-    const hash: string = req.query.hash.toString();
+    const email = req.query.email?.toString();
+    const hash = req.query.hash?.toString();
+
+    if (!email || !hash) {
+        ApiResponse.build(res, StatusCodes.NOT_FOUND, 'Não encontrado.');
+        return;
+    }
 
     const attendee: Attendee | null = await Attendee.findOne({ where: { email: email } });
-    if (!attendee)
+    if (!attendee) {
         ApiResponse.build(
             res,
             StatusCodes.FORBIDDEN,
             'Usuário não encontrado ou hash expirado. Tente novamente'
         );
+
+        return;
+    }
 
     await LoginLinkService.login(hash, res);
 

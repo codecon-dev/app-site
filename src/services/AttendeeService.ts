@@ -6,6 +6,7 @@ export default class AttendeeService {
 
         if (attendee) return;
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         symplaData.map(async (t: any) => {
             void (await Attendee.create({
                 symplaId: t.order_id,
