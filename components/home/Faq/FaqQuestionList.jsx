@@ -22,6 +22,18 @@ export const faqQuestionListDigital = [
         answer: 'No early bird  (para quem compra bem cedo) é R$ 19, já no primeiro lote sai por R$ 39. No segundo lote por R$ 49 e no terceiro lote por R$ 59. Todas as opções possuem meia entrada para estudantes e pessoas que contribuem com open-source.'
     },
     {
+        question: 'Eu consigo uma Nota Fiscal?',
+        answer: 'Sim! Ao se inscrever pelo Sympla, as informações estarão no formulário. Basicamente você precisa enviar um e-mail para nós com a solicitação e ela será enviada em até 7 dias úteis.'
+    },
+    {
+        question: 'As palestras ficam gravadas?',
+        answer: 'Sim! Após o evento enviaremos os links com as gravações para quem se inscreveu.'
+    },
+    {
+        question: 'Vocês emitem certificado de participação?',
+        answer: 'Sim! Uma semana depois do evento, enviaremos um certificado de participação de 12 horas direto pelo Sympla.'
+    },
+    {
         question: 'É verdade que o Princesa Peach estará presente?',
         answer: 'A cidade de Deployr é o "metaverso que deu certo", ela é cheia de referências à cultura pop e geek. Além de ter conteúdo de primeira, explorar a cidade é uma das coisas mais legais a se fazer. A Princesa Peach estará presente sim!'
     },
@@ -110,7 +122,18 @@ export const faqQuestionListSummit = [
         question: 'Qual o valor da inscrição?',
         answer: 'No early bird  (para quem compra bem cedo) o valor é R$ 99, já no primeiro lote sai por R$ 129. No segundo lote por R$ 159 e no terceiro lote por R$ 199. Todas as opções possuem meia entrada para estudantes e pessoas que contribuem com projetos open-source.'
     },
-
+    {
+        question: 'Eu consigo uma Nota Fiscal?',
+        answer: 'Sim! Ao se inscrever pelo Sympla, as informações estarão no formulário. Basicamente você precisa enviar um e-mail para nós com a solicitação e ela será enviada em até 7 dias úteis.'
+    },
+    {
+        question: 'Vai ter transmissão ao vivo? As palestras ficam gravadas?',
+        answer: 'Não. Nosso foco é que as experiências sejam apenas presenciais, por isso não vamos gravar e nem transmitir ao vivo o evento.'
+    },
+    {
+        question: 'Vocês emitem certificado de participação?',
+        answer: 'Sim! Uma semana depois do evento, enviaremos um certificado de participação de 12 horas direto pelo Sympla.'
+    },
     {
         question: 'É verdade que o Nicolas Cage estará presente?',
         answer: 'O Nicolas Cage é uma entidade onipresente em todo lugar em que 4 ou mais pessoas legais se reúnem. Ele vai tá lá sim, confia.'
@@ -182,6 +205,18 @@ export const faqQuestionListFeature = [
         answer: 'Os ingressos Early Bird (para quem compra bem cedo) são R$ 890. O primeiro lote será R$ 1.290 e o segundo e último lote R$ 1.490. Na inscrição está incluso o almoço, brindes legais, happy hour e coffee break.'
     },
     {
+        question: 'Eu consigo uma Nota Fiscal?',
+        answer: 'Sim! Ao se inscrever pelo Sympla, as informações estarão no formulário. Basicamente você precisa enviar um e-mail para nós com a solicitação e ela será enviada em até 7 dias úteis.'
+    },
+    {
+        question: 'Vai ter transmissão ao vivo? As palestras ficam gravadas?',
+        answer: 'Não. Nosso foco é que as experiências sejam apenas presenciais, por isso não vamos gravar e nem transmitir ao vivo o evento.'
+    },
+    {
+        question: 'Vocês emitem certificado de participação?',
+        answer: 'Sim! Uma semana depois do evento, enviaremos um certificado de participação de 12 horas direto pelo Sympla.'
+    },
+    {
         question: 'Ainda tenho dúvidas',
         answer: (
             <>
@@ -190,5 +225,32 @@ export const faqQuestionListFeature = [
                 <a href="https://codecon.dev/discord">Discord</a>.
             </>
         )
+    }
+];
+
+export const faqQuestionListIa = [
+    {
+        question: 'O que significa Senior-GPT?',
+        answer: ' Somos uma versão melhorada do Chat GPT, com o perfil de uma pessoa desenvolvedora sênior, já que esse é o objetivo da nossa IA.'
+    },
+    {
+        question: 'Vou poder instalar no VSCode?',
+        answer: 'Claro. Mas recomendamos que você use o vim.'
+    },
+    {
+        question: 'Que informações foram usadas para treinar esse modelo?',
+        answer: 'Simplemente ele leu todos os livros sobre design de software, padrões, clean code, SOLID e também leu comentários no GitHub em projetos abertos feito por profissionais em nível sênior.'
+    },
+    {
+        question: 'Ele é confiável?',
+        answer: 'Claro que é. Ele demorou 2 anos para ficar pronto. Ele é um sênior de 2 anos.'
+    },
+    {
+        question: 'Isso tudo é verdade?',
+        answer: 'Se você não sacou ainda, isso é uma brincadeira de primeiro de abril, hehe. Esperamos que você tenha se divertido.'
+    },
+    {
+        question: 'O que é a Codecon?',
+        answer: 'Somos uma comunidade que organiza vários eventos diferentes para pessoas desenvolvedoras. Entendemos que é possível ter diversão e networking enquanto aprendemos e temos uma experiência incrível.'
     }
 ];

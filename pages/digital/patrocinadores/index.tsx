@@ -21,8 +21,11 @@ export default function Programacao({ sponsors }: Props) {
     return (
         <Page theme="digital" meta={meta}>
             <Header
-                image="/images/patrocinadores/hero.svg"
-                title="marcas que apoiam a gente"
+                title={
+                <>
+                    <span>Marcas</span> que <br />apoiam a Codecon
+                </>
+                }
                 description="Somos um evento que só é capaz graças ao patrocínio dessas empresas. Clique nas marcas para saber mais sobre cada uma."
             />
             <SponsorsGrid sponsors={sponsors} />

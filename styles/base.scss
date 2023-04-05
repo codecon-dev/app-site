@@ -14,6 +14,11 @@
     --color-black-40: rgba(0, 0, 0, 0.4);
 }
 
+.modal-open {
+    overflow-y: hidden;
+    height: 100vh;
+}
+
 .theme-digital {
     background-image: url('/images/bg-digital.jpg');
 }
@@ -24,6 +29,12 @@
 
 .theme-feature {
     background-image: url('/images/bg-feature.jpg');
+}
+
+.theme-ia {
+    background-image: url('/images/ia/bg-ia.png');
+    background-position: right 10%;
+    background-repeat: no-repeat;
 }
 
 body {

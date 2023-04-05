@@ -49,7 +49,8 @@ export default function Page({
         process.env.VERCEL_ENV === 'development'
             ? 'http://localhost:3000'
             : `https://${process.env.VERCEL_URL}`;
-    const blobity = useBlobity({
+
+    useBlobity({
         licenseKey: 'opensource',
         color: 'rgb(0, 0, 0)',
         magnetic: false,

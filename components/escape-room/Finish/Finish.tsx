@@ -14,7 +14,7 @@ export default function Finish() {
     const [userMessage, setUserMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [finished, setFinished] = useState(false);
-    const { firstName, email } = useUserData();
+    const { email } = useUserData();
 
     async function handleSubmit(e: SyntheticEvent): Promise<void> {
         e.preventDefault();

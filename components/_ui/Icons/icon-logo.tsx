@@ -2,7 +2,7 @@ import { SVGProps } from 'react';
 
 type Props = {
     isSymbol?: boolean;
-    theme?: 'digital' | 'summit' | 'feature';
+    theme?: 'digital' | 'summit' | 'feature' | 'ia';
 };
 
 export default function IconLogo({
