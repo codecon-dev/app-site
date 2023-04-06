@@ -46,9 +46,7 @@ export default function Page({
     const url = meta?.url || `${SITE_URL}${eventData.homeUrl}${router.asPath}`;
     const description = meta?.description || eventData.metaDescription;
     const imageBaseUrl =
-        process.env.VERCEL_ENV === 'development'
-            ? 'http://localhost:3000'
-            : `https://${process.env.VERCEL_URL}`;
+        process.env.VERCEL_ENV === 'development' ? 'http://localhost:3000' : SITE_URL;
 
     useBlobity({
         licenseKey: 'opensource',
