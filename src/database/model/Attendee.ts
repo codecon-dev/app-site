@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize';
+import { DataTypes, Op } from 'sequelize';
 import dataSource from '../DataSource';
 import ModelImpl, { commonAttributes } from './ModelImpl';
 
@@ -16,6 +16,20 @@ class Attendee extends ModelImpl<Attendee> {
 
     public static async findBySymplaId(symplaId: string): Promise<Attendee | null> {
         return await Attendee.findOne({ where: { symplaId: symplaId } });
+    }
+
+    public static async findByGithubUsername(username: string): Promise<Attendee | null> {
+        return await Attendee.findOne({ where: { githubUsername: username } });
+    }
+
+    public static async findAllWithGithubUsername(): Promise<Attendee[] | null> {
+        return await Attendee.findAll({
+            where: {
+                githubUsername: {
+                    [Op.ne]: undefined
+                }
+            }
+        });
     }
 }
 
