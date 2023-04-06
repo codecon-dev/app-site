@@ -1,11 +1,23 @@
 @import 'styles/media-queries';
 
 .card {
-  @media #{$breakpoint-sm} {
-    margin-bottom: 10rem;
-
-    &:nth-child(3n) {
-      transform: translateY(10rem);
+    @media #{$breakpoint-sm} {
+        &:nth-child(3n) {
+            transform: translateY(10rem);
+        }
     }
-  }
+
+    .card_content {
+        position: relative;
+        opacity: 1;
+        transition: opacity 0.2s ease-in-out;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        @media #{$breakpoint-sm} {
+            opacity: 0.7;
+        }
+    }
 }

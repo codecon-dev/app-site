@@ -45,4 +45,5 @@ export type PropsSocial = {
 
 export type PropsSpeakerCard = {
     children: ReactNode;
+    href?: string;
 };

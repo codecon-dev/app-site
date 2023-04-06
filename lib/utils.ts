@@ -1,3 +1,5 @@
+import { NextRouter } from "next/router";
+
 export const createMarkup = (text: string) => {
     return { __html: text.replace(/(?:\r\n|\r|\n)/g, '<br>') };
 };
@@ -43,3 +45,9 @@ export const getLastPath = (pathname: string) => {
     const paths = pathname.split('/');
     return paths[paths.length - 1];
 };
+
+export const addBasePath = (router: NextRouter, path: string) => {
+    const event = router?.asPath?.split('/')[1] || '';
+    const eventPath = event ? `/${event}` : ''
+    return `${eventPath}${path}`;
+}

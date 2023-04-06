@@ -11,6 +11,9 @@ import {
     PropsTitle
 } from '@lib/types/speakers';
 import Link from 'next/link';
+import React from 'react';
+import { useRouter } from 'next/router';
+import { addBasePath } from '@lib/utils';
 
 const Title = ({ children }: PropsTitle) => {
     return (
@@ -20,18 +23,10 @@ const Title = ({ children }: PropsTitle) => {
     );
 };
 
-const Image = ({ href, src, alt, isHost, width = 600, height = 600, ...rest }: PropsImage) => {
+const Image = ({ src, alt, isHost, width = 600, height = 600, ...rest }: PropsImage) => {
     return (
         <div className={styles.image_wrapper} {...rest}>
-            {href ? (
-                <Link href={href}>
-                    <a>
-                        <NextImage src={src} alt={alt} layout="fill" objectFit="cover" />
-                    </a>
-                </Link>
-            ) : (
-                <NextImage src={src} alt={alt} width={width} height={height} layout="responsive" />
-            )}
+            <NextImage src={src} alt={alt} width={width} height={height} layout="responsive" />
             {isHost && <span className={styles.host}>Host</span>}
         </div>
     );
@@ -57,7 +52,7 @@ const Social = ({ data, horizontal }: PropsSocial) => {
                     return (
                         <li key={label}>
                             <a href={url}>
-                                <div>{Icon}</div>
+                                <div>{React.cloneElement(Icon, { color: 'black' })}</div>
                             </a>
                         </li>
                     );
@@ -67,11 +62,17 @@ const Social = ({ data, horizontal }: PropsSocial) => {
     );
 };
 
-const SpeakerCard = ({ children, ...rest }: PropsSpeakerCard) => {
+const SpeakerCard = ({ children, href = '', ...rest }: PropsSpeakerCard) => {
+    const router = useRouter();
+    const path = addBasePath(router, href);
     return (
-        <div className={styles.speaker_card} {...rest}>
-            {children}
-        </div>
+        <Link href={path}>
+            <a>
+                <div className={styles.speaker_card} {...rest}>
+                    {children}
+                </div>
+            </a>
+        </Link>
     );
 };
 

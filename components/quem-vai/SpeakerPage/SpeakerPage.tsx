@@ -36,9 +36,7 @@ export default function SpeakerPage({ speaker }: Props) {
                     <h1>{speaker.name}</h1>
                     <p className="headline">{speaker.company}</p>
 
-                    <SpeakerCard>
-                        <SpeakerCard.Social horizontal data={speakerSocial} />
-                    </SpeakerCard>
+                    <SpeakerCard.Social horizontal data={speakerSocial} />
                 </Column>
                 <Column lg={1} sm={0} xsm={0} />
                 <Column lg={4} sm={4} xsmOrder={1}>
