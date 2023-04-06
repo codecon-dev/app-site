@@ -100,7 +100,7 @@ export type OkPacket = {
 };
 
 export type GitHubOAuthData = {
-    id: string;
+    id?: string;
     name: string;
     login: string;
 };

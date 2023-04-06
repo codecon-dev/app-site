@@ -39,6 +39,10 @@ h1 {
     line-height: 1;
     margin-bottom: 1.5rem;
 
+    span {
+        color: var(--color-primary);
+    }
+
     @media #{$breakpoint-sm} {
         font-size: 3rem;
     }
@@ -101,7 +105,7 @@ h3 {
 p {
     font-size: 1rem;
     line-height: 1.5;
-    color: var(--color-ligth-gray);
+    color: var(--color-light-gray);
 
     & + p {
         margin-top: 1rem;

@@ -1,6 +1,12 @@
 import { MenuItem } from './types/all';
 
-type EventData = {
+export type EventData = {
+    title?: string;
+    subtitle?: string;
+    local?: string;
+    city?: string;
+    initialDate?: Date;
+    finalDate?: Date;
     homeUrl: string;
     siteName: string;
     shareImage: string;
@@ -35,6 +41,13 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
     switch (event) {
         case 'digital':
             eventData = {
+                title: 'Codecon Digital',
+                subtitle:
+                    'Um festival que reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.',
+                local: 'Online',
+                city: 'Gather Town',
+                initialDate: new Date('2023-06-22 00:00:00'),
+                finalDate: new Date('2023-06-23 00:00:00'),
                 homeUrl: '/digital',
                 siteName: 'Codecon Digital • Festival de código e tecnologia',
                 shareImage: 'https://codecon.dev/digital-share.png',
@@ -81,6 +94,12 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
             break;
         case 'summit':
             eventData = {
+                title: 'Codecon Summit',
+                subtitle:
+                    'O maior evento para pessoas programadoras de Santa Catarina, com grandes nomes nacionais.',
+                local: 'Campus Park',
+                city: 'Joinville, SC',
+                initialDate: new Date('2023-08-26 00:00:00'),
                 homeUrl: '/summit',
                 siteName: 'Codecon Summit • Inovação, tecnologia, experiências e muito código',
                 shareImage: 'https://codecon.dev/summit-share.png',
@@ -127,6 +146,12 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
             break;
         case 'feature':
             eventData = {
+                title: 'Codecon Feature',
+                subtitle:
+                    'Um evento de tecnologia para profissionais em cargos sênior ou superior.',
+                local: 'Hotel Faial Prime',
+                city: 'Floripa, SC',
+                initialDate: new Date('2023-10-28 00:00:00'),
                 homeUrl: '/feature',
                 siteName:
                     'Codecon Feature • Um evento de tecnologia para profissionais em cargos sênior+',

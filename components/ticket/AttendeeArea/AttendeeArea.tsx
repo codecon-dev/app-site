@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Image from 'next/image';
 import cn from 'classnames';
 import Attendee from 'src/database/model/Attendee';
@@ -9,10 +9,10 @@ import { GitHubOAuthData } from '@lib/types/all';
 
 import TheTicket from '../TheTicket';
 import Form from '../Form';
-
-import styles from './AttendeeArea.module.scss';
 import TicketActions from '../TicketActions';
 import TicketUrl from '../TicketUrl';
+
+import styles from './AttendeeArea.module.scss';
 
 type Props = {
     attendee: Attendee;
@@ -21,6 +21,12 @@ type Props = {
 export default function AttendeeArea({ attendee }: Props) {
     const theme = useContext(ThemeContext);
     const [githubData, setGithubData] = useState<GitHubOAuthData | undefined>();
+
+    useEffect(() => {
+        if (attendee.githubFullName && attendee.githubUsername) {
+            setGithubData({ login: attendee.githubUsername, name: attendee.githubFullName });
+        }
+    }, [attendee]);
 
     return (
         <section className={cn(styles.section, styles[`theme-${theme}`])}>

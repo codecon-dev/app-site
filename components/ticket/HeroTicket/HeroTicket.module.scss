@@ -1,0 +1,90 @@
+@import 'styles/media-queries';
+
+.only-mobile {
+    @media #{$breakpoint-lg} {
+        display: none;
+    }
+}
+
+.only-desktop {
+    display: none;
+
+    @media #{$breakpoint-lg} {
+        display: block;
+    }
+}
+
+.section {
+    margin: 0;
+    padding: 8rem 0 5rem;
+    text-align: center;
+
+    &.theme-digital {
+        background-image: url('/images/digital/hero/hero-digital.jpg');
+    }
+
+    &.theme-summit {
+        background-image: url('/images/summit/hero/hero-summit.jpg');
+    }
+
+    &.theme-feature {
+        background-image: url('/images/feature/hero/hero-feature.jpg');
+    }
+
+    @media #{$breakpoint-sm} {
+        text-align: left;
+        padding: 12rem 0 7rem;
+        text-align: left;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    h2 {
+        margin-bottom: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    @media #{$breakpoint-sm} {
+        padding-right: 2rem;
+    }
+}
+
+.date {
+    text-transform: uppercase;
+    color: var(--color-light-gray);
+    font-size: 0.85rem;
+
+    span {
+        color: var(--color-primary);
+    }
+
+    @media #{$breakpoint-sm} {
+        font-size: 1rem;
+    }
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+
+    @media #{$breakpoint-sm} {
+        flex-direction: row;
+    }
+}
+
+.ticket {
+    &-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+}

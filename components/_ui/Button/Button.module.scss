@@ -39,11 +39,11 @@
         }
 
         &:hover {
-            background-color: var(--color-ligth-gray);
+            background-color: var(--color-light-gray);
             transition: all 0.3s ease-in-out;
 
             .button__info {
-                color: var(--color-ligth-gray);
+                color: var(--color-light-gray);
                 transition: all 0.3s ease-in-out;
             }
         }

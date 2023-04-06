@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import cn from 'classnames';
 import { SITE_ORIGIN } from '@lib/constants';
 import { GitHubOAuthData } from '@lib/types/all';
@@ -21,6 +21,12 @@ export default function Form({ attendee, setGithubData }: Props) {
     const [username, setUsername] = useState('');
     const [formState, setFormState] = useState<FormState>('default');
     const [errorMsg, setErrorMsg] = useState('');
+
+    useEffect(() => {
+        if (attendee.githubFullName && attendee.githubUsername) {
+            setUsername(attendee.githubUsername);
+        }
+    }, [attendee]);
 
     const handleButtonClick = () => {
         if (formState !== 'default') {

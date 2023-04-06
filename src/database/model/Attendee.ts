@@ -23,13 +23,7 @@ class Attendee extends ModelImpl<Attendee> {
     }
 
     public static async findAllWithGithubUsername(): Promise<Attendee[] | null> {
-        return await Attendee.findAll({
-            where: {
-                githubUsername: {
-                    [Op.ne]: undefined
-                }
-            }
-        });
+        return await Attendee.findAll({ where: { githubUsername: { [Op.ne]: '' } } });
     }
 }
 

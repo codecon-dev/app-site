@@ -8,7 +8,7 @@
     --color-black: #000000;
     --color-dark-gray: #0e1116;
     --color-gray: #8b949e;
-    --color-ligth-gray: #caced2;
+    --color-light-gray: #caced2;
     --color-white: #ffffff;
     --color-black-60: rgba(0, 0, 0, 0.6);
     --color-black-40: rgba(0, 0, 0, 0.4);
@@ -88,7 +88,7 @@ section {
 
     h3 {
         margin-bottom: 2rem;
-        color: var(--color-ligth-gray);
+        color: var(--color-light-gray);
         font-weight: normal;
     }
 }
