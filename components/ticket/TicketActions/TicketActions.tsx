@@ -87,14 +87,6 @@ export default function TicketActions({ attendee }: Props) {
                     [styles.loading]: loading
                 })}
                 href={loading ? undefined : downloadUrl}
-                onClick={e => {
-                    if (imgReady) return;
-
-                    e.preventDefault();
-                    downloadLink.current = e.currentTarget;
-                    // Wait for the image download to finish
-                    setLoading(true);
-                }}
                 download="ticket.png"
             >
                 <InstagramIcon size={24} color="var(--color-black)" />

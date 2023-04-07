@@ -31,7 +31,7 @@ export default function OneInputForm({
                 className={styles.input}
                 placeholder={placeholder}
                 required
-            ></input>
+            />
             <button type="submit" disabled={isLoading || disableSubmit} className={styles.button}>
                 {isLoading ? 'Enviando...' : buttonText}
             </button>
