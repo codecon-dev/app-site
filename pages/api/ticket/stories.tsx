@@ -37,33 +37,33 @@ export default async function handler(req: NextApiRequest) {
             (
                 <div style={{ display: 'flex' }}>
                     <img
-                        width="1200"
-                        height="628"
-                        src={`https://codecon.dev/images/ticket/${parsedParams.event}-share.jpg?1`}
+                        width="1080"
+                        height="1920"
+                        src={`https://codecon.dev/images/ticket/${parsedParams.event}-stories.jpg`}
                         style={{
                             position: 'relative'
                         }}
                     />
                     <img
                         alt="avatar"
-                        width="80"
+                        width="115"
                         src={`https://github.com/${parsedParams.username}.png`}
                         style={{
                             borderRadius: 128,
                             position: 'absolute',
-                            left: 240,
-                            top: 180
+                            left: 320,
+                            top: 568
                         }}
                     />
                     <div
                         style={{
                             color: 'white',
-                            width: 500,
-                            fontSize: 37,
+                            width: 450,
+                            fontSize: 48,
                             fontFamily: 'SpaceGrotesk',
                             position: 'absolute',
-                            left: 342,
-                            top: 178
+                            left: 320,
+                            top: 706
                         }}
                     >
                         {`${parsedParams.name}`}
@@ -71,11 +71,11 @@ export default async function handler(req: NextApiRequest) {
                     <div
                         style={{
                             color: 'gray',
-                            width: 500,
-                            fontSize: 24,
+                            width: 450,
+                            fontSize: 35,
                             position: 'absolute',
-                            left: 342,
-                            top: 220
+                            left: 320,
+                            top: 770
                         }}
                     >
                         {`@${parsedParams.username}`}
@@ -83,13 +83,12 @@ export default async function handler(req: NextApiRequest) {
                     <div
                         style={{
                             color: 'black',
-                            fontSize: 47,
+                            fontSize: 76,
                             fontFamily: 'SpaceGrotesk',
                             width: 500,
                             position: 'absolute',
-                            left: 650,
-                            top: 150,
-                            transform: 'rotate(-90deg)'
+                            left: 370,
+                            top: 1445
                         }}
                     >
                         {`№ ${prefix}${parsedParams.ticketNumber}`}
@@ -97,8 +96,8 @@ export default async function handler(req: NextApiRequest) {
                 </div>
             ),
             {
-                width: 1200,
-                height: 628,
+                width: 1080,
+                height: 1920,
                 fonts: [
                     {
                         name: 'SpaceGrotesk',

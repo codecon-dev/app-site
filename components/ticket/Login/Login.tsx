@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useContext, FormEvent, useState } from 'react';
 import cn from 'classnames';
+import toast from 'react-hot-toast';
 
 import ThemeContext from 'context/ThemeContext';
 
@@ -22,22 +23,20 @@ export default function Login() {
     const theme = useContext(ThemeContext);
     const [status, setStatus] = useState(statusType.default);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
     const [order, setOrder] = useState('');
     const [email, setEmail] = useState('');
 
     async function handleGetOrder(e: FormEvent) {
         e.preventDefault();
 
-        setError(false);
         setLoading(true);
 
-        void (await fetch(`/api/sympla/${order}?theme=${theme}`, {
+        void (await fetch(`/api/sympla/${order}?event=${theme?.toUpperCase()}`, {
             method: 'GET'
         }).then(response => {
             if (!response.ok) {
                 setLoading(false);
-                setError(true);
+                toast.error('Eita! Pedido não encontrado.');
                 return;
             }
 
@@ -50,7 +49,6 @@ export default function Login() {
         e.preventDefault();
 
         setLoading(true);
-        setError(false);
 
         void (await fetch('/api/login/auth', {
             method: 'POST',
@@ -59,12 +57,13 @@ export default function Login() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                email
+                email,
+                order
             })
         }).then(response => {
             if (!response.ok) {
                 setLoading(false);
-                setError(true);
+                toast.error('Eita! Parece que esse não é o e-mail certo.');
                 return;
             }
 
@@ -94,6 +93,7 @@ export default function Login() {
                             Agora, informe seu e-mail <span>para continuar</span>
                         </h2>
                         <IllustrationMail />
+
                         <OneInputForm
                             isLoading={loading}
                             inputType="email"
@@ -102,12 +102,6 @@ export default function Login() {
                             placeholder="Seu e-mail de cadastro"
                             buttonText="Enviar link mágico"
                         />
-
-                        {error && (
-                            <p className={styles.error}>
-                                Eita! Parece que esse e-mail não tem cadastro.
-                            </p>
-                        )}
                     </div>
                 )}
 
@@ -129,7 +123,6 @@ export default function Login() {
                         <a onClick={e => setStatus(statusType.doubt)} className={styles.link}>
                             Não sei onde está meu código
                         </a>
-                        {error && <p className={styles.error}>Eita! Pedido não encontrado.</p>}
                     </div>
                 )}
 

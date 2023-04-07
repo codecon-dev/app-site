@@ -11,9 +11,6 @@ export default async function AuthController(req: NextApiRequest, res: NextApiRe
             case 'POST':
                 await sendMagicLink(req, res);
                 break;
-            case 'GET':
-                await login(req, res);
-                break;
             default:
                 ApiResponse.build(res, StatusCodes.BAD_REQUEST, 'Método não permitido');
         }
@@ -23,35 +20,22 @@ export default async function AuthController(req: NextApiRequest, res: NextApiRe
     }
 }
 
-async function login(req: NextApiRequest, res: NextApiResponse) {
-    const email = req.query.email?.toString();
-    const hash = req.query.hash?.toString();
-
-    if (!email || !hash) {
-        ApiResponse.build(res, StatusCodes.NOT_FOUND, 'Não encontrado.');
-        return;
-    }
-
-    const attendee: Attendee | null = await Attendee.findOne({ where: { email: email } });
-    if (!attendee) {
-        ApiResponse.build(
-            res,
-            StatusCodes.FORBIDDEN,
-            'Usuário não encontrado ou hash expirado. Tente novamente'
-        );
-
-        return;
-    }
-
-    await LoginLinkService.login(hash, res);
-
-    ApiResponse.build(res, StatusCodes.OK, 'Login realizado com sucesso');
-}
-
 async function sendMagicLink(req: NextApiRequest, res: NextApiResponse) {
     const email: string = req.body.email;
+    const order: string = req.body.order;
 
-    const emailSent = await LoginLinkService.sendMagicLink(email);
+    const attendee = await Attendee.findBySymplaId(order);
+
+    if (attendee?.email !== email) {
+        ApiResponse.build(
+            res,
+            StatusCodes.UNAUTHORIZED,
+            'Este não é o mesmo e-mail de compra no Sympla'
+        );
+        return;
+    }
+
+    const emailSent = await LoginLinkService.sendMagicLink(attendee.email, attendee.event);
 
     if (!emailSent) {
         ApiResponse.build(res, StatusCodes.UNAUTHORIZED, 'E-mail não está cadastrado');

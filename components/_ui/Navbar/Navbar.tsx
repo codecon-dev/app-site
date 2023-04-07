@@ -10,7 +10,7 @@ import MobileMenu from '@components/_ui/MobileMenu';
 
 import styles from './Navbar.module.scss';
 
-export default function Navbar() {
+export default function Navbar({ hideNavMenu }: { hideNavMenu: boolean }) {
     const theme = useContext(ThemeContext);
     const eventData = getEventData(theme);
     const router: NextRouter = useRouter();
@@ -37,19 +37,24 @@ export default function Navbar() {
                         <MobileMenu key={router.asPath} />
                     </div>
                     <div className={styles['header__navigation']}>
-                        <nav className={styles['nav']}>
-                            {eventData.menuNav.map(({ name, route }) => (
-                                <Link key={name} href={route}>
-                                    <span
-                                        className={cn(styles['nav__item'], {
-                                            [styles['nav__item--active']]: activeRoute === route
-                                        })}
-                                    >
-                                        {name}
-                                    </span>
-                                </Link>
-                            ))}
-                        </nav>
+                        {!hideNavMenu && (
+                            <>
+                                <nav className={styles['nav']}>
+                                    {eventData.menuNav.map(({ name, route }) => (
+                                        <Link key={name} href={route}>
+                                            <span
+                                                className={cn(styles['nav__item'], {
+                                                    [styles['nav__item--active']]:
+                                                        activeRoute === route
+                                                })}
+                                            >
+                                                {name}
+                                            </span>
+                                        </Link>
+                                    ))}
+                                </nav>
+                            </>
+                        )}
                         <nav className={cn(styles['nav'], styles['nav--attendee'])}>
                             {eventData.attendeeNav.map(({ name, route, type, target }) => (
                                 <Link

@@ -74,7 +74,11 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 ],
                 attendeeNav: [
                     {
-                        name: 'inscreva-se',
+                        name: 'Área do inscrito',
+                        route: '/digital/inscrito'
+                    },
+                    {
+                        name: 'Inscreva-se',
                         route: 'https://www.sympla.com.br/evento-online/codecon-digital-2023/1829527',
                         type: 'button',
                         target: '_blank'
@@ -125,6 +129,10 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                     }
                 ],
                 attendeeNav: [
+                    {
+                        name: 'Área do inscrito',
+                        route: '/summit/inscrito'
+                    },
                     {
                         name: 'inscreva-se',
                         route: 'https://www.sympla.com.br/evento/codecon-summit-2023/1829544',
@@ -178,6 +186,10 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                     }
                 ],
                 attendeeNav: [
+                    {
+                        name: 'Área do inscrito',
+                        route: '/feature/inscrito'
+                    },
                     {
                         name: 'inscreva-se',
                         route: 'https://www.sympla.com.br/evento/codecon-feature-2023/1829552',

@@ -29,6 +29,7 @@
         "@lottiefiles/react-lottie-player": "^3.4.7",
         "@material-ui/core": "^4.11.3",
         "@material-ui/icons": "^4.11.2",
+        "@sendgrid/mail": "^7.7.0",
         "@types/nodemailer": "^6.4.4",
         "@types/react-scroll": "^1.8.6",
         "@vercel/og": "^0.4.1",

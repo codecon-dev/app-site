@@ -25,6 +25,7 @@ type Props = {
     children: React.ReactNode;
     theme?: ThemeContextType;
     hideNav?: boolean;
+    hideNavMenu?: boolean;
     hideFooter?: boolean;
     noPadding?: boolean;
     sponsors?: Sponsor[];
@@ -37,7 +38,8 @@ export default function Page({
     hideNav,
     hideFooter,
     noPadding,
-    sponsors
+    sponsors,
+    hideNavMenu = false
 }: Props) {
     const eventData = getEventData(theme);
     const router = useRouter();
@@ -96,7 +98,7 @@ export default function Page({
                     </style>
                 </Head>
                 <Toaster />
-                {!hideNav && <Navbar />}
+                {!hideNav && <Navbar hideNavMenu={hideNavMenu} />}
                 <main>{children}</main>
                 {(!hideNav || !hideFooter) && <WhatsappFloatingButton />}
                 {!hideFooter && <Footer sponsors={sponsors} />}

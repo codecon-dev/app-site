@@ -41,7 +41,7 @@ export default function AttendeeArea({ attendee }: Props) {
                                 Para confirmar sua participação no sorteio, compartilhe nas redes
                                 sociais.
                             </p>
-                            <TicketActions username={githubData.login} ticketNumber={attendee.id} />
+                            <TicketActions attendee={attendee} />
                             <TicketUrl username={githubData.login} />
                         </div>
                     ) : (

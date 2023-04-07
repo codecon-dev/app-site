@@ -18,7 +18,7 @@ export default function Ticket({ isLogged, attendee }: Props) {
     };
 
     return (
-        <Page meta={meta} theme="digital" noPadding>
+        <Page meta={meta} theme="feature" noPadding>
             <Head>
                 <meta name="robots" content="noindex" />
             </Head>
@@ -28,7 +28,7 @@ export default function Ticket({ isLogged, attendee }: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
-    const hash: string = context.req.cookies.USERHASH;
+    const hash: string = context.req.cookies.USERHASHFEATURE;
 
     if (!hash) {
         return {

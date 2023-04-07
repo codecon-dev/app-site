@@ -28,7 +28,7 @@ function EventInfo({ attendee, eventData }: EventInfoProps) {
     return (
         <>
             <h2>
-                <span>{attendee.githubFullName}</span> estará na {title}
+                <span>{attendee.name}</span> estará na {title}
             </h2>
             <p className={styles.date}>
                 {local} <span>&bull;</span> {city} <span>&bull;</span>{' '}
@@ -52,7 +52,7 @@ export default function AttendeeArea({ attendee }: Props) {
     useEffect(() => {
         if (ticketRef.current && !window.matchMedia('(pointer: coarse)').matches) {
             Tilt.init(ticketRef.current, {
-                max: 20,
+                max: 10,
                 'full-page-listening': true
             });
         }

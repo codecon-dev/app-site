@@ -14,16 +14,16 @@ export default function Tickets({ attendee }: Props) {
         name: attendee.githubFullName,
         username: attendee.githubUsername,
         ticketNumber: attendee.id,
-        event: 'digital'
+        event: 'summit'
     };
 
     const meta = {
-        title: `${attendee.name} estará na Codecon Digital`,
+        title: `${attendee.name} estará na Codecon Summit`,
         image: `/api/ticket/image?params=${btoa(JSON.stringify(params))}`
     };
 
     return (
-        <Page theme="digital" meta={meta} noPadding hideNavMenu>
+        <Page theme="summit" meta={meta} noPadding hideNavMenu>
             <HeroTicket attendee={attendee} />
         </Page>
     );
@@ -31,7 +31,7 @@ export default function Tickets({ attendee }: Props) {
 
 export const getStaticProps: GetStaticProps<any> = async ({ params }) => {
     const user = params?.user;
-    const attendee = await Attendee.findByGithubUsernameAndEvent(user as string, 'DIGITAL');
+    const attendee = await Attendee.findByGithubUsernameAndEvent(user as string, 'SUMMIT');
 
     if (!attendee) {
         return {

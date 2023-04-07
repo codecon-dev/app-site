@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import cn from 'classnames';
 import { SITE_ORIGIN } from '@lib/constants';
 import { GitHubOAuthData } from '@lib/types/all';
 import Attendee from 'src/database/model/Attendee';
+import ThemeContext from 'context/ThemeContext';
 
 import styles from './Form.module.scss';
 import IconGithub from '@components/_ui/Icons/icon-github';
@@ -18,6 +19,7 @@ type Props = {
 const githubEnabled = Boolean(process.env.NEXT_PUBLIC_GITHUB_OAUTH_CLIENT_ID);
 
 export default function Form({ attendee, setGithubData }: Props) {
+    const theme = useContext(ThemeContext);
     const [username, setUsername] = useState('');
     const [formState, setFormState] = useState<FormState>('default');
     const [errorMsg, setErrorMsg] = useState('');
@@ -110,7 +112,7 @@ export default function Form({ attendee, setGithubData }: Props) {
                 new Image().src = `https://github.com/${usernameFromResponse}.png`;
 
                 // Prefetch the twitter share URL to eagerly generate the page
-                fetch(`/tickets/${usernameFromResponse}`).catch(_ => {});
+                fetch(`/${theme}/tickets/${usernameFromResponse}`).catch(_ => {});
             })
             .catch(() => {
                 setFormState('error');

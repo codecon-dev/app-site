@@ -1,29 +1,39 @@
 import { useState, useRef, useEffect, useContext } from 'react';
 import cn from 'classnames';
 
+import Attendee from 'src/database/model/Attendee';
 import ThemeContext from 'context/ThemeContext';
 import { SITE_URL } from '@lib/constants';
 import IconTwitter from '@components/_ui/Icons/icon-twitter';
 import LinkedinIcon from '@components/_ui/Icons/icon-linkedin';
-import styles from './TicketActions.module.scss';
 import Whatsapp from '@components/_ui/Icons/icon-whatsapp';
+import InstagramIcon from '@components/_ui/Icons/icon-instagram';
+
+import styles from './TicketActions.module.scss';
 
 type Props = {
-    username: string;
-    ticketNumber: number | undefined;
+    attendee: Attendee;
 };
 
-export default function TicketActions({ username, ticketNumber }: Props) {
+export default function TicketActions({ attendee }: Props) {
     const theme = useContext(ThemeContext);
     const [imgReady, setImgReady] = useState(false);
     const [loading, setLoading] = useState(false);
     const downloadLink = useRef<HTMLAnchorElement>();
-    const permalink = encodeURIComponent(`${SITE_URL}/${theme}/tickets/${username}`);
+    const permalink = encodeURIComponent(`${SITE_URL}/${theme}/tickets/${attendee.githubUsername}`);
     const tweetUrl = `https://twitter.com/intent/tweet?url=${permalink}&via=codecondev&text=Já garanti minha inscrição!`;
     const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${permalink}`;
     const whatsappText = encodeURIComponent('Já garanti minha inscrição!');
     const whatsappUrl = `https://wa.me/?text=${whatsappText} ${permalink}`;
-    const downloadUrl = `/api/ticket-images/${ticketNumber}?theme=${theme}&format=stories`;
+
+    const params = {
+        name: attendee.githubFullName,
+        username: attendee.githubUsername,
+        ticketNumber: attendee.id,
+        event: 'digital'
+    };
+
+    const downloadUrl = `/api/ticket/stories/?params=${btoa(JSON.stringify(params))}`;
 
     useEffect(() => {
         setImgReady(false);
@@ -73,7 +83,7 @@ export default function TicketActions({ username, ticketNumber }: Props) {
                 <Whatsapp size={24} color="var(--color-black)" />
             </a>
             <a
-                className={cn(styles.button, styles.download, {
+                className={cn(styles.button, {
                     [styles.loading]: loading
                 })}
                 href={loading ? undefined : downloadUrl}
@@ -87,7 +97,7 @@ export default function TicketActions({ username, ticketNumber }: Props) {
                 }}
                 download="ticket.png"
             >
-                Download
+                <InstagramIcon size={24} color="var(--color-black)" />
             </a>
         </div>
     );

@@ -10,11 +10,11 @@ export default function TicketHash() {
     };
 
     useEffect(() => {
-        location.href = '/digital/ticket';
+        location.href = '/digital/inscrito';
     });
 
     return (
-        <Page meta={meta}>
+        <Page meta={meta} hideNav hideFooter>
             <p style={{ textAlign: 'center', margin: '5em' }}>Redirecionando...</p>
         </Page>
     );
@@ -30,7 +30,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
         };
     }
 
-    await LoginLinkService.login(hash.toString(), res);
+    await LoginLinkService.login(hash.toString(), 'DIGITAL', res);
 
     return {
         props: {}
