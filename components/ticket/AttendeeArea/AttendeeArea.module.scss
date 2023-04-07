@@ -3,6 +3,8 @@
 .section {
     margin: 0;
     padding: 8rem 0 5rem;
+    background-position: center;
+    background-size: cover;
 
     &.theme-digital {
         background-image: url('/images/digital/hero/hero-digital.jpg');
