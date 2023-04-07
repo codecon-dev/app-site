@@ -72,9 +72,7 @@ export default function AttendeeArea({ attendee }: Props) {
                             <LinkButton href={registerUrl} info={eventPrice}>
                                 Inscreva-se
                             </LinkButton>
-                            <Link href={homeUrl}>
-                                <a>Saiba mais</a>
-                            </Link>
+                            <Link href={homeUrl}>Saiba mais</Link>
                         </div>
                     </div>
                 </Column>

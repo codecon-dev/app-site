@@ -21,7 +21,7 @@ export default function SponsorsGrid({ sponsors }: Props) {
                 {sponsors.map(sponsor => (
                     <Column lg={4} sm={4} key={sponsor.slug}>
                         <Link href={`${eventPath}/patrocinadores/${sponsor.slug}`}>
-                            <a
+                            <span
                                 className={styles.sponsor}
                                 style={{ backgroundColor: sponsor.color.hex }}
                             >
@@ -31,7 +31,7 @@ export default function SponsorsGrid({ sponsors }: Props) {
                                     height={250}
                                     alt={sponsor.name}
                                 />
-                            </a>
+                            </span>
                         </Link>
                     </Column>
                 ))}

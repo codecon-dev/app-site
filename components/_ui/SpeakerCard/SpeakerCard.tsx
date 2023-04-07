@@ -67,11 +67,9 @@ const SpeakerCard = ({ children, href = '', ...rest }: PropsSpeakerCard) => {
     const path = addBasePath(router, href);
     return (
         <Link href={path}>
-            <a>
-                <div className={styles.speaker_card} {...rest}>
-                    {children}
-                </div>
-            </a>
+            <div className={styles.speaker_card} {...rest}>
+                {children}
+            </div>
         </Link>
     );
 };

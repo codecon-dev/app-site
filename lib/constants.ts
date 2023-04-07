@@ -132,7 +132,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                         target: '_blank'
                     }
                 ],
-                eventPrice: 99,
+                eventPrice: 129,
                 colors: {
                     primary: '#8800FF',
                     primaryDark: '#280075',

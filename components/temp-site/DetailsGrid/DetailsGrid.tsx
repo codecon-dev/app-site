@@ -9,16 +9,14 @@ export default function DetailsGrid() {
     return (
         <section>
             <div className={cn('container', styles.grid)}>
-                <Link href="/digital">
-                    <a className={cn(styles.block, styles.digital)}>
-                        <IconLogo theme="digital" width={192} />
-                        <p>
-                            <strong>22 e 23 de junho de 2023</strong>
-                            <br />
-                            Numa cidade medieval no Gather.
-                        </p>
-                        <p>Ingressos disponíveis.</p>
-                    </a>
+                <Link href="/digital" className={cn(styles.block, styles.digital)}>
+                    <IconLogo theme="digital" width={192} />
+                    <p>
+                        <strong>22 e 23 de junho de 2023</strong>
+                        <br />
+                        Numa cidade medieval no Gather.
+                    </p>
+                    <p>Ingressos disponíveis.</p>
                 </Link>
                 <a
                     href="https://tally.so/r/w8NDPA"
@@ -29,16 +27,14 @@ export default function DetailsGrid() {
                     <h3>Call4papers Codecon Digital</h3>
                     <p>Envie sua sugestão de palestra.</p>
                 </a>
-                <Link href="/summit">
-                    <a className={cn(styles.block, styles.summit)}>
-                        <IconLogo theme="summit" width={215} />
-                        <p>
-                            <strong>26 de agosto de 2023</strong>
-                            <br />
-                            Presencial em Joinville, SC
-                        </p>
-                        <p>Ingressos early bird disponíveis.</p>
-                    </a>
+                <Link href="/summit" className={cn(styles.block, styles.summit)}>
+                    <IconLogo theme="summit" width={215} />
+                    <p>
+                        <strong>26 de agosto de 2023</strong>
+                        <br />
+                        Presencial em Joinville, SC
+                    </p>
+                    <p>Ingressos early bird disponíveis.</p>
                 </Link>
                 <a
                     href="https://tally.so/r/w5X0GM"
@@ -49,16 +45,14 @@ export default function DetailsGrid() {
                     <h3>Call4papers Codecon Summit</h3>
                     <p>Envie sua sugestão de palestra.</p>
                 </a>
-                <Link href="/feature">
-                    <a className={cn(styles.block, styles.feature)}>
-                        <IconLogo theme="feature" width={213} />
-                        <p>
-                            <strong>28 de outubro de 2023</strong>
-                            <br />
-                            Evento para profissionais sênior ou cargos superiores em Floripa, SC
-                        </p>
-                        <p>Ingressos early bird disponíveis.</p>
-                    </a>
+                <Link href="/feature" className={cn(styles.block, styles.feature)}>
+                    <IconLogo theme="feature" width={213} />
+                    <p>
+                        <strong>28 de outubro de 2023</strong>
+                        <br />
+                        Evento para profissionais sênior ou cargos superiores em Floripa, SC
+                    </p>
+                    <p>Ingressos early bird disponíveis.</p>
                 </Link>
                 <a
                     href="https://www.umapenca.com/dvlpr/"

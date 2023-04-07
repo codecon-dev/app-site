@@ -7,10 +7,10 @@ import WhatsappIcon from '@components/_ui/Icons/icon-whatsapp';
 
 export default function WhatsappFloatingButton() {
     return (
-        <Link href={WHATSAPP_LINK}>
-            <a target="_blank" rel="noopener noreferrer" className={styles.whatsapp_button}>
+        <Link href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+            <span className={styles.whatsapp_button}>
                 <WhatsappIcon size={24} />
-            </a>
+            </span>
         </Link>
     );
 }

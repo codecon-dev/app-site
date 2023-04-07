@@ -40,7 +40,7 @@ export default function ComoFunciona() {
                     seu e-mail e cada resgate dará pontos específicos para cada código: alguns valem
                     mais; outros, menos. Os pontos serão contados para o{' '}
                     <Link href="/game/code-codes">
-                        <a className="link">ranking do code-codes</a>
+                        <span className="link">ranking do code-codes</span>
                     </Link>
                     , onde os 10 primeiros colocados ganham prêmios.
                 </p>

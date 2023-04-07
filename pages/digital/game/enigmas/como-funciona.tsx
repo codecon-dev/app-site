@@ -25,7 +25,7 @@ export default function ComoFunciona() {
                 <p>
                     Cada resposta certa dará um ponto no{' '}
                     <Link href="/game/enigmas">
-                        <a className="link">ranking dos enigmas</a>
+                        <span className="link">ranking dos enigmas</span>
                     </Link>
                     : os 10 primeiros colocados desse ranking ganham prêmios. Toda vez que você
                     acertar um enigma, você também ganhará automaticamente 319 pontos (o número de
