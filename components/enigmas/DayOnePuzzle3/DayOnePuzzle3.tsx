@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function DayOnePuzzle3() {
     return (
         <PuzzleLayout>
-            <Image src="/images/enigmas/3.png" width={821} height={640} quality={100} />
+            <Image alt="" src="/images/enigmas/3.png" width={821} height={640} quality={100} />
         </PuzzleLayout>
     );
 }

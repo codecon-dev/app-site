@@ -6,7 +6,7 @@ import styles from './DayOnePuzzle8.module.scss';
 export default function DayOnePuzzle8() {
     return (
         <PuzzleLayout bgStyle={styles.bg}>
-            <Image src="/images/enigmas/8.png" width={834} height={532} quality={100} />
+            <Image alt="" src="/images/enigmas/8.png" width={834} height={532} quality={100} />
         </PuzzleLayout>
     );
 }

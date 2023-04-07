@@ -66,7 +66,7 @@ export default function Finish() {
     return (
         <section>
             <div className="container">
-                <Image src="/animations/sati.webp" width={241} height={170} />
+                <Image alt="" src="/animations/sati.webp" width={241} height={170} />
                 <br />
                 <br />
 

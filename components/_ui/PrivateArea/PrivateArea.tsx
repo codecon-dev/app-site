@@ -96,7 +96,7 @@ export default function PrivateArea({ children }: Props) {
                 <h3>Faça login para continuar</h3>
 
                 <div className={styles.form}>
-                    <Image src="/icons/locked.svg" width={100} height={100} />
+                    <Image src="/icons/locked.svg" width={100} height={100} alt="" />
                     <OneInputForm
                         handleSubmit={handleSubmit}
                         handleInputChange={event => setEmail(event.target.value)}

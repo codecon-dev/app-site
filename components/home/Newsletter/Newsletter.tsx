@@ -15,7 +15,7 @@ export default function Newsletter() {
                 <Column lg={3} sm={1} xsm={0} />
                 <Column lg={1} sm={2} xsm={0}>
                     <div className={styles['image__wrapper']}>
-                        <Image src="/icons/mail.svg" width={48} height={48} />
+                        <Image alt="" src="/icons/mail.svg" width={48} height={48} />
                     </div>
                 </Column>
             </Grid>

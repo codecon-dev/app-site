@@ -54,6 +54,7 @@ export default function AttendeeArea({ attendee }: Props) {
                                 É só gerar seu ticket e compartilhar nas redes sociais.
                             </p>
                             <Image
+                                alt=""
                                 src="/images/ticket/kit-codecon.png"
                                 width={497}
                                 height={212}

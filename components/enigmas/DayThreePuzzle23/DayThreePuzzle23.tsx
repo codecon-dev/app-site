@@ -20,7 +20,7 @@ export default function DayThreePuzzle23() {
                     onMouseOver={() => setImageSrc('/images/enigmas/23-15.png')}
                     onMouseOut={() => setImageSrc('/images/enigmas/23.png')}
                 />
-                <Image src={imageSrc} width={945} height={672} quality={100} />
+                <Image alt="" src={imageSrc} width={945} height={672} quality={100} />
             </div>
         </PuzzleLayout>
     );

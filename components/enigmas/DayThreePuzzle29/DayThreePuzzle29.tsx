@@ -11,7 +11,7 @@ export default function DayThreePuzzle29() {
         <PuzzleLayout bgStyle={styles.bg}>
             {showModal && (
                 <div className={styles.modal}>
-                    <Image src="/images/enigmas/29-2.png" width={90} height={90} />
+                    <Image alt="" src="/images/enigmas/29-2.png" width={90} height={90} />
                     <h3>Modo de usar</h3>
                     <p>
                         Preferência para contextos de programação orientada. Destinada a proteger

@@ -66,7 +66,7 @@ export default function DetailsGrid() {
                     rel="noreferrer noopener"
                     className={cn(styles.block, styles.dvlpr)}
                 >
-                    <Image src="/images/dvlpr.svg" width={87} height={21} />
+                    <Image alt="" src="/images/dvlpr.svg" width={87} height={21} />
                     <h3>Camisetas exclusivas</h3>
                     <p>Com a qualidade Chico Rei.</p>
                 </a>
@@ -76,7 +76,7 @@ export default function DetailsGrid() {
                     rel="noreferrer noopener"
                     className={cn(styles.block, styles.newsletter)}
                 >
-                    <Image src="/images/code-weekly.png" width={200} height={27} />
+                    <Image alt="" src="/images/code-weekly.png" width={200} height={27} />
                     <h3>Nossa newsletter</h3>
                     <p>A melhor e única curadoria de links e artigos que você vai precisar.</p>
                 </a>

@@ -20,10 +20,11 @@ export default function DayOnePuzzle2() {
         <PuzzleLayout bgStyle={styles.bg}>
             <div className={styles.container}>
                 <div className={styles.book}>
-                    <Image src="/images/enigmas/2.png" width={744} height={467} />
+                    <Image alt="" src="/images/enigmas/2.png" width={744} height={467} />
                 </div>
                 <div className={styles.mug}>
                     <Image
+                        alt=""
                         onMouseOver={handleMouseOver}
                         onMouseOut={handleMouseOut}
                         src={mugImage}

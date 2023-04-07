@@ -40,6 +40,7 @@ export default function About() {
                     </p>
                     <div className={styles['image__mobile']}>
                         <Image
+                            alt=""
                             src="/images/gather.png"
                             width={479}
                             height={218}

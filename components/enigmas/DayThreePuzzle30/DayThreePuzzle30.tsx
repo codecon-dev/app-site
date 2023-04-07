@@ -24,6 +24,7 @@ export default function DayThreePuzzle30() {
             <div className={styles.text}>
                 <p>usual way on a</p>
                 <Image
+                    alt=""
                     onMouseOver={handleMouseOver}
                     onMouseOut={handleMouseOut}
                     src="/images/enigmas/30.png"
