@@ -1,4 +1,5 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
+import { useRouter } from 'next/router';
 
 import Page from '@components/_ui/Page';
 import Attendee from 'src/database/model/Attendee';
@@ -10,6 +11,12 @@ type Props = {
 };
 
 export default function Tickets({ attendee }: Props) {
+    const router = useRouter();
+
+    if (router.isFallback) {
+        return <div>Carregando...</div>;
+    }
+
     const params = {
         name: attendee.githubFullName,
         username: attendee.githubUsername,
@@ -67,6 +74,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     return {
         paths,
-        fallback: false
+        fallback: true
     };
 };
