@@ -80,8 +80,9 @@ export default function Login() {
                         <h2>
                             Te enviamos um ✨link mágico✨. <span>Verifique seu e-mail!</span>
                         </h2>
-                        <IllustrationMagic />
-                        <br />
+                        <div className={styles.illustration}>
+                            <IllustrationMagic />
+                        </div>
                         <br />
                         <p>É só clicar no link enviado para autenticar.</p>
                     </div>
@@ -90,9 +91,11 @@ export default function Login() {
                 {status === statusType.orderOk && (
                     <div className={styles.formContainer}>
                         <h2>
-                            Agora, informe seu e-mail <span>para continuar</span>
+                            Agora, informe seu email <span>para continuar</span>
                         </h2>
-                        <IllustrationMail />
+                        <div className={styles.illustration}>
+                            <IllustrationMail />
+                        </div>
 
                         <OneInputForm
                             isLoading={loading}
@@ -111,7 +114,9 @@ export default function Login() {
                             Informe o código do seu pedido do{' '}
                             <span>Sympla para importar seus dados</span>
                         </h2>
-                        <IllustrationSympla />
+                        <div className={styles.illustration}>
+                            <IllustrationSympla />
+                        </div>
                         <OneInputForm
                             isLoading={loading}
                             handleInputChange={e => setOrder(e.target.value)}

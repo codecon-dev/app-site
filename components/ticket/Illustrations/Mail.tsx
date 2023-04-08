@@ -1,12 +1,6 @@
 export default function IllustationMail() {
     return (
-        <svg
-            width="234"
-            height="221"
-            viewBox="0 0 234 221"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="234" viewBox="0 0 234 221" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M0.737061 89.7225H233.5V172.113C233.5 198.494 212.114 219.88 185.733 219.88H48.504C22.1231 219.88 0.737061 198.494 0.737061 172.113V89.7225Z"
                 fill="url(#paint0_linear_2336_1768)"

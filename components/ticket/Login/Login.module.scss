@@ -34,7 +34,19 @@
     text-align: center;
 
     h2 {
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
+
+        @media #{$breakpoint-sm} {
+            margin-bottom: 3rem;
+        }
+    }
+}
+
+.illustration {
+    max-width: 50%;
+
+    @media #{$breakpoint-sm} {
+        max-width: 100%;
     }
 }
 
