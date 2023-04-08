@@ -10,7 +10,7 @@
     text-align: center;
 
     @media #{$breakpoint-sm} {
-        padding: 15rem 0 10rem;
+        padding: 12rem 0 8rem;
         text-align: left;
     }
 
@@ -32,21 +32,36 @@
 .title {
     font-family: var(--heading-font-face);
     text-transform: var(--heading-text-transform);
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     position: relative;
     z-index: 1;
 
     @media #{$breakpoint-sm} {
-        font-size: 4rem;
+        font-size: 3rem;
         width: 70%;
     }
 
     @media #{$breakpoint-lg} {
-        font-size: 6rem;
+        font-size: 4rem;
     }
 
     span {
         color: var(--color-primary);
+    }
+}
+
+.date {
+    text-transform: uppercase;
+    color: var(--color-white);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+
+    span {
+        color: var(--color-primary);
+    }
+
+    @media #{$breakpoint-sm} {
+        font-size: 1rem;
     }
 }
 

@@ -206,7 +206,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 subtitle:
                     'Um evento de tecnologia para profissionais em cargos sênior ou superior.',
                 local: 'Hotel Faial Prime',
-                city: 'Floripa, SC',
+                city: 'Florianópolis, SC',
                 initialDate: new Date('2023-10-28 00:00:00'),
                 homeUrl: '/feature',
                 siteName:

@@ -20,7 +20,7 @@ export default function Conf({ speakers, sponsors }: Props) {
             <HeroSummit />
             <Blocks>
                 <Blocks.Title>
-                    Inovação, tecnologia, experiências e <span>muito código</span>
+                    <span>Do it for you.</span> Do it by code.
                 </Blocks.Title>
                 <Blocks.Countdown
                     message="Garanta sua vaga!"
@@ -51,7 +51,7 @@ export default function Conf({ speakers, sponsors }: Props) {
                     description="Um espaço que respira inovação e tecnologia."
                 />
                 <Blocks.Block lg={3} sm={4} backgroundImage="/images/summit/foto-2.jpg" />
-                {/* <Blocks.Video code="M51w8zk3QuQ" />*/}
+                <Blocks.Video code="NCuwtYQjsjs" />
             </Blocks>
             {/* <Speakers speakers={speakers}>
                     Os principais nomes do mercado tech em <span>painéis</span>, <span>palestras</span>{' '}

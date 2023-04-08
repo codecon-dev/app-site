@@ -51,7 +51,7 @@ export default function Conf({ speakers, sponsors }: Props) {
                     title="Networking"
                     description="Converse com outras devas, devs e patrocinadores."
                 />
-                {/* <Blocks.Video code="M51w8zk3QuQ" />*/}
+                <Blocks.Video code="EiUiLA2gV0I" />
             </Blocks>
             {/* <Speakers speakers={speakers}>
                     Os principais nomes do mercado tech em <span>painéis</span>, <span>palestras</span>{' '}

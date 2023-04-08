@@ -10,7 +10,7 @@
     text-align: center;
 
     @media #{$breakpoint-sm} {
-        padding: 20rem 0 15rem;
+        padding: 15rem 0 12rem;
         text-align: left;
     }
 
@@ -38,15 +38,32 @@
     z-index: 1;
 
     @media #{$breakpoint-sm} {
-        font-size: 3rem;
+        font-size: 2.8rem;
+        width: 60%;
     }
 
     @media #{$breakpoint-lg} {
-        font-size: 4.7rem;
+        font-size: 4.5rem;
+        width: 70%;
     }
 
     span {
         color: var(--color-primary);
+    }
+}
+
+.date {
+    text-transform: uppercase;
+    color: var(--color-white);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+
+    span {
+        color: var(--color-primary);
+    }
+
+    @media #{$breakpoint-sm} {
+        font-size: 1rem;
     }
 }
 

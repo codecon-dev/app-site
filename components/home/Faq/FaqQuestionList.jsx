@@ -163,20 +163,17 @@ export const faqQuestionListFeature = [
         question: 'O que é a Codecon Feature?',
         answer: (
             <>
-                <p>
-                    Um evento direcionado a pessoas desenvolvedoras em cargos sênior ou superiores
-                    que desejam crescimento profissional e sair da inércia, trazendo discussões para
-                    aprendizagem e inspiração em temas relacionados a equipe, processo, tecnologia e
-                    desenvolvimento pessoal.
-                </p>
-
-                <p>
-                    Mentorias, atividades e painéis com nomes de referência tanto da comunidade tech
-                    como fora dela, pois entendemos que o desenvolvimento profissional vai além dos
-                    conteúdos técnicos e ferramentas de gerenciamento, é necessário desenvolver
-                    habilidades e competências necessárias para liderar ou manter-se em evolução
-                    diante dos desafios atuais e das tendências futuras.
-                </p>
+                Um evento direcionado a pessoas desenvolvedoras em cargos sênior ou superiores que
+                desejam crescimento profissional e sair da inércia, trazendo discussões para
+                aprendizagem e inspiração em temas relacionados a equipe, processo, tecnologia e
+                desenvolvimento pessoal.
+                <br />
+                <br />
+                Mentorias, atividades e painéis com nomes de referência tanto da comunidade tech
+                como fora dela, pois entendemos que o desenvolvimento profissional vai além dos
+                conteúdos técnicos e ferramentas de gerenciamento, é necessário desenvolver
+                habilidades e competências necessárias para liderar ou manter-se em evolução diante
+                dos desafios atuais e das tendências futuras.
             </>
         )
     },

@@ -20,7 +20,7 @@ export default function Conf({ speakers, sponsors }: Props) {
             <HeroFeature />
             <Blocks>
                 <Blocks.Title>
-                    Um evento de tecnologia para profissionais em cargos <span>sênior+</span>
+                    <span>Encode the present,</span> decode the future.
                 </Blocks.Title>
                 <Blocks.Countdown
                     message="São poucas vagas!"
@@ -37,7 +37,7 @@ export default function Conf({ speakers, sponsors }: Props) {
                     title="Uma desconferência"
                     description="O evento será repleto de sessões e workshops onde todos podem trazer problemas que enfrentam e todos tem locais de fala."
                 />
-                {/* <Blocks.Video code="M51w8zk3QuQ" />*/}
+                <Blocks.Video code="fayuZX9FaF8" />
             </Blocks>
             {/* <Speakers speakers={speakers}>
                     Os principais nomes do mercado tech em <span>painéis</span>, <span>palestras</span>{' '}

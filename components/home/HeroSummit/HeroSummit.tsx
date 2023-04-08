@@ -10,6 +10,7 @@ import { getEventData, getActiveEventPrice } from '@lib/constants';
 
 export default function HeroSummit() {
     const eventData = getEventData('summit');
+    const { local, city, initialDate, finalDate } = eventData;
 
     useEffect(() => {
         document.addEventListener('mousemove', event => {
@@ -41,10 +42,20 @@ export default function HeroSummit() {
 
             <div className={styles['header-wrapper']}>
                 <h1 className={styles.title}>
-                    <span>Do it for you.</span>
+                    Um festival <span>de programação</span>
                     <br />
-                    Do it by code.
+                    com muitas experiências
                 </h1>
+                <p className={styles.date}>
+                    {local} <span>&bull;</span> {city} <span>&bull;</span>{' '}
+                    {initialDate && initialDate.getDate()} {finalDate && `e ${finalDate.getDate()}`}{' '}
+                    de{' '}
+                    {initialDate &&
+                        initialDate.toLocaleString('pt-BR', {
+                            month: 'long',
+                            timeZone: 'America/Sao_Paulo'
+                        })}
+                </p>
             </div>
             <div className={cn(styles['header-wrapper'], styles.button)}>
                 {getActiveEventPrice(eventData) && (
