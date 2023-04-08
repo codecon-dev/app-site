@@ -31,7 +31,7 @@
 
 .title {
     font-family: var(--heading-font-face);
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     position: relative;
     z-index: 1;
 
@@ -41,11 +41,26 @@
     }
 
     @media #{$breakpoint-lg} {
-        font-size: 6rem;
+        font-size: 4.25rem;
     }
 
     span {
         color: var(--color-primary);
+    }
+}
+
+.date {
+    text-transform: uppercase;
+    color: var(--color-light-gray);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+
+    span {
+        color: var(--color-primary);
+    }
+
+    @media #{$breakpoint-sm} {
+        font-size: 1rem;
     }
 }
 

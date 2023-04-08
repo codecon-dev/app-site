@@ -7,7 +7,7 @@ import Page from '@components/_ui/Page';
 import Header from '@components/_ui/Header';
 import LinkButton from '@components/_ui/LinkButton';
 import Info from '@components/como-sera/Info';
-import { getEventData } from '@lib/constants';
+import { getEventData, getActiveEventPrice } from '@lib/constants';
 
 type Props = {
     sponsors: Sponsor[];
@@ -41,9 +41,11 @@ export default function ComoFunciona({ sponsors }: Props) {
                 <Info.Image src="/images/summit/todas-linguagens.jpg" />
             </Info>
             <section className="text-center">
-                <LinkButton href={eventData.registerUrl} info={eventData.eventPrice}>
-                    Inscreva-se
-                </LinkButton>
+                {getActiveEventPrice(eventData) && (
+                    <LinkButton href={eventData.registerUrl} info={getActiveEventPrice(eventData)}>
+                        Inscreva-se
+                    </LinkButton>
+                )}
             </section>
             <Info>
                 <Info.Image src="/images/summit/cookies.jpg" />

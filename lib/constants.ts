@@ -1,5 +1,11 @@
 import { MenuItem } from './types/all';
 
+type EventPrice = {
+    name: string;
+    price: number;
+    endDate: Date;
+};
+
 export type EventData = {
     title?: string;
     subtitle?: string;
@@ -14,7 +20,7 @@ export type EventData = {
     registerUrl: string;
     menuNav: MenuItem[];
     attendeeNav: MenuItem[];
-    eventPrice: number;
+    eventPrice?: EventPrice[] | EventPrice;
     colors: {
         primary: string;
         primaryDark: string;
@@ -84,7 +90,28 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                         target: '_blank'
                     }
                 ],
-                eventPrice: 39,
+                eventPrice: [
+                    {
+                        name: 'Early bird',
+                        price: 19,
+                        endDate: new Date('2023-03-01 18:00:00')
+                    },
+                    {
+                        name: '1º lote',
+                        price: 39,
+                        endDate: new Date('2023-04-27 18:00:00')
+                    },
+                    {
+                        name: '2º lote',
+                        price: 49,
+                        endDate: new Date('2023-06-05 18:00:00')
+                    },
+                    {
+                        name: '3º lote',
+                        price: 59,
+                        endDate: new Date('2023-06-22 13:00:00')
+                    }
+                ],
                 colors: {
                     primary: '#45E27F',
                     primaryDark: '#006C68',
@@ -140,7 +167,28 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                         target: '_blank'
                     }
                 ],
-                eventPrice: 129,
+                eventPrice: [
+                    {
+                        name: 'Early bird',
+                        price: 99,
+                        endDate: new Date('2023-04-05 18:00:00')
+                    },
+                    {
+                        name: '1º lote',
+                        price: 129,
+                        endDate: new Date('2023-06-26 18:00:00')
+                    },
+                    {
+                        name: '2º lote',
+                        price: 159,
+                        endDate: new Date('2023-08-10 18:00:00')
+                    },
+                    {
+                        name: '3º lote',
+                        price: 199,
+                        endDate: new Date('2023-08-25 18:00:00')
+                    }
+                ],
                 colors: {
                     primary: '#8800FF',
                     primaryDark: '#280075',
@@ -197,7 +245,23 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                         target: '_blank'
                     }
                 ],
-                eventPrice: 890,
+                eventPrice: [
+                    {
+                        name: 'Early bird',
+                        price: 890,
+                        endDate: new Date('2023-05-25 18:00:00')
+                    },
+                    {
+                        name: '1º lote',
+                        price: 1290,
+                        endDate: new Date('2023-09-01 18:00:00')
+                    },
+                    {
+                        name: '2º lote',
+                        price: 1490,
+                        endDate: new Date('2023-10-27 18:00:00')
+                    }
+                ],
                 colors: {
                     primary: '#0055FF',
                     primaryDark: '#001EA6',
@@ -238,7 +302,6 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                         type: 'button'
                     }
                 ],
-                eventPrice: 0,
                 colors: {
                     primary: '#8b949e',
                     primaryDark: '#caced2',
@@ -254,3 +317,15 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
 
     return eventData;
 };
+
+export function getActiveEventPrice(eventData: EventData) {
+    if (!eventData.eventPrice) return '';
+
+    if (!Array.isArray(eventData.eventPrice)) return eventData.eventPrice.price;
+
+    const todayTime = new Date().getTime();
+
+    const activePrice = eventData.eventPrice.find(price => price.endDate.getTime() > todayTime);
+
+    return activePrice?.price;
+}

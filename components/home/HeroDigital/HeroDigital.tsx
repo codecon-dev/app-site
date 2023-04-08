@@ -6,10 +6,11 @@ import cn from 'classnames';
 import LinkButton from '@components/_ui/LinkButton/LinkButton';
 
 import styles from './HeroDigital.module.scss';
-import { getEventData } from '@lib/constants';
+import { getEventData, getActiveEventPrice } from '@lib/constants';
 
 export default function HeroDigital() {
     const eventData = getEventData('digital');
+    const { local, city, initialDate, finalDate } = eventData;
 
     useEffect(() => {
         document.addEventListener('mousemove', event => {
@@ -41,13 +42,25 @@ export default function HeroDigital() {
 
             <div className={styles['header-wrapper']}>
                 <h1 className={styles.title}>
-                    <span>Adventures</span> in the world of development
+                    O maior festival online de tecnologia, <span>código</span> e inovação
                 </h1>
+                <p className={styles.date}>
+                    {local} <span>&bull;</span> {city} <span>&bull;</span>{' '}
+                    {initialDate && initialDate.getDate()} {finalDate && `e ${finalDate.getDate()}`}{' '}
+                    de{' '}
+                    {initialDate &&
+                        initialDate.toLocaleString('pt-BR', {
+                            month: 'long',
+                            timeZone: 'America/Sao_Paulo'
+                        })}
+                </p>
             </div>
             <div className={cn(styles['header-wrapper'], styles.button)}>
-                <LinkButton href={eventData.registerUrl} info={eventData.eventPrice}>
-                    Inscreva-se
-                </LinkButton>
+                {getActiveEventPrice(eventData) && (
+                    <LinkButton href={eventData.registerUrl} info={getActiveEventPrice(eventData)}>
+                        Inscreva-se
+                    </LinkButton>
+                )}
             </div>
 
             <div className={cn(styles['image-wrapper'], styles['image-bg'])}>

@@ -20,8 +20,7 @@ export default function Conf({ speakers, sponsors }: Props) {
             <HeroDigital />
             <Blocks>
                 <Blocks.Title>
-                    Um festival de tecnologia,
-                    <br /> <span>código</span> e inovação
+                    <span>Adventures</span> in the world of development
                 </Blocks.Title>
                 <Blocks.Countdown
                     message="Tá chegando!"
