@@ -17,8 +17,11 @@ class Attendee extends ModelImpl<Attendee> {
         return await Attendee.findOne({ where: { email } });
     }
 
-    public static async findBySymplaId(symplaId: string): Promise<Attendee | null> {
-        return await Attendee.findOne({ where: { symplaId } });
+    public static async findBySymplaIdAndEmail(
+        symplaId: string,
+        email: string
+    ): Promise<Attendee | null> {
+        return await Attendee.findOne({ where: { symplaId, email } });
     }
 
     public static async findBySymplaIdAndEvent(

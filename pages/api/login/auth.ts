@@ -24,9 +24,9 @@ async function sendMagicLink(req: NextApiRequest, res: NextApiResponse) {
     const email: string = req.body.email;
     const order: string = req.body.order;
 
-    const attendee = await Attendee.findBySymplaId(order);
+    const attendee = await Attendee.findBySymplaIdAndEmail(order, email);
 
-    if (attendee?.email !== email) {
+    if (!attendee) {
         ApiResponse.build(
             res,
             StatusCodes.UNAUTHORIZED,
