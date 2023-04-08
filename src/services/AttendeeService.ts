@@ -80,18 +80,4 @@ export default class AttendeeService {
 
         await sendgrid.send(msg);
     }
-
-    private static async findOrCreate(
-        id: string,
-        name: string,
-        lastName: string,
-        email: string,
-        event: Event
-    ): Promise<Attendee> {
-        const [attendee, created] = await Attendee.findOrCreate({
-            where: { symplaId: id, name, lastName, email, event }
-        });
-
-        return await attendee.save();
-    }
 }
