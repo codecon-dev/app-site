@@ -76,7 +76,7 @@ export default function Chat() {
         }
     };
 
-    const handleSubmit = async (e: FormEvent<Element>) => {
+    const handleSubmit = (e: FormEvent<Element>) => {
         e.preventDefault();
 
         if (!userType) return;
