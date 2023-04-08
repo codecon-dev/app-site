@@ -37,6 +37,16 @@ export default class AttendeeService {
 
         if (attendee) return;
 
+        void (await fetch(`/api/ia/save`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                content: `🎉 **Irru, nova inscrição na CODECON ${event}**:\n${name} ${lastName}\n--`
+            })
+        }));
+
         await Attendee.create({
             symplaId: id,
             name,

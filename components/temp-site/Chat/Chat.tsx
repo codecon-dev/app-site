@@ -83,16 +83,6 @@ export default function Chat() {
 
         setMessages([...messages, { by: 'anonymous', text: userType }]);
         setIsLoading(true);
-
-        void (await fetch(`/api/ia/save`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                content: `**Nova pergunta recebida**:\n${userType}\n--`
-            })
-        }));
     };
 
     useEffect(() => {
