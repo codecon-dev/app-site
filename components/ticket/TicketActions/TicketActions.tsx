@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import cn from 'classnames';
 
 import Attendee from 'src/database/model/Attendee';
@@ -17,9 +17,6 @@ type Props = {
 
 export default function TicketActions({ attendee }: Props) {
     const theme = useContext(ThemeContext);
-    const [imgReady, setImgReady] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const downloadLink = useRef<HTMLAnchorElement>();
     const permalink = encodeURIComponent(`${SITE_URL}/${theme}/tickets/${attendee.githubUsername}`);
     const tweetUrl = `https://twitter.com/intent/tweet?url=${permalink}&via=codecondev&text=Já garanti minha inscrição!`;
     const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${permalink}`;
@@ -34,22 +31,6 @@ export default function TicketActions({ attendee }: Props) {
     };
 
     const downloadUrl = `/api/ticket/stories/?params=${btoa(JSON.stringify(params))}`;
-
-    useEffect(() => {
-        setImgReady(false);
-
-        const img = new Image();
-
-        img.src = downloadUrl;
-        img.onload = () => {
-            setImgReady(true);
-            setLoading(false);
-            if (downloadLink.current) {
-                downloadLink.current.click();
-                downloadLink.current = undefined;
-            }
-        };
-    }, [downloadUrl]);
 
     return (
         <div className={styles.share}>
@@ -82,13 +63,7 @@ export default function TicketActions({ attendee }: Props) {
             >
                 <Whatsapp size={24} color="var(--color-black)" />
             </a>
-            <a
-                className={cn(styles.button, {
-                    [styles.loading]: loading
-                })}
-                href={loading ? undefined : downloadUrl}
-                download="ticket.png"
-            >
+            <a className={cn(styles.button)} href={downloadUrl} download="ticket.png">
                 <InstagramIcon size={24} color="var(--color-black)" />
             </a>
         </div>

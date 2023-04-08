@@ -4,7 +4,7 @@ import cn from 'classnames';
 import LinkButton from '@components/_ui/LinkButton/LinkButton';
 
 import styles from './HeroFeature.module.scss';
-import { getEventData } from '@lib/constants';
+import { getEventData, getActiveEventPrice } from '@lib/constants';
 
 export default function HeroSummit() {
     const eventData = getEventData('feature');
@@ -17,9 +17,11 @@ export default function HeroSummit() {
                 </h1>
             </div>
             <div className={cn(styles['header-wrapper'], styles.button)}>
-                <LinkButton href={eventData.registerUrl} info={eventData.eventPrice}>
-                    Inscreva-se
-                </LinkButton>
+                {getActiveEventPrice(eventData) && (
+                    <LinkButton href={eventData.registerUrl} info={getActiveEventPrice(eventData)}>
+                        Inscreva-se
+                    </LinkButton>
+                )}
             </div>
         </header>
     );

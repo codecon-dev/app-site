@@ -1,5 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import cn from 'classnames';
+import toast from 'react-hot-toast';
+
 import { SITE_ORIGIN } from '@lib/constants';
 import { GitHubOAuthData } from '@lib/types/all';
 import Attendee from 'src/database/model/Attendee';
@@ -22,7 +24,6 @@ export default function Form({ attendee, setGithubData }: Props) {
     const theme = useContext(ThemeContext);
     const [username, setUsername] = useState('');
     const [formState, setFormState] = useState<FormState>('default');
-    const [errorMsg, setErrorMsg] = useState('');
 
     useEffect(() => {
         if (attendee.githubFullName && attendee.githubUsername) {
@@ -40,7 +41,8 @@ export default function Form({ attendee, setGithubData }: Props) {
 
         if (!process.env.NEXT_PUBLIC_GITHUB_OAUTH_CLIENT_ID) {
             setFormState('error');
-            setErrorMsg('Erro de sincronização com o GitHub OAuth.');
+            toast.error('Erro de sincronização com o GitHub OAuth.');
+
             return;
         }
 
@@ -116,7 +118,7 @@ export default function Form({ attendee, setGithubData }: Props) {
             })
             .catch(() => {
                 setFormState('error');
-                setErrorMsg('Eita! Algo deu errado, tente novamente.');
+                toast.error('Eita! Algo deu errado, tente novamente.');
             });
     };
 
@@ -131,7 +133,6 @@ export default function Form({ attendee, setGithubData }: Props) {
             >
                 Tentar novamente
             </button>
-            <p>{errorMsg}</p>
         </div>
     ) : (
         <div className={cn(styles['form'])}>

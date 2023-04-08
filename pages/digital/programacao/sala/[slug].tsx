@@ -3,7 +3,6 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 
 import Page from '@components/_ui/Page';
-import Header from '@components/_ui/Header';
 import RoomSchedule from '@components/programacao/RoomSchedule';
 
 import { getAllTalks } from '@lib/cms-api';
