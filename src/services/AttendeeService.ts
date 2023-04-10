@@ -31,7 +31,8 @@ export default class AttendeeService {
         name: string,
         lastName: string,
         email: string,
-        event: Event
+        event: Event,
+        value: string
     ): Promise<void> {
         const attendee: Attendee | null = await Attendee.findByEmaildAndEvent(email, event);
 
@@ -43,7 +44,7 @@ export default class AttendeeService {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                content: `🎉 **Irru, nova inscrição na CODECON ${event}**:\n${name} ${lastName}\n--`
+                content: `🎉 **Irru, nova inscrição na CODECON ${event}**: ${name} ${lastName} - Valor pago R$ ${value}`
             })
         }));
 

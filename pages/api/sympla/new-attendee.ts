@@ -24,9 +24,10 @@ export default async function NewAttendeeController(
         const name: string = req.body.name;
         const lastName: string = req.body.last_name;
         const email: string = req.body.email;
+        const value: string = req.body.value;
         const event: 'DIGITAL' | 'SUMMIT' | 'FEATURE' = req.body.event;
 
-        await AttendeeService.sendWelcomeEmail(id, name, lastName, email, event);
+        await AttendeeService.sendWelcomeEmail(id, name, lastName, email, event, value);
 
         ApiResponse.build(res, StatusCodes.OK, 'Tudo certo');
     } catch (exception) {
