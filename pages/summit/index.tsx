@@ -8,6 +8,7 @@ import Page from '@components/_ui/Page';
 import HeroSummit from '@components/home/HeroSummit';
 import Blocks from '@components/home/Blocks';
 import Faq from '@components/home/Faq/Faq';
+import Call4Papers from '@components/home/Call4Papers';
 
 type Props = {
     speakers: Speaker[];
@@ -18,6 +19,7 @@ export default function Conf({ speakers, sponsors }: Props) {
     return (
         <Page theme="summit" noPadding>
             <HeroSummit />
+            <Call4Papers />
             <Blocks>
                 <Blocks.Title>
                     <span>Do it for you.</span> Do it by code.

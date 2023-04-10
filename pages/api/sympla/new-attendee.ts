@@ -15,7 +15,7 @@ export default async function NewAttendeeController(
             return;
         }
 
-        if (req.headers.api_key !== process.env.PLUGA_API_KEY) {
+        if (req.body.api_key !== process.env.PLUGA_API_KEY) {
             ApiResponse.build(res, StatusCodes.UNAUTHORIZED, 'Chave inválida');
             return;
         }

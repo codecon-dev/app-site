@@ -1,0 +1,29 @@
+@import 'styles/media-queries';
+
+.call4papers {
+    background-color: var(--color-primary);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid rgba(202, 206, 210, 0.2);
+    border-radius: 1.25rem;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h3 {
+        font-family: var(--heading-font-face);
+        margin-bottom: 0.5rem;
+    }
+
+    @media #{$breakpoint-sm} {
+        flex-direction: row;
+    }
+}
+
+.button {
+    @media #{$breakpoint-sm} {
+        margin-left: auto;
+    }
+}

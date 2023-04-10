@@ -18,15 +18,7 @@ export default function DetailsGrid() {
                     </p>
                     <p>Ingressos disponíveis.</p>
                 </Link>
-                <a
-                    href="https://tally.so/r/w8NDPA"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className={cn(styles.block, styles['papers-digital'])}
-                >
-                    <h3>Call4papers Codecon Digital</h3>
-                    <p>Envie sua sugestão de palestra.</p>
-                </a>
+
                 <Link href="/summit" className={cn(styles.block, styles.summit)}>
                     <IconLogo theme="summit" width={215} />
                     <p>
@@ -36,15 +28,7 @@ export default function DetailsGrid() {
                     </p>
                     <p>Ingressos early bird disponíveis.</p>
                 </Link>
-                <a
-                    href="https://tally.so/r/w5X0GM"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className={cn(styles.block, styles['papers-summit'])}
-                >
-                    <h3>Call4papers Codecon Summit</h3>
-                    <p>Envie sua sugestão de palestra.</p>
-                </a>
+
                 <Link href="/feature" className={cn(styles.block, styles.feature)}>
                     <IconLogo theme="feature" width={213} />
                     <p>
@@ -61,8 +45,8 @@ export default function DetailsGrid() {
                     className={cn(styles.block, styles.dvlpr)}
                 >
                     <Image alt="" src="/images/dvlpr.svg" width={87} height={21} />
-                    <h3>Camisetas exclusivas</h3>
-                    <p>Com a qualidade Chico Rei.</p>
+                    <h3>Loja oficial da Codecon</h3>
+                    <p>Camisetas exclusivas com a qualidade Chico Rei.</p>
                 </a>
                 <a
                     href="https://codecon.substack.com"
