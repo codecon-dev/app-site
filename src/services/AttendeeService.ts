@@ -37,7 +37,7 @@ export default class AttendeeService {
 
         if (attendee) return;
 
-        void (await fetch(`/api/ia/save`, {
+        void (await fetch(`https://codecon.dev/api/ia/save`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
