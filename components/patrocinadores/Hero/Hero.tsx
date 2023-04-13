@@ -25,7 +25,7 @@ export default function Hero({ sponsor }: Props) {
             <Grid align="center">
                 <Column lg={6} sm={7} smOrder={1}>
                     <div className={styles.logo} style={{ backgroundColor: sponsor.color.hex }}>
-                        <Image src={sponsor.whiteLogo.url} layout="fill" alt={sponsor.name} />
+                        <Image src={sponsor.whiteLogo.url} fill alt={sponsor.name} />
                     </div>
 
                     <h1 className={styles.title}>

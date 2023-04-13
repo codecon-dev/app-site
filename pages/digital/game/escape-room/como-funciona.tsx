@@ -2,7 +2,7 @@ import Page from '@components/_ui/Page';
 
 export default function ComoFunciona() {
     const meta = {
-        title: 'Como funciona - Escape Room - Codecon Digital 2022'
+        title: 'Como funciona - Escape Room - Codecon Digital'
     };
 
     return (

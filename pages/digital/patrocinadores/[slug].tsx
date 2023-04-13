@@ -12,7 +12,7 @@ type Props = {
 
 export default function Patrocinadores({ sponsor }: Props) {
     const meta = {
-        title: `${sponsor.name} está patrocinando a Codecon Digital 2022`,
+        title: `${sponsor.name} está patrocinando a Codecon Digital`,
         image: `/api/get-image?title=${sponsor.slug}&type=sponsor`
     };
 

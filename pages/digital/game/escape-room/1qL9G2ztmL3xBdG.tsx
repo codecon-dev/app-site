@@ -3,7 +3,7 @@ import Terminal from '@components/escape-room/Terminal';
 
 export default function EscapeRoomOne() {
     const meta = {
-        title: 'Escape Room - Codecon Digital 2022'
+        title: 'Escape Room - Codecon Digital'
     };
 
     return (

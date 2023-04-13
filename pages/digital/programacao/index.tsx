@@ -14,7 +14,7 @@ type Props = {
 
 export default function Programacao({ talks, sponsors }: Props) {
     const meta = {
-        title: 'Programação - Codecon Digital 2022',
+        title: 'Programação - Codecon Digital',
         description:
             'Programe-se! São 3 salas simultâneas, workshops e muitas atividades extras rolando nos três dias de evento.',
         image: '/images/share-image.png'

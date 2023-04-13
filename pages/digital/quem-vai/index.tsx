@@ -15,7 +15,7 @@ type Props = {
 
 export default function QuemVai({ speakers, sponsors }: Props) {
     const meta = {
-        title: 'Quem vai - Codecon Digital 2022',
+        title: 'Quem vai - Codecon Digital',
         description:
             'Pessoas que tem destaque na comunidade de tecnologia estarão participando de palestras, painéis e workshops.',
         image: '/images/share-image.png'
@@ -26,12 +26,13 @@ export default function QuemVai({ speakers, sponsors }: Props) {
             <Header
                 title={
                     <>
-                    Discuta o que há de mais <br /> moderno em <span>tecnologia</span>
+                        Discuta o que há de mais <br /> moderno em <span>tecnologia</span>
                     </>
-                    }
+                }
                 description={
                     <>
-                    São 24 pessoas que tem destaque na comunidade<br /> participando de palestras, painéis e fish bowls.
+                        São 24 pessoas que tem destaque na comunidade
+                        <br /> participando de palestras, painéis e fish bowls.
                     </>
                 }
             />

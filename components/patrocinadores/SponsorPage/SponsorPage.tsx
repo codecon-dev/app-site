@@ -21,29 +21,38 @@ export default function SponsorPage({ sponsor }: Props) {
             <Grid>
                 <Column lg={4}>
                     <div className={styles.logo} style={{ backgroundColor: sponsor.color.hex }}>
-                        <Image src={sponsor.whiteLogo.url} alt={sponsor.name} layout="fill" />
+                        <Image src={sponsor.whiteLogo.url} alt={sponsor.name} fill />
                     </div>
                 </Column>
                 <Column lg={8}>
                     <div className={styles.cover}>
-                        <Image
-                            src={sponsor.cover.url}
-                            alt={sponsor.name}
-                            layout="responsive"
-                            width={818}
-                            height={400}
-                            quality={100}
-                        />
+                        <Image src={sponsor.cover.url} alt={sponsor.name} fill quality={100} />
                     </div>
                 </Column>
             </Grid>
             <Grid>
                 <Column lg={4}>
                     <div className={styles.sidebar}>
+                        <LinkButton type="tertiary" block href={sponsor.website} newPage>
+                            Acesse o site
+                        </LinkButton>
+
+                        {sponsor.links.map(link => (
+                            <LinkButton
+                                key={link.url}
+                                type="tertiary"
+                                block
+                                href={link.url}
+                                newPage
+                            >
+                                {link.text}
+                            </LinkButton>
+                        ))}
+
                         <div className={styles.social}>
                             {sponsor.twitter && (
                                 <a href={sponsor.twitter} target="_blank" rel="noreferrer noopener">
-                                    <IconTwitter size={32} color="var(--white)" />
+                                    <IconTwitter size={32} color="var(--color-white)" />
                                 </a>
                             )}
                             {sponsor.instagram && (
@@ -52,7 +61,7 @@ export default function SponsorPage({ sponsor }: Props) {
                                     target="_blank"
                                     rel="noreferrer noopener"
                                 >
-                                    <InstagramIcon size={32} color="var(--white)" />
+                                    <InstagramIcon size={32} color="var(--color-white)" />
                                 </a>
                             )}
                             {sponsor.linkedin && (
@@ -61,26 +70,10 @@ export default function SponsorPage({ sponsor }: Props) {
                                     target="_blank"
                                     rel="noreferrer noopener"
                                 >
-                                    <IconLinkedin size={32} color="var(--white)" />
+                                    <IconLinkedin size={32} color="var(--color-white)" />
                                 </a>
                             )}
                         </div>
-
-                        <LinkButton type="secondary" block href={sponsor.website} newPage>
-                            Acesse o site
-                        </LinkButton>
-
-                        {sponsor.links.map(link => (
-                            <LinkButton
-                                key={link.url}
-                                type="secondary"
-                                block
-                                href={link.url}
-                                newPage
-                            >
-                                {link.text}
-                            </LinkButton>
-                        ))}
                     </div>
                 </Column>
                 <Column lg={8}>

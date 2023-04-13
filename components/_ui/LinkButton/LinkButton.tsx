@@ -7,7 +7,7 @@ import styles from './LinkButton.module.scss';
 export type Props = {
     children: React.ReactNode;
     href: string;
-    type?: 'primary' | 'secondary';
+    type?: 'primary' | 'secondary' | 'tertiary';
     info?: number | string;
     newPage?: boolean;
     disabled?: boolean;

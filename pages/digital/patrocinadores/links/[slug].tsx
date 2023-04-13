@@ -16,7 +16,7 @@ export default function SponsorPageLinks({ sponsor }: Props) {
     };
 
     return (
-        <Page theme="digital" meta={meta}>
+        <Page theme="digital" meta={meta} hideFooter hideNav noPadding>
             <SponsorLinks sponsor={sponsor} />
         </Page>
     );

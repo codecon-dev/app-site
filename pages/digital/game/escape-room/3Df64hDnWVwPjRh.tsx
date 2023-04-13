@@ -3,7 +3,7 @@ import CodeEditor from '@components/escape-room/CodeEditor';
 
 export default function EscapeRoomThree() {
     const meta = {
-        title: 'Escape Room - Codecon Digital 2022'
+        title: 'Escape Room - Codecon Digital'
     };
 
     const wrongCode = `function findOneTheOne() {

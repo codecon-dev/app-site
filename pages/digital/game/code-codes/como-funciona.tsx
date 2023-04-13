@@ -5,7 +5,7 @@ import Page from '@components/_ui/Page';
 
 export default function ComoFunciona() {
     const meta = {
-        title: 'Como funciona Code-codes - Codecon Digital 2022',
+        title: 'Como funciona Code-codes - Codecon Digital',
         image: '/images/share-image.png'
     };
 

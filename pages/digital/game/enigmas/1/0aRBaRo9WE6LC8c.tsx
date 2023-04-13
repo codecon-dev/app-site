@@ -4,7 +4,7 @@ import PrivateArea from '@components/_ui/PrivateArea';
 
 export default function PuzzleZero() {
     const meta = {
-        title: 'Enigmas - Codecon Digital 2022'
+        title: 'Enigmas - Codecon Digital'
     };
 
     return (

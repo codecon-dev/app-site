@@ -4,7 +4,7 @@ import Finish from '@components/escape-room/Finish';
 
 export default function EscapeRoomFour() {
     const meta = {
-        title: 'Escape Room - Codecon Digital 2022'
+        title: 'Escape Room - Codecon Digital'
     };
 
     return (

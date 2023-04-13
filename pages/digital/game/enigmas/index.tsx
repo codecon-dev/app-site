@@ -12,7 +12,7 @@ type Props = {
 
 export default function EnigmaRanking({ puzzleRank }: Props) {
     const meta = {
-        title: 'Rankings dos Enigmas - Codecon Digital 2022'
+        title: 'Rankings dos Enigmas - Codecon Digital'
     };
 
     return (

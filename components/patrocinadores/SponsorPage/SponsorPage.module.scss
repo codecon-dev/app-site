@@ -1,68 +1,87 @@
 @import 'styles/media-queries';
 
-
 .logo {
-  width: 100%;
-  height: 16rem;
-  position: relative;
+    width: 100%;
+    height: 16rem;
+    position: relative;
 
-  @media #{$breakpoint-lg} {
-    height: 22.8rem;
-  }
+    @media #{$breakpoint-lg} {
+        height: 22.8rem;
+    }
 }
+
+.cover {
+    width: 100%;
+    display: none;
+    position: relative;
+
+    @media #{$breakpoint-lg} {
+        display: block;
+        height: 22.8rem;
+    }
+}
+
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+
+    @media #{$breakpoint-lg} {
+        margin-top: 4.5rem;
+    }
 }
 
 .social {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 4.5rem;
-  gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
 
-  a {
-    opacity: 0.4;
-    padding: 1rem;
-    border-radius: 50%;
-    display: block;
-    transition: all 0.2s ease-in-out;
+    a {
+        opacity: 0.6;
+        padding: 1rem;
+        border-radius: 50%;
+        display: block;
+        transition: all 0.2s ease-in-out;
 
-    &:hover {
-      opacity: 1;
-      transition: all 0.2s ease-in-out;
+        &:hover {
+            opacity: 1;
+            transition: all 0.2s ease-in-out;
+        }
     }
-  }
 }
 
 .description {
-  margin: 5rem 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+    margin: 1.5rem 0 4.5rem;
+    line-height: 1.5;
 
-  @media #{$breakpoint-sm} {
-    font-size: 1.5rem;
-  }
+    @media #{$breakpoint-sm} {
+        font-size: 1.5rem;
+    }
+
+    @media #{$breakpoint-lg} {
+        margin-top: 4.5rem;
+    }
 }
 
 .video {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-
-  &::after {
-    padding-top: 56.25%;
-    display: block;
-    content: '';
-  }
-
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+    overflow: hidden;
+    position: relative;
     width: 100%;
-    height: 100%;
-  }
+
+    &::after {
+        padding-top: 56.25%;
+        display: block;
+        content: '';
+    }
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }

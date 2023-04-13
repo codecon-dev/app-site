@@ -81,4 +81,24 @@
             }
         }
     }
+
+    &--tertiary {
+        background-color: var(--color-white);
+        border-color: var(--color-white);
+        color: var(--color-black);
+
+        .button__info {
+            color: var(--color-black);
+        }
+
+        &:hover {
+            background-color: var(--color-light-gray);
+            border-color: var(--color-light-gray);
+            transition: all 0.3s ease-in-out;
+
+            .button__info {
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
 }

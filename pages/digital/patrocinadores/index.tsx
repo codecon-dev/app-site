@@ -13,7 +13,7 @@ type Props = {
 
 export default function Programacao({ sponsors }: Props) {
     const meta = {
-        title: 'Patrocinadores - Codecon Digital 2022',
+        title: 'Patrocinadores - Codecon Digital',
         description: 'Somos um evento que só é capaz graças ao patrocínio dessas empresas.',
         image: '/images/share-image.png'
     };
@@ -22,9 +22,10 @@ export default function Programacao({ sponsors }: Props) {
         <Page theme="digital" meta={meta}>
             <Header
                 title={
-                <>
-                    <span>Marcas</span> que <br />apoiam a Codecon
-                </>
+                    <>
+                        <span>Marcas</span> que <br />
+                        apoiam a Codecon
+                    </>
                 }
                 description="Somos um evento que só é capaz graças ao patrocínio dessas empresas. Clique nas marcas para saber mais sobre cada uma."
             />

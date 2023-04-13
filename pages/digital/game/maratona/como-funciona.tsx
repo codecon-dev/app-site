@@ -3,7 +3,7 @@ import LinkButton from '@components/_ui/LinkButton';
 
 export default function ComoFunciona() {
     const meta = {
-        title: 'Como funciona - Escape Room - Codecon Digital 2022'
+        title: 'Como funciona - Escape Room - Codecon Digital'
     };
 
     return (
