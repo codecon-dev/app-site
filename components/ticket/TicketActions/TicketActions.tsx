@@ -12,22 +12,24 @@ import InstagramIcon from '@components/_ui/Icons/icon-instagram';
 import styles from './TicketActions.module.scss';
 
 type Props = {
-    attendee: Attendee;
+    ticketNumber: number;
+    githubFullName: string;
+    githubUsername: string;
 };
 
-export default function TicketActions({ attendee }: Props) {
+export default function TicketActions({ ticketNumber, githubFullName, githubUsername }: Props) {
     const theme = useContext(ThemeContext);
-    const permalink = encodeURIComponent(`${SITE_URL}/${theme}/tickets/${attendee.githubUsername}`);
+    const permalink = encodeURIComponent(`${SITE_URL}/${theme}/tickets/${githubUsername}`);
     const tweetUrl = `https://twitter.com/intent/tweet?url=${permalink}&via=codecondev&text=Já garanti minha inscrição!`;
     const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${permalink}`;
     const whatsappText = encodeURIComponent('Já garanti minha inscrição!');
     const whatsappUrl = `https://wa.me/?text=${whatsappText} ${permalink}`;
 
     const params = {
-        name: attendee.githubFullName,
-        username: attendee.githubUsername,
-        ticketNumber: attendee.id,
-        event: 'digital'
+        name: githubFullName,
+        username: githubUsername,
+        ticketNumber: ticketNumber,
+        event: theme
     };
 
     const downloadUrl = `/api/ticket/stories/?params=${btoa(JSON.stringify(params))}`;

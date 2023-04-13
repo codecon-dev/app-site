@@ -16,6 +16,11 @@
 .title {
     text-align: center;
     color: var(--color-dark-gray);
+
+    .caps {
+        text-transform: capitalize;
+        color: var(--color-dark-gray);
+    }
 }
 
 .sponsor {
@@ -30,10 +35,9 @@
 
 .hr {
     width: 5rem;
-    height: 5px;
     display: block;
     background: var(--color-light-gray);
-    margin: 5rem auto;
+    margin: 3rem auto;
     border: 0;
 }
 

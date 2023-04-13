@@ -7,9 +7,10 @@ import { GitHubOAuthData } from '@lib/types/all';
 import Attendee from 'src/database/model/Attendee';
 import ThemeContext from 'context/ThemeContext';
 
-import styles from './Form.module.scss';
 import IconGithub from '@components/_ui/Icons/icon-github';
 import IconCheck from '@components/_ui/Icons/icon-check';
+
+import styles from './GithubAuth.module.scss';
 
 type FormState = 'default' | 'loading' | 'error';
 

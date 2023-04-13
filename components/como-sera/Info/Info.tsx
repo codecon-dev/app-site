@@ -25,14 +25,7 @@ type PropsImage = {
 function Image({ src }: PropsImage) {
     return (
         <span className={styles.image}>
-            <NextImage
-                src={src}
-                width={494}
-                height={417}
-                quality={100}
-                layout="responsive"
-                alt=""
-            />
+            <NextImage src={src} width={494} height={417} quality={100} alt="" />
         </span>
     );
 }

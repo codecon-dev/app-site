@@ -8,7 +8,7 @@ import { Grid, Column } from '@components/_ui/Grid';
 import { GitHubOAuthData } from '@lib/types/all';
 
 import TheTicket from '../TheTicket';
-import Form from '../Form';
+import Form from '../GithubAuth';
 import TicketActions from '../TicketActions';
 import TicketUrl from '../TicketUrl';
 
@@ -41,7 +41,11 @@ export default function AttendeeArea({ attendee }: Props) {
                                 Para confirmar sua participação no sorteio, compartilhe nas redes
                                 sociais.
                             </p>
-                            <TicketActions attendee={attendee} />
+                            <TicketActions
+                                ticketNumber={attendee.id}
+                                githubFullName={githubData.name}
+                                githubUsername={githubData.login}
+                            />
                             <TicketUrl username={githubData.login} />
                         </div>
                     ) : (
@@ -54,11 +58,10 @@ export default function AttendeeArea({ attendee }: Props) {
                                 É só gerar seu ticket e compartilhar nas redes sociais.
                             </p>
                             <Image
-                                alt=""
+                                alt="Kit Codecon"
                                 src="/images/ticket/kit-codecon.png"
                                 width={497}
                                 height={212}
-                                layout="responsive"
                             />
                         </div>
                     )}

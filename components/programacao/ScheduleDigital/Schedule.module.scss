@@ -1,0 +1,158 @@
+@import 'styles/media-queries';
+
+.tabs {
+    border-bottom: 1px solid var(--color-primary);
+    margin-bottom: 3rem;
+    padding-top: 1rem;
+    position: sticky;
+    top: 105px;
+    background-color: var(--color-dark-gray);
+    z-index: 150;
+
+    @media #{$breakpoint-sm} {
+        top: 128px;
+    }
+
+    @media #{$breakpoint-lg} {
+        top: 80px;
+    }
+
+    &-container {
+        display: flex;
+        align-items: center;
+    }
+
+    button {
+        border: 0;
+        background-color: transparent;
+        color: var(--color-white);
+        font-size: 1rem;
+        font-weight: 600;
+        margin-right: 0.5rem;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+
+        @media #{$breakpoint-sm} {
+            margin-right: 1.5rem;
+        }
+
+        .full-text {
+            display: none;
+
+            @media #{$breakpoint-lg} {
+                display: inline;
+            }
+        }
+
+        .mobile-text {
+            @media #{$breakpoint-lg} {
+                display: none;
+            }
+        }
+
+        &:hover {
+            background-color: var(--color-primary-dark);
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        &.active {
+            border-bottom: 5px solid var(--color-primary);
+            margin-bottom: 0;
+            padding-bottom: 1rem;
+
+            &:hover {
+                background-color: transparent;
+                transition: background-color 0s ease-in-out;
+            }
+        }
+    }
+}
+
+.libras {
+    display: none; // não confirmado por enquanto
+    max-width: 20rem;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    &-image {
+        flex: 0 0 2rem;
+        width: 2rem;
+        display: block;
+    }
+
+    p {
+        font-size: 0.875rem;
+    }
+
+    &-desktop {
+        display: none;
+
+        @media #{$breakpoint-sm} {
+            display: none; // não confirmado por enquanto
+            margin-left: auto;
+        }
+    }
+
+    &-mobile {
+        @media #{$breakpoint-sm} {
+            display: none;
+        }
+    }
+}
+
+.division {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .hour {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--color-light-gray);
+    }
+
+    .description {
+        color: var(--color-gray);
+        font-size: 0.75rem;
+        border: 1px solid var(--color-black);
+        padding: 0.25rem 0.75rem;
+        border-radius: 5rem;
+    }
+
+    .line {
+        background-color: var(--color-black);
+        height: 1px;
+        flex: 1 1;
+    }
+}
+
+.talks {
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.place {
+    display: none;
+
+    @media #{$breakpoint-sm} {
+        display: block;
+    }
+
+    span {
+        display: block;
+        padding: 0.5rem;
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    .space {
+        border-left: 1px solid var(--color-primary-dark);
+        height: 3rem;
+    }
+}

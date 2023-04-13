@@ -50,7 +50,6 @@ export default function ComoFunciona() {
                     alt="Imagem de um Playstation 5, uma mesa GenioDesk Plus e um Teclado Logitech MX Keys Mini"
                     width={662}
                     height={335}
-                    layout="responsive"
                 />
                 <ol>
                     <li>PlayStation 5 + 1 ano de Rocketseat Plus </li>

@@ -154,8 +154,7 @@ export type MarathonUser = {
 
 export enum EVENT_DAYS {
     THURSDAY = 0,
-    FRIDAY = 1,
-    SATURDAY = 2
+    FRIDAY = 1
 }
 
 export type ImageKind = 'default' | 'square' | 'stories';

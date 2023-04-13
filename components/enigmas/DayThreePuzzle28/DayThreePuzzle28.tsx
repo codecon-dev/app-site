@@ -11,13 +11,7 @@ export default function DayThreePuzzle28() {
         <PuzzleLayout bgStyle={styles.bg}>
             {showModal && (
                 <div onMouseOut={() => setShowModal(false)} className={styles.modal}>
-                    <Image
-                        alt=""
-                        src="/images/enigmas/28-2.png"
-                        width={1208}
-                        height={441}
-                        layout="responsive"
-                    />
+                    <Image alt="" src="/images/enigmas/28-2.png" width={1208} height={441} />
                 </div>
             )}
             <button className={styles.button} onMouseOver={() => setShowModal(true)} />

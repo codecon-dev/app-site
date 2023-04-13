@@ -13,7 +13,6 @@ export default function Differentials() {
                         <span className={styles.image}>
                             <Image
                                 src="/icons/libras.png"
-                                layout="responsive"
                                 width={64}
                                 height={64}
                                 alt="Emoji de pessoa fazendo sinal em Libras"
@@ -31,7 +30,6 @@ export default function Differentials() {
                         <span className={styles.image}>
                             <Image
                                 src="/icons/certificado.png"
-                                layout="responsive"
                                 width={64}
                                 height={64}
                                 alt="Emoji de pergaminho"
@@ -48,7 +46,6 @@ export default function Differentials() {
                     <div className={cn(styles.content, styles.last)}>
                         <span className={styles.image}>
                             <Image
-                                layout="responsive"
                                 src="/icons/pesquisa.png"
                                 width={64}
                                 height={64}

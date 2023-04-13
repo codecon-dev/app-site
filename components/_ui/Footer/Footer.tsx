@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import Image from 'next/image';
 import cn from 'classnames';
 
+import ThemeContext from 'context/ThemeContext';
 import { Sponsor } from '@lib/types/all';
 import IconDiscord from '@components/_ui/Icons/icon-discord';
 import IconTwitter from '@components/_ui/Icons/icon-twitter';
@@ -17,18 +19,21 @@ type Props = {
 
 export default function Footer({ sponsors }: Props) {
     const communities = sponsors?.filter(sponsor => sponsor.tier === 'comunidade');
-    const partners = sponsors?.filter(sponsor => sponsor.tier !== 'comunidade');
+    const sponsorsEvent = sponsors?.filter(sponsor => sponsor.tier !== 'patrocinador');
+    const partners = sponsors?.filter(sponsor => sponsor.tier === 'apoio');
+
+    const theme = useContext(ThemeContext);
 
     return (
         <footer className={styles.wrapper}>
             {sponsors && (
                 <div className={cn('container', styles.grid)}>
                     <h2 className={styles.title}>
-                        A Codecon só é possível graças ao
-                        <br className={styleUtils['hide-on-mobile']} /> apoio dessas marcas
+                        Patrocinadores da <br className={styleUtils['hide-on-mobile']} />
+                        Codecon <span className={styles.caps}>{theme}</span> 2023
                     </h2>
 
-                    {partners?.map(s => (
+                    {sponsorsEvent?.map(s => (
                         <a
                             className={styles.sponsor}
                             key={s.slug}
@@ -42,7 +47,23 @@ export default function Footer({ sponsors }: Props) {
 
                     <hr className={styles.hr} />
 
-                    <h2 className={styles.title}>Comunidades que estão com a gente nessa</h2>
+                    <h3 className={styles.title}>Apoio</h3>
+
+                    {partners?.map(s => (
+                        <a
+                            className={styles.sponsor}
+                            key={s.slug}
+                            href={s.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Image width={130} height={71} src={s.logo.url} alt={s.name} />
+                        </a>
+                    ))}
+
+                    <hr className={styles.hr} />
+
+                    <h3 className={styles.title}>Comunidades que estão com a gente nessa</h3>
 
                     {communities?.map(s => (
                         <a
@@ -52,7 +73,7 @@ export default function Footer({ sponsors }: Props) {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <Image width={220} height={120} src={s.logo.url} alt={s.name} />
+                            <Image width={130} height={71} src={s.logo.url} alt={s.name} />
                         </a>
                     ))}
                 </div>
