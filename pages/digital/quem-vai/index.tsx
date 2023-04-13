@@ -31,7 +31,7 @@ export default function QuemVai({ speakers, sponsors }: Props) {
                 }
                 description={
                     <>
-                        São 24 pessoas que tem destaque na comunidade
+                        São várias pessoas que tem destaque na comunidade
                         <br /> participando de palestras, painéis e fish bowls.
                     </>
                 }

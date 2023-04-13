@@ -1,19 +1,37 @@
 @import 'styles/media-queries';
 
+.image {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    border-radius: 100rem;
+    overflow: hidden;
+}
+
 .social {
-  margin-top: 1rem;
+    margin-top: 2em;
+    display: none;
+
+    @media #{$breakpoint-sm} {
+        display: block;
+    }
+}
+
+.headline {
+    color: var(--color-gray);
+    font-size: 1.5rem;
 }
 
 .bio {
-  margin-top: 3rem;
-  font-size: 1.25rem;
-  line-height: 1.5;
+    margin-top: 3rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
 
-  @media #{$breakpoint-sm} {
-    font-size: 1.5rem;
-  }
+    @media #{$breakpoint-sm} {
+        font-size: 1.5rem;
+    }
 }
 
 .talks {
-  margin-top: 5rem;
+    margin-top: 5rem;
 }

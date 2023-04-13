@@ -107,13 +107,16 @@
         transform: none;
         display: block;
         grid-area: auto;
-        
 
         ul {
             flex-direction: row;
+            gap: 0.5rem;
+            justify-content: center;
             padding: 0;
-            transform: translateX(-1rem);
-            
+
+            @media #{$breakpoint-lg} {
+                transform: translateX(-1rem);
+            }
 
             li {
                 margin-bottom: 0;
