@@ -12,7 +12,7 @@ import {
 import styles from './Schedule.module.scss';
 import Activity from '@components/_ui/Activity';
 
-const hasLibras = true;
+const hasLibras = false;
 
 type Props = {
     talks: Talk[];
