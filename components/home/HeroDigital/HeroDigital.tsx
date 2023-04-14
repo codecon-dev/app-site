@@ -6,11 +6,13 @@ import cn from 'classnames';
 import LinkButton from '@components/_ui/LinkButton/LinkButton';
 
 import styles from './HeroDigital.module.scss';
-import { getEventData, getActiveEventPrice } from '@lib/constants';
+import { getEventData } from '@lib/constants';
+import { useActiveEventPrice } from '@lib/hooks/useActiveEventPrice';
 
 export default function HeroDigital() {
     const eventData = getEventData('digital');
     const { local, city, initialDate, finalDate } = eventData;
+    const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
 
     useEffect(() => {
         document.addEventListener('mousemove', event => {
@@ -56,8 +58,11 @@ export default function HeroDigital() {
                 </p>
             </div>
             <div className={cn(styles['header-wrapper'], styles.button)}>
-                {getActiveEventPrice(eventData) && (
-                    <LinkButton href={eventData.registerUrl} info={getActiveEventPrice(eventData)}>
+                {eventPrice && (
+                    <LinkButton
+                        href={registerUrlWithCode || eventData.registerUrl}
+                        info={eventPrice}
+                    >
                         Inscreva-se
                     </LinkButton>
                 )}

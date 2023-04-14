@@ -2,12 +2,13 @@ import { GetStaticProps } from 'next';
 
 import { getAllSponsors } from '@lib/cms-api';
 import { Sponsor } from '@lib/types/all';
+import { getEventData } from '@lib/constants';
+import { useActiveEventPrice } from '@lib/hooks/useActiveEventPrice';
 
 import Page from '@components/_ui/Page';
 import Header from '@components/_ui/Header';
 import LinkButton from '@components/_ui/LinkButton';
 import Info from '@components/como-sera/Info';
-import { getEventData, getActiveEventPrice } from '@lib/constants';
 
 type Props = {
     sponsors: Sponsor[];
@@ -19,6 +20,7 @@ export default function ComoFunciona({ sponsors }: Props) {
     };
 
     const eventData = getEventData('digital');
+    const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
 
     return (
         <Page theme="digital" meta={meta}>
@@ -46,8 +48,11 @@ export default function ComoFunciona({ sponsors }: Props) {
                 <Info.Image src="/images/digital/cidade-deployr.jpg" />
             </Info>
             <section className="text-center">
-                {getActiveEventPrice(eventData) && (
-                    <LinkButton href={eventData.registerUrl} info={getActiveEventPrice(eventData)}>
+                {eventPrice && (
+                    <LinkButton
+                        href={registerUrlWithCode || eventData.registerUrl}
+                        info={eventPrice}
+                    >
                         Inscreva-se
                     </LinkButton>
                 )}
@@ -94,10 +99,10 @@ export default function ComoFunciona({ sponsors }: Props) {
                     </p>
                     <br />
 
-                    {getActiveEventPrice(eventData) && (
+                    {eventPrice && (
                         <LinkButton
-                            href={eventData.registerUrl}
-                            info={getActiveEventPrice(eventData)}
+                            href={registerUrlWithCode || eventData.registerUrl}
+                            info={eventPrice}
                         >
                             Inscreva-se
                         </LinkButton>

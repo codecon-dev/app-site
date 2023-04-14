@@ -3,12 +3,15 @@ import cn from 'classnames';
 
 import LinkButton from '@components/_ui/LinkButton/LinkButton';
 
+import { getEventData } from '@lib/constants';
+import { useActiveEventPrice } from '@lib/hooks/useActiveEventPrice';
+
 import styles from './HeroFeature.module.scss';
-import { getEventData, getActiveEventPrice } from '@lib/constants';
 
 export default function HeroSummit() {
     const eventData = getEventData('feature');
     const { local, city, initialDate, finalDate } = eventData;
+    const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
 
     return (
         <header className={cn(styles.header)}>
@@ -29,8 +32,11 @@ export default function HeroSummit() {
                 </p>
             </div>
             <div className={cn(styles['header-wrapper'], styles.button)}>
-                {getActiveEventPrice(eventData) && (
-                    <LinkButton href={eventData.registerUrl} info={getActiveEventPrice(eventData)}>
+                {eventPrice && (
+                    <LinkButton
+                        href={registerUrlWithCode || eventData.registerUrl}
+                        info={eventPrice}
+                    >
                         Inscreva-se
                     </LinkButton>
                 )}

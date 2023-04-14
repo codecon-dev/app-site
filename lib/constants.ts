@@ -1,4 +1,4 @@
-import { MenuItem } from './types/all';
+import { EVENTS, MenuItem } from './types/all';
 
 type EventPrice = {
     name: string;
@@ -7,6 +7,7 @@ type EventPrice = {
 };
 
 export type EventData = {
+    type?: EVENTS;
     title?: string;
     subtitle?: string;
     local?: string;
@@ -47,6 +48,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
     switch (event) {
         case 'digital':
             eventData = {
+                type: EVENTS.DIGITAL,
                 title: 'Codecon Digital',
                 subtitle:
                     'Um festival que reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.',
@@ -125,6 +127,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
             break;
         case 'summit':
             eventData = {
+                type: EVENTS.SUMMIT,
                 title: 'Codecon Summit',
                 subtitle:
                     'O maior evento para pessoas programadoras de Santa Catarina, com grandes nomes nacionais.',
@@ -202,6 +205,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
             break;
         case 'feature':
             eventData = {
+                type: EVENTS.FEATURE,
                 title: 'Codecon Feature',
                 subtitle:
                     'Um evento de tecnologia para profissionais em cargos sênior ou superior.',
@@ -317,15 +321,3 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
 
     return eventData;
 };
-
-export function getActiveEventPrice(eventData: EventData) {
-    if (!eventData.eventPrice) return '';
-
-    if (!Array.isArray(eventData.eventPrice)) return eventData.eventPrice.price;
-
-    const todayTime = new Date().getTime();
-
-    const activePrice = eventData.eventPrice.find(price => price.endDate.getTime() > todayTime);
-
-    return activePrice?.price;
-}

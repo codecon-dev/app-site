@@ -4,7 +4,8 @@ import Tilt from 'vanilla-tilt';
 
 import Attendee from 'src/database/model/Attendee';
 import ThemeContext from 'context/ThemeContext';
-import { EventData, getEventData, getActiveEventPrice } from '@lib/constants';
+import { useActiveEventPrice } from '@lib/hooks/useActiveEventPrice';
+import { EventData, getEventData } from '@lib/constants';
 import { Grid, Column } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton';
 
@@ -48,6 +49,7 @@ export default function AttendeeArea({ attendee }: Props) {
     const eventData = getEventData(theme);
     const ticketRef = useRef<HTMLDivElement>(null);
     const { subtitle, registerUrl, homeUrl } = eventData;
+    const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
 
     useEffect(() => {
         if (ticketRef.current && !window.matchMedia('(pointer: coarse)').matches) {
@@ -69,11 +71,8 @@ export default function AttendeeArea({ attendee }: Props) {
                         <p className="headline">{subtitle}</p>
 
                         <div className={styles.buttons}>
-                            {getActiveEventPrice(eventData) && (
-                                <LinkButton
-                                    href={registerUrl}
-                                    info={getActiveEventPrice(eventData)}
-                                >
+                            {eventPrice && (
+                                <LinkButton href={registerUrl} info={eventPrice}>
                                     Inscreva-se
                                 </LinkButton>
                             )}

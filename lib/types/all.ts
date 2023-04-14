@@ -165,3 +165,9 @@ export type MenuItem = {
     type?: 'button' | 'link';
     target?: '_blank';
 };
+
+export enum EVENTS {
+    DIGITAL = 'DIGITAL',
+    SUMMIT = 'SUMMIT',
+    FEATURE = 'FEATURE'
+}
