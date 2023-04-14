@@ -42,8 +42,8 @@ export default function QuemVai({ speakers, sponsors }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const speakers = await getAllSpeakers();
-    const sponsors = await getAllSponsors();
+    const speakers = await getAllSpeakers(100, 'digital');
+    const sponsors = await getAllSponsors('digital');
 
     return {
         props: {

@@ -29,7 +29,7 @@ export default function TalkPage({ talks }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     const slug = params?.slug;
-    const talks = await getAllTalks();
+    const talks = await getAllTalks('digital');
     const roomTalks = talks.filter(t => t.place?.toLowerCase() === `sala ${slug}`);
 
     if (!roomTalks) {

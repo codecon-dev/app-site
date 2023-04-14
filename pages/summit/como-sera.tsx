@@ -79,7 +79,7 @@ export default function ComoFunciona({ sponsors }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const sponsors = await getAllSponsors();
+    const sponsors = await getAllSponsors('summit');
 
     return {
         props: {

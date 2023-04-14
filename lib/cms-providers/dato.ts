@@ -5,6 +5,14 @@ import { Speaker } from '@lib/types/speakers';
 const API_URL = 'https://graphql.datocms.com/';
 const API_TOKEN = process.env.DATOCMS_READ_ONLY_API_TOKEN;
 
+const eventsIds = {
+    digital: '147485235',
+    summit: '147485238',
+    feature: '147485239'
+};
+
+type Events = 'digital' | 'summit' | 'feature';
+
 async function fetchCmsAPI(query: string, { variables }: { variables?: Record<string, any> } = {}) {
     try {
         const res = await fetch(API_URL, {
@@ -33,7 +41,7 @@ async function fetchCmsAPI(query: string, { variables }: { variables?: Record<st
     }
 }
 
-export async function getSpeaker(slug: string): Promise<Speaker | null> {
+export async function getSpeaker(slug: string, event: Events): Promise<Speaker | null> {
     const speakerData = await fetchCmsAPI(`
     {
       speaker(filter: { slug: { eq: "${slug}" } }) {
@@ -56,7 +64,7 @@ export async function getSpeaker(slug: string): Promise<Speaker | null> {
 
     const talkData = await fetchCmsAPI(`
     {
-      allTalks(filter: { speaker: { anyIn: "${speakerId}" } }) {
+      allTalks(filter: { speaker: { anyIn: "${speakerId}" }, events: { anyIn: "${eventsIds[event]}" } }) {
         title
         slug
         place
@@ -68,7 +76,7 @@ export async function getSpeaker(slug: string): Promise<Speaker | null> {
 
     const hostData = await fetchCmsAPI(`
     {
-      allTalks(filter: { host: { eq: "${speakerId}" } }) {
+      allTalks(filter: { host: { eq: "${speakerId}" }, events: { anyIn: "${eventsIds[event]}" } }) {
         title
         slug
         place
@@ -78,31 +86,20 @@ export async function getSpeaker(slug: string): Promise<Speaker | null> {
       }
     }`);
 
-    const workshopData = await fetchCmsAPI(`
-    {
-      allWorkshops(filter: { teacher: { anyIn: "${speakerId}" } }) {
-        title
-        slug
-        start
-        end
-      }
-    }`);
-
     const talks = [...talkData.allTalks, ...hostData.allTalks];
 
     return speakerData.speaker
         ? {
               ...speakerData.speaker,
-              talks: talks || null,
-              workshops: workshopData.allWorkshops || null
+              talks: talks || null
           }
         : null;
 }
 
-export async function getAllSpeakers(limit: number): Promise<Speaker[]> {
+export async function getAllSpeakers(limit: number, event: Events): Promise<Speaker[]> {
     const data = await fetchCmsAPI(`
     {
-      allSpeakers(orderBy: [order_ASC], first: ${limit}) {
+      allSpeakers(orderBy: [order_ASC], first: ${limit}, filter: { events: { anyIn: "${eventsIds[event]}" } }) {
         id
         name
         bio
@@ -121,10 +118,10 @@ export async function getAllSpeakers(limit: number): Promise<Speaker[]> {
     return data.allSpeakers;
 }
 
-export async function getAllTalks(): Promise<Talk[]> {
+export async function getAllTalks(event: Events): Promise<Talk[]> {
     const data = await fetchCmsAPI(`
     {
-      allTalks(first: 100, orderBy: start_ASC) {
+      allTalks(first: 100, orderBy: start_ASC, filter: { events: { anyIn: "${eventsIds[event]}" } }) {
         id
         title
         slug
@@ -171,10 +168,10 @@ export async function getAllTalks(): Promise<Talk[]> {
     return data.allTalks;
 }
 
-export async function getAllSponsors(): Promise<Sponsor[]> {
+export async function getAllSponsors(event: Events): Promise<Sponsor[]> {
     const data = await fetchCmsAPI(`
     {
-      allCompanies(first: 100, orderBy: name_ASC) {
+      allCompanies(first: 100, orderBy: name_ASC, filter: { events: { anyIn: "${eventsIds[event]}" } }) {
         id
         name
         description

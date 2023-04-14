@@ -26,8 +26,8 @@ export default function QuemVai({ talk, sponsors }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     const slug = params?.slug;
-    const sponsors = await getAllSponsors();
-    const talks = await getAllTalks();
+    const sponsors = await getAllSponsors('digital');
+    const talks = await getAllTalks('digital');
     const currentTalk = talks.find((t: Talk) => t.slug === slug) || null;
 
     if (!currentTalk) {
@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const talks = await getAllTalks();
+    const talks = await getAllTalks('digital');
     const slugs = talks.map((t: Talk) => ({ params: { slug: t.slug } }));
 
     return {

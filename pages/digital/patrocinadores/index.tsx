@@ -35,7 +35,7 @@ export default function Programacao({ sponsors }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const sponsors = await getAllSponsors();
+    const sponsors = await getAllSponsors('digital');
     const onlySponsors = sponsors.filter(sponsor => sponsor.tier !== 'comunidade');
 
     return {

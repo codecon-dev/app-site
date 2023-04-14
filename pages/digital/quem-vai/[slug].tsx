@@ -28,8 +28,8 @@ export default function QuemVai({ speaker, sponsors }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     const slug = params?.slug;
-    const sponsors = await getAllSponsors();
-    const speaker = await getSpeaker(`${slug}`);
+    const sponsors = await getAllSponsors('digital');
+    const speaker = await getSpeaker(`${slug}`, 'digital');
 
     if (!speaker) {
         return {
@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const speakers = await getAllSpeakers();
+    const speakers = await getAllSpeakers(100, 'digital');
     const slugs = speakers.map(s => ({ params: { slug: s.slug } }));
 
     return {

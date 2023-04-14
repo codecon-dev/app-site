@@ -63,8 +63,8 @@ export default function Conf({ speakers, sponsors }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const speakers = await getAllSpeakers(5);
-    const sponsors = await getAllSponsors();
+    const speakers = await getAllSpeakers(5, 'digital');
+    const sponsors = await getAllSponsors('digital');
 
     return {
         props: {

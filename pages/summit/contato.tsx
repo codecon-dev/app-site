@@ -29,7 +29,7 @@ export default function Contato({ sponsors }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const sponsors = await getAllSponsors();
+    const sponsors = await getAllSponsors('summit');
 
     return {
         props: {

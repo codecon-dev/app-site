@@ -24,7 +24,7 @@ export default function Patrocinadores({ sponsor }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     const slug = params?.slug;
-    const sponsors = await getAllSponsors();
+    const sponsors = await getAllSponsors('digital');
     const currentSponsor = sponsors.find((s: Sponsor) => s.slug === slug) || null;
 
     if (!currentSponsor) {
@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const sponsors = await getAllSponsors();
+    const sponsors = await getAllSponsors('digital');
     const onlySponsors = sponsors.filter(sponsor => sponsor.tier !== 'comunidade');
     const slugs = onlySponsors.map((s: Sponsor) => ({ params: { slug: s.slug } }));
 

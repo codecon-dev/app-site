@@ -31,8 +31,8 @@ export default function Programacao({ talks, sponsors }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const talks = await getAllTalks();
-    const sponsors = await getAllSponsors();
+    const talks = await getAllTalks('digital');
+    const sponsors = await getAllSponsors('digital');
 
     return {
         props: {

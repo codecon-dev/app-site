@@ -24,7 +24,7 @@ export default function SponsorPageLinks({ sponsor }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     const slug = params?.slug;
-    const sponsors = await getAllSponsors();
+    const sponsors = await getAllSponsors('digital');
     const sponsor = sponsors.find((s: Sponsor) => s.slug === slug) || null;
 
     if (!sponsor) {
@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const sponsors = await getAllSponsors();
+    const sponsors = await getAllSponsors('digital');
     const slugs = sponsors.map((s: Sponsor) => ({ params: { slug: s.slug } }));
 
     return {
