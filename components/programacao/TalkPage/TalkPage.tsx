@@ -1,25 +1,39 @@
-import cn from 'classnames';
+import { useContext } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
+import ThemeContext from 'context/ThemeContext';
 import { Talk } from '@lib/types/all';
 import { captureHourAndMinutesFromDateString, formatDate } from '@lib/dates';
+import { useActiveEventPrice } from '@lib/hooks/useActiveEventPrice';
 
 import { Column, Grid } from '@components/_ui/Grid';
-import SpeakerCard from '@components/_ui/SpeakerCard';
+import LinkButton from '@components/_ui/LinkButton';
 
 import styles from './TalkPage.module.scss';
-import LinkButton from '@components/_ui/LinkButton';
+import { getEventData } from '@lib/constants';
 
 type Props = {
     talk: Talk;
 };
 
 export default function TalkPage({ talk }: Props) {
+    const theme = useContext(ThemeContext);
+    const eventData = getEventData(theme);
+    const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
+
     return (
         <section>
             <Grid align="center">
-                <Column lg={7} sm={7}>
+                <Column lg={1} sm={0} xsm={0} />
+                <Column lg={10} sm={12}>
                     <span className="highlight">{talk.talkType}</span>
                     <h1 className={styles.title}>{talk.title}</h1>
+                </Column>
+            </Grid>
+            <Grid align="center">
+                <Column lg={1} sm={0} xsm={0} />
+                <Column lg={5}>
                     <p className="headline">
                         {formatDate(talk.start, 'dd/MM')} <span className="bullet">•</span>{' '}
                         {captureHourAndMinutesFromDateString(talk.start)} ~{' '}
@@ -27,51 +41,59 @@ export default function TalkPage({ talk }: Props) {
                         <span className="bullet">•</span> {talk.place}
                     </p>
                 </Column>
-                <Column
-                    lg={(talk.speaker && talk.speaker?.length > 1) || talk.host ? 0 : 1}
-                    sm={0}
-                    xsm={0}
-                />
-                <Column
-                    lg={(talk.speaker && talk.speaker?.length > 1) || talk.host ? 5 : 4}
-                    sm={5}
-                    xsmOrder={1}
-                >
+                <Column lg={5} sm={5} xsmOrder={1}>
                     {talk.speaker && (
-                        <div
-                            className={cn({
-                                [styles.speakers]: talk.speaker?.length > 1 || talk.host
-                            })}
-                        >
+                        <div className={styles.speakers}>
                             {talk.speaker?.map(speaker => (
-                                <SpeakerCard href={`/quem-vai/${speaker.slug}`} key={speaker.id}>
-                                    <SpeakerCard.Image src={speaker.image.url} alt={speaker.name} />
-                                </SpeakerCard>
+                                <span className="tooltip" data-content={`${speaker.name}`}>
+                                    <Link
+                                        href={`/${theme}/quem-vai/${speaker.slug}`}
+                                        key={speaker.id}
+                                        className={styles.image}
+                                    >
+                                        <Image src={speaker.image.url} alt={speaker.name} fill />
+                                    </Link>
+                                </span>
                             ))}
                             {talk.host && (
-                                <SpeakerCard
-                                    href={`/quem-vai/${talk.host.slug}`}
-                                    key={talk.host.id}
-                                >
-                                    <SpeakerCard.Image
-                                        src={talk.host.image.url}
-                                        alt={talk.host.name}
-                                        isHost
-                                    />
-                                </SpeakerCard>
+                                <span className="tooltip" data-content={`[HOST] ${talk.host.name}`}>
+                                    <Link
+                                        href={`/${theme}/quem-vai/${talk.host.slug}`}
+                                        key={talk.host.slug}
+                                        className={styles.image}
+                                    >
+                                        <Image
+                                            src={talk.host.image.url}
+                                            alt={talk.host.name}
+                                            fill
+                                        />
+                                    </Link>
+                                </span>
                             )}
                         </div>
                     )}
                 </Column>
             </Grid>
             <Grid>
+                <Column lg={2} sm={0} xsm={0} />
                 <Column lg={8}>
                     <p className={styles.description}>{talk.description}</p>
                 </Column>
             </Grid>
 
-            <div className="container">
-                <LinkButton href="/programacao">Confira a programação completa</LinkButton>
+            <div className={styles.buttons}>
+                <LinkButton type="secondary" href={`/${theme}/programacao`}>
+                    Programação completa
+                </LinkButton>
+
+                {eventPrice && (
+                    <LinkButton
+                        href={registerUrlWithCode || eventData.registerUrl}
+                        info={eventPrice}
+                    >
+                        Inscreva-se
+                    </LinkButton>
+                )}
             </div>
         </section>
     );

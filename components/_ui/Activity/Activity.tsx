@@ -1,7 +1,9 @@
 import NextImage from 'next/image';
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
+import { useRouter } from 'next/router';
 
+import { addBasePath } from '@lib/utils';
 import { Image } from '@lib/types/all';
 import LinkButton, { LinkButtonProps } from '../LinkButton';
 import OfferedBy from '../OfferedBy';
@@ -55,9 +57,12 @@ const Header = ({ children }: HeaderProps) => {
     return <header className={styles.header}>{children}</header>;
 };
 
-const Title = ({ children, ...rest }: TitleProps) => {
+const Title = ({ children, href = '', ...rest }: TitleProps) => {
+    const router = useRouter();
+    const path = addBasePath(router, href);
+
     return (
-        <a {...rest} className={styles.title}>
+        <a href={path} {...rest} className={styles.title}>
             {children}
         </a>
     );

@@ -1,30 +1,99 @@
 @import 'styles/media-queries';
 
 .title {
-  font-size: 2.25rem;
-  letter-spacing: 0;
-  margin-bottom: 2.5rem;
-  text-transform: none;
+    font-size: 2.25rem;
+    letter-spacing: 0;
+    margin-bottom: 2.5rem;
+    text-transform: none;
 
-  @media #{$breakpoint-sm} {
-    font-size: 3rem;
-  }
+    @media #{$breakpoint-sm} {
+        font-size: 3rem;
+    }
 }
 
 .speakers {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
-  align-items: center;
-  gap: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    @media #{$breakpoint-lg} {
+        justify-content: flex-end;
+    }
+
+    .image {
+        width: 3.75rem;
+        height: 3.75rem;
+        position: relative;
+        display: block;
+        border-radius: 100%;
+
+        img {
+            border-radius: 100%;
+            border: 4px solid var(--color-background);
+        }
+
+        &:before {
+            background: conic-gradient(
+                    from 180deg at 50% 50%,
+                    rgba(0, 0, 0, 1) 0deg,
+                    rgba(255, 255, 255, 0.7) 17deg,
+                    rgba(0, 0, 0, 1) 88deg,
+                    rgba(255, 255, 255, 0.7) 152deg,
+                    rgba(0, 0, 0, 1) 225deg,
+                    rgba(255, 255, 255, 0.7) 289deg,
+                    rgba(0, 0, 0, 1) 360deg
+                ),
+                conic-gradient(
+                    from 180deg at 50% 50%,
+                    rgba(0, 0, 0, 1) 0deg,
+                    rgba(255, 255, 255, 1) 30deg,
+                    rgba(0, 0, 0, 1) 96deg,
+                    rgba(255, 255, 255, 1) 169deg,
+                    rgba(0, 0, 0, 1) 229deg,
+                    rgba(255, 255, 255, 1) 285deg,
+                    rgba(0, 0, 0, 1) 360deg
+                ),
+                radial-gradient(
+                    88% 127% at 13% 13%,
+                    rgba(42, 168, 208, 1) 0%,
+                    rgba(250, 191, 165, 1) 32%,
+                    rgba(252, 244, 171, 1) 56%,
+                    rgba(93, 247, 164, 1) 76%,
+                    rgba(88, 208, 246, 1) 100%
+                );
+            background-blend-mode: screen, difference, normal;
+            content: '';
+            display: block;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            border-radius: 100%;
+            transform: translateX(-2px) translateY(-2px);
+            z-index: -1;
+            animation: spin 4s linear infinite;
+        }
+    }
 }
 
 .description {
-  margin: 5rem 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+    margin: 3rem 0;
+    font-size: 1.25rem;
+    line-height: 1.5;
 
-  @media #{$breakpoint-sm} {
-    font-size: 1.5rem;
-  }
+    @media #{$breakpoint-sm} {
+        font-size: 1.5rem;
+        margin: 5rem 0;
+    }
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media #{$breakpoint-sm} {
+        flex-direction: row;
+    }
 }

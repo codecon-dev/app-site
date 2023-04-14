@@ -14,7 +14,7 @@ export default function Call4Papers() {
                             <p>Quer palestrar na Codecon? Envie uma sugestão de palestra!</p>
                         </div>
                         <div className={styles.button}>
-                            <LinkButton href="https://tally.so/r/w5X0GM" type="secondary">
+                            <LinkButton href="https://tally.so/r/w5X0GM" type="tertiary">
                                 Enviar sugestão
                             </LinkButton>
                         </div>

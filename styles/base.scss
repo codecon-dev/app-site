@@ -136,7 +136,7 @@ a {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-    bottom: 2.875rem;
+    bottom: 110%;
     width: max-content;
     opacity: 0;
     visibility: hidden;
@@ -151,7 +151,7 @@ a {
     width: 0;
     height: 0;
     left: 50%;
-    bottom: 2.25rem;
+    bottom: 100%;
     border-style: solid;
     border-width: 0 10px 10px 10px;
     border-color: transparent transparent var(--color-gray) transparent;

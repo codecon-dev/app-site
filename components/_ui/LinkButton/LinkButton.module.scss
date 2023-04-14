@@ -63,11 +63,11 @@
     }
 
     &--secondary {
-        background-color: var(--color-white);
-        color: var(--color-primary);
+        background-color: var(--color-primary);
+        color: var(--color-white);
 
         .button__info {
-            color: var(--color-primary);
+            color: var(--color-white);
         }
 
         &:hover {
