@@ -12,6 +12,8 @@ import {
 import styles from './Schedule.module.scss';
 import Activity from '@components/_ui/Activity';
 
+const hasLibras = true;
+
 type Props = {
     talks: Talk[];
 };
@@ -172,21 +174,23 @@ export default function ScheduleDigital({ talks }: Props) {
     return (
         <section ref={sectionRef}>
             <div className="container">
-                <div className={cn(styles['libras'], styles['libras-mobile'])}>
-                    <span className={styles['libras-image']}>
-                        <Image
-                            src="/icons/libras.png"
-                            width={64}
-                            height={64}
-                            alt="Emoji de pessoa fazendo sinal em Libras"
-                            quality={100}
-                        />
-                    </span>
-                    <p>
-                        <strong>Evento acessível!</strong> As palestras em português terão
-                        intérpretes de Libras.
-                    </p>
-                </div>
+                {hasLibras && (
+                    <div className={cn(styles['libras'], styles['libras-mobile'])}>
+                        <span className={styles['libras-image']}>
+                            <Image
+                                src="/icons/libras.png"
+                                width={32}
+                                height={32}
+                                alt="Emoji de pessoa fazendo sinal em Libras"
+                                quality={100}
+                            />
+                        </span>
+                        <p>
+                            <strong>Evento acessível!</strong> As palestras em português terão
+                            intérpretes de Libras.
+                        </p>
+                    </div>
+                )}
             </div>
 
             <nav className={styles.tabs}>
@@ -217,21 +221,23 @@ export default function ScheduleDigital({ talks }: Props) {
                         <span className={styles['full-text']}>Sexta (23/06)</span>
                         <span className={styles['mobile-text']}>23/06</span>
                     </button>
-                    <div className={cn(styles['libras'], styles['libras-desktop'])}>
-                        <span className={styles['libras-image']}>
-                            <Image
-                                src="/icons/libras.png"
-                                width={64}
-                                height={64}
-                                alt="Emoji de pessoa fazendo sinal em Libras"
-                                quality={100}
-                            />
-                        </span>
-                        <p>
-                            <strong>Evento acessível!</strong> As palestras em português terão
-                            intérpretes de Libras.
-                        </p>
-                    </div>
+                    {hasLibras && (
+                        <div className={cn(styles['libras'], styles['libras-desktop'])}>
+                            <span className={styles['libras-image']}>
+                                <Image
+                                    src="/icons/libras.png"
+                                    width={32}
+                                    height={32}
+                                    alt="Emoji de pessoa fazendo sinal em Libras"
+                                    quality={100}
+                                />
+                            </span>
+                            <p>
+                                <strong>Evento acessível!</strong> As palestras em português terão
+                                intérpretes de Libras.
+                            </p>
+                        </div>
+                    )}
                 </div>
             </nav>
             <div className="container">

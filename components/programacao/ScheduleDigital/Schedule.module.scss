@@ -70,7 +70,7 @@
 }
 
 .libras {
-    display: none; // não confirmado por enquanto
+    display: flex;
     max-width: 20rem;
     align-items: center;
     gap: 1rem;
@@ -90,7 +90,7 @@
         display: none;
 
         @media #{$breakpoint-sm} {
-            display: none; // não confirmado por enquanto
+            display: flex;
             margin-left: auto;
         }
     }
@@ -132,9 +132,18 @@
 
 .talks {
     margin-bottom: 2rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
+
+    @media #{$breakpoint-sm} {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media #{$breakpoint-lg} {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .place {
