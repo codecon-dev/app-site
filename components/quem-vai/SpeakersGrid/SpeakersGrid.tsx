@@ -1,4 +1,8 @@
-import { Fragment } from 'react';
+import { Fragment, ReactNode, useContext } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+import ThemeContext from 'context/ThemeContext';
 import { Speaker, SocialData } from '@lib/types/speakers';
 
 import { Column, Grid } from '@components/_ui/Grid';
@@ -8,18 +12,50 @@ import styles from './SpeakersGrid.module.scss';
 
 type Props = {
     speakers: Speaker[];
+    type?: 'full' | 'home';
+    children?: ReactNode;
 };
 
-export default function SpeakersGrid({ speakers }: Props) {
-    function parseCompany(company: string) {
-        const [role, ...companyName] = company.split(/ na | no | at | nos | do /);
-        if (!companyName || !companyName.length) return company;
+function parseCompany(company: string) {
+    const [role, ...companyName] = company.split(/ na | no | at | nos | do /);
+    if (!companyName || !companyName.length) return company;
+    return (
+        <>
+            {role} <span>•</span> {companyName}
+        </>
+    );
+}
+
+export default function SpeakersGrid({ speakers, type = 'full', children }: Props) {
+    const theme = useContext(ThemeContext);
+
+    if (type === 'home') {
         return (
-            <>
-                {role} <span>•</span> {companyName}
-            </>
+            <section className="container">
+                <h2 className={styles.title}>{children}</h2>
+
+                <div className={styles.grid}>
+                    {speakers.map((speaker, index) => (
+                        <Link
+                            href={`/${theme}/quem-vai/${speaker.slug}`}
+                            className={styles.speaker}
+                            key={index}
+                        >
+                            <div className={styles['speaker-bg']}>
+                                <div className={styles['speaker-description']}>
+                                    <h5>{speaker.name}</h5>
+                                    <small>{parseCompany(speaker.company)}</small>
+                                </div>
+
+                                <Image src={speaker.image.url} alt={speaker.name} fill />
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </section>
         );
     }
+
     return (
         <section>
             <Grid>

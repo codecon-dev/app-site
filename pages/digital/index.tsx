@@ -8,6 +8,8 @@ import Page from '@components/_ui/Page';
 import HeroDigital from '@components/home/HeroDigital';
 import Blocks from '@components/home/Blocks';
 import Faq from '@components/home/Faq/Faq';
+import Speakers from '@components/home/Speakers';
+import SpeakersGrid from '@components/quem-vai/SpeakersGrid/SpeakersGrid';
 
 type Props = {
     speakers: Speaker[];
@@ -16,7 +18,7 @@ type Props = {
 
 export default function Conf({ speakers, sponsors }: Props) {
     return (
-        <Page theme="digital" noPadding>
+        <Page theme="digital" noPadding sponsors={sponsors}>
             <HeroDigital />
             <Blocks>
                 <Blocks.Title>
@@ -53,10 +55,10 @@ export default function Conf({ speakers, sponsors }: Props) {
                 />
                 <Blocks.Video code="EiUiLA2gV0I" />
             </Blocks>
-            {/* <Speakers speakers={speakers}>
-                    Os principais nomes do mercado tech em <span>painéis</span>, <span>palestras</span>{' '}
-                    e <span>fish bowls</span>
-                </Speakers> */}
+            <SpeakersGrid speakers={speakers} type="home">
+                Os principais nomes do mercado em <span>painéis</span>, <span>palestras</span> e{' '}
+                <span>fish bowls</span>
+            </SpeakersGrid>
             <Faq />
         </Page>
     );

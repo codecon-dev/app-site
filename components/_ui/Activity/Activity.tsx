@@ -41,10 +41,15 @@ const SpeakerImage = ({ src, alt, ...rest }: SpeakerImageProps) => {
     );
 };
 
-const Button = (props: LinkButtonProps) => {
+const Button = ({ href = '', ...props }: LinkButtonProps) => {
+    const router = useRouter();
+    const path = addBasePath(router, href);
+
     return (
         <div className={styles.button}>
-            <LinkButton {...props}>{props.children}</LinkButton>
+            <LinkButton href={path} {...props}>
+                {props.children}
+            </LinkButton>
         </div>
     );
 };
@@ -72,7 +77,8 @@ const Activity = ({ children, sponsor, soon }: ActivityProps) => {
     return (
         <article
             className={cn(styles.activity, {
-                [styles.sponsored]: !!sponsor?.name && !!sponsor?.logo
+                [styles.sponsored]: !!sponsor?.name && !!sponsor?.logo,
+                [styles.soon]: soon
             })}
         >
             {soon ? (

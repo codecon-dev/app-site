@@ -31,12 +31,14 @@ export default function Faq() {
     }
 
     return (
-        <section className={cn(styles.faq, 'container')}>
-            <h2 className={styles.title}>Perguntas frequentes</h2>
+        <section className={cn(styles.faq)}>
+            <div className="container">
+                <h2 className={styles.title}>Perguntas frequentes</h2>
 
-            {faqQuestionList?.map((item, index) => (
-                <FaqQuestion question={item.question} answer={item.answer} key={index} />
-            ))}
+                {faqQuestionList?.map((item, index) => (
+                    <FaqQuestion question={item.question} answer={item.answer} key={index} />
+                ))}
+            </div>
         </section>
     );
 }

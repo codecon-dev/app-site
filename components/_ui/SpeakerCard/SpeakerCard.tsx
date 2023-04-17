@@ -26,7 +26,7 @@ const Title = ({ children }: PropsTitle) => {
 const Image = ({ src, alt, isHost, width = 600, height = 600, ...rest }: PropsImage) => {
     return (
         <div className={styles.image_wrapper} {...rest}>
-            <NextImage src={src} alt={alt} width={width} height={height} />
+            <NextImage src={src} alt={alt} width={width} height={height} layout="responsive" />
             {isHost && <span className={styles.host}>Host</span>}
         </div>
     );

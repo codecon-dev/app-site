@@ -64,20 +64,21 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 registerUrl: 'https://www.sympla.com.br/evento-online/codecon-digital-2023/1829527',
                 menuNav: [
                     {
-                        name: 'Home',
-                        route: '/digital'
+                        name: 'Quem vai',
+                        route: '/digital/quem-vai'
+                    },
+                    {
+                        name: 'Programação',
+                        route: '/digital/programacao'
                     },
                     {
                         name: 'Como será',
                         route: '/digital/como-sera'
                     },
+
                     {
-                        name: 'Outros eventos',
-                        route: '/'
-                    },
-                    {
-                        name: 'Contato',
-                        route: '/digital/contato'
+                        name: 'Patrocinadores',
+                        route: '/digital/patrocinadores'
                     }
                 ],
                 attendeeNav: [

@@ -30,6 +30,7 @@
         img {
             border-radius: 10px;
         }
+
         .host {
             display: block;
             bottom: 1rem;
@@ -113,10 +114,6 @@
             gap: 0.5rem;
             justify-content: center;
             padding: 0;
-
-            @media #{$breakpoint-lg} {
-                transform: translateX(-1rem);
-            }
 
             li {
                 margin-bottom: 0;
