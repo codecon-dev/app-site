@@ -1,0 +1,161 @@
+@import 'styles/media-queries';
+
+.countdown {
+    position: fixed;
+    bottom: -250px;
+    left: 2.5rem;
+    width: calc(100% - 5rem);
+    height: auto;
+    z-index: 100;
+    padding: 2px 2px 0 2px;
+    border-radius: 0.5rem 0.5rem 0 0;
+    background: conic-gradient(
+            from 180deg at 50% 50%,
+            rgba(0, 0, 0, 1) 0deg,
+            rgba(255, 255, 255, 0.7) 17deg,
+            rgba(0, 0, 0, 1) 88deg,
+            rgba(255, 255, 255, 0.7) 152deg,
+            rgba(0, 0, 0, 1) 225deg,
+            rgba(255, 255, 255, 0.7) 289deg,
+            rgba(0, 0, 0, 1) 360deg
+        ),
+        conic-gradient(
+            from 180deg at 50% 50%,
+            rgba(0, 0, 0, 1) 0deg,
+            rgba(255, 255, 255, 1) 30deg,
+            rgba(0, 0, 0, 1) 96deg,
+            rgba(255, 255, 255, 1) 169deg,
+            rgba(0, 0, 0, 1) 229deg,
+            rgba(255, 255, 255, 1) 285deg,
+            rgba(0, 0, 0, 1) 360deg
+        ),
+        radial-gradient(
+            88% 127% at 13% 13%,
+            rgba(42, 168, 208, 1) 0%,
+            rgba(250, 191, 165, 1) 32%,
+            rgba(252, 244, 171, 1) 56%,
+            rgba(93, 247, 164, 1) 76%,
+            rgba(88, 208, 246, 1) 100%
+        );
+    background-blend-mode: screen, difference, normal;
+    transition: all ease 0.5s;
+
+    &.scroll {
+        bottom: 0;
+        transition: all ease 1s;
+    }
+
+    .content {
+        background-color: var(--color-background);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 0.5rem 0.5rem 0 0;
+        gap: 1rem;
+
+        @media #{$breakpoint-sm} {
+            flex-direction: row;
+            gap: 2rem;
+            padding: 1rem 2rem;
+        }
+    }
+
+    .numbers {
+        display: flex;
+        gap: 1rem;
+        text-align: center;
+        color: var(--color-gray);
+
+        @media #{$breakpoint-sm} {
+            margin-left: auto;
+            gap: 1.25rem;
+        }
+
+        strong {
+            font-size: 1.5rem;
+            line-height: 1;
+            font-family: var(--heading-font-face);
+            display: block;
+            color: var(--color-white);
+        }
+
+        span {
+            &:last-child {
+                display: none;
+
+                @media #{$breakpoint-sm} {
+                    display: inline;
+                }
+            }
+        }
+    }
+}
+
+.image {
+    border-radius: 100%;
+
+    @media #{$breakpoint-sm} {
+        display: none;
+    }
+
+    @media #{$breakpoint-lg} {
+        display: block;
+    }
+}
+
+.title {
+    font-weight: bold;
+    margin-right: 0.5rem;
+    color: var(--color-primary);
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    text-align: center;
+    display: block;
+
+    @media #{$breakpoint-sm} {
+        font-size: 1.5rem;
+        text-align: left;
+    }
+
+    .mobile {
+        @media #{$breakpoint-lg} {
+            display: none;
+        }
+    }
+}
+
+.info {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0;
+    font-size: 0.85rem;
+    color: var(--color-gray);
+
+    @media #{$breakpoint-lg} {
+        display: flex;
+    }
+}
+
+.button {
+    min-width: 240px;
+
+    @media #{$breakpoint-lg} {
+        min-width: none;
+    }
+}
+
+.close {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 0;
+    display: block;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+
+    @media #{$breakpoint-sm} {
+        display: none;
+    }
+}

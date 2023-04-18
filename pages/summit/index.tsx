@@ -24,12 +24,6 @@ export default function Conf({ speakers, sponsors }: Props) {
                 <Blocks.Title>
                     <span>Do it for you.</span> Do it by code.
                 </Blocks.Title>
-                <Blocks.Countdown
-                    message="Garanta sua vaga!"
-                    local="Campus Park"
-                    city="Joinville, SC"
-                    initialDate={new Date('2023-08-26 00:00:00')}
-                />
                 <Blocks.Block
                     lg={6}
                     sm={6}

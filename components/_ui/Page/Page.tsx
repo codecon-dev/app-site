@@ -9,6 +9,7 @@ import { Sponsor } from '@lib/types/all';
 import Navbar from '@components/_ui/Navbar';
 import Footer from '@components/_ui/Footer';
 import WhatsappFloatingButton from '@components/_ui/WhatsappFloatingButton';
+import SubscribeCountdown from '@components/_ui/SubscribeCountdown';
 
 import { SITE_URL, TWITTER_USER_NAME, getEventData } from '@lib/constants';
 import styles from './Page.module.scss';
@@ -100,6 +101,7 @@ export default function Page({
                 <Toaster />
                 {!hideNav && <Navbar hideNavMenu={hideNavMenu} />}
                 <main>{children}</main>
+                <SubscribeCountdown eventData={eventData} />
                 {(!hideNav || !hideFooter) && <WhatsappFloatingButton />}
                 {!hideFooter && <Footer sponsors={sponsors} />}
             </div>

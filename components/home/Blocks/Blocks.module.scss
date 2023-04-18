@@ -45,64 +45,6 @@
     }
 }
 
-.countdown {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-
-    @media #{$breakpoint-sm} {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    h3 {
-        color: var(--color-primary);
-        margin-bottom: 0;
-        font-size: 1.5rem;
-    }
-
-    p {
-        font-size: 1.25rem;
-        color: var(--color-gray);
-
-        span {
-            color: var(--color-primary);
-        }
-    }
-
-    .numbers {
-        display: flex;
-        gap: 1rem;
-        text-align: center;
-        color: var(--color-gray);
-        margin-top: 2rem;
-
-        @media #{$breakpoint-sm} {
-            margin-left: auto;
-            margin-top: 0;
-            gap: 2rem;
-        }
-
-        strong {
-            font-size: 2.5rem;
-            line-height: 1;
-            font-family: var(--heading-font-face);
-            display: block;
-            color: var(--color-white);
-        }
-
-        span {
-            &:last-child {
-                display: none;
-
-                @media #{$breakpoint-sm} {
-                    display: inline;
-                }
-            }
-        }
-    }
-}
-
 .video {
     height: auto;
     padding: 0;

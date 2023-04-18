@@ -22,13 +22,6 @@ export default function Conf({ speakers, sponsors }: Props) {
                 <Blocks.Title>
                     <span>Adventures</span> in the world of development
                 </Blocks.Title>
-                <Blocks.Countdown
-                    message="Tá chegando!"
-                    local="Digital"
-                    city="Gather Town"
-                    initialDate={new Date('2023-06-22 00:00:00')}
-                    finalDate={new Date('2023-06-23 00:00:00')}
-                />
                 <Blocks.Block
                     lg={6}
                     sm={4}

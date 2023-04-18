@@ -22,12 +22,6 @@ export default function Conf({ speakers, sponsors }: Props) {
                 <Blocks.Title>
                     <span>Encode the present,</span> decode the future.
                 </Blocks.Title>
-                <Blocks.Countdown
-                    message="São poucas vagas!"
-                    local="Hotel Faial Prime"
-                    city="Florianópolis, SC"
-                    initialDate={new Date('2023-10-28 00:00:00')}
-                />
                 <Blocks.Block lg={3} sm={4} backgroundImage="/images/feature/foto-1.jpg" />
                 <Blocks.Block lg={3} sm={4} backgroundImage="/images/feature/foto-2.jpg" />
                 <Blocks.Block

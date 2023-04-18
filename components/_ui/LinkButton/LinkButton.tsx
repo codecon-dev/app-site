@@ -29,7 +29,11 @@ export default function Button({ children, href, type, info, newPage, disabled, 
             <span>{children}</span>
             {info && (
                 <i className={styles['button__info']}>
-                    <span>{typeof info == 'number' ? `R$ ${info}` : info}</span>
+                    <span>
+                        {typeof info == 'number'
+                            ? `R$ ${new Intl.NumberFormat('pt-BR').format(info)}`
+                            : info}
+                    </span>
                 </i>
             )}
         </Link>

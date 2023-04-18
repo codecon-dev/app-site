@@ -1,6 +1,6 @@
 import { EVENTS, MenuItem } from './types/all';
 
-type EventPrice = {
+export type EventPrice = {
     name: string;
     price: number;
     endDate: Date;
@@ -12,7 +12,7 @@ export type EventData = {
     subtitle?: string;
     local?: string;
     city?: string;
-    initialDate?: Date;
+    initialDate: Date;
     finalDate?: Date;
     homeUrl: string;
     siteName: string;
@@ -282,6 +282,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 homeUrl: 'https://codecon.dev/',
                 siteName: 'Codecon • Eventos de tecnologia que fogem do comum',
                 shareImage: 'https://codecon.dev/share-image.png',
+                initialDate: new Date(),
                 metaDescription:
                     'A Codecon organiza eventos de tecnologia que juntam código, networking e diversão.',
                 registerUrl: '#',
