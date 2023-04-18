@@ -75,7 +75,8 @@
         }
     }
 
-    &.sponsored {
+    &.sponsored,
+    &.featured {
         border: 0;
 
         .content {
@@ -124,4 +125,22 @@
             z-index: -1;
         }
     }
+}
+
+.hackathon {
+    background: linear-gradient(
+        228.7deg,
+        #ffac4a 6.79%,
+        #f2e9bc 25.64%,
+        #fef4c9 46.58%,
+        #d2fbff 66.27%,
+        #d6ffd2 86.79%
+    );
+    width: 100%;
+    display: block;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 1rem;
+    text-transform: uppercase;
+    color: var(--color-black);
+    font-weight: bolder;
 }

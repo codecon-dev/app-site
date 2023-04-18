@@ -25,6 +25,7 @@ type FooterProps = {
 type ActivityProps = {
     children: ReactNode;
     soon?: boolean;
+    featured?: boolean;
     sponsor?: { name: string; logo: Image };
 };
 
@@ -73,12 +74,13 @@ const Title = ({ children, href = '', ...rest }: TitleProps) => {
     );
 };
 
-const Activity = ({ children, sponsor, soon }: ActivityProps) => {
+const Activity = ({ children, sponsor, soon, featured }: ActivityProps) => {
     return (
         <article
             className={cn(styles.activity, {
                 [styles.sponsored]: !!sponsor?.name && !!sponsor?.logo,
-                [styles.soon]: soon
+                [styles.soon]: soon,
+                [styles.featured]: featured
             })}
         >
             {soon ? (
@@ -88,6 +90,8 @@ const Activity = ({ children, sponsor, soon }: ActivityProps) => {
                     {!!sponsor?.name && !!sponsor?.logo && (
                         <OfferedBy name={sponsor.name} logo={sponsor.logo.url} />
                     )}
+
+                    {featured && <div className={styles.hackathon}>Hackathon Codecon</div>}
 
                     <div className={styles.content}>{children}</div>
                 </>
