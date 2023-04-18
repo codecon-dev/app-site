@@ -126,6 +126,7 @@ export async function getAllTalks(event: Events): Promise<Talk[]> {
         title
         slug
         emBreve
+        featured
         start
         end
         description

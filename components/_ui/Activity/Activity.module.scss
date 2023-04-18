@@ -8,6 +8,10 @@
     background: var(--color-black-40);
     border-radius: 0.5rem;
 
+    &.soon {
+        border: 1px dashed var(--color-gray);
+    }
+
     .header {
         display: flex;
         align-items: center;
@@ -29,7 +33,7 @@
         display: block;
         color: #fff;
         font-size: 1.25rem;
-        margin-bottom: 2.5rem;
+        margin-bottom: 1.5rem;
 
         &[href]:hover {
             text-decoration: underline;
@@ -37,15 +41,16 @@
     }
 
     .soon {
-        background: rgba(var(--color-primary-dark), 0.6);
-        border: 1px solid rgba(var(--color-primary), 0.3);
         display: flex;
         flex-direction: column;
         flex: 1;
         align-items: center;
         justify-content: center;
         text-transform: uppercase;
-        min-height: 8rem;
+        min-height: 12rem;
+        background-color: var(--color-background);
+        border-radius: 0.5rem;
+        color: var(--color-gray);
     }
 
     .content {
@@ -53,12 +58,6 @@
         flex-direction: column;
         flex: 1;
         padding: 1rem;
-
-        & > .button {
-            position: absolute;
-            bottom: 1px;
-            right: 1px;
-        }
     }
 
     .footer {
@@ -76,11 +75,12 @@
         }
     }
 
-    &.sponsored {
+    &.sponsored,
+    &.featured {
         border: 0;
 
         .content {
-            background-color: #000;
+            background-color: var(--color-black);
             border-radius: 0 0 0.5rem 0.5rem;
         }
 
@@ -125,4 +125,22 @@
             z-index: -1;
         }
     }
+}
+
+.hackathon {
+    background: linear-gradient(
+        228.7deg,
+        #ffac4a 6.79%,
+        #f2e9bc 25.64%,
+        #fef4c9 46.58%,
+        #d2fbff 66.27%,
+        #d6ffd2 86.79%
+    );
+    width: 100%;
+    display: block;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 1rem;
+    text-transform: uppercase;
+    color: var(--color-black);
+    font-weight: bolder;
 }

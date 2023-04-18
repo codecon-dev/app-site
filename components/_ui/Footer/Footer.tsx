@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import cn from 'classnames';
 
 import ThemeContext from 'context/ThemeContext';
@@ -19,7 +20,7 @@ type Props = {
 
 export default function Footer({ sponsors }: Props) {
     const communities = sponsors?.filter(sponsor => sponsor.tier === 'comunidade');
-    const sponsorsEvent = sponsors?.filter(sponsor => sponsor.tier !== 'patrocinador');
+    const sponsorsEvent = sponsors?.filter(sponsor => sponsor.tier === 'patrocinador');
     const partners = sponsors?.filter(sponsor => sponsor.tier === 'apoio');
 
     const theme = useContext(ThemeContext);
@@ -97,6 +98,7 @@ export default function Footer({ sponsors }: Props) {
                     </Column>
                     <Column lg={6} sm={6}>
                         <div className={styles.social}>
+                            <Link href="/digital/contato">Contato</Link>
                             <a
                                 className={styles.icon}
                                 href="https://twitter.com/codecondev"

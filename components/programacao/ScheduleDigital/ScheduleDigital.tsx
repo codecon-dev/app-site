@@ -52,7 +52,11 @@ function sortTalksByHourAndPlace(talks: Talk[], priorityMap: PriorityMap): Talk[
 
 function TalkCard({ talk }: { talk: Talk }) {
     return (
-        <Activity sponsor={talk.sponsor ? talk.sponsor : undefined} soon={talk.emBreve}>
+        <Activity
+            sponsor={talk.sponsor ? talk.sponsor : undefined}
+            featured={talk.featured}
+            soon={talk.emBreve}
+        >
             <Activity.Header>
                 <p>
                     <strong>{talk.talkType}</strong> • {talk.place}

@@ -23,6 +23,7 @@ export type Talk = {
     title: string;
     slug: string;
     emBreve?: boolean;
+    featured?: boolean;
     description?: string;
     start: string;
     end: string;

@@ -25,6 +25,7 @@ type FooterProps = {
 type ActivityProps = {
     children: ReactNode;
     soon?: boolean;
+    featured?: boolean;
     sponsor?: { name: string; logo: Image };
 };
 
@@ -41,10 +42,15 @@ const SpeakerImage = ({ src, alt, ...rest }: SpeakerImageProps) => {
     );
 };
 
-const Button = (props: LinkButtonProps) => {
+const Button = ({ href = '', ...props }: LinkButtonProps) => {
+    const router = useRouter();
+    const path = addBasePath(router, href);
+
     return (
         <div className={styles.button}>
-            <LinkButton {...props}>{props.children}</LinkButton>
+            <LinkButton href={path} {...props}>
+                {props.children}
+            </LinkButton>
         </div>
     );
 };
@@ -68,11 +74,13 @@ const Title = ({ children, href = '', ...rest }: TitleProps) => {
     );
 };
 
-const Activity = ({ children, sponsor, soon }: ActivityProps) => {
+const Activity = ({ children, sponsor, soon, featured }: ActivityProps) => {
     return (
         <article
             className={cn(styles.activity, {
-                [styles.sponsored]: !!sponsor?.name && !!sponsor?.logo
+                [styles.sponsored]: !!sponsor?.name && !!sponsor?.logo,
+                [styles.soon]: soon,
+                [styles.featured]: featured
             })}
         >
             {soon ? (
@@ -82,6 +90,8 @@ const Activity = ({ children, sponsor, soon }: ActivityProps) => {
                     {!!sponsor?.name && !!sponsor?.logo && (
                         <OfferedBy name={sponsor.name} logo={sponsor.logo.url} />
                     )}
+
+                    {featured && <div className={styles.hackathon}>Hackathon Codecon</div>}
 
                     <div className={styles.content}>{children}</div>
                 </>
