@@ -8,8 +8,7 @@ import Page from '@components/_ui/Page';
 import HeroDigital from '@components/home/HeroDigital';
 import Blocks from '@components/home/Blocks';
 import Faq from '@components/home/Faq/Faq';
-import Speakers from '@components/home/Speakers';
-import SpeakersGrid from '@components/quem-vai/SpeakersGrid/SpeakersGrid';
+import SpeakersGrid from '@components/quem-vai/SpeakersGrid';
 
 type Props = {
     speakers: Speaker[];
