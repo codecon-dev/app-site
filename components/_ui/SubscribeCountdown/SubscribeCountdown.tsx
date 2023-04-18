@@ -31,10 +31,10 @@ export default function SubscribeCountdown({ eventData }: Props) {
         window.addEventListener('scroll', () => {
             const documentHeight = document.body.scrollHeight;
             const currentScroll = window.scrollY + window.innerHeight;
-            const modifier = 200;
+            const modifier = 50;
             if (currentScroll + modifier > documentHeight) {
                 setIsScrolled(false);
-            } else if (window.scrollY > 300) {
+            } else if (window.scrollY > 100) {
                 setIsScrolled(true);
             } else {
                 setIsScrolled(false);

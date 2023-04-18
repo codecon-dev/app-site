@@ -4,6 +4,7 @@
     width: 100%;
     height: 16rem;
     position: relative;
+    border-radius: 20px;
 
     @media #{$breakpoint-lg} {
         height: 22.8rem;
@@ -14,6 +15,10 @@
     width: 100%;
     display: none;
     position: relative;
+
+    img {
+        border-radius: 20px;
+    }
 
     @media #{$breakpoint-lg} {
         display: block;
