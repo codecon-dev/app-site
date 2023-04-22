@@ -164,3 +164,26 @@ a {
     opacity: 1;
     visibility: visible;
 }
+
+@media only screen and (max-width: 1140px) {
+    .cursor {
+        display: none;
+    }
+}
+@media (any-pointer: fine) {
+    .cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: block;
+        pointer-events: none;
+        opacity: 0;
+        z-index: 999;
+    }
+
+    .cursor__inner {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 1px;
+    }
+}
