@@ -5,6 +5,11 @@
     gap: 1rem;
     align-items: center;
     margin-top: 2rem;
+    flex-direction: column;
+
+    @media #{$breakpoint-sm} {
+        flex-direction: row;
+    }
 }
 
 .avatars {
