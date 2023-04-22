@@ -1,5 +1,4 @@
 import { Toaster } from 'react-hot-toast';
-import useBlobity from 'blobity/lib/react/useBlobity';
 import cn from 'classnames';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -50,16 +49,6 @@ export default function Page({
     const description = meta?.description || eventData.metaDescription;
     const imageBaseUrl =
         process.env.VERCEL_ENV === 'development' ? 'http://localhost:3000' : SITE_URL;
-
-    useBlobity({
-        licenseKey: 'opensource',
-        color: 'rgb(0, 0, 0)',
-        magnetic: false,
-        zIndex: 200,
-        size: 100,
-        invert: true,
-        focusableElements: undefined
-    });
 
     return (
         <ThemeContext.Provider value={theme}>
