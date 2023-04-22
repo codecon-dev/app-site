@@ -61,7 +61,7 @@ export const getStaticProps: GetStaticProps<any> = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const attendees = await Attendee.findAllWithGithubUsername();
+    const attendees = await Attendee.findAllWithGithubUsernameAndEvent('DIGITAL');
 
     if (!attendees) {
         return {

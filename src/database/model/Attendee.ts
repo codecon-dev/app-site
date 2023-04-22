@@ -2,7 +2,7 @@ import { DataTypes, Op } from 'sequelize';
 import dataSource from '../DataSource';
 import ModelImpl, { commonAttributes } from './ModelImpl';
 
-type Event = 'DIGITAL' | 'SUMMIT' | 'FEATURE';
+export type Event = 'DIGITAL' | 'SUMMIT' | 'FEATURE';
 
 class Attendee extends ModelImpl<Attendee> {
     declare name: string;
@@ -45,8 +45,10 @@ class Attendee extends ModelImpl<Attendee> {
         return await Attendee.findOne({ where: { githubUsername: username, event } });
     }
 
-    public static async findAllWithGithubUsername(): Promise<Attendee[] | null> {
-        return await Attendee.findAll({ where: { githubUsername: { [Op.ne]: '' } } });
+    public static async findAllWithGithubUsernameAndEvent(
+        event: Event
+    ): Promise<Attendee[] | null> {
+        return await Attendee.findAll({ where: { githubUsername: { [Op.ne]: '' }, event } });
     }
 }
 

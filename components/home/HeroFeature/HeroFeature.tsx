@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import cn from 'classnames';
 
+import AttendeesAvatars from '@components/_ui/AttendeesAvatars/AttendeesAvatars';
 import LinkButton from '@components/_ui/LinkButton/LinkButton';
 
 import { getEventData } from '@lib/constants';
@@ -40,6 +41,7 @@ export default function HeroSummit() {
                         Inscreva-se
                     </LinkButton>
                 )}
+                <AttendeesAvatars />
             </div>
         </header>
     );

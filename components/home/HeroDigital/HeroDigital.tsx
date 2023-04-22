@@ -2,12 +2,13 @@
 import { useEffect } from 'react';
 
 import cn from 'classnames';
-
-import LinkButton from '@components/_ui/LinkButton/LinkButton';
-
-import styles from './HeroDigital.module.scss';
 import { getEventData } from '@lib/constants';
 import { useActiveEventPrice } from '@lib/hooks/useActiveEventPrice';
+
+import LinkButton from '@components/_ui/LinkButton/LinkButton';
+import AttendeesAvatars from '@components/_ui/AttendeesAvatars/AttendeesAvatars';
+
+import styles from './HeroDigital.module.scss';
 
 export default function HeroDigital() {
     const eventData = getEventData('digital');
@@ -66,6 +67,8 @@ export default function HeroDigital() {
                         Inscreva-se
                     </LinkButton>
                 )}
+
+                <AttendeesAvatars />
             </div>
 
             <div className={cn(styles['image-wrapper'], styles['image-bg'])}>

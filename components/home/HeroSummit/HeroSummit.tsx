@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 
 import cn from 'classnames';
 
+import AttendeesAvatars from '@components/_ui/AttendeesAvatars/AttendeesAvatars';
 import LinkButton from '@components/_ui/LinkButton/LinkButton';
 
 import { getEventData } from '@lib/constants';
@@ -69,6 +70,7 @@ export default function HeroSummit() {
                         Inscreva-se
                     </LinkButton>
                 )}
+                <AttendeesAvatars />
             </div>
             <div className={cn(styles['image-wrapper'], styles['image-bg'])}>
                 <div className={styles['image']}>
