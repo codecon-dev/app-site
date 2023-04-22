@@ -2,7 +2,7 @@
 
 .countdown {
     position: fixed;
-    bottom: -250px;
+    bottom: -100%;
     left: 2.5rem;
     width: calc(100% - 5rem);
     height: auto;
@@ -63,11 +63,13 @@
 
     .numbers {
         display: flex;
-        gap: 1rem;
+        font-size: 0.85rem;
+        gap: 0.5rem;
         text-align: center;
         color: var(--color-gray);
 
         @media #{$breakpoint-sm} {
+            font-size: 1rem;
             margin-left: auto;
             gap: 1.25rem;
         }
@@ -78,16 +80,6 @@
             font-family: var(--heading-font-face);
             display: block;
             color: var(--color-white);
-        }
-
-        span {
-            &:last-child {
-                display: none;
-
-                @media #{$breakpoint-sm} {
-                    display: inline;
-                }
-            }
         }
     }
 }
