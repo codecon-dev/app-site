@@ -45,7 +45,7 @@ export default function Conf({ speakers, sponsors }: Props) {
                     title="Networking"
                     description="Converse com outras devas, devs e patrocinadores."
                 />
-                <Blocks.Video code="EiUiLA2gV0I" />
+                <Blocks.Video code="HKPPvSosg2Y" />
             </Blocks>
             <SpeakersGrid speakers={speakers} type="home">
                 Os principais nomes do mercado em <span>painéis</span>, <span>palestras</span> e{' '}

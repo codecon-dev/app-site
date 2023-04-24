@@ -47,7 +47,7 @@ export default function Conf({ speakers, sponsors }: Props) {
                     description="Um espaço que respira inovação e tecnologia."
                 />
                 <Blocks.Block lg={3} sm={4} backgroundImage="/images/summit/foto-2.jpg" />
-                <Blocks.Video code="NCuwtYQjsjs" />
+                <Blocks.Video code="YIyjiglIQNQ" />
             </Blocks>
             {/* <Speakers speakers={speakers}>
                     Os principais nomes do mercado tech em <span>painéis</span>, <span>palestras</span>{' '}
