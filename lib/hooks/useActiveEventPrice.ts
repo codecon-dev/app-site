@@ -26,7 +26,7 @@ const DISCOUNT_CODES: Discount[] = [
         percentage: 25,
         discount: 10,
         event: EVENTS.DIGITAL,
-        image: 'https://pbs.twimg.com/profile_images/1644096132635656192/PnnVitMq_400x400.jpg'
+        image: 'https://pbs.twimg.com/profile_images/1649159389327114243/tNKSKN3y_400x400.jpg'
     }
 ];
 
