@@ -35,6 +35,7 @@ export default function AttendeesAvatars() {
             <div className={styles.avatars}>
                 {attendeesAvatars.map(({ githubUsername, githubFullName }) => (
                     <Link
+                        key={githubUsername}
                         className={styles.avatar}
                         href={`${theme}/tickets/${githubUsername}`}
                         title={githubFullName}

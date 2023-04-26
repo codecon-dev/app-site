@@ -32,7 +32,7 @@ const DISCOUNT_CODES: Discount[] = [
 
 export function useActiveEventPrice(eventData: EventData) {
     const [eventPrice, setEventPrice] = useState<number>();
-    const [registerUrlWithCode, setRegisterUrlWithCode] = useState<string>();
+    const [registerUrlWithCode, setRegisterUrlWithCode] = useState<string>(eventData.registerUrl);
     const [discountInfo, setDiscountInfo] = useState<Discount>();
     const [priceInfo, setPriceInfo] = useState<EventPrice>();
     const [nextPrice, setNextPrice] = useState<number>();
