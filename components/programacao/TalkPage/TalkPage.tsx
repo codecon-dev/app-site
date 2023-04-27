@@ -33,7 +33,7 @@ export default function TalkPage({ talk }: Props) {
             </Grid>
             <Grid align="center">
                 <Column lg={1} sm={0} xsm={0} />
-                <Column lg={5}>
+                <Column lg={6}>
                     <p className="headline">
                         {formatDate(talk.start, 'dd/MM')} <span className="bullet">•</span>{' '}
                         {captureHourAndMinutesFromDateString(talk.start)} ~{' '}
@@ -41,7 +41,7 @@ export default function TalkPage({ talk }: Props) {
                         <span className="bullet">•</span> {talk.place}
                     </p>
                 </Column>
-                <Column lg={5} sm={5} xsmOrder={1}>
+                <Column lg={4} xsmOrder={1}>
                     {talk.speaker && (
                         <div className={styles.speakers}>
                             {talk.speaker?.map(speaker => (
