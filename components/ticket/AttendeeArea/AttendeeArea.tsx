@@ -69,7 +69,7 @@ export default function AttendeeArea({ attendee }: Props) {
                 <Column lg={7}>
                     <div className={styles.ticket}>
                         <TheTicket
-                            name={githubData?.name}
+                            name={githubData?.name || attendee.name}
                             username={githubData?.login}
                             number={attendee.id}
                         />

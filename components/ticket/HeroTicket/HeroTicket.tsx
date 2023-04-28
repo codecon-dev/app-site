@@ -87,7 +87,7 @@ export default function AttendeeArea({ attendee }: Props) {
                         </div>
                         <div className={styles.ticket} ref={ticketRef}>
                             <TheTicket
-                                name={attendee.githubFullName}
+                                name={attendee.githubFullName || attendee.name}
                                 username={attendee.githubUsername}
                                 number={attendee.id}
                             />

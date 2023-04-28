@@ -34,9 +34,12 @@ interface SpeakerImageProps extends React.LinkHTMLAttributes<HTMLAnchorElement> 
     alt: string;
 }
 
-const SpeakerImage = ({ src, alt, ...rest }: SpeakerImageProps) => {
+const SpeakerImage = ({ src, alt, href = '', ...rest }: SpeakerImageProps) => {
+    const router = useRouter();
+    const path = addBasePath(router, href);
+
     return (
-        <a className={`${styles.speaker_image} tooltip`} data-content={alt} {...rest}>
+        <a className={`${styles.speaker_image} tooltip`} data-content={alt} href={path} {...rest}>
             <NextImage src={src} alt={alt} width={32} height={32} />
         </a>
     );
