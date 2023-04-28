@@ -16,7 +16,7 @@ const DISCOUNT_CODES: Discount[] = [
         name: 'Newsletter do Filipe Deschamps',
         code: 'NEWS25',
         percentage: 25,
-        discount: 10,
+        discount: 12,
         event: EVENTS.DIGITAL,
         image: 'https://github.com/filipedeschamps.png'
     },
@@ -24,7 +24,7 @@ const DISCOUNT_CODES: Discount[] = [
         name: 'Letícia Coelho',
         code: 'COELHO25',
         percentage: 25,
-        discount: 10,
+        discount: 12,
         event: EVENTS.DIGITAL,
         image: 'https://pbs.twimg.com/profile_images/1649159389327114243/tNKSKN3y_400x400.jpg'
     }
