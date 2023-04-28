@@ -48,7 +48,7 @@ export default function AttendeesAvatars() {
                 ))}
             </div>
             <p>
-                {attendeesCount < 100 ? (
+                {attendeesCount < 500 ? (
                     <>vários devs e devas já garantiram seu ticket</>
                 ) : (
                     <>+{attendeesCount} já garantiram seu ticket</>
