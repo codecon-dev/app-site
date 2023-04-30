@@ -64,8 +64,7 @@ Attendee.init(
         event: { type: DataTypes.ENUM('DIGITAL', 'SUMMIT', 'FEATURE'), allowNull: true }
     },
     {
-        sequelize: dataSource,
-        indexes: [{ unique: true, fields: ['email'] }]
+        sequelize: dataSource
     }
 );
 
