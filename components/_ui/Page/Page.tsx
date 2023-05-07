@@ -13,7 +13,7 @@ import SubscribeCountdown from '@components/_ui/SubscribeCountdown';
 import { SITE_URL, TWITTER_USER_NAME, getEventData } from '@lib/constants';
 import styles from './Page.module.scss';
 
-type Meta = {
+export type Meta = {
     title: string;
     description?: string;
     image?: string;

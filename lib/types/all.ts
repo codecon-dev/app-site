@@ -31,6 +31,7 @@ export type Talk = {
     host?: Speaker;
     place?: string;
     talkType: string;
+    shareImage?: Image;
     sponsor?: {
         name: string;
         logo: Image;

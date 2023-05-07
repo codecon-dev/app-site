@@ -56,6 +56,9 @@ export async function getSpeaker(slug: string, event: Events): Promise<Speaker |
         image {
           url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, bri: 7, w: 500, h: 500})
         }
+        shareImage {
+          url
+        }
       }
     }
   `);
@@ -111,6 +114,9 @@ export async function getAllSpeakers(limit: number, event: Events): Promise<Spea
         image {
           url(imgixParams: {fm: jpg, fit: facearea, facepad: 3.5, sat: -100, bri: 7, w: 500, h: 500})
         }
+        shareImage {
+          url
+        }
       }
     }
   `);
@@ -131,7 +137,10 @@ export async function getAllTalks(event: Events): Promise<Talk[]> {
         end
         description
         place
-		    talkType
+        talkType
+        shareImage {
+          url
+        }
         speaker {
           name
           bio
@@ -218,8 +227,8 @@ export async function getAllWorkshops(): Promise<Workshop[]> {
         title
         slug
         description
-		    start
-		    end
+        start
+        end
         vagas
         teacher {
           name

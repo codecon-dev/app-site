@@ -5,6 +5,7 @@ import { Sponsor } from '@lib/types/all';
 import { Speaker } from '@lib/types/speakers';
 
 import Page from '@components/_ui/Page';
+import { Meta } from '@components/_ui/Page/Page';
 import { getSpeaker } from '@lib/cms-providers/dato';
 import SpeakerPage from '@components/quem-vai/SpeakerPage';
 
@@ -14,10 +15,14 @@ type Props = {
 };
 
 export default function QuemVai({ speaker, sponsors }: Props) {
-    const meta = {
+    const meta: Meta = {
         title: `${speaker.name} estará na Codecon Digital`,
         description: speaker.bio
     };
+
+    if (speaker.shareImage) {
+        meta.image = speaker.shareImage.url;
+    }
 
     return (
         <Page theme="digital" meta={meta} sponsors={sponsors}>

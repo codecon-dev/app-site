@@ -4,6 +4,7 @@ import { getAllTalks, getAllSponsors } from '@lib/cms-api';
 import { Sponsor, Talk } from '@lib/types/all';
 
 import Page from '@components/_ui/Page';
+import { Meta } from '@components/_ui/Page/Page';
 import TalkPage from '@components/programacao/TalkPage';
 
 type Props = {
@@ -12,10 +13,14 @@ type Props = {
 };
 
 export default function QuemVai({ talk, sponsors }: Props) {
-    const meta = {
+    const meta: Meta = {
         title: `${talk.title} - Codecon Digital`,
         image: '/images/share-image.png'
     };
+
+    if (talk.shareImage) {
+        meta.image = talk.shareImage.url;
+    }
 
     return (
         <Page theme="digital" meta={meta} sponsors={sponsors}>

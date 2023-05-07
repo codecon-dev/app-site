@@ -14,6 +14,7 @@ export type Speaker = {
     talks?: Talk[];
     workshops?: Workshop[];
     image: Image;
+    shareImage?: Image;
 };
 
 export type PropsTitle = {
