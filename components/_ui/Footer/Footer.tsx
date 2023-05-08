@@ -85,13 +85,13 @@ export default function Footer({ sponsors }: Props) {
                     <Column lg={6} sm={6}>
                         A Codecon preza pela inclusão e diversidade.{' '}
                         <br className={styleUtils['hide-on-mobile']} />
-                        Seguimos o{' '}
+                        Confira o{' '}
                         <a
-                            href="https://www.codamos.club/codigo-de-conduta"
+                            href="https://github.com/codecon-dev/codigo-de-conduta/"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            código de conduta da Codamos
+                            nosso código de conduta
                         </a>
                         .
                         <DarkModeToggle />
