@@ -26,7 +26,7 @@ export default function DetailsGrid() {
                         <br />
                         Presencial em Joinville, SC
                     </p>
-                    <p>Ingressos early bird disponíveis.</p>
+                    <p>Ingressos disponíveis.</p>
                 </Link>
 
                 <Link href="/feature" className={cn(styles.block, styles.feature)}>
@@ -36,7 +36,7 @@ export default function DetailsGrid() {
                         <br />
                         Evento para profissionais sênior ou cargos superiores em Floripa, SC
                     </p>
-                    <p>Ingressos early bird disponíveis.</p>
+                    <p>Ingressos disponíveis.</p>
                 </Link>
                 <a
                     href="https://www.umapenca.com/dvlpr/"
