@@ -252,18 +252,8 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 ],
                 eventPrice: [
                     {
-                        name: 'Early bird',
+                        name: 'lote único',
                         price: 890,
-                        endDate: new Date('2023-05-25 18:00:00')
-                    },
-                    {
-                        name: '1º lote',
-                        price: 1290,
-                        endDate: new Date('2023-09-01 18:00:00')
-                    },
-                    {
-                        name: '2º lote',
-                        price: 1490,
                         endDate: new Date('2023-10-27 18:00:00')
                     }
                 ],

@@ -123,7 +123,7 @@ export default function SubscribeCountdown({ eventData }: Props) {
                                             {new Intl.NumberFormat('pt-BR').format(nextPrice || 0)}.
                                         </p>
                                     ) : (
-                                        <p className={styles.info}>Últimas vagas disponíveis!</p>
+                                        <p className={styles.info}>São poucas vagas disponíveis!</p>
                                     )}
                                 </>
                             )}
