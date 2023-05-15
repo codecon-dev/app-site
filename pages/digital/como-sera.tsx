@@ -81,18 +81,6 @@ export default function ComoFunciona({ sponsors }: Props) {
                 <Info.Image src="/images/digital/muito-mais.jpg" />
             </Info>
             <Info>
-                <Info.Image src="/images/summit/blob.jpg" />
-
-                <Info.Text title="Hackathon de projetos desnecessários & ideias que ninguém precisa">
-                    <p>
-                        Sabe aquele site onde tem um grande botão vermelho escrito “não aperte”, mas
-                        quando você aperta algo muito legal acontece? Começa a tocar uma música de
-                        fundo e aparecem animações psicodélicas. São esses tipos de projetos que
-                        queremos que você crie.
-                    </p>
-                </Info.Text>
-            </Info>
-            <Info>
                 <Info.Text title="My sword is my code.">
                     <p className="headline">
                         Online <span className="bullet">&bull;</span> 22 e 23 de junho
