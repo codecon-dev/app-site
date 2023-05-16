@@ -23,7 +23,7 @@ export default function ComoFunciona({ sponsors }: Props) {
     const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
 
     return (
-        <Page theme="feature" meta={meta}>
+        <Page theme="feature" meta={meta} sponsors={sponsors}>
             <Header
                 title={
                     <>

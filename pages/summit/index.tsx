@@ -17,7 +17,7 @@ type Props = {
 
 export default function Conf({ speakers, sponsors }: Props) {
     return (
-        <Page theme="summit" noPadding>
+        <Page theme="summit" noPadding sponsors={sponsors}>
             <HeroSummit />
             <Call4Papers />
             <Blocks>

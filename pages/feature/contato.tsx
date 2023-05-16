@@ -18,7 +18,7 @@ export default function Contato({ sponsors }: Props) {
     };
 
     return (
-        <Page theme="feature" meta={meta}>
+        <Page theme="feature" meta={meta} sponsors={sponsors}>
             <Header
                 title="Entre em contato"
                 description="Quer ser nosso patrocinador? Está com alguma dúvida?"
