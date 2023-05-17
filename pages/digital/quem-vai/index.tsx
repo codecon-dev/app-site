@@ -17,8 +17,7 @@ export default function QuemVai({ speakers, sponsors }: Props) {
     const meta = {
         title: 'Quem vai - Codecon Digital',
         description:
-            'Pessoas que tem destaque na comunidade de tecnologia estarão participando de palestras, painéis e workshops.',
-        image: '/images/share-image.png'
+            'Pessoas que tem destaque na comunidade de tecnologia estarão participando de palestras, painéis e workshops.'
     };
 
     return (

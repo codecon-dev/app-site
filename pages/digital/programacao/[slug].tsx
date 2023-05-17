@@ -14,8 +14,7 @@ type Props = {
 
 export default function QuemVai({ talk, sponsors }: Props) {
     const meta: Meta = {
-        title: `${talk.title} - Codecon Digital`,
-        image: '/images/share-image.png'
+        title: `${talk.title} - Codecon Digital`
     };
 
     if (talk.shareImage) {

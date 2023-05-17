@@ -14,8 +14,7 @@ type Props = {
 export default function Programacao({ sponsors }: Props) {
     const meta = {
         title: 'Patrocinadores - Codecon Digital',
-        description: 'Somos um evento que só é capaz graças ao patrocínio dessas empresas.',
-        image: '/images/share-image.png'
+        description: 'Somos um evento que só é capaz graças ao patrocínio dessas empresas.'
     };
 
     return (

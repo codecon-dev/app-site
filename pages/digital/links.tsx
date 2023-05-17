@@ -3,8 +3,7 @@ import Page from '@components/_ui/Page';
 
 export default function LinksPage() {
     const meta = {
-        title: `Links - Codecon`,
-        image: '/images/share-image.png'
+        title: `Links - Codecon`
     };
 
     return (
