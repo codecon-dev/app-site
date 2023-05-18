@@ -17,9 +17,12 @@
     text-align: center;
     color: var(--color-dark-gray);
 
+    span {
+        color: var(--color-dark-gray);
+    }
+
     .caps {
         text-transform: capitalize;
-        color: var(--color-dark-gray);
     }
 }
 

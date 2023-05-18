@@ -33,7 +33,11 @@ export default function Footer({ sponsors }: Props) {
                         <>
                             <h2 className={styles.title}>
                                 Patrocinadores da <br className={styleUtils['hide-on-mobile']} />
-                                Codecon <span className={styles.caps}>{theme}</span> 2023
+                                Codecon{' '}
+                                <span className={cn({ [styles.caps]: theme != 'summit' })}>
+                                    {theme}
+                                </span>{' '}
+                                2023
                             </h2>
 
                             {sponsorsEvent?.map(s => (
