@@ -16,7 +16,7 @@ type Props = {
 
 export default function QuemVai({ speaker, sponsors }: Props) {
     const meta: Meta = {
-        title: `${speaker.name} estará na Codecon Digital`,
+        title: `${speaker.name} estará na Codecon Summit`,
         description: speaker.bio
     };
 
@@ -25,7 +25,7 @@ export default function QuemVai({ speaker, sponsors }: Props) {
     }
 
     return (
-        <Page theme="digital" meta={meta} sponsors={sponsors}>
+        <Page theme="summit" meta={meta} sponsors={sponsors}>
             <SpeakerPage speaker={speaker} />
         </Page>
     );
@@ -33,8 +33,8 @@ export default function QuemVai({ speaker, sponsors }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     const slug = params?.slug;
-    const sponsors = await getAllSponsors('digital');
-    const speaker = await getSpeaker(`${slug}`, 'digital');
+    const sponsors = await getAllSponsors('summit');
+    const speaker = await getSpeaker(`${slug}`, 'summit');
 
     if (!speaker) {
         return {
@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const speakers = await getAllSpeakers(100, 'digital');
+    const speakers = await getAllSpeakers(100, 'summit');
     const slugs = speakers.map(s => ({ params: { slug: s.slug } }));
 
     return {
