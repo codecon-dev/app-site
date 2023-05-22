@@ -151,6 +151,11 @@ export default function Footer({ sponsors }: Props) {
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="https://twitter.com/marcelgsantos">
+                                            Marcel @marcelgsantos
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="https://twitter.com/morgannadev">
                                             Morganna @morgannadev
                                         </a>
