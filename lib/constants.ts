@@ -223,20 +223,21 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 registerUrl: 'https://www.sympla.com.br/evento/codecon-feature-2023/1829552',
                 menuNav: [
                     {
-                        name: 'Home',
-                        route: '/feature'
+                        name: 'Quem vai',
+                        route: '/feature/quem-vai'
+                    },
+                    {
+                        name: 'Programação',
+                        route: '/feature/programacao'
                     },
                     {
                         name: 'Como será',
                         route: '/feature/como-sera'
                     },
+
                     {
-                        name: 'Outros eventos',
-                        route: '/'
-                    },
-                    {
-                        name: 'Contato',
-                        route: '/feature/contato'
+                        name: 'Patrocinadores',
+                        route: '/feature/patrocinadores'
                     }
                 ],
                 attendeeNav: [

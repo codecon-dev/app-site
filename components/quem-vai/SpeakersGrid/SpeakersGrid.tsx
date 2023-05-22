@@ -17,7 +17,7 @@ type Props = {
 };
 
 function parseCompany(company: string) {
-    const [role, ...companyName] = company.split(/ na | no | at | nos | do /);
+    const [role, ...companyName] = company.split(/ na | no | at | nos /);
     if (!companyName || !companyName.length) return company;
     return (
         <>

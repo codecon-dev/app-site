@@ -16,7 +16,7 @@ export default function Programacao({ talks, sponsors }: Props) {
     const meta = {
         title: 'Programação - Codecon Digital',
         description:
-            'Programe-se! São 3 salas simultâneas, workshops e muitas atividades extras rolando nos três dias de evento.'
+            'Programe-se! São 2 salas simultâneas e muitas atividades extras rolando nos dois dias de evento.'
     };
 
     return (

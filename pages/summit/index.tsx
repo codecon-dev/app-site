@@ -8,7 +8,7 @@ import Page from '@components/_ui/Page';
 import HeroSummit from '@components/home/HeroSummit';
 import Blocks from '@components/home/Blocks';
 import Faq from '@components/home/Faq/Faq';
-import Call4Papers from '@components/home/Call4Papers';
+import SpeakersGrid from '@components/quem-vai/SpeakersGrid';
 
 type Props = {
     speakers: Speaker[];
@@ -19,7 +19,6 @@ export default function Conf({ speakers, sponsors }: Props) {
     return (
         <Page theme="summit" noPadding sponsors={sponsors}>
             <HeroSummit />
-            <Call4Papers />
             <Blocks>
                 <Blocks.Title>
                     <span>Do it for you.</span> Do it by code.
@@ -49,10 +48,9 @@ export default function Conf({ speakers, sponsors }: Props) {
                 <Blocks.Block lg={3} sm={4} backgroundImage="/images/summit/foto-2.jpg" />
                 <Blocks.Video code="3KNuVMPz2NU" />
             </Blocks>
-            {/* <Speakers speakers={speakers}>
-                    Os principais nomes do mercado tech em <span>painéis</span>, <span>palestras</span>{' '}
-                    e <span>fish bowls</span>
-                </Speakers> */}
+            <SpeakersGrid speakers={speakers} type="home">
+                Os principais nomes do mercado tech em <span>palestras</span> e <span>painéis</span>
+            </SpeakersGrid>
             <Faq />
         </Page>
     );

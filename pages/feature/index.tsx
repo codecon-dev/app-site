@@ -8,6 +8,7 @@ import Page from '@components/_ui/Page';
 import HeroFeature from '@components/home/HeroFeature';
 import Blocks from '@components/home/Blocks';
 import Faq from '@components/home/Faq/Faq';
+import SpeakersGrid from '@components/quem-vai/SpeakersGrid';
 
 type Props = {
     speakers: Speaker[];
@@ -33,10 +34,9 @@ export default function Conf({ speakers, sponsors }: Props) {
                 />
                 <Blocks.Video code="QgKki8y3jwQ" />
             </Blocks>
-            {/* <Speakers speakers={speakers}>
-                    Os principais nomes do mercado tech em <span>painéis</span>, <span>palestras</span>{' '}
-                    e <span>fish bowls</span>
-                </Speakers> */}
+            <SpeakersGrid speakers={speakers} type="home">
+                Mentorias, painéis e muitas <span>sessões de discussão</span>
+            </SpeakersGrid>
             <Faq />
         </Page>
     );

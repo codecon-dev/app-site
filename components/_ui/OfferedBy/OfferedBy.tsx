@@ -14,7 +14,7 @@ type Props = {
 export default function OfferedBy({ logo, name, isBlackBg, offerType = 'Conteúdo' }: Props) {
     return (
         <div className={cn(styles.sponsor, { [styles[`sponsor-black`]]: isBlackBg })}>
-            <span>No stand</span>
+            <span>Oferecimento</span>
             <div className={styles.image}>
                 <Image
                     src={logo}
