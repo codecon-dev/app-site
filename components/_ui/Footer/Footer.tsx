@@ -214,7 +214,7 @@ export default function Footer({ sponsors }: Props) {
                         <br className={styleUtils['hide-on-mobile']} />
                         Confira o{' '}
                         <a
-                            href="https://github.com/codecon-dev/codigo-de-conduta/"
+                            href="https://github.com/codecon-dev/codecon/blob/main/CODE_OF_CONDUCT.md"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
