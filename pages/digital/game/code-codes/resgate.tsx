@@ -10,10 +10,10 @@ export default function CodeCodesResgate() {
 
     return (
         <Page theme="digital" meta={meta} hideNav hideFooter>
-            <Header title="Code-codes" description="Resgate aqui os seus códigos!" smaller />
-
             <PrivateArea>
-                <Claim />
+                <>
+                    <Claim />
+                </>
             </PrivateArea>
         </Page>
     );

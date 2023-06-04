@@ -36,6 +36,8 @@ export default function CodecodesClaimForm() {
         setIsLoading(true);
         const result = await claim({ code, name: fullName, email });
 
+        console.log(result);
+
         if (!result.success) {
             toast.error(result.message as string);
         } else {
@@ -51,9 +53,8 @@ export default function CodecodesClaimForm() {
     return (
         <section>
             <div className="container">
-                <h3>Hey!</h3>
-                <p>Digite abaixo o código que encontrou:</p>
-                <br />
+                <h2 style={{ textAlign: 'center' }}>Code-codes</h2>
+                <p style={{ textAlign: 'center' }}>Digite abaixo o código que encontrou:</p>
                 <OneInputForm
                     handleSubmit={handleOnClaimSubmit}
                     handleInputChange={event => setCode(event.target.value)}

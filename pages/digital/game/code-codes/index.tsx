@@ -15,7 +15,7 @@ type Props = {
 
 export default function Ranking({ rankUsers, sponsors }: Props) {
     const meta = {
-        title: 'Ranking Code-codes - Codecon Digital 2021'
+        title: 'Ranking Code-codes - Codecon Digital'
     };
 
     return (
@@ -24,12 +24,14 @@ export default function Ranking({ rankUsers, sponsors }: Props) {
             {RANKING_ENABLED ? (
                 <Rank users={rankUsers} />
             ) : (
-                <p style={{ textAlign: 'center', padding: 20 }}>
-                    O ranking está desabilitado. Vamos divulgar o resultado às 19h00 em nossas redes
-                    sociais. Os resgaters continuam ativos até às 18h00.
-                    <br />
-                    <br /> Boa sorte! :)
-                </p>
+                <div className="container">
+                    <p>
+                        O ranking está desabilitado. Vamos divulgar o ranking e os resultados ao
+                        final do evento.
+                        <br />
+                        <br /> Boa sorte! :)
+                    </p>
+                </div>
             )}
         </Page>
     );
