@@ -24,7 +24,7 @@ export default class PuzzleAnswerService {
         if (answeredAlready)
             return {
                 success: true,
-                message: 'O enigma já foi respondido e os pontos já foram creditados :)'
+                message: 'O enigma já havia sido respondido e os pontos já foram creditados :)'
             };
 
         const puzzleAnswer: PuzzleAnswer = await this.findOrCreate(user, puzzle);
@@ -62,7 +62,7 @@ export default class PuzzleAnswerService {
 
     private static async findOrCreate(user: User, puzzle: Puzzle): Promise<PuzzleAnswer> {
         const [puzzleAnswer, created] = await PuzzleAnswer.findOrCreate({
-            where: { userId: user.id, puzzleId: puzzle.id }
+            where: { userId: user.id, puzzleId: puzzle.id, company: puzzle.company }
         });
 
         if (!puzzleAnswer.status) puzzleAnswer.status = PuzzleAnswerStatus.PENDING;
