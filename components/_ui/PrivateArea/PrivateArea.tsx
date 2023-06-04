@@ -86,17 +86,16 @@ export default function PrivateArea({ children }: Props) {
         return <TermsModal onAccept={handleTermsModalAcceptance} />;
     }
 
-    if (userData || window.location.hostname === 'localhost') {
+    if (userData) {
         return children;
     }
 
     return (
-        <section>
+        <section className={styles.section}>
             <div className="container">
                 <h3>Faça login para continuar</h3>
 
                 <div className={styles.form}>
-                    <Image src="/icons/locked.svg" width={100} height={100} alt="" />
                     <OneInputForm
                         handleSubmit={handleSubmit}
                         handleInputChange={event => setEmail(event.target.value)}
