@@ -40,9 +40,7 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
                         {captureHourAndMinutesFromDateString(talk.end)}
                     </time>
                 </Activity.Header>
-                <Activity.Title href={`/programacao/${talk.slug}`}>
-                    {talk.title}
-                </Activity.Title>
+                <Activity.Title href={`/programacao/${talk.slug}`}>{talk.title}</Activity.Title>
                 <Activity.Footer>
                     {!!talk.speaker?.length &&
                         talk.speaker.map(t => (
@@ -69,17 +67,14 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
 }
 
 export default function RoomSchedule({ talks, title }: Props) {
-    const firstDay = talks.filter(talk => isActivityStartingOnDay(talk, '22/09/2022'));
+    const firstDay = talks.filter(talk => isActivityStartingOnDay(talk, '22/06/2023'));
     const [todayTalks, setTodayTalks] = useState(firstDay);
-    const [dayTitle, setDayTitle] = useState('quinta (22/09)');
+    const [dayTitle, setDayTitle] = useState('quinta (22/06)');
 
     useEffect(() => {
         if (today.getDate() === dayTwoDate.getDate()) {
-            setDayTitle('sexta (23/09)');
-            setTodayTalks(talks.filter(talk => isActivityStartingOnDay(talk, '23/09/2022')));
-        } else if (today.getDate() === dayThreeDate.getDate()) {
-            setDayTitle('sábado (24/09)');
-            setTodayTalks(talks.filter(talk => isActivityStartingOnDay(talk, '24/09/2022')));
+            setDayTitle('sexta (23/06)');
+            setTodayTalks(talks.filter(talk => isActivityStartingOnDay(talk, '23/06/2023')));
         }
     }, [talks]);
 

@@ -10,19 +10,17 @@ import { Talk } from '@lib/types/all';
 
 type Props = {
     talks: Talk[];
+    roomName: string;
 };
 
-export default function TalkPage({ talks }: Props) {
+export default function TalkPage({ talks, roomName }: Props) {
     const meta = {
         title: `Programação - Codecon`
     };
 
-    const router = useRouter();
-    const activeRouter = router.asPath.substring(router.asPath.lastIndexOf('/') + 1);
-
     return (
         <Page theme="digital" meta={meta} hideNav hideFooter>
-            <RoomSchedule talks={talks} title={`Sala ${activeRouter}`} />
+            <RoomSchedule talks={talks} title={roomName} />
         </Page>
     );
 }
@@ -30,7 +28,24 @@ export default function TalkPage({ talks }: Props) {
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     const slug = params?.slug;
     const talks = await getAllTalks('digital');
-    const roomTalks = talks.filter(t => t.place?.toLowerCase() === `sala ${slug}`);
+    let roomName = '';
+
+    switch (slug) {
+        case '1':
+            roomName = 'Sala 1';
+            break;
+        case '2':
+            roomName = 'Sala 2';
+            break;
+        case 'onlyoffice':
+            roomName = 'Stand da ONLYOFFICE';
+            break;
+        case 'linuxtips':
+            roomName = 'Stand da LINUXtips';
+            break;
+    }
+
+    const roomTalks = talks.filter(t => t.place?.toLowerCase() === roomName.toLowerCase());
 
     if (!roomTalks) {
         return {
@@ -40,14 +55,20 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
     return {
         props: {
-            talks: roomTalks
+            talks: roomTalks,
+            roomName
         }
     };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
     return {
-        paths: [{ params: { slug: '1' } }, { params: { slug: '2' } }, { params: { slug: '3' } }],
+        paths: [
+            { params: { slug: '1' } },
+            { params: { slug: '2' } },
+            { params: { slug: 'onlyoffice' } },
+            { params: { slug: 'linuxtips' } }
+        ],
         fallback: false
     };
 };
