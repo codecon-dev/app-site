@@ -37,17 +37,16 @@ export default function TermsModal({ onAccept }: { onAccept: () => void }) {
                     </p>
                     <p>
                         Esse jogo foi criado para que você participe o máximo possível do evento,
-                        por isso os token podem ser regatados de várias formas: respondendo enigmas,
-                        participando da escape room, tendo uma boa posição na maratona de
-                        programação, encontrando códigos espalhados pelo mapa, pegar códigos que os
-                        hosts podem divulgar durante as apresentações, visitar estandes de
-                        patrocinadores e vários outros escondidos.
+                        por isso os tokens podem ser regatados de várias formas: respondendo
+                        enigmas, participando de atividades, encontrando códigos espalhados pelo
+                        mapa, pegar códigos que os hosts podem divulgar durante as apresentações,
+                        visitar estandes de patrocinadores e vários outros escondidos.
                     </p>
                     <p>
                         O resgate é feito em uma área específica do nosso mapa, onde você encontrará
                         o personagem <strong>Pensador Profundo</strong>, nele você poderá digitar um
                         código para resgatá-lo. Algumas atividades também contarão com resgate
-                        automático, como os Enigmas e a Escape Room.
+                        automático, como os Enigmas, por exemplo, mas você sempre será avisado.
                     </p>
                     <p>
                         Ao aceitar estes termos você entende que este jogo não aceita trapaças ou
