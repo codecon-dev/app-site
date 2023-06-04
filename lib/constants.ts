@@ -40,7 +40,7 @@ export const SITE_NAME = 'Codecon • Festival de código e tecnologia';
 export const META_DESCRIPTION =
     'A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.';
 export const RANKING_ENABLED = false;
-export const WHATSAPP_LINK = 'https://wa.me/+5547991367060';
+export const WHATSAPP_LINK = 'https://chat.whatsapp.com/CPP0eFxck7yDhvdsnBm6Lu';
 
 export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | undefined) => {
     let eventData: EventData;
