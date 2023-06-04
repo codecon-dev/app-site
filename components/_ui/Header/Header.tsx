@@ -9,20 +9,22 @@ type Props = {
     image?: string;
     description?: React.ReactNode;
     smaller?: boolean;
+    layoutText?: boolean;
 };
 
-export default function Header({ title, description, image, smaller }: Props) {
+export default function Header({ title, description, image, smaller, layoutText }: Props) {
     return (
         <header
             className={cn(styles.header, {
-                [styles.smaller]: smaller
+                [styles.smaller]: smaller,
+                [styles['header-text']]: layoutText
             })}
         >
             <Grid align="center">
                 <Column lg={image ? 9 : 10}>
                     <h1
                         className={cn(styles.hero, {
-                            [styles.smaller]: smaller
+                            [styles.smaller]: smaller || layoutText
                         })}
                     >
                         {title}

@@ -16,6 +16,19 @@
     }
 }
 
+.header-text {
+    max-width: $max-width-sm;
+    margin: 3rem auto;
+
+    @media #{$breakpoint-sm} {
+        max-width: $max-width-xsm;
+    }
+
+    @media #{$breakpoint-lg} {
+        max-width: $max-width-xsm;
+    }
+}
+
 .hero {
     color: var(--color-white);
 
