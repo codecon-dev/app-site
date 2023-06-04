@@ -90,7 +90,7 @@ export default function Page({
                 <Toaster />
                 {!hideNav && <Navbar hideNavMenu={hideNavMenu} />}
                 <main>{children}</main>
-                <SubscribeCountdown eventData={eventData} />
+                {!hideFooter && <SubscribeCountdown eventData={eventData} />}
                 {(!hideNav || !hideFooter) && <WhatsappFloatingButton />}
                 {!hideFooter && <Footer sponsors={sponsors} />}
             </div>
