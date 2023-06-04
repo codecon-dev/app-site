@@ -67,7 +67,11 @@ export default function Form({ puzzlePublicId }: Props) {
     }
 
     if (isRight) {
-        return <h3>✅ Boa! Você acertou.</h3>;
+        return (
+            <div style={{ textAlign: 'center' }}>
+                <h3>✅ Boa! Você acertou.</h3>
+            </div>
+        );
     }
 
     return (
