@@ -8,7 +8,7 @@ export default function PuzzleZero() {
     };
 
     return (
-        <Page theme="digital" meta={meta} hideNav hideFooter>
+        <Page theme="digital" meta={meta} hideNav hideFooter noPadding>
             <PrivateArea>
                 <DayOnePuzzle0 />
             </PrivateArea>
