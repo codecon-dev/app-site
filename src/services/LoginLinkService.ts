@@ -5,9 +5,11 @@ import sendgrid from '@sendgrid/mail';
 import Attendee from 'src/database/model/Attendee';
 import LoginLink from 'src/database/model/LoginLink';
 
+type Events = 'DIGITAL' | 'SUMMIT' | 'FEATURE';
+
 export default class LoginLinkService {
-    public static async sendMagicLink(email: string, event?: string): Promise<boolean> {
-        const attendee: Attendee | null = await Attendee.findByEmail(email);
+    public static async sendMagicLink(email: string, event: Events): Promise<boolean> {
+        const attendee: Attendee | null = await Attendee.findByEmaildAndEvent(email, event);
         if (!attendee || !event) return false;
 
         const magicLink = await this.createMagicLink(attendee.id);
