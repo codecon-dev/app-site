@@ -112,7 +112,12 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                     {
                         name: '3º lote',
                         price: 59,
-                        endDate: new Date('2023-06-22 13:00:00')
+                        endDate: new Date('2023-06-22 12:00:00')
+                    },
+                    {
+                        name: 'ingresso no dia',
+                        price: 89,
+                        endDate: new Date('2023-06-23 13:00:00')
                     }
                 ],
                 colors: {
