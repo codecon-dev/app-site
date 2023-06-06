@@ -11,7 +11,7 @@ class Attendee extends ModelImpl<Attendee> {
     declare githubFullName?: string;
     declare githubUsername?: string;
     declare symplaId?: string;
-    declare event?: 'DIGITAL' | 'SUMMIT' | 'FEATURE';
+    declare event: 'DIGITAL' | 'SUMMIT' | 'FEATURE';
 
     public static async findByEmail(email: string): Promise<Attendee | null> {
         return await Attendee.findOne({ where: { email } });
