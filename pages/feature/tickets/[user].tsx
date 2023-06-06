@@ -21,7 +21,7 @@ export default function Tickets({ attendee }: Props) {
         name: attendee.githubFullName || attendee.name,
         username: attendee.githubUsername,
         ticketNumber: attendee.id,
-        event: 'summit'
+        event: 'feature'
     };
 
     const meta = {
