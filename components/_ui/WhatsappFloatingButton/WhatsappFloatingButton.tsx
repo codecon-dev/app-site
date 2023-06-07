@@ -1,13 +1,19 @@
-import React from 'react';
+import { useContext } from 'react';
+
 import Link from 'next/link';
 
+import ThemeContext from 'context/ThemeContext';
+
 import styles from './WhatsappFloatingButton.module.scss';
-import { WHATSAPP_LINK } from '@lib/constants';
+import { getEventData } from '@lib/constants';
 import WhatsappIcon from '@components/_ui/Icons/icon-whatsapp';
 
 export default function WhatsappFloatingButton() {
+    const theme = useContext(ThemeContext);
+    const eventData = getEventData(theme);
+
     return (
-        <Link href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+        <Link href={eventData.whatsapp} target="_blank" rel="noopener noreferrer">
             <span className={styles.whatsapp_button}>
                 <WhatsappIcon size={24} />
             </span>

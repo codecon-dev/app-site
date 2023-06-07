@@ -19,6 +19,7 @@ export type EventData = {
     shareImage: string;
     metaDescription: string;
     registerUrl: string;
+    whatsapp: string;
     menuNav: MenuItem[];
     attendeeNav: MenuItem[];
     eventPrice?: EventPrice[] | EventPrice;
@@ -40,7 +41,7 @@ export const SITE_NAME = 'Codecon • Festival de código e tecnologia';
 export const META_DESCRIPTION =
     'A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.';
 export const RANKING_ENABLED = false;
-export const WHATSAPP_LINK = 'https://chat.whatsapp.com/CPP0eFxck7yDhvdsnBm6Lu';
+export const WHATSAPP_LINK = 'https://wa.me/+5547991367060';
 
 export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | undefined) => {
     let eventData: EventData;
@@ -62,6 +63,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 metaDescription:
                     'A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.',
                 registerUrl: 'https://www.sympla.com.br/evento-online/codecon-digital-2023/1829527',
+                whatsapp: 'https://chat.whatsapp.com/CPP0eFxck7yDhvdsnBm6Lu',
                 menuNav: [
                     {
                         name: 'Quem vai',
@@ -146,6 +148,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 metaDescription:
                     'O maior evento para pessoas programadoras de Santa Catarina, com grandes nomes nacionais.',
                 registerUrl: 'https://www.sympla.com.br/evento/codecon-summit-2023/1829544',
+                whatsapp: WHATSAPP_LINK,
                 menuNav: [
                     {
                         name: 'Quem vai',
@@ -226,6 +229,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 metaDescription:
                     'O evento será repleto de sessões e workshops onde todos podem trazer problemas que enfrentam e todos tem locais de fala.',
                 registerUrl: 'https://www.sympla.com.br/evento/codecon-feature-2023/1829552',
+                whatsapp: WHATSAPP_LINK,
                 menuNav: [
                     {
                         name: 'Quem vai',
@@ -294,6 +298,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 metaDescription:
                     'A Codecon organiza eventos de tecnologia que juntam código, networking e diversão.',
                 registerUrl: '#',
+                whatsapp: WHATSAPP_LINK,
                 menuNav: [
                     {
                         name: 'Codecon Digital',
