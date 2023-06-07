@@ -24,7 +24,7 @@ export default async function SendMessage(
 
         ApiResponse.build(res, StatusCodes.OK, '');
     } catch (exception) {
-        console.error('LoginController >> Ocorreu um erro inesperado', exception);
+        console.error('Discord.SendMessage >> Ocorreu um erro inesperado', exception);
         ApiResponse.build(res, StatusCodes.INTERNAL_SERVER_ERROR, 'Ocorreu um erro desconhecido');
     }
 }

@@ -1,4 +1,5 @@
 import sendgrid from '@sendgrid/mail';
+import axios from 'axios';
 
 import Attendee from 'src/database/model/Attendee';
 
@@ -38,15 +39,9 @@ export default class AttendeeService {
 
         if (attendee) return;
 
-        void (await fetch(`https://codecon.dev/api/ia/save`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                content: `🎉 **Irru, nova inscrição na CODECON ${event}**: ${name} ${lastName} - Valor pago R$ ${value}`
-            })
-        }));
+        await axios.post('https://codecon.dev/api/ia/save', {
+            content: `🎉 **Irru, nova inscrição na CODECON ${event}**: ${name} ${lastName} - Valor pago R$ ${value}`
+        });
 
         await Attendee.create({
             symplaId: id,
