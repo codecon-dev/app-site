@@ -9,6 +9,9 @@ export default function Chest(props: Props) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -50 500 400" className={cn(
             styles.chest,
+            {
+                [styles.shake]: !props.opened,
+            }
         )}>
             <defs>
                 <clipPath id="clip-path">

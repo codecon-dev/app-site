@@ -120,6 +120,24 @@
         transform-origin: 250px 200px;
     }
 
+    &.shake {
+        .lock {
+            animation: shakeChestTop 1.2s infinite ease;
+        }
+
+        .bottom {
+            animation: shakeChestBottom 1.2s infinite ease;
+        }
+
+        .top {
+            animation: shakeChestTop 1.2s infinite ease;
+        }
+
+        .sparkles {
+            animation: shakeChestTop 1.2s infinite ease;
+        }
+    }
+
 
     .sparkles {
         .mid {
