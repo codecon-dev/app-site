@@ -27,6 +27,8 @@ export class PrizeService {
         if (mustGainRare) return PrizeType.RARE;
 
         let chancesOfGainingCodeCodes = 60 / 100;
+        if (canGainRare) chancesOfGainingCodeCodes += chancesOfGainingRare;
+
         const mustGainCodeCodes = chancesOfGainingCodeCodes >= dice;
         if (mustGainCodeCodes) return PrizeType.CODE_CODES;
 
