@@ -14,7 +14,7 @@ class Prize extends ModelImpl<Prize> {
     declare redeemedAt: Date;
     declare description: string;
 
-    declare userId: ForeignKey<User>;
+    declare userId?: ForeignKey<User>;
 }
 
 Prize.init(
