@@ -7,6 +7,14 @@ export class PrizeService {
 
         const prizeType = this.rollDice(stillHaveRarePrizes);
         if (!prizeType) return null;
+
+        const prize = await this.getValidPrize(prizeType, Sequelize.literal('rand()'));
+        if (!prize)
+            throw new Error(
+                `Usuário deveria ter ganho um prêmio do tipo ${prizeType} mas não ganhou nada`
+            );
+
+        return prize;
     }
 
     private static async getValidPrize(prizeType: PrizeType, order?: Order): Promise<Prize | null> {
