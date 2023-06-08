@@ -18,6 +18,7 @@
       "@components/*": ["components/*"],
       "@lib/*": ["lib/*"],
       "@hooks/*": ["hooks/*"],
+      "@models/*": ["src/database/model/*"],
       "@styles/*": ["styles/*"]
     },
     "incremental": true
