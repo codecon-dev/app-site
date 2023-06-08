@@ -50,7 +50,7 @@ export default function ComoFunciona() {
                     <li>Fone Edifier W800BT + 1 ano de Rocketseat Plus + Adesivos</li>
                     <li>Fone QCY T20 + 1 ano de Rocketseat Plus + Adesivos</li>
                     <li>Camiseta Codecon + 1 livro da Editora Novatec à sua escolha + Adesivos</li>
-                    <li>Camiseta Codecon + 1 livro da Editora Novatec à sua escolha + Adesivos</li>
+                    <li>Camiseta Codecon + Adesivos</li>
                     <li>Camiseta Codecon + Adesivos</li>
                     <li>Camiseta Codecon + Adesivos</li>
                     <li>Camiseta Codecon + Adesivos</li>
