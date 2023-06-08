@@ -1,6 +1,7 @@
 import { DataTypes, ForeignKey } from 'sequelize';
 import dataSource from '../DataSource';
 import ModelImpl, { commonAttributes } from './ModelImpl';
+import User from './User';
 
 export enum PrizeType {
     CODE_CODES = 'CODE_CODES',
@@ -12,6 +13,8 @@ class Prize extends ModelImpl<Prize> {
     declare redeemed: boolean;
     declare redeemedAt: Date;
     declare description: string;
+
+    declare userId: ForeignKey<User>;
 }
 
 Prize.init(
@@ -26,5 +29,7 @@ Prize.init(
         sequelize: dataSource
     }
 );
+
+Prize.belongsTo(User, { foreignKey: { allowNull: true }, as: 'user' });
 
 export default Prize;
