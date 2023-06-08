@@ -11,6 +11,7 @@ export default function Chest(props: Props) {
             styles.chest,
             {
                 [styles.shake]: !props.opened,
+                [styles.opened]: props.opened
             }
         )}>
             <defs>

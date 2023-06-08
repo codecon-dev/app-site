@@ -138,6 +138,20 @@
         }
     }
 
+    &.opened {
+        .lock {
+            animation: openLock 3s ease forwards;
+        }
+
+        .top {
+            animation: openChestTop 3s ease forwards;
+        }
+
+        .sparkles {
+            opacity: 0;
+            transition: 0.6s ease;
+        }
+    }
 
     .sparkles {
         .mid {
