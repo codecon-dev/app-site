@@ -1,0 +1,286 @@
+.chest {
+    .cls1 {
+        fill: #573e1d;
+    }
+
+    .cls2 {
+        fill: #3c2415;
+    }
+
+    .cls3 {
+        fill: #f7bc49;
+    }
+
+    .cls4 {
+        fill: #885d26;
+    }
+
+    .cls5 {
+        fill: #3a2415;
+    }
+
+    .cls6 {
+        fill: #f9ed24;
+    }
+
+    .cls7 {
+        clip-path: url(#clip-path);
+    }
+
+    .cls8 {
+        clip-path: url(#clip-path-2);
+    }
+
+    .cls9 {
+        clip-path: url(#clip-path-3);
+    }
+
+    .cls10 {
+        fill: #ffe30a;
+    }
+
+    .cls11 {
+        clip-path: url(#clip-path-4);
+    }
+
+    .cls12,
+    .cls17 {
+        fill: none;
+        stroke: #3c2415;
+        stroke-miterlimit: 10;
+    }
+
+    .cls12 {
+        stroke-width: 22.6px;
+    }
+
+    .cls13 {
+        clip-path: url(#clip-path-5);
+    }
+
+    .cls14 {
+        fill: #fed00d;
+    }
+
+    .cls15 {
+        clip-path: url(#clip-path-6);
+    }
+
+    .cls16 {
+        fill: #5b3d1b;
+    }
+
+    .cls17 {
+        stroke-width: 23.52px;
+    }
+
+    .cls18 {
+        clip-path: url(#clip-path-7);
+    }
+
+    .cls19,
+    .cls24,
+    .cls25,
+    .cls26 {
+        fill: #fff;
+    }
+
+    .cls19 {
+        opacity: 0.34;
+    }
+
+    .cls20 {
+        clip-path: url(#clip-path-8);
+    }
+
+    .cls21 {
+        clip-path: url(#clip-path-9);
+    }
+
+    .cls22 {
+        clip-path: url(#clip-path-10);
+    }
+
+    .cls23 {
+        fill: #f9ed32;
+    }
+
+    .cls24 {
+        opacity: 0.65;
+    }
+
+    .cls25 {
+        opacity: 0.86;
+    }
+
+    .sparkles,
+    .lock,
+    .top,
+    .bottom {
+        transform-origin: 250px 200px;
+    }
+
+    &.shake {
+        .lock {
+            animation: shakeChestTop 1.2s infinite ease;
+        }
+
+        .bottom {
+            animation: shakeChestBottom 1.2s infinite ease;
+        }
+
+        .top {
+            animation: shakeChestTop 1.2s infinite ease;
+        }
+
+        .sparkles {
+            animation: shakeChestTop 1.2s infinite ease;
+        }
+    }
+
+    &.opened {
+        .lock {
+            animation: openLock 3s ease forwards;
+        }
+
+        .top {
+            animation: openChestTop 3s ease forwards;
+        }
+
+        .sparkles {
+            opacity: 0;
+            transition: 0.6s ease;
+        }
+    }
+
+    .sparkles {
+        .mid {
+            opacity: 0;
+            animation: fadeIn 2s infinite alternate;
+        }
+
+        .left {
+            opacity: 0;
+            animation: fadeIn 2s infinite alternate 0.75s;
+        }
+
+        .right {
+            opacity: 0;
+            animation: fadeIn 2s infinite alternate 1.5s;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shakeChestBottom {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    15% {
+        transform: translateY(-5px) rotate(-2deg);
+    }
+
+    25% {
+        transform: translateY(-10px) rotate(0deg);
+    }
+
+    60% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes shakeChestTop {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    15% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+
+    25% {
+        transform: translateY(-20px) rotate(-2deg);
+    }
+
+    35% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+
+    60% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes openLock {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+
+    8% {
+        transform: rotate(4deg) scale(1);
+        opacity: 1;
+    }
+
+    17% {
+        transform: rotate(-6deg) scale(1);
+        opacity: 1;
+    }
+
+    24% {
+        transform: rotate(5deg) scale(1);
+        opacity: 1;
+    }
+
+    30% {
+        transform: rotate(-8deg) scale(1);
+        opacity: 1;
+    }
+
+    45% {
+        transform: rotate(-8deg) scale(2);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotate(0deg) scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes openChestTop {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    35% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    45% {
+        transform: translateY(-8%);
+        opacity: 1;
+    }
+
+    75% {
+        transform: translateY(-20%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(-20%);
+        opacity: 0;
+    }
+}
