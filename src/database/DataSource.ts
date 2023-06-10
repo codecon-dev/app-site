@@ -1,4 +1,4 @@
-import { Sequelize } from 'sequelize';
+import { Sequelize, Transaction } from 'sequelize';
 import mysql2 from 'mysql2';
 
 const dataSource: Sequelize = new Sequelize(
@@ -18,3 +18,16 @@ const dataSource: Sequelize = new Sequelize(
 );
 
 export default dataSource;
+
+export async function withTransaction<T>(callable: (transaction: Transaction) => Promise<T>): Promise<T | undefined> {
+    const transaction = await dataSource.transaction()
+
+    try {
+        const result = await callable(transaction) as T
+        await transaction.commit()
+        return result
+    } catch (error) {
+        console.error("Ocorreu um erro inesperado", error)
+        await transaction.rollback()
+    }
+}
