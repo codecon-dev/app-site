@@ -1,4 +1,4 @@
-import ModelImpl from '@models/ModelImpl';
+import ModelImpl, { commonAttributes } from '@models/ModelImpl';
 import Prize from '@models/Prize';
 import User from '@models/User';
 import { ForeignKey } from 'sequelize';
@@ -11,7 +11,7 @@ class ChestOpen extends ModelImpl<ChestOpen> {
     declare userId: ForeignKey<User['id']>;
 }
 
-ChestOpen.init({}, { sequelize: dataSource });
+ChestOpen.init({ ...commonAttributes }, { sequelize: dataSource });
 
 ChestOpen.belongsTo(Chest, { foreignKey: { allowNull: false }, as: 'chest' });
 ChestOpen.belongsTo(Prize, { foreignKey: { allowNull: true }, as: 'prize' });
