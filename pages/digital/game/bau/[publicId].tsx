@@ -57,7 +57,7 @@ export default function Bau(props: BauProps) {
             return null;
         }
 
-        setPrizeState(json.data?.prize ?? "Nada ¯\\_(ツ)_/¯");
+        setPrizeState(json.data?.prize as string ?? "Nada ¯\\_(ツ)_/¯");
     }
 
     return (
