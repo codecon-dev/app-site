@@ -3,13 +3,15 @@ import EscapeRoom from '@models/EscapeRoom';
 import LoginLink from '@models/LoginLink';
 import Prize from '@models/Prize';
 import User from '@models/User';
+import Chest from '@models/chest/Chest';
+import ChestOpen from '@models/chest/ChestOpen';
 import Puzzle from '@models/puzzle/Puzzle';
 import PuzzleAnswer from '@models/puzzle/PuzzleAnswer';
 import { NextApiRequest, NextApiResponse } from 'next';
 import dataSource from 'src/database/DataSource';
 
 export default async function SyncDatabaseController(req: NextApiRequest, res: NextApiResponse) {
-    console.log(Puzzle, User, PuzzleAnswer, EscapeRoom, Attendee, LoginLink, Prize);
+    console.log(Puzzle, User, PuzzleAnswer, EscapeRoom, Attendee, LoginLink, Prize, Chest, ChestOpen);
     await dataSource.sync({ alter: true });
 
     res.status(200).json('OK');
