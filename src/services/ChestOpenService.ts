@@ -21,5 +21,30 @@ export default class ChestOpenService {
             return chestOpen;
         }
 
+        const prizeType = await PrizeService.getRandomPrizeType();
+        const prize: Prize | null = await this.selectPrize(prizeType, chest);
+    }
+    private static async selectPrize(
+        prizeType: PrizeType | null,
+        chest: Chest
+    ): Promise<Prize | null> {
+        switch (prizeType) {
+            case PrizeType.RARE:
+                const prize = await PrizeService.getValidPrize(
+                    prizeType,
+                    Sequelize.literal('rand()')
+                );
+                if (!prize)
+                    throw new Error(
+                        `Usuário deveria ter ganho um prêmio do tipo ${prizeType} mas não ganhou nada`
+                    );
+                return prize;
+
+            case PrizeType.CODE_CODES:
+                return (await chest.getPrize()) as Prize;
+
+            default:
+                return null;
+        }
     }
 }
