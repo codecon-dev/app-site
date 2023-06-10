@@ -1,5 +1,5 @@
 import Prize, { PrizeType } from '@models/Prize';
-import { Order, Sequelize } from 'sequelize';
+import { Op, Order, Transaction } from 'sequelize';
 
 export class PrizeService {
     public static async chooseRandomPrize(): Promise<Prize | null> {
@@ -17,10 +17,10 @@ export class PrizeService {
         return prize;
     }
 
-    private static async getValidPrize(prizeType: PrizeType, order?: Order): Promise<Prize | null> {
+    public static async getValidPrize(prizeType: PrizeType, order?: Order): Promise<Prize | null> {
         return await Prize.findOne({
             where: {
-                redeemed: false,
+                [Op.or]: [{ remaining: { [Op.gt]: 0 } }, { remaining: { [Op.is]: null } }],
                 type: prizeType
             },
             order: order
