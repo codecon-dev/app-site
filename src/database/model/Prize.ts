@@ -9,7 +9,7 @@ export enum PrizeType {
 
 class Prize extends ModelImpl<Prize> {
     declare type: PrizeType;
-    declare remaining?: number;
+    declare remaining: number | null;
     declare description: string;
 }
 

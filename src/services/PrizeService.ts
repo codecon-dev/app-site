@@ -11,12 +11,7 @@ export class PrizeService {
         return await Prize.findOne({
             where: {
                 type: prizeType,
-                remaining: {
-                    [Op.or]: {
-                        [Op.gt]: 0,
-                        [Op.eq]: null
-                    }
-                }
+                [Op.or]: [{ remaining: { [Op.gt]: 0 } }, { remaining: { [Op.is]: null } }]
             },
             order: order
         });
