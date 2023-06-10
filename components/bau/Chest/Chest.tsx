@@ -1,17 +1,21 @@
 import cn from "classnames";
 import styles from "./Chest.module.scss";
 
+export type ChestState = "closed" | "unlocked" | "opened";
+
 type Props = {
-    opened: boolean;
+    onClick: () => void;
+    state: ChestState
 };
 
 export default function Chest(props: Props) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -50 500 400" className={cn(
+        <svg xmlns="http://www.w3.org/2000/svg" onClick={props.onClick} viewBox="0 -50 500 400" className={cn(
             styles.chest,
             {
-                [styles.shake]: !props.opened,
-                [styles.opened]: props.opened
+                [styles.shake]: props.state == "closed",
+                [styles.unlocked]: props.state != "closed",
+                [styles.opened]: props.state == "opened"
             }
         )}>
             <defs>

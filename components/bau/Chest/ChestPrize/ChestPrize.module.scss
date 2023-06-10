@@ -1,0 +1,65 @@
+.chestPrize {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    height: 10rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    .heading {
+        font-size: 2rem;
+        line-height: 1;
+    }
+
+    .prize {
+        line-height: 1;
+        font-size: 3rem;
+        font-weight: bold;
+        background-image: repeating-linear-gradient(to left, violet, blue, green, yellow, orange, red);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 1000% 1000%;
+        animation: rainbow 6s linear infinite;
+    }
+
+    .heading,
+    .prize {
+        position: relative;
+        top: 0;
+        transform: scale(0);
+        transition: top ease 1s, transform ease .8s;
+    }
+
+    .heading {
+        transition-delay: 2s;
+    }
+
+    .prize {
+        transition-delay: 3s;
+    }
+
+    &.show {
+        .heading,
+        .prize {
+            position: relative;
+            top: -15rem;
+            transform: scale(1);
+        }
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 25%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
