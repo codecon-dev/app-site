@@ -10,14 +10,19 @@ export class PrizeService {
     public static async getValidPrize(prizeType: PrizeType, order?: Order): Promise<Prize | null> {
         return await Prize.findOne({
             where: {
-                [Op.or]: [{ remaining: { [Op.gt]: 0 } }, { remaining: { [Op.is]: null } }],
-                type: prizeType
+                type: prizeType,
+                remaining: {
+                    [Op.or]: {
+                        [Op.gt]: 0,
+                        [Op.eq]: null
+                    }
+                }
             },
             order: order
         });
     }
 
-    public static async usePrize(prize: Prize, transaction: Transaction): Promise<void> {
+    public static async consumePrize(prize: Prize, transaction: Transaction): Promise<void> {
         if (!prize.remaining) return;
 
         prize.remaining--;

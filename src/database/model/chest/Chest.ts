@@ -1,13 +1,14 @@
 import Prize from '@models/Prize';
-import { DataTypes, ForeignKey } from 'sequelize';
+import { BelongsToGetAssociationMixin, DataTypes, ForeignKey } from 'sequelize';
 import dataSource from 'src/database/DataSource';
 import ModelImpl, { commonAttributes } from '../ModelImpl';
 
 class Chest extends ModelImpl<Chest> {
     declare location: string;
     declare publicId: string;
-    
-    declare prizeId: ForeignKey<Prize["id"]>;
+
+    declare prizeId: ForeignKey<Prize['id']>;
+    declare getPrize: BelongsToGetAssociationMixin<Prize>;
 }
 
 Chest.init(

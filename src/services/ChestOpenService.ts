@@ -47,7 +47,7 @@ export default class ChestOpenService {
 
         await chestOpen.save();
 
-        if (prize) await PrizeService.usePrize(prize, transaction);
+        if (prize) await PrizeService.consumePrize(prize, transaction);
 
         return chestOpen;
     }
@@ -69,7 +69,7 @@ export default class ChestOpenService {
                 return prize;
 
             case PrizeType.CODE_CODES:
-                return (await chest.getPrize()) as Prize;
+                return await chest.getPrize();
 
             default:
                 return null;
