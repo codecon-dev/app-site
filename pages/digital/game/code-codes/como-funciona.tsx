@@ -44,9 +44,9 @@ export default function ComoFunciona() {
                 </p>
                 <p>A premiação do code-codes será:</p> <br></br>
                 <ol>
-                    <li>Nintendo Switch + 1 ano de Rocketseat Plus + Adesivos</li>
                     <li>Mesa GenioDesks + 1 ano de Rocketseat Plus + Adesivos</li>
                     <li>Mouse Logitech MX Master 3 + 1 ano de Rocketseat Plus + Adesivos</li>
+                    <li>Kindle + 1 ano de Rocketseat Plus + Adesivos</li>
                     <li>Fone Edifier W800BT + 1 ano de Rocketseat Plus + Adesivos</li>
                     <li>Fone QCY T20 + 1 livro da Editora Novatec à sua escolha + Adesivos</li>
                     <li>Camiseta Codecon + 1 livro da Editora Novatec à sua escolha + Adesivos</li>
