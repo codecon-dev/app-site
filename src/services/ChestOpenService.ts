@@ -1,7 +1,10 @@
+import Prize, { PrizeType } from '@models/Prize';
 import User from '@models/User';
 import Chest from '@models/chest/Chest';
 import ChestOpen from '@models/chest/ChestOpen';
 import { Sequelize, Transaction } from 'sequelize';
+import { PrizeService } from './PrizeService';
+
 export default class ChestOpenService {
     public static async openChest(
         chest: Chest,
@@ -23,7 +26,32 @@ export default class ChestOpenService {
 
         const prizeType = await PrizeService.getRandomPrizeType();
         const prize: Prize | null = await this.selectPrize(prizeType, chest);
+
+        return await this.save(chest, user, prize, transaction);
     }
+
+    private static async save(
+        chest: Chest,
+        user: User,
+        prize: Prize | null,
+        transaction: Transaction
+    ): Promise<ChestOpen> {
+        const chestOpen = await ChestOpen.create(
+            {
+                chestId: chest.id,
+                prizeId: prize?.id,
+                userId: user.id
+            },
+            { transaction: transaction }
+        );
+
+        await chestOpen.save();
+
+        if (prize) await PrizeService.usePrize(prize, transaction);
+
+        return chestOpen;
+    }
+
     private static async selectPrize(
         prizeType: PrizeType | null,
         chest: Chest
