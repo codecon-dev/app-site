@@ -13,7 +13,13 @@ class ChestOpen extends ModelImpl<ChestOpen> {
     declare getPrize: BelongsToGetAssociationMixin<Prize>;
 }
 
-ChestOpen.init({ ...commonAttributes }, { sequelize: dataSource });
+ChestOpen.init(
+    { ...commonAttributes },
+    {
+        sequelize: dataSource,
+        indexes: [{ unique: true, fields: ['chest_id', 'user_id'] }]
+    }
+);
 
 ChestOpen.belongsTo(Chest, { foreignKey: { allowNull: false }, as: 'chest' });
 ChestOpen.belongsTo(Prize, { foreignKey: { allowNull: true }, as: 'prize' });
