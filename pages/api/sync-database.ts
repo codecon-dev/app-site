@@ -1,5 +1,5 @@
 import Attendee from '@models/Attendee';
-import EscapeRoom from '@models/EscapeRoom';
+import MissionBoard from '@models/MissionBoard';
 import LoginLink from '@models/LoginLink';
 import Prize from '@models/Prize';
 import User from '@models/User';
@@ -11,7 +11,17 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import dataSource from 'src/database/DataSource';
 
 export default async function SyncDatabaseController(req: NextApiRequest, res: NextApiResponse) {
-    console.log(Puzzle, User, PuzzleAnswer, EscapeRoom, Attendee, LoginLink, Prize, Chest, ChestOpen);
+    console.log(
+        Puzzle,
+        User,
+        PuzzleAnswer,
+        MissionBoard,
+        Attendee,
+        LoginLink,
+        Prize,
+        Chest,
+        ChestOpen
+    );
     await dataSource.sync({ alter: true });
 
     res.status(200).json('OK');

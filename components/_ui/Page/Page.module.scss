@@ -2,6 +2,7 @@
 
 .page {
     padding-top: 6.25rem;
+    min-height: 100vh;
 
     @media #{$breakpoint-sm} {
         padding-top: 7.5rem;
