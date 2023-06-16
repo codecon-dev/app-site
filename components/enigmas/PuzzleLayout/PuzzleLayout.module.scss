@@ -6,7 +6,7 @@
     margin: 0;
     background-image: url('/images/enigmas/bg.jpg');
     background-position: center;
-    background-size: cover;
+    background-size: auto 100%;
     background-repeat: no-repeat;
 }
 
@@ -15,7 +15,7 @@
     display: flex;
     flex-grow: 1;
     background-position: center;
-    background-size: cover;
+    background-size: auto 100%;
     background-repeat: no-repeat;
 }
 
