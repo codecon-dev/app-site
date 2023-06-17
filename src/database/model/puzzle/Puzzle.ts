@@ -31,10 +31,7 @@ Puzzle.init(
     },
     {
         sequelize: dataSource,
-        indexes: [
-            { unique: true, fields: ['public_id'] },
-            { unique: true, fields: ['reward_code'] }
-        ]
+        indexes: [{ unique: true, fields: ['public_id'] }]
     }
 );
 
