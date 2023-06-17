@@ -1,4 +1,6 @@
 .chest {
+    position: relative;
+
     .cls1 {
         fill: #573e1d;
     }
@@ -138,11 +140,13 @@
         }
     }
 
-    &.opened {
+    &.unlocked {
         .lock {
             animation: openLock 3s ease forwards;
         }
+    }
 
+    &.opened {
         .top {
             animation: openChestTop 3s ease forwards;
         }

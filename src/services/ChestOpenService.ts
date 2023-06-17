@@ -5,12 +5,17 @@ import ChestOpen from '@models/chest/ChestOpen';
 import { Sequelize, Transaction } from 'sequelize';
 import { PrizeService } from './PrizeService';
 
+export type ChestInfo = {
+    chest: ChestOpen;
+    firstOpen: boolean;
+};
+
 export default class ChestOpenService {
     public static async openChest(
         chest: Chest,
         user: User,
         transaction: Transaction
-    ): Promise<ChestOpen | undefined> {
+    ): Promise<ChestInfo | undefined> {
         if (!chest || !user) throw new Error('Dados inválidos para abrir o baú');
 
         const chestOpen = await ChestOpen.findOne({
@@ -21,7 +26,7 @@ export default class ChestOpenService {
         });
         if (chestOpen) {
             console.warn(`Usuário ${user.id} tentou abrir baú ${chest.id} pela segunda vez`);
-            return chestOpen;
+            return { chest: chestOpen, firstOpen: false };
         }
 
         const prizeType = await PrizeService.getRandomPrizeType();
@@ -35,7 +40,7 @@ export default class ChestOpenService {
         user: User,
         prize: Prize | null,
         transaction: Transaction
-    ): Promise<ChestOpen> {
+    ): Promise<ChestInfo> {
         const chestOpen = await ChestOpen.create(
             {
                 chestId: chest.id,
@@ -49,7 +54,7 @@ export default class ChestOpenService {
 
         if (prize) await PrizeService.consumePrize(prize, transaction);
 
-        return chestOpen;
+        return { chest: chestOpen, firstOpen: true };
     }
 
     private static async selectPrize(

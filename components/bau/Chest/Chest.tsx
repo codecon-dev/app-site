@@ -1,22 +1,34 @@
-import cn from "classnames";
-import styles from "./Chest.module.scss";
+import cn from 'classnames';
+import styles from './Chest.module.scss';
+
+export type ChestState = 'closed' | 'unlocked' | 'opened';
 
 type Props = {
-    opened: boolean;
+    onClick: () => void;
+    state: ChestState;
 };
 
-export default function Chest(props: Props) {
+export default function Chest({ onClick, state }: Props) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -50 500 400" className={cn(
-            styles.chest,
-            {
-                [styles.shake]: !props.opened,
-                [styles.opened]: props.opened
-            }
-        )}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            onClick={onClick}
+            viewBox="0 -50 500 400"
+            className={cn(styles.chest, {
+                [styles.shake]: state == 'closed',
+                [styles.unlocked]: state != 'closed',
+                [styles.opened]: state == 'opened'
+            })}
+        >
             <defs>
                 <clipPath id="clip-path">
-                    <rect className={styles.cls1} x="115.28" y="168.67" width="275.85" height="130.18" />
+                    <rect
+                        className={styles.cls1}
+                        x="115.28"
+                        y="168.67"
+                        width="275.85"
+                        height="130.18"
+                    />
                 </clipPath>
                 <clipPath id="clip-path-2">
                     <rect
@@ -64,13 +76,25 @@ export default function Chest(props: Props) {
                     />
                 </clipPath>
                 <clipPath id="clip-path-8">
-                    <rect className={styles.cls3} x="237.79" y="30.79" width="23.52" height="153.96" />
+                    <rect
+                        className={styles.cls3}
+                        x="237.79"
+                        y="30.79"
+                        width="23.52"
+                        height="153.96"
+                    />
                 </clipPath>
                 <clipPath id="clip-path-9">
                     <circle className={styles.cls4} cx="368.5" cy="167.49" r="12" />
                 </clipPath>
                 <clipPath id="clip-path-10">
-                    <rect className={styles.cls3} x="201.18" y="145.5" width="95.67" height="83.43" />
+                    <rect
+                        className={styles.cls3}
+                        x="201.18"
+                        y="145.5"
+                        width="95.67"
+                        height="83.43"
+                    />
                 </clipPath>
             </defs>
             <g>
@@ -121,7 +145,12 @@ export default function Chest(props: Props) {
                                 rx="19.76"
                             />
                             <g className={styles.cls8}>
-                                <rect className={styles.cls4} y="156.9" width="496.25" height="33.24" />
+                                <rect
+                                    className={styles.cls4}
+                                    y="156.9"
+                                    width="496.25"
+                                    height="33.24"
+                                />
                             </g>
                             <rect
                                 className={styles.cls3}
