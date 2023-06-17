@@ -14,9 +14,9 @@ export default function ChestPrize({ show, prize, firstOpen }: Props) {
                 [styles.show]: show
             })}
         >
-            <h2 className={styles.heading}>
+            <h3 className={styles.heading}>
                 {firstOpen ? 'Você ganhou...' : 'Você já abriu e ganhou...'}
-            </h2>
+            </h3>
             <div className={styles.prize}>{prize}</div>
         </div>
     );
