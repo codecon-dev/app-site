@@ -11,8 +11,7 @@ type Props = {
 
 export default function SponsorPageLinks({ sponsor }: Props) {
     const meta = {
-        title: `${sponsor.name} - Codecon`,
-        image: `/api/get-image?title=${sponsor.slug}&type=sponsor`
+        title: `${sponsor.name} - Codecon`
     };
 
     return (

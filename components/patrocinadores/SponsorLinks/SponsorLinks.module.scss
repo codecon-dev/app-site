@@ -2,6 +2,12 @@
     min-height: 100vh;
 }
 
+.img-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .container {
     width: 90%;
     max-width: 600px;

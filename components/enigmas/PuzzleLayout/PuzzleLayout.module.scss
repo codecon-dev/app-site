@@ -1,11 +1,21 @@
 .layout {
+    background-color: #000;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
     margin: 0;
-    background-image: url('/images/enigmas/bg.png');
+    background-image: url('/images/enigmas/bg.jpg');
     background-position: center;
-    background-size: cover;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}
+
+.content-bg {
+    padding-top: 3rem;
+    display: flex;
+    flex-grow: 1;
+    background-position: center;
+    background-size: auto 100%;
     background-repeat: no-repeat;
 }
 
@@ -14,11 +24,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 3rem auto;
+
+    img {
+        max-height: 45vh;
+    }
 }
 
 .form {
-    margin: 3rem auto;
+    margin: 0 auto;
 }
 
 .content p {

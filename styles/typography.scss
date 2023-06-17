@@ -110,6 +110,10 @@ p {
     & + p {
         margin-top: 1rem;
     }
+
+    span.destaque {
+        color: var(--color-primary);
+    }
 }
 
 .text-center {
