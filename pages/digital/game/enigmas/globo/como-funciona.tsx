@@ -15,9 +15,9 @@ export default function ComoFunciona() {
             <div className="container container-text">
                 <p>
                     Cada andar dá a resposta a um enigma. Para participar, o usuário só precisa ir
-                    até o andar desejado, interagir com a Eli (tecla `X`), tentar descobrir qual a
-                    resposta para aquele enigma e enviar seu palpite no campo. Eli é um holograma da
-                    deusa responsável por criar os nossos enigmas.
+                    até o andar desejado, interagir com o Segui (tecla `X`), tentar descobrir qual a
+                    resposta para aquele enigma e enviar seu palpite no campo. Segui é um holograma
+                    do da dinvindade responsável pelos enigmas.
                 </p>
                 <p>
                     Para responder os enigmas você deverá fazer login com o seu e-mail da inscrição
