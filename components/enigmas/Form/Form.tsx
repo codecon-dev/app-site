@@ -82,6 +82,7 @@ export default function Form({ puzzlePublicId }: Props) {
             placeholder="Seu chute"
             buttonText="Tentar"
             disableSubmit={!guess || !email}
+            horizontal
         />
     );
 }
