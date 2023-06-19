@@ -21,9 +21,14 @@ export default function PuzzleLayout({ bg, bgContent, children, bgColor }: Props
         <section className={cn(styles.layout)} style={{ backgroundImage: `url(${bg})` }}>
             <div
                 className={styles['content-bg']}
-                style={{ backgroundImage: `url(${bgContent})`, backgroundColor: `${bgColor}` }}
+                style={{
+                    backgroundImage: `url(${bgContent})`,
+                    backgroundColor: `${bgColor}`
+                }}
             >
-                <div className={cn(styles.content, 'container')}>{children}</div>
+                <div className={cn(styles.content, 'container')} style={{ position: 'relative' }}>
+                    {children}
+                </div>
             </div>
             <div className={cn(styles.form, 'container')}>
                 <Form puzzlePublicId={puzzlePublicId} />
