@@ -28,7 +28,7 @@ export default function OneInputForm({
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         <form
             className={cn(styles.form, { [styles.horizontal]: horizontal })}
-            onSubmit={handleSubmit}
+            onSubmit={e => void handleSubmit(e)}
         >
             <input
                 type={inputType}
