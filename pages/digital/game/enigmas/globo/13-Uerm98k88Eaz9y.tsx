@@ -1,5 +1,6 @@
 import Page from '@components/_ui/Page';
 import PrivateArea from '@components/_ui/PrivateArea';
+import PuzzleThirteen from '@components/enigmas/globo/PuzzleThirteen';
 
 export default function PuzzleZero() {
     const meta = {
@@ -9,7 +10,7 @@ export default function PuzzleZero() {
     return (
         <Page theme="digital" meta={meta} hideNav hideFooter noPadding>
             <PrivateArea>
-                <></>
+                <PuzzleThirteen />
             </PrivateArea>
         </Page>
     );
