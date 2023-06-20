@@ -9,9 +9,9 @@ export default function PuzzleZero() {
 
     return (
         <Page theme="digital" meta={meta} hideNav hideFooter noPadding>
-            {/* <PrivateArea> */}
-            <PuzzleTen />
-            {/* </PrivateArea> */}
+            <PrivateArea>
+                <PuzzleTen />
+            </PrivateArea>
         </Page>
     );
 }
