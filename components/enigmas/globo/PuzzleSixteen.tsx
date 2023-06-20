@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import PuzzleLayout from '../PuzzleLayout';
-import { red } from '@material-ui/core/colors';
 import Modal from '../Modal/Modal';
 
 export default function Puzzle() {

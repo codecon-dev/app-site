@@ -16,7 +16,7 @@ export default function Puzzle() {
                 style={{
                     position: 'absolute',
                     top: '32%',
-                    left: '25%',
+                    left: '15%',
                     height: '15vh',
                     width: '15vh'
                 }}
