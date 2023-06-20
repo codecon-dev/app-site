@@ -1,0 +1,36 @@
+.switchContainer {
+    display: flex;
+}
+
+.switch {
+    width: calc(56px * var(--switch-size));
+    height: calc(24px * var(--switch-size));
+    border-radius: calc(12px * var(--switch-size));
+    background: #898989;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+.switch-on {
+    background: #53f59c;
+
+    .switch-thumb {
+        background: #2bd376;
+    }
+}
+
+.switch-thumb {
+    width: calc(35px * var(--switch-size));
+    height: calc(35px * var(--switch-size));
+    border-radius: 50%;
+    background: #fff;
+    transition: transform 0.3s ease;
+}
+
+.thumb-on {
+    transform: translateX(calc(28px * var(--switch-size)));
+}
