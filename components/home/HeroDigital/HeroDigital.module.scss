@@ -69,6 +69,16 @@
     z-index: 100;
 }
 
+.subscribe {
+    display: block;
+    margin-top: 1rem;
+    text-transform: lowercase;
+
+    a {
+        color: var(--color-light-gray);
+    }
+}
+
 .image {
     display: none;
     width: 95%;

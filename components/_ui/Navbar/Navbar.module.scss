@@ -1,5 +1,26 @@
 @import '/styles/media-queries';
 
+.live {
+    background-color: var(--color-primary);
+    color: var(--color-black-60);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        gap: 200px;
+        align-items: center;
+    }
+}
+
 .header {
     padding: 2rem 0;
     border-bottom: 1px solid var(--color-black-60);
@@ -9,6 +30,10 @@
     top: 0;
     z-index: 999;
     transition: all 0.2s ease;
+
+    &.in-live {
+        padding-top: 3rem;
+    }
 
     &.scroll {
         background-color: var(--color-background);

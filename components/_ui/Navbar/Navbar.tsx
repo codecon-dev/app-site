@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, NextRouter } from 'next/router';
 import cn from 'classnames';
+import Marquee from 'react-fast-marquee';
 
 import ThemeContext from 'context/ThemeContext';
 import { getEventData } from '@lib/constants';
@@ -10,7 +11,7 @@ import MobileMenu from '@components/_ui/MobileMenu';
 
 import styles from './Navbar.module.scss';
 
-export default function Navbar({ hideNavMenu }: { hideNavMenu: boolean }) {
+export default function Navbar({ hideNavMenu, live }: { hideNavMenu: boolean; live?: boolean }) {
     const theme = useContext(ThemeContext);
     const eventData = getEventData(theme);
     const router: NextRouter = useRouter();
@@ -26,7 +27,26 @@ export default function Navbar({ hideNavMenu }: { hideNavMenu: boolean }) {
 
     return (
         <>
-            <header className={cn(styles.header, { [styles.scroll]: isScrolled })}>
+            <header
+                className={cn(styles.header, {
+                    [styles.scroll]: isScrolled,
+                    [styles['in-live']]: live
+                })}
+            >
+                {live && (
+                    <div className={styles.live}>
+                        <Marquee>
+                            <ul>
+                                <li>Estamos ao vivo!</li>
+                                <li>Estamos ao vivo!</li>
+                                <li>Estamos ao vivo!</li>
+                                <li>Estamos ao vivo!</li>
+                                <li>Estamos ao vivo!</li>
+                                <li>Estamos ao vivo!</li>
+                            </ul>
+                        </Marquee>
+                    </div>
+                )}
                 <div className={cn('container', styles['header__container'])}>
                     <div className={styles['header__logo']}>
                         <Link href={eventData.homeUrl}>
