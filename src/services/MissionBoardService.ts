@@ -38,9 +38,7 @@ export default class MissionBoardService {
             };
         }
 
-        const missionBoard = await MissionBoard.findOne({
-            where: { userId: user.id }
-        });
+        const missionBoard = await MissionBoard.findOne({ where: { userId: user.id } });
 
         if (missionBoard) {
             return {
@@ -49,9 +47,7 @@ export default class MissionBoardService {
             };
         }
 
-        const newMissionBoard = await MissionBoard.create({
-            where: { userId: user.id }
-        });
+        const newMissionBoard = await MissionBoard.create({ userId: user.id });
 
         await newMissionBoard.save();
 
