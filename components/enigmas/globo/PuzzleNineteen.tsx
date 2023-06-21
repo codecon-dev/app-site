@@ -7,8 +7,8 @@ export default function Puzzle() {
     const [img, setImg] = useState('');
 
     return (
-        <PuzzleLayout bgContent="/images/enigmas/globo/19.jpg">
-            <div>
+        <>
+            <PuzzleLayout>
                 <div
                     onClick={() => {
                         setImg('/images/enigmas/globo/19-3.png');
@@ -29,7 +29,7 @@ export default function Puzzle() {
                     }}
                     style={{
                         position: 'absolute',
-                        top: '0%',
+                        top: '20%',
                         left: '40%',
                         height: '5vh',
                         width: '5vh'
@@ -48,8 +48,9 @@ export default function Puzzle() {
                         width: '5vh'
                     }}
                 ></div>
-            </div>
+                <img src="/images/enigmas/globo/19.png" />
+            </PuzzleLayout>
             <Modal img={img} isOpen={isModalOpen} setIsOpen={() => setIsModalOpen(!isModalOpen)} />
-        </PuzzleLayout>
+        </>
     );
 }
