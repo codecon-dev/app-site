@@ -1,5 +1,9 @@
 import PuzzleLayout from '../PuzzleLayout';
 
 export default function Puzzle() {
-    return <PuzzleLayout bgColor="#8B949E"></PuzzleLayout>;
+    return (
+        <PuzzleLayout>
+            <img src="/images/enigmas/totvs/13.png" />
+        </PuzzleLayout>
+    );
 }

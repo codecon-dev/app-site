@@ -9,24 +9,29 @@ import { useRouter } from 'next/router';
 type Props = {
     bg?: string;
     bgContent?: string;
-    bgColor?: string;
+    flexDirection?: 'column' | 'row';
     children?: ReactNode;
 };
 
-export default function PuzzleLayout({ bg, bgContent, children, bgColor }: Props) {
+export default function PuzzleLayout({ bg, bgContent, flexDirection = 'column', children }: Props) {
     const router = useRouter();
     const puzzlePublicId = getLastPath(router.pathname);
 
     return (
-        <section className={cn(styles.layout)} style={{ backgroundImage: `url(${bg})` }}>
+        <section
+            className={cn(styles.layout)}
+            style={{ backgroundImage: bg ? `url(${bg})` : undefined }}
+        >
             <div
                 className={styles['content-bg']}
                 style={{
-                    backgroundImage: `url(${bgContent})`,
-                    backgroundColor: `${bgColor}`
+                    backgroundImage: bgContent ? `url(${bgContent})` : undefined
                 }}
             >
-                <div className={cn(styles.content, 'container')} style={{ position: 'relative' }}>
+                <div
+                    className={cn(styles.content, 'container')}
+                    style={{ position: 'relative', flexDirection: flexDirection }}
+                >
                     {children}
                 </div>
             </div>

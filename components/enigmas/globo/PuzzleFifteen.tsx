@@ -3,8 +3,8 @@ import PuzzleLayout from '../PuzzleLayout';
 
 export default function Puzzle() {
     return (
-        <PuzzleLayout>
-            <img src="/images/enigmas/globo/15.jpg" />
+        <PuzzleLayout bg="/images/enigmas/globo/15.jpg">
+            <img src="/images/enigmas/globo/15.png" />
         </PuzzleLayout>
     );
 }

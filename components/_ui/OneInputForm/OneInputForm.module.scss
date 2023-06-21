@@ -32,8 +32,8 @@
 
 .button {
     -webkit-appearance: none;
+    background-color: var(--color-black-60);
     border: 3px solid var(--color-primary);
-    background-color: transparent;
     font-weight: bold;
     line-height: 1.5;
     display: inline-flex;
