@@ -38,23 +38,28 @@ export default class MissionBoardService {
             };
         }
 
-        const [missionBoard, created] = await MissionBoard.findOrCreate({
+        const missionBoard = await MissionBoard.findOne({
             where: { userId: user.id }
         });
 
-        if (missionBoard.id) {
+        if (missionBoard) {
             return {
                 success: true,
                 message: `Você já enviou todos os selos e já está concorrendo!`
             };
         }
 
-        await missionBoard.save();
+        const newMissionBoard = await MissionBoard.create({
+            where: { userId: user.id }
+        });
+
+        await newMissionBoard.save();
 
         const { data } = await CodeCodesService.claimCode(
             user,
             `${process.env.CODECODES_TREASURE_HUNT}`
         );
+
         if (!data) throw new Error('Dados do Code-Codes vieram vazios');
 
         return {

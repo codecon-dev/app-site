@@ -112,21 +112,27 @@ export default function ScheduleDigital({ talks }: Props) {
                 description: 'Horário de almoço'
             },
             {
-                hour: '14:00',
+                hour: '13:30',
                 talks: talksOrdered.filter(talk =>
-                    isActivityStartingTimeBetween(talk, '14:00', '15:00')
+                    isActivityStartingTimeBetween(talk, '13:30', '14:30')
                 )
             },
             {
-                hour: '15:30',
+                hour: '14:45',
                 talks: talksOrdered.filter(talk =>
-                    isActivityStartingTimeBetween(talk, '15:30', '16:30')
+                    isActivityStartingTimeBetween(talk, '14:45', '15:45')
                 )
             },
             {
-                hour: '17:00',
+                hour: '16:00',
                 talks: talksOrdered.filter(talk =>
-                    isActivityStartingTimeBetween(talk, '17:00', '18:00')
+                    isActivityStartingTimeBetween(talk, '16:00', '17:00')
+                )
+            },
+            {
+                hour: '17:15',
+                talks: talksOrdered.filter(talk =>
+                    isActivityStartingTimeBetween(talk, '17:15', '18:15')
                 )
             }
         ]);
