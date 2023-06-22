@@ -22,10 +22,10 @@ export default function PrivateArea({ children }: Props) {
     const [showTermsModal, setShowTermsModal] = useState(false);
 
     useEffect(() => {
-        const email = window.localStorage.getItem('codeconEmail');
-        const firstName = window.localStorage.getItem('codeconFirstName') ?? '';
-        const fullName = window.localStorage.getItem('codeconFullName') ?? '';
-        const acceptedTerms = window.localStorage.getItem('codeconTerms');
+        const email = window.localStorage.getItem('codeconEmail23');
+        const firstName = window.localStorage.getItem('codeconFirstName23') ?? '';
+        const fullName = window.localStorage.getItem('codeconFullName23') ?? '';
+        const acceptedTerms = window.localStorage.getItem('codeconTerms23');
 
         if (acceptedTerms === '0') {
             setShowTermsModal(true);
