@@ -51,7 +51,7 @@ export default class AttendeeService {
             event
         });
 
-        sendgrid.setApiKey(process.env.SENDGRID_API_KEY || '');
+        /*sendgrid.setApiKey(process.env.SENDGRID_API_KEY || '');
 
         let templateId;
         let eventName;
@@ -84,6 +84,6 @@ export default class AttendeeService {
             }
         };
 
-        await sendgrid.send(msg);
+        await sendgrid.send(msg);*/
     }
 }

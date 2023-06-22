@@ -1,6 +1,7 @@
 import { Op } from 'sequelize';
 import { NextApiResponse } from 'next';
 import sendgrid from '@sendgrid/mail';
+import { Resend } from 'resend';
 
 import Attendee from 'src/database/model/Attendee';
 import LoginLink from 'src/database/model/LoginLink';
@@ -14,7 +15,7 @@ export default class LoginLinkService {
 
         const magicLink = await this.createMagicLink(attendee.id);
 
-        sendgrid.setApiKey(process.env.SENDGRID_API_KEY || '');
+        /*sendgrid.setApiKey(process.env.SENDGRID_API_KEY || '');
 
         const msg = {
             to: email,
@@ -28,7 +29,18 @@ export default class LoginLinkService {
             }
         };
 
-        const sendMail = await sendgrid.send(msg);
+        const sendMail = await sendgrid.send(msg);*/
+
+        const resend = new Resend(process.env.RESEND_API_KEY);
+
+        const sendMail = await resend.emails.send({
+            from: 'contato@codecon.dev',
+            to: email,
+            subject: 'Seu link mágico chegou',
+            html: `<p>Olá!<br/><br/>Para confirmar seu login <a href="https://codecon.dev/${event.toLowerCase()}/inscrito/${
+                magicLink.hash
+            }">clique aqui</a>.</p>`
+        });
 
         if (!sendMail) {
             return false;

@@ -60,6 +60,7 @@
         "react-scroll": "^1.8.9",
         "react-simple-code-editor": "^0.13.0",
         "react-toastify": "^9.0.1",
+        "resend": "^0.15.3",
         "sass": "^1.52.1",
         "sequelize": "^6.21.3",
         "serverless-mysql": "^1.5.4",
