@@ -56,6 +56,7 @@
         "react-dom": "^18.2.0",
         "react-double-marquee": "^1.1.0",
         "react-easy-emoji": "^1.6.1",
+        "react-fast-marquee": "^1.6.0",
         "react-hot-toast": "^2.3.0",
         "react-scroll": "^1.8.9",
         "react-simple-code-editor": "^0.13.0",

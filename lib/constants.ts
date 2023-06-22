@@ -85,12 +85,8 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 ],
                 attendeeNav: [
                     {
-                        name: 'Área do inscrito',
-                        route: '/digital/inscrito'
-                    },
-                    {
-                        name: 'Inscreva-se',
-                        route: 'https://www.sympla.com.br/evento-online/codecon-digital-2023/1829527',
+                        name: 'Acessar o evento',
+                        route: '/digital/mapa',
                         type: 'button',
                         target: '_blank'
                     }

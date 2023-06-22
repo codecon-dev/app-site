@@ -24,6 +24,7 @@ type Props = {
     meta?: Meta;
     children: React.ReactNode;
     theme?: ThemeContextType;
+    live?: boolean;
     hideNav?: boolean;
     hideNavMenu?: boolean;
     hideFooter?: boolean;
@@ -35,6 +36,7 @@ export default function Page({
     meta,
     children,
     theme,
+    live,
     hideNav,
     hideFooter,
     noPadding,
@@ -88,7 +90,7 @@ export default function Page({
                     </style>
                 </Head>
                 <Toaster />
-                {!hideNav && <Navbar hideNavMenu={hideNavMenu} />}
+                {!hideNav && <Navbar live={live} hideNavMenu={hideNavMenu} />}
                 <main>{children}</main>
                 {!hideFooter && <SubscribeCountdown eventData={eventData} />}
                 {(!hideNav || !hideFooter) && <WhatsappFloatingButton />}
