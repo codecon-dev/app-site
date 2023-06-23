@@ -30,17 +30,6 @@ export default function Ranking({ users }: { users: UserRank[] }) {
                     <strong>Critérios de desempate:</strong> quem mais pontuou; quem mais fez
                     resgates; quem fez o primeiro resgate antes; sorteio.
                 </p>
-                <p>
-                    Está com dúvidas? Veja{' '}
-                    <Link href="/game/code-codes/como-funciona">como funciona</Link> o code-codes.
-                </p>
-                <p>
-                    <small>
-                        Em 23/09/2022 14:28 houve uma recontagem dos pontos pois foi encontrado um
-                        problema na plataforma que estava contabilizando pontos erroneamente para
-                        alguns participantes. O ranking sofreu algumas mudanças.
-                    </small>
-                </p>
             </div>
         </section>
     );
