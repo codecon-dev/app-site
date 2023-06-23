@@ -59,13 +59,13 @@ export default function HeroDigital() {
                 </p>
             </div>
             <div className={cn(styles['header-wrapper'], styles.button)}>
-                {eventPrice && <LinkButton href="/digital/mapa">Acessar o evento</LinkButton>}
+                <LinkButton href="/digital/mapa">Acessar o evento</LinkButton>
 
-                <div className={styles.subscribe}>
+                {eventPrice && <div className={styles.subscribe}>
                     <a href={registerUrlWithCode || eventData.registerUrl}>
                         Ou, inscreva-se (atrasado)
                     </a>
-                </div>
+                </div>}
             </div>
 
             <div className={cn(styles['image-wrapper'], styles['image-bg'])}>
