@@ -27,7 +27,15 @@ const DISCOUNT_CODES: Discount[] = [
         discount: 12,
         event: EVENTS.DIGITAL,
         image: 'https://pbs.twimg.com/profile_images/1649159389327114243/tNKSKN3y_400x400.jpg'
-    }
+    },
+    {
+        name: 'Newsletter do Filipe Deschamps',
+        code: 'NEWS20',
+        percentage: 20,
+        discount: 32,
+        event: EVENTS.SUMMIT,
+        image: 'https://github.com/filipedeschamps.png'
+    },
 ];
 
 export function useActiveEventPrice(eventData: EventData) {
@@ -57,7 +65,13 @@ export function useActiveEventPrice(eventData: EventData) {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
 
-        const discountCode = urlParams.get('d');
+        let discountCode = urlParams.get('d');
+
+        if (!discountCode) {
+            discountCode = window.localStorage.getItem(`${eventData.type}_discount`)
+        }
+
+        window.localStorage.setItem(`${eventData.type}_discount`, discountCode || '')
 
         setEventPrice(activePrice.price);
         setPriceInfo(activePrice);

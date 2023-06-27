@@ -8,7 +8,7 @@ import ThemeContext from 'context/ThemeContext';
 import { Sponsor } from '@lib/types/all';
 import { Grid, Column } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton/LinkButton';
-import { getEventData } from '@lib/constants';
+import { useEventData } from '@lib/constants';
 
 import styles from './Hero.module.scss';
 
@@ -18,7 +18,7 @@ type Props = {
 
 export default function Hero({ sponsor }: Props) {
     const theme = useContext(ThemeContext);
-    const eventData = getEventData(theme);
+    const eventData = useEventData(theme);
 
     return (
         <header className={styles.header}>

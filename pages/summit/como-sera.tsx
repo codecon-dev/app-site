@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 
 import { getAllSponsors } from '@lib/cms-api';
 import { Sponsor } from '@lib/types/all';
-import { getEventData } from '@lib/constants';
+import { useEventData } from '@lib/constants';
 import { useActiveEventPrice } from '@lib/hooks/useActiveEventPrice';
 
 import Page from '@components/_ui/Page';
@@ -19,7 +19,7 @@ export default function ComoFunciona({ sponsors }: Props) {
         title: 'Como será - Codecon Summit'
     };
 
-    const eventData = getEventData('summit');
+    const eventData = useEventData('summit');
     const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
 
     return (

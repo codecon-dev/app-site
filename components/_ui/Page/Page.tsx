@@ -10,7 +10,7 @@ import Footer from '@components/_ui/Footer';
 import WhatsappFloatingButton from '@components/_ui/WhatsappFloatingButton';
 import SubscribeCountdown from '@components/_ui/SubscribeCountdown';
 
-import { SITE_URL, TWITTER_USER_NAME, getEventData } from '@lib/constants';
+import { SITE_URL, TWITTER_USER_NAME, useEventData } from '@lib/constants';
 import styles from './Page.module.scss';
 
 export type Meta = {
@@ -43,7 +43,7 @@ export default function Page({
     sponsors,
     hideNavMenu = false
 }: Props) {
-    const eventData = getEventData(theme);
+    const eventData = useEventData(theme);
     const router = useRouter();
     const image = meta?.image || eventData.shareImage;
     const title = meta?.title || eventData.siteName;

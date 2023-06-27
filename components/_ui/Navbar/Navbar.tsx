@@ -5,7 +5,7 @@ import cn from 'classnames';
 import Marquee from 'react-fast-marquee';
 
 import ThemeContext from 'context/ThemeContext';
-import { getEventData } from '@lib/constants';
+import { useEventData } from '@lib/constants';
 import Logo from '@components/_ui/Icons/icon-logo';
 import MobileMenu from '@components/_ui/MobileMenu';
 
@@ -13,7 +13,7 @@ import styles from './Navbar.module.scss';
 
 export default function Navbar({ hideNavMenu, live }: { hideNavMenu: boolean; live?: boolean }) {
     const theme = useContext(ThemeContext);
-    const eventData = getEventData(theme);
+    const eventData = useEventData(theme);
     const router: NextRouter = useRouter();
     const activeRoute: string = router.asPath;
 

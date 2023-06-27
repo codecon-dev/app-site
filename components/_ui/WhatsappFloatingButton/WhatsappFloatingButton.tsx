@@ -5,12 +5,12 @@ import Link from 'next/link';
 import ThemeContext from 'context/ThemeContext';
 
 import styles from './WhatsappFloatingButton.module.scss';
-import { getEventData } from '@lib/constants';
+import { useEventData } from '@lib/constants';
 import WhatsappIcon from '@components/_ui/Icons/icon-whatsapp';
 
 export default function WhatsappFloatingButton() {
     const theme = useContext(ThemeContext);
-    const eventData = getEventData(theme);
+    const eventData = useEventData(theme);
 
     return (
         <Link href={eventData.whatsapp} target="_blank" rel="noopener noreferrer">

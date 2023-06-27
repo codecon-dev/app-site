@@ -9,7 +9,7 @@ import Link from 'next/link';
 import cn from 'classnames';
 
 import ThemeContext from 'context/ThemeContext';
-import { getEventData } from '@lib/constants';
+import { useEventData } from '@lib/constants';
 
 import styles from './MobileMenu.module.scss';
 
@@ -17,7 +17,7 @@ function ModalDialog(props: Parameters<typeof useOverlay>[0] & Parameters<typeof
     const theme = useContext(ThemeContext);
     const router = useRouter();
     const activeRoute = router.asPath;
-    const eventData = getEventData(theme);
+    const eventData = useEventData(theme);
 
     const ref = useRef<HTMLElement | null>(null);
     const { modalProps } = useModal();

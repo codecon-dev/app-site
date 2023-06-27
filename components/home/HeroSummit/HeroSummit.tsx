@@ -6,13 +6,13 @@ import cn from 'classnames';
 import AttendeesAvatars from '@components/_ui/AttendeesAvatars/AttendeesAvatars';
 import LinkButton from '@components/_ui/LinkButton/LinkButton';
 
-import { getEventData } from '@lib/constants';
+import { useEventData } from '@lib/constants';
 import { useActiveEventPrice } from '@lib/hooks/useActiveEventPrice';
 
 import styles from './HeroSummit.module.scss';
 
 export default function HeroSummit() {
-    const eventData = getEventData('summit');
+    const eventData = useEventData('summit');
     const { local, city, initialDate, finalDate } = eventData;
     const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
 

@@ -11,7 +11,7 @@ import { Column, Grid } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton';
 
 import styles from './TalkPage.module.scss';
-import { getEventData } from '@lib/constants';
+import { useEventData } from '@lib/constants';
 
 type Props = {
     talk: Talk;
@@ -19,7 +19,7 @@ type Props = {
 
 export default function TalkPage({ talk }: Props) {
     const theme = useContext(ThemeContext);
-    const eventData = getEventData(theme);
+    const eventData = useEventData(theme);
     const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
 
     return (

@@ -5,7 +5,7 @@ import Tilt from 'vanilla-tilt';
 import Attendee from 'src/database/model/Attendee';
 import ThemeContext from 'context/ThemeContext';
 import { useActiveEventPrice } from '@lib/hooks/useActiveEventPrice';
-import { EventData, getEventData } from '@lib/constants';
+import { EventData, useEventData } from '@lib/constants';
 import { Grid, Column } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton';
 
@@ -46,7 +46,7 @@ function EventInfo({ attendee, eventData }: EventInfoProps) {
 
 export default function AttendeeArea({ attendee }: Props) {
     const theme = useContext(ThemeContext);
-    const eventData = getEventData(theme);
+    const eventData = useEventData(theme);
     const ticketRef = useRef<HTMLDivElement>(null);
     const { subtitle, registerUrl, homeUrl } = eventData;
     const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);

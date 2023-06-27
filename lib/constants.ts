@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { EVENTS, MenuItem } from './types/all';
 
 export type EventPrice = {
@@ -43,8 +44,21 @@ export const META_DESCRIPTION =
 export const RANKING_ENABLED = true;
 export const WHATSAPP_LINK = 'https://wa.me/+5547991367060';
 
-export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | undefined) => {
+export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | undefined) => {
     let eventData: EventData;
+    const [discountCode, setDiscountCode] = useState('');
+
+    useEffect(() => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        let discountCode = urlParams.get('d');
+
+        if (!discountCode) {
+            discountCode = window.localStorage.getItem(`${event?.toUpperCase()}_discount`)
+        }
+
+        setDiscountCode(discountCode || '');
+    }, [event])
 
     switch (event) {
         case 'digital':
@@ -138,7 +152,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 shareImage: 'https://codecon.dev/summit-share.png',
                 metaDescription:
                     'O maior evento para pessoas programadoras de Santa Catarina, com grandes nomes nacionais.',
-                registerUrl: 'https://www.sympla.com.br/evento/codecon-summit-2023/1829544',
+                registerUrl: `https://www.sympla.com.br/evento/codecon-summit-2023/1829544?d=${discountCode}`,
                 whatsapp: WHATSAPP_LINK,
                 menuNav: [
                     {
@@ -166,7 +180,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                     },
                     {
                         name: 'inscreva-se',
-                        route: 'https://www.sympla.com.br/evento/codecon-summit-2023/1829544',
+                        route: `https://www.sympla.com.br/evento/codecon-summit-2023/1829544?d=${discountCode}`,
                         type: 'button',
                         target: '_blank'
                     }
@@ -219,7 +233,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 shareImage: 'https://codecon.dev/feature-share.png',
                 metaDescription:
                     'O evento será repleto de sessões e workshops onde todos podem trazer problemas que enfrentam e todos tem locais de fala.',
-                registerUrl: 'https://www.sympla.com.br/evento/codecon-feature-2023/1829552',
+                registerUrl: `https://www.sympla.com.br/evento/codecon-feature-2023/1829552?d=${discountCode}`,
                 whatsapp: WHATSAPP_LINK,
                 menuNav: [
                     {
@@ -247,7 +261,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                     },
                     {
                         name: 'inscreva-se',
-                        route: 'https://www.sympla.com.br/evento/codecon-feature-2023/1829552',
+                        route: `https://www.sympla.com.br/evento/codecon-feature-2023/1829552?d=${discountCode}`,
                         type: 'button',
                         target: '_blank'
                     }

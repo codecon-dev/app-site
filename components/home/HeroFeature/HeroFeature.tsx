@@ -5,13 +5,13 @@ import cn from 'classnames';
 import AttendeesAvatars from '@components/_ui/AttendeesAvatars/AttendeesAvatars';
 import LinkButton from '@components/_ui/LinkButton/LinkButton';
 
-import { getEventData } from '@lib/constants';
+import { useEventData } from '@lib/constants';
 import { useActiveEventPrice } from '@lib/hooks/useActiveEventPrice';
 
 import styles from './HeroFeature.module.scss';
 
 export default function HeroSummit() {
-    const eventData = getEventData('feature');
+    const eventData = useEventData('feature');
     const { local, city, initialDate, finalDate } = eventData;
     const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
     const videoRef = useRef<HTMLVideoElement | null>(null);
