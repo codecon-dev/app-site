@@ -9,15 +9,7 @@ export default function DetailsGrid() {
     return (
         <section>
             <div className={cn('container', styles.grid)}>
-                <Link href="/digital" className={cn(styles.block, styles.digital)}>
-                    <IconLogo theme="digital" width={192} />
-                    <p>
-                        <strong>22 e 23 de junho de 2023</strong>
-                        <br />
-                        Numa cidade medieval no Gather.
-                    </p>
-                </Link>
-
+             
                 <Link href="/summit" className={cn(styles.block, styles.summit)}>
                     <IconLogo theme="summit" width={215} />
                     <p>

@@ -35,7 +35,7 @@ export default function ComoFunciona({ sponsors }: Props) {
             <Info>
                 <Info.Text title="O festival de programação para todas as linguagens">
                     <p>
-                        São dois dias de evento que reúne inovação, tecnologia, código e diversão. A
+                        O evento reúne inovação, tecnologia, código e diversão. A
                         Codecon busca trazer assuntos do momento que impactam a vida de pessoas
                         desenvolvedoras e de várias linguagens de programação diferentes.
                     </p>

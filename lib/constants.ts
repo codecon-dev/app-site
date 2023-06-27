@@ -84,12 +84,7 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                     }
                 ],
                 attendeeNav: [
-                    {
-                        name: 'Acessar o evento',
-                        route: '/digital/mapa',
-                        type: 'button',
-                        target: '_blank'
-                    }
+                    
                 ],
                 eventPrice: [
                     {
@@ -296,10 +291,6 @@ export const getEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 registerUrl: '#',
                 whatsapp: WHATSAPP_LINK,
                 menuNav: [
-                    {
-                        name: 'Codecon Digital',
-                        route: '/digital'
-                    },
                     {
                         name: 'Codecon Summit',
                         route: '/summit'

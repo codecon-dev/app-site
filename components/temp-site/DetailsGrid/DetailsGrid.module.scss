@@ -3,19 +3,18 @@
 .grid {
     display: grid;
     grid-template-areas:
-        'digital digital'
         'summit summit'
         'feature feature'
         'dvlpr dvlpr'
         'newsletter newsletter'
         'instagram twitter';
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 15rem 15rem 15rem 25rem 15rem 10rem;
+    grid-template-rows: 15rem 15rem 25rem 15rem 10rem;
     gap: 1rem;
 
     @media #{$breakpoint-sm} {
         grid-template-areas:
-            'digital summit feature feature'
+            'summit summit feature feature'
             'dvlpr dvlpr instagram twitter'
             'dvlpr dvlpr newsletter newsletter';
         grid-template-columns: 1fr 1fr 0.5fr 0.5fr;
