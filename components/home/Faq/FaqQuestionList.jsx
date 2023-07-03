@@ -68,7 +68,7 @@ export const faqQuestionListSummit = [
     },
     {
         question: 'Qual a data e onde vai acontecer?',
-        answer: 'O evento acontece dia 26 de agosto (sábado) em Joinville/SC, no Campus Park Unisociesc: R. Albano Schmidt, 3333 - Boa Vista.'
+        answer: 'O evento acontece dia 26 de agosto (sábado) em Joinville/SC, no Campus Park Unisociesc: R. Pref. Helmuth Fallgatter, 3333 - Boa Vista.'
     },
     {
         question: 'Como faz para chegar até lá?',
