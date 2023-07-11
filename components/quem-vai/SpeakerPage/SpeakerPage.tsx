@@ -2,6 +2,7 @@ import cn from 'classnames';
 
 import { Speaker, SocialData } from '@lib/types/speakers';
 import { captureHourAndMinutesFromDateString, formatDate } from '@lib/dates';
+import { nl2br } from '@lib/utils';
 
 import { Column, Grid } from '@components/_ui/Grid';
 import SpeakerCard from '@components/_ui/SpeakerCard';
@@ -48,7 +49,7 @@ export default function SpeakerPage({ speaker }: Props) {
                     <span className="highlight">Presença confirmada</span>
                     <h1>{speaker.name}</h1>
                     <p className={styles.headline}>{speaker.company}</p>
-                    <p className={styles.bio}>{speaker.bio}</p>
+                    <p className={styles.bio} dangerouslySetInnerHTML={{ __html: nl2br(speaker.bio) }} />
 
                     {(speaker.talks?.length || !!speaker.workshops?.length) && (
                         <>

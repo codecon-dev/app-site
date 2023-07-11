@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import ThemeContext from 'context/ThemeContext';
+import { nl2br } from '@lib/utils';
 import { Talk } from '@lib/types/all';
 import { captureHourAndMinutesFromDateString, formatDate } from '@lib/dates';
 import { useActiveEventPrice } from '@lib/hooks/useActiveEventPrice';
@@ -77,7 +78,7 @@ export default function TalkPage({ talk }: Props) {
             <Grid>
                 <Column lg={2} sm={0} xsm={0} />
                 <Column lg={8}>
-                    <p className={styles.description}>{talk.description}</p>
+                    <p className={styles.description} dangerouslySetInnerHTML={{ __html: nl2br(talk.description) }} />
                 </Column>
             </Grid>
 
