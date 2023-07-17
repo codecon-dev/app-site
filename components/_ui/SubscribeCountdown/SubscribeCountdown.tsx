@@ -143,7 +143,7 @@ export default function SubscribeCountdown({ eventData }: Props) {
                             </span>
                         </div>
                         <div className={styles.button}>
-                            <LinkButton info={eventPrice} href={registerUrlWithCode || ''}>
+                            <LinkButton info={eventPrice} href={eventData.registerUrl}>
                                 Comprar
                             </LinkButton>
                         </div>
