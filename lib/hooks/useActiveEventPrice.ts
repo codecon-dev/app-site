@@ -88,7 +88,6 @@ export function useActiveEventPrice(eventData: EventData) {
                 const priceWithDiscount = activePrice.price - discountData.discount;
 
                 setEventPrice(priceWithDiscount);
-                setRegisterUrlWithCode(`${eventData.registerUrl}?d=${discountCode}`);
                 setDiscountInfo(discountData);
             }
         }

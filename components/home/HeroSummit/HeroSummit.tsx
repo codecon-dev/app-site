@@ -14,7 +14,7 @@ import styles from './HeroSummit.module.scss';
 export default function HeroSummit() {
     const eventData = useEventData('summit');
     const { local, city, initialDate, finalDate } = eventData;
-    const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
+    const { eventPrice } = useActiveEventPrice(eventData);
 
     useEffect(() => {
         document.addEventListener('mousemove', event => {
@@ -64,7 +64,7 @@ export default function HeroSummit() {
             <div className={cn(styles['header-wrapper'], styles.button)}>
                 {eventPrice && (
                     <LinkButton
-                        href={registerUrlWithCode || eventData.registerUrl}
+                        href={eventData.registerUrl}
                         info={eventPrice}
                     >
                         Inscreva-se
