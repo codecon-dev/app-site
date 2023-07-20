@@ -42,7 +42,7 @@ const DISCOUNT_CODES: Discount[] = [
         percentage: 20,
         discount: 32,
         event: EVENTS.SUMMIT,
-        image: 'https://github.com/filipedeschamps.png'
+        image: 'https://pbs.twimg.com/profile_images/936905663967412224/tlK8E2bV_400x400.jpg'
     }
 ];
 
