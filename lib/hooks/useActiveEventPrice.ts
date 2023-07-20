@@ -36,6 +36,14 @@ const DISCOUNT_CODES: Discount[] = [
         event: EVENTS.SUMMIT,
         image: 'https://github.com/filipedeschamps.png'
     },
+    {
+        name: 'ACATE',
+        code: 'ACATE',
+        percentage: 20,
+        discount: 32,
+        event: EVENTS.SUMMIT,
+        image: 'https://github.com/filipedeschamps.png'
+    }
 ];
 
 export function useActiveEventPrice(eventData: EventData) {
