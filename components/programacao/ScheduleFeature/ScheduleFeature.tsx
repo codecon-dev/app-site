@@ -123,7 +123,7 @@ export default function ScheduleDigital({ talks }: Props) {
             },
             {
                 hour: '12:30',
-                description: 'Horário de almoço'
+                description: 'Almoço (incluso no ingresso)'
             },
             {
                 hour: '14:00',

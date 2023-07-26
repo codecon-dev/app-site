@@ -96,6 +96,12 @@ export default function ScheduleDigital({ talks }: Props) {
 
         setBlocks([
             {
+                hour: '09:00',
+                talks: talksOrdered.filter(talk =>
+                    isActivityStartingTimeBetween(talk, '09:00', '09:30')
+                )
+            },
+            {
                 hour: '09:30',
                 talks: talksOrdered.filter(talk =>
                     isActivityStartingTimeBetween(talk, '09:30', '10:30')
@@ -134,6 +140,16 @@ export default function ScheduleDigital({ talks }: Props) {
                 talks: talksOrdered.filter(talk =>
                     isActivityStartingTimeBetween(talk, '17:15', '18:15')
                 )
+            },
+            {
+                hour: '18:15',
+                talks: talksOrdered.filter(talk =>
+                    isActivityStartingTimeBetween(talk, '18:15', '19:00')
+                )
+            },
+            {
+                hour: '18:40',
+                description: '🍺 Happy hour 🍺'
             }
         ]);
     }, [talks]);

@@ -94,7 +94,7 @@ const Activity = ({ children, sponsor, soon, featured }: ActivityProps) => {
                         <OfferedBy name={sponsor.name} logo={sponsor.logo.url} />
                     )}
 
-                    {featured && <div className={styles.hackathon}>Hackathon Codecon</div>}
+                    {featured && <div className={styles.hackathon}>Em destaque</div>}
 
                     <div className={styles.content}>{children}</div>
                 </>
