@@ -4,6 +4,7 @@ import ModelImpl, { commonAttributes } from './ModelImpl';
 
 class User extends ModelImpl<User> {
     declare name: string;
+    declare displayName?: string;
     declare email: string;
     declare mobilePhone?: string;
     declare acceptedTerms: boolean;
@@ -21,6 +22,7 @@ User.init(
     {
         ...commonAttributes,
         name: { type: DataTypes.STRING, allowNull: false },
+        displayName: { type: DataTypes.STRING, allowNull: true },
         email: { type: DataTypes.STRING, allowNull: false },
         mobilePhone: { type: DataTypes.STRING, allowNull: true },
         acceptedTerms: { type: DataTypes.BOOLEAN, defaultValue: false }
