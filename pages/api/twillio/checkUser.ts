@@ -43,7 +43,7 @@ export default async function TwillioCheckUser(req: NextApiRequest, res: NextApi
 
         ApiResponse.build(res, StatusCodes.OK, 'OK');
     } catch (error) {
-        console.error('TwillioRegister >> Ocorreu um erro inesperado', error);
+        console.error('TwillioCheckUser >> Ocorreu um erro inesperado', error);
         ApiResponse.build(res, StatusCodes.INTERNAL_SERVER_ERROR, 'Ocorreu um erro desconhecido');
     }
 }
