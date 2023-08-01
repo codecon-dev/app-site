@@ -30,7 +30,7 @@ export default async function TwillioCheckUser(req: NextApiRequest, res: NextApi
             ApiResponse.build(
                 res,
                 StatusCodes.UNPROCESSABLE_ENTITY,
-                `Parâmetro [mobilePhone] deve conter 11 números [${mobilePhone}]`
+                `Parâmetro [mobilePhone] deve conter ${FormatHelper.MOBILE_PHONE_MIN_LENGTH} números, incluindo DDI e DDD. Valor recebido: [${mobilePhone}]`
             );
             return;
         }
