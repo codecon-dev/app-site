@@ -108,9 +108,9 @@ export default function ScheduleDigital({ talks }: Props) {
                 )
             },
             {
-                hour: '11:00',
+                hour: '10:45',
                 talks: talksOrdered.filter(talk =>
-                    isActivityStartingTimeBetween(talk, '11:00', '12:00')
+                    isActivityStartingTimeBetween(talk, '10:45', '11:45')
                 )
             },
             {
