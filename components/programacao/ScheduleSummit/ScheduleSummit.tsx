@@ -114,7 +114,7 @@ export default function ScheduleDigital({ talks }: Props) {
                 )
             },
             {
-                hour: '12:00',
+                hour: '11:45',
                 description: 'Horário de almoço'
             },
             {
