@@ -17,11 +17,11 @@ export default async function twillioCheckUser(req: NextApiRequest, res: NextApi
         }
 
         const mobilePhone = FormatHelper.removeNonNumeric(req.query.mobilePhone as string);
-        if (!FormatHelper.validatePhone(mobilePhone)) {
+        if (!mobilePhone.length) {
             ApiResponse.build(
                 res,
-                StatusCodes.UNPROCESSABLE_ENTITY,
-                `Parâmetro [mobilePhone] deve conter ${FormatHelper.MOBILE_PHONE_MIN_LENGTH} números, incluindo DDI e DDD. Valor recebido: [${mobilePhone}]`
+                StatusCodes.BAD_REQUEST,
+                'Parâmetro [mobilePhone] deve conter apenas números'
             );
             return;
         }
