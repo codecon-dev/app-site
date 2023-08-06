@@ -26,15 +26,6 @@ export default async function TwillioCheckUser(req: NextApiRequest, res: NextApi
             return;
         }
 
-        if (!FormatHelper.validatePhone(mobilePhone)) {
-            ApiResponse.build(
-                res,
-                StatusCodes.UNPROCESSABLE_ENTITY,
-                `Parâmetro [mobilePhone] deve conter ${FormatHelper.MOBILE_PHONE_MIN_LENGTH} números, incluindo DDI e DDD. Valor recebido: [${mobilePhone}]`
-            );
-            return;
-        }
-
         const user = await User.findByMobilePhone(mobilePhone);
         if (!user) {
             ApiResponse.build(res, StatusCodes.NOT_FOUND, 'Usuário não encontrado');
