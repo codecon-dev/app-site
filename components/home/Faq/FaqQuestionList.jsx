@@ -187,7 +187,7 @@ export const faqQuestionListFeature = [
     },
     {
         question: 'Como faz para chegar até lá?',
-        answer: 'O hotel fica muito próximo do terminal rodoviário, também tem várioas estacionamentos próximos ao local e é fácil de chegar de Uber.'
+        answer: 'O hotel fica muito próximo do terminal rodoviário, também tem vários estacionamentos próximos ao local e é fácil de chegar de Uber.'
     },
     {
         question: 'E se eu vier de outra cidade?',
