@@ -43,6 +43,14 @@ const DISCOUNT_CODES: Discount[] = [
         discount: 32,
         event: EVENTS.SUMMIT,
         image: 'https://pbs.twimg.com/profile_images/936905663967412224/tlK8E2bV_400x400.jpg'
+    },
+    {
+        name: 'Tech Leadership Rocks',
+        code: 'TECHLEADERSHIPROCKS',
+        percentage: 25,
+        discount: 300,
+        event: EVENTS.FEATURE,
+        image: '/images/feature/tech-leadership-rocks.svg'
     }
 ];
 
