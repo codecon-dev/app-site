@@ -5,9 +5,9 @@ export function useUserData() {
     const [userData, setUserData] = useState<ConfUser>();
 
     useEffect(() => {
-        const email = window.localStorage.getItem('codeconEmail2023');
-        const firstName = window.localStorage.getItem('codeconFirstName2023') ?? '';
-        const fullName = window.localStorage.getItem('codeconFullName2023') ?? '';
+        const email = window.localStorage.getItem('codeconSummitEmail2023');
+        const firstName = window.localStorage.getItem('codeconSummitFirstName2023') ?? '';
+        const fullName = window.localStorage.getItem('codeconSummitFullName2023') ?? '';
 
         if (email) {
             setUserData({ firstName, fullName, email });
