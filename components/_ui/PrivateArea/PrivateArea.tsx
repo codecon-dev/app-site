@@ -22,10 +22,10 @@ export default function PrivateArea({ children }: Props) {
     const [showTermsModal, setShowTermsModal] = useState(false);
 
     useEffect(() => {
-        const email = window.localStorage.getItem('codeconEmail2023');
-        const firstName = window.localStorage.getItem('codeconFirstName2023') ?? '';
-        const fullName = window.localStorage.getItem('codeconFullName2023') ?? '';
-        const acceptedTerms = window.localStorage.getItem('codeconTerms2023');
+        const email = window.localStorage.getItem('codeconSummitEmail2023');
+        const firstName = window.localStorage.getItem('codeconSummitFirstName2023') ?? '';
+        const fullName = window.localStorage.getItem('codeconSummitFullName2023') ?? '';
+        const acceptedTerms = window.localStorage.getItem('codeconSummitTerms2023');
 
         if (acceptedTerms === '0') {
             setShowTermsModal(true);
@@ -63,17 +63,17 @@ export default function PrivateArea({ children }: Props) {
         const fullName = data.user.name.trim();
         const firstName = fullName.split(' ')[0];
 
-        window.localStorage.setItem('codeconEmail2023', data.user.email);
-        window.localStorage.setItem('codeconFullName2023', fullName);
-        window.localStorage.setItem('codeconFirstName2023', firstName);
-        window.localStorage.setItem('codeconTerms2023', data.user.acceptedTerms ? '1' : '0');
+        window.localStorage.setItem('codeconSummitEmail2023', data.user.email);
+        window.localStorage.setItem('codeconSummitFullName2023', fullName);
+        window.localStorage.setItem('codeconSummitFirstName2023', firstName);
+        window.localStorage.setItem('codeconSummitTerms2023', data.user.acceptedTerms ? '1' : '0');
 
         setUserData({ firstName, fullName: fullName, email: data.user.email });
         toast.success(message);
     }
 
     function handleTermsModalAcceptance() {
-        window.localStorage.setItem('codeconTerms2023', '1');
+        window.localStorage.setItem('codeconSummitTerms2023', '1');
         setShowTermsModal(false);
         toast.success('Obrigado e bom evento!');
     }
