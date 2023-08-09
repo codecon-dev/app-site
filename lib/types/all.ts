@@ -88,6 +88,8 @@ export type ConfUser = {
     email: string;
     firstName: string;
     fullName: string;
+    mobilePhone?: string;
+    displayName?: string;
 };
 
 export type OkPacket = {
