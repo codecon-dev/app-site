@@ -1,11 +1,11 @@
-import React, { ReactElement, useState, SyntheticEvent, useEffect } from 'react';
-import Image from 'next/image';
+import { ReactElement, SyntheticEvent, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
-import OneInputForm from '../OneInputForm';
-import User from 'src/database/model/User';
 import { ConfUser } from '@lib/types/all';
+import User from 'src/database/model/User';
+import OneInputForm from '../OneInputForm';
 
+import CompleteYourRegistration from './CompleteYourRegistration';
 import styles from './PrivateArea.module.scss';
 import TermsModal from './TermsModal';
 
@@ -19,20 +19,28 @@ export default function PrivateArea({ children }: Props) {
     const [email, setEmail] = useState('');
     const [userData, setUserData] = useState<ConfUser>();
     const [isLoading, setIsLoading] = useState(true);
+    const [showCompleteYourRegistration, setShowCompleteYourRegistration] = useState(false);
     const [showTermsModal, setShowTermsModal] = useState(false);
 
     useEffect(() => {
-        const email = window.localStorage.getItem('codeconSummitEmail2023');
+        const email = window.localStorage.getItem('codeconSummitEmail2023') ?? '';
         const firstName = window.localStorage.getItem('codeconSummitFirstName2023') ?? '';
         const fullName = window.localStorage.getItem('codeconSummitFullName2023') ?? '';
+        const mobilePhone = window.localStorage.getItem('codeconSummitMobilePhone2023') ?? '';
+        const displayName = window.localStorage.getItem('codeconSummitDisplayName2023') ?? '';
         const acceptedTerms = window.localStorage.getItem('codeconSummitTerms2023');
 
-        if (acceptedTerms === '0') {
+        const hasEmail = email.length > 0
+        const hasMobilePhone = mobilePhone.length > 0
+
+        if (hasEmail && !hasMobilePhone) {
+            setShowCompleteYourRegistration(true);
+        } else if (acceptedTerms === '0') {
             setShowTermsModal(true);
         }
 
-        if (email) {
-            setUserData({ firstName, fullName, email });
+        if (hasEmail) {
+            setUserData({ firstName, fullName, email, mobilePhone, displayName });
         }
 
         setIsLoading(false);
@@ -56,7 +64,9 @@ export default function PrivateArea({ children }: Props) {
             return;
         }
 
-        if (!data.user.acceptedTerms) {
+        if (!data.user.mobilePhone) {
+            setShowCompleteYourRegistration(true);
+        } else if (!data.user.acceptedTerms) {
             setShowTermsModal(true);
         }
 
@@ -67,8 +77,23 @@ export default function PrivateArea({ children }: Props) {
         window.localStorage.setItem('codeconSummitFullName2023', fullName);
         window.localStorage.setItem('codeconSummitFirstName2023', firstName);
         window.localStorage.setItem('codeconSummitTerms2023', data.user.acceptedTerms ? '1' : '0');
+        window.localStorage.setItem('codeconSummitMobilePhone2023', data.user.mobilePhone ?? '');
+        window.localStorage.setItem('codeconSummitDisplayName2023', data.user.displayName ?? firstName);
 
-        setUserData({ firstName, fullName: fullName, email: data.user.email });
+        setUserData({ 
+            firstName,
+            fullName,
+            email: data.user.email, 
+            mobilePhone: data.user.mobilePhone, 
+            displayName: data.user.displayName ?? firstName
+        });
+        toast.success(message);
+    }
+
+    function handleCompleteYouRegistrationFinish(mobilePhone: string, displayName: string, message: string): void {
+        window.localStorage.setItem('codeconSummitMobilePhone2023', mobilePhone);
+        window.localStorage.setItem('codeconSummitDisplayName2023', displayName);
+        setShowCompleteYourRegistration(false);
         toast.success(message);
     }
 
@@ -80,6 +105,11 @@ export default function PrivateArea({ children }: Props) {
 
     if (isLoading) {
         return <div className={styles.loading} />;
+    }
+
+    const hasMobilePhone = !!window.localStorage.getItem("codeconSummitMobilePhone2023")?.length
+    if (showCompleteYourRegistration && !hasMobilePhone) {
+        return <CompleteYourRegistration onSuccess={handleCompleteYouRegistrationFinish} />;
     }
 
     if (showTermsModal) {
