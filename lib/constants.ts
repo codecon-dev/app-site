@@ -77,7 +77,7 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 metaDescription:
                     'A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.',
                 registerUrl: 'https://www.sympla.com.br/evento-online/codecon-digital-2023/1829527',
-                whatsapp: 'https://chat.whatsapp.com/CPP0eFxck7yDhvdsnBm6Lu',
+                whatsapp: 'https://chat.whatsapp.com/D0zzxblnzloFulzLvzXi1e',
                 menuNav: [
                     {
                         name: 'Quem vai',
@@ -153,7 +153,7 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 metaDescription:
                     'O maior evento para pessoas programadoras de Santa Catarina, com grandes nomes nacionais.',
                 registerUrl: `https://www.sympla.com.br/evento/codecon-summit-2023/1829544?d=${discountCode}`,
-                whatsapp: WHATSAPP_LINK,
+                whatsapp: 'https://chat.whatsapp.com/D0zzxblnzloFulzLvzXi1e',
                 menuNav: [
                     {
                         name: 'Quem vai',
