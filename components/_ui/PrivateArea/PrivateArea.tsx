@@ -95,6 +95,12 @@ export default function PrivateArea({ children }: Props) {
         window.localStorage.setItem('codeconSummitDisplayName2023', displayName);
         setShowCompleteYourRegistration(false);
         toast.success(message);
+
+        const acceptedTerms = window.localStorage.getItem('codeconSummitTerms2023');
+
+        if (acceptedTerms === '0') {
+            setShowTermsModal(true);
+        }
     }
 
     function handleTermsModalAcceptance() {
