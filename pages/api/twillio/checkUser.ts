@@ -5,7 +5,7 @@ import FormatHelper from 'src/FormatHelper';
 import ApiKeyValidator from 'src/api/ApiKeyValidator';
 import ApiResponse from 'src/api/ApiResponse';
 
-export default async function TwillioCheckUser(req: NextApiRequest, res: NextApiResponse) {
+export default async function twillioCheckUser(req: NextApiRequest, res: NextApiResponse) {
     try {
         if (req.method != 'GET') {
             ApiResponse.build(res, StatusCodes.NOT_FOUND, 'Página não encontrada');

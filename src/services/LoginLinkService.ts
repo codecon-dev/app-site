@@ -31,7 +31,7 @@ export default class LoginLinkService {
 
         const sendMail = await sendgrid.send(msg);*/
 
-        const resend = new Resend(process.env.RESEND_API_KEY);
+        const resend = new Resend(process.env.RESEND_API_KEY || '');
 
         const sendMail = await resend.emails.send({
             from: 'contato@codecon.dev',
