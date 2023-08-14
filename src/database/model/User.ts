@@ -30,8 +30,7 @@ User.init(
     {
         sequelize: dataSource,
         indexes: [
-            { unique: true, fields: ['email'] },
-            { unique: true, fields: ['mobilePhone'] }
+            { unique: true, fields: ['email'] }
         ]
     }
 );
