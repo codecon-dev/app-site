@@ -19,6 +19,7 @@ export default function PrivateArea({ children }: Props) {
     const [email, setEmail] = useState('');
     const [userData, setUserData] = useState<ConfUser>();
     const [isLoading, setIsLoading] = useState(true);
+    const [formLoading, setFormLoading] = useState(false);
     const [showCompleteYourRegistration, setShowCompleteYourRegistration] = useState(false);
     const [showTermsModal, setShowTermsModal] = useState(false);
 
@@ -48,6 +49,7 @@ export default function PrivateArea({ children }: Props) {
 
     async function handleSubmit(e: SyntheticEvent): Promise<void> {
         e.preventDefault();
+        setFormLoading(true);
 
         const response = await fetch(`/api/login/check`, {
             method: 'POST',
@@ -59,6 +61,9 @@ export default function PrivateArea({ children }: Props) {
 
         const json = await response.json();
         const { data, success, message }: LoginResponse = json;
+
+        setFormLoading(false);
+
         if (!success) {
             toast.error(message);
             return;
@@ -139,6 +144,7 @@ export default function PrivateArea({ children }: Props) {
                         buttonText="Fazer login"
                         inputType="email"
                         disableSubmit={!email}
+                        isLoading={formLoading}
                     />
                 </div>
             </div>
