@@ -26,7 +26,7 @@ export default async function twillioRedeemScanned(req: NextApiRequest, res: Nex
 
     const points: string = req.body.points;
 
-    if (!points?.trim().length) {
+    if (!points) {
         ApiResponse.build(
             res,
             StatusCodes.UNPROCESSABLE_ENTITY,
