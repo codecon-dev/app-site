@@ -26,6 +26,7 @@ export async function claimCodecodesApiToken({
   } catch (error) {
     console.trace(error);
     return {
+      statusCode: 500,
       status: 'error',
       message: 'Algo deu errado :('
     };
