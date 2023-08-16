@@ -1,7 +1,6 @@
 import Button from '@components/_ui/LinkButton/LinkButton';
 import Page from '@components/_ui/Page';
 import PrivateArea from '@components/_ui/PrivateArea';
-import Claim from '@components/code-codes/Claim';
 
 export default function Twilio() {
     const meta = {

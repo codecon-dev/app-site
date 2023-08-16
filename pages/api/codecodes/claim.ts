@@ -20,7 +20,7 @@ export default async function CodeCodesClaimController(req: NextApiRequest, res:
             if (!params.email || !params.code)
                 throw new ValidationError('Tão faltando alguns dados nessa requisição');
 
-            const codecodesClaimPayload: CodecodesClaimPayload = { ...params, name: user.name };
+            const codecodesClaimPayload: CodecodesClaimPayload = { ...params, name: user.displayName || user.name };
             const codecodesResponse: CodecodesClaimResponse = await claimCodecodesApiToken(
                 codecodesClaimPayload
             );

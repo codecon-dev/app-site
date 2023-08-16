@@ -11,9 +11,6 @@ export default class CodeCodesService {
             code: code
         });
 
-        if (codecodesResponse.status === 'error')
-            throw new ValidationError(codecodesResponse.message, { user: user.email, code: code });
-
         return codecodesResponse;
     }
 }

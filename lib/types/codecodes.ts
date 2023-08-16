@@ -24,5 +24,6 @@ type CodecodesSuccessClaimData = {
 export type CodecodesClaimResponse = {
   status: "success" | "error";
   message: string;
+  statusCode: number;
   data?: CodecodesSuccessClaimData;
 };
