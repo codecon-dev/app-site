@@ -204,7 +204,7 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                     {
                         name: '3º lote',
                         price: 199,
-                        endDate: new Date('2023-08-25 18:00:00')
+                        endDate: new Date('2023-08-17 18:00:00')
                     }
                 ],
                 colors: {
