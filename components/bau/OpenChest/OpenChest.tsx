@@ -73,9 +73,8 @@ export default function OpenChest({ chestPublicId }: Props) {
                     firstOpen={firstOpen}
                 />
                 <Chest state={chestState} onClick={() => openChest()} />
-                <p style={{ textAlign: 'center', padding: '80px' }}>
-                    Caso você ganhe alguma premiação, entraremos em contato com você após o evento
-                    para combinar a entrega.
+                <p style={{ textAlign: 'center', padding: '50px 0' }}>
+                    Caso você ganhe alguma premiação, apresente o celular no balcão de credenciamento.
                 </p>
             </Column>
         </Grid>
