@@ -12,6 +12,7 @@ type Props = {
     isLoading?: boolean;
     inputType?: 'text' | 'email';
     horizontal?: boolean;
+    allCaps?: boolean;
 };
 
 export default function OneInputForm({
@@ -22,7 +23,8 @@ export default function OneInputForm({
     isLoading,
     buttonText,
     inputType = 'text',
-    horizontal
+    horizontal,
+    allCaps
 }: Props) {
     return (
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
@@ -37,6 +39,7 @@ export default function OneInputForm({
                 className={styles.input}
                 placeholder={placeholder}
                 required
+                style={ allCaps ? { textTransform: 'uppercase' } : undefined} 
             />
             <button type="submit" disabled={isLoading || disableSubmit} className={styles.button}>
                 {isLoading ? 'Enviando...' : buttonText}

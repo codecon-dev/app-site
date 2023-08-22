@@ -62,6 +62,7 @@ export default function CodecodesClaimForm() {
                     disableSubmit={code === ''}
                     placeholder="Informe um código"
                     buttonText="Resgatar"
+                    allCaps
                 />
             </div>
         </section>
