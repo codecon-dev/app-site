@@ -11,11 +11,6 @@ export default async function twillioCheckUser(req: NextApiRequest, res: NextApi
             ApiResponse.build(res, StatusCodes.NOT_FOUND, 'Página não encontrada');
         }
 
-        if (!ApiKeyValidator.validate(req, process.env.TWILLIO_API_KEY)) {
-            ApiResponse.build(res, StatusCodes.UNAUTHORIZED, 'Unauthorized');
-            return;
-        }
-
         const mobilePhone = FormatHelper.removeNonNumeric(req.query.mobilePhone as string);
         if (!mobilePhone.length) {
             ApiResponse.build(
