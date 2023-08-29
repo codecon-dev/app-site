@@ -4,6 +4,7 @@
         { "source": "/lojinha", "destination": "https://umapenca.com/dvlpr" },
         { "source": "/newsletter", "destination": "https://codecon.substack.com" },
         { "source": "/resgate", "destination": "https://codecon.dev/summit/game/code-codes/resgate" },
+        { "source": "/ranking", "destination": "https://www.codecon.dev/summit/game/code-codes" },
         {
             "source": "/midia-kit",
             "destination": "https://docs.google.com/presentation/d/e/2PACX-1vQvlNlh0lD4BXh0OkOZbsa6XY7pkI73Z6FYDadSrjp5iCwWqtfnLFniGFi2F96woMIl59C0_hlMiOOI/pub?start=false&loop=false&delayms=60000&slide=id.p"
