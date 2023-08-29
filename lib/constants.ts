@@ -80,19 +80,6 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 whatsapp: 'https://chat.whatsapp.com/D0zzxblnzloFulzLvzXi1e',
                 menuNav: [
                     {
-                        name: 'Quem vai',
-                        route: '/digital/quem-vai'
-                    },
-                    {
-                        name: 'Programação',
-                        route: '/digital/programacao'
-                    },
-                    {
-                        name: 'Como será',
-                        route: '/digital/como-sera'
-                    },
-
-                    {
                         name: 'Patrocinadores',
                         route: '/digital/patrocinadores'
                     }
@@ -155,34 +142,21 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 registerUrl: `https://www.sympla.com.br/evento/codecon-summit-2023/1829544?d=${discountCode}`,
                 whatsapp: 'https://chat.whatsapp.com/D0zzxblnzloFulzLvzXi1e',
                 menuNav: [
-                    {
-                        name: 'Quem vai',
-                        route: '/summit/quem-vai'
-                    },
-                    {
-                        name: 'Programação',
-                        route: '/summit/programacao'
-                    },
-                    {
-                        name: 'Como será',
-                        route: '/summit/como-sera'
-                    },
-
-                    {
-                        name: 'Patrocinadores',
-                        route: '/summit/patrocinadores'
-                    }
                 ],
                 attendeeNav: [
                     {
-                        name: 'Área do inscrito',
-                        route: '/summit/inscrito'
+                        name: 'Aftermovie',
+                        route: 'https://www.youtube.com/watch?v=Akyhkv5msdA',
+                        target: '_blank'
                     },
                     {
-                        name: 'inscreva-se',
-                        route: `https://www.sympla.com.br/evento/codecon-summit-2023/1829544?d=${discountCode}`,
-                        type: 'button',
-                        target: '_blank'
+                        name: 'Patrocinadores',
+                        route: '/summit/patrocinadores'
+                    },
+                    {
+                        name: 'Galeria de fotos',
+                        route: 'https://fotos-summit.codecon.dev/',
+                        type: 'button'
                     }
                 ],
                 eventPrice: [

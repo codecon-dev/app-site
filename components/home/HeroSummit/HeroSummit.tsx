@@ -62,15 +62,7 @@ export default function HeroSummit() {
                 </p>
             </div>
             <div className={cn(styles['header-wrapper'], styles.button)}>
-                {eventPrice && (
-                    <LinkButton
-                        href={eventData.registerUrl}
-                        info={eventPrice}
-                    >
-                        Inscreva-se
-                    </LinkButton>
-                )}
-                <AttendeesAvatars />
+                <p>O evento já aconteceu!</p>
             </div>
             <div className={cn(styles['image-wrapper'], styles['image-bg'])}>
                 <div className={styles['image']}>

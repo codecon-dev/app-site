@@ -9,6 +9,7 @@ import HeroSummit from '@components/home/HeroSummit';
 import Blocks from '@components/home/Blocks';
 import Faq from '@components/home/Faq/Faq';
 import SpeakersGrid from '@components/quem-vai/SpeakersGrid';
+import { Column } from '@components/_ui/Grid';
 
 type Props = {
     speakers: Speaker[];
@@ -21,37 +22,17 @@ export default function Conf({ speakers, sponsors }: Props) {
             <HeroSummit />
             <Blocks>
                 <Blocks.Title>
-                    <span>Do it for you.</span> Do it by code.
+                    <span>Galeria de fotos</span>
                 </Blocks.Title>
-                <Blocks.Block
-                    lg={6}
-                    sm={6}
-                    backgroundImage="/images/summit/futuro-programado.jpg"
-                    title="Onde o futuro será programado"
-                    description="O maior evento para pessoas programadoras de Santa Catarina, com grandes nomes nacionais."
-                />
-                <Blocks.Block
-                    lg={6}
-                    sm={6}
-                    backgroundImage="/images/summit/discussoes-reais.jpg"
-                    title="Discussões reais"
-                    description="Nossa curadoria busca temas mais atuais em tecnologias, soft skills e design de software."
-                />
-                <Blocks.Block lg={3} sm={4} backgroundImage="/images/summit/foto-1.jpg" />
-                <Blocks.Block
-                    lg={6}
-                    sm={4}
-                    backgroundImage="/images/summit/campus-park.jpg"
-                    title="Campus park Unisociesc"
-                    description="Um espaço que respira inovação e tecnologia."
-                />
-                <Blocks.Block lg={3} sm={4} backgroundImage="/images/summit/foto-2.jpg" />
-                <Blocks.Video code="3KNuVMPz2NU" />
+                <Column lg={12}>
+                    <a href="https://fotos-summit.codecon.dev/" target='_blank'><img width="100%" src="https://fotos-summit.codecon.dev/og-image.png" /></a>
+                </Column>
+                <Blocks.Title>
+                    <br/><br />
+                    <span>Aftermovie</span>
+                </Blocks.Title>
+                <Blocks.Video code="Akyhkv5msdA" />
             </Blocks>
-            <SpeakersGrid speakers={speakers} type="home">
-                Os principais nomes do mercado tech em <span>palestras</span> e <span>painéis</span>
-            </SpeakersGrid>
-            <Faq />
         </Page>
     );
 }
