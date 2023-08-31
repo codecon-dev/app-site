@@ -51,6 +51,14 @@ const DISCOUNT_CODES: Discount[] = [
         discount: 300,
         event: EVENTS.FEATURE,
         image: '/images/feature/tech-leadership-rocks.svg'
+    },
+    {
+        name: 'Newsletter do Filipe Deschamps',
+        code: 'NEWS10',
+        percentage: 10,
+        discount: 119,
+        event: EVENTS.FEATURE,
+        image: 'https://github.com/filipedeschamps.png'
     }
 ];
 
