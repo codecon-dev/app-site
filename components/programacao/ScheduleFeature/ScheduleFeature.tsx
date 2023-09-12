@@ -101,7 +101,7 @@ export default function ScheduleDigital({ talks }: Props) {
         setBlocks([
             {
                 hour: '08:00',
-                description: 'Welcome coffee'
+                description: 'Início do credenciamento'
             },
             {
                 hour: '09:00',
