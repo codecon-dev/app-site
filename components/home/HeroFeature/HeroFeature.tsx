@@ -54,7 +54,16 @@ export default function HeroSummit() {
                         Inscreva-se
                     </LinkButton>
                 )}
-                <AttendeesAvatars />
+
+                <div className={styles.sponsors}>
+                    Patrocínio
+
+                    <div className={styles['sponsors-list']}>
+                        <img src="/images/feature/hero/globo-topo.svg" />
+                        <img src="/images/feature/hero/new-relic-topo.svg" />
+                        <img src="/images/feature/hero/sigma-topo.svg" />
+                    </div>
+                </div>
             </div>
 
             <div className={styles['video']}>

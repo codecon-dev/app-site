@@ -91,3 +91,22 @@
         margin-top: 2rem;
     }
 }
+
+.sponsors {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    text-transform: uppercase;
+    font-size: 10px;
+    text-align: center;
+
+    .sponsors-list {
+        display: flex;
+        gap: 1rem;
+
+        img {
+            width: 30%;
+        }
+    }
+}
