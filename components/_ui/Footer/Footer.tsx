@@ -237,7 +237,7 @@ export default function Footer({ sponsors }: Props) {
 
                             <a
                                 className={styles.icon}
-                                href="https://www.instagram.com/codecon.dev/"
+                                href="https://www.instagram.com/codecondev/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

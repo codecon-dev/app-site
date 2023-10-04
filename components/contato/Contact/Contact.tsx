@@ -37,7 +37,7 @@ export default function Contact() {
                             <IconTwitter size={24} color="var(--color-primary)" />
                         </a>
                         <a
-                            href="https://instagram.com/codecon.dev"
+                            href="https://instagram.com/codecondev"
                             target="_blank"
                             rel="noreferrer noopener"
                         >

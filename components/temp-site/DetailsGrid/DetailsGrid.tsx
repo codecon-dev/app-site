@@ -48,7 +48,7 @@ export default function DetailsGrid() {
                     <p>A melhor e única curadoria de links e artigos que você vai precisar.</p>
                 </a>
                 <a
-                    href="https://instagram.com/codecon.dev"
+                    href="https://instagram.com/codecondev"
                     target="_blank"
                     rel="noreferrer noopener"
                     className={cn(styles.block, styles.instagram)}
