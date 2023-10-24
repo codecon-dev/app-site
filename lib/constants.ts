@@ -274,14 +274,7 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 registerUrl: '#',
                 whatsapp: WHATSAPP_LINK,
                 menuNav: [
-                    {
-                        name: 'Codecon Summit',
-                        route: '/summit'
-                    },
-                    {
-                        name: 'Codecon Feature',
-                        route: '/feature'
-                    }
+                    
                 ],
                 attendeeNav: [
                     {

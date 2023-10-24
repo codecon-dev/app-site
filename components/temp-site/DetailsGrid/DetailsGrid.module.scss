@@ -4,21 +4,20 @@
     display: grid;
     grid-template-areas:
         'summit summit'
-        'feature feature'
         'dvlpr dvlpr'
         'newsletter newsletter'
         'instagram twitter';
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 15rem 15rem 25rem 15rem 10rem;
+    grid-template-rows: 15rem 25rem 15rem 10rem;
     gap: 1rem;
 
     @media #{$breakpoint-sm} {
         grid-template-areas:
-            'summit summit feature feature'
+            'summit summit summit summit'
             'dvlpr dvlpr instagram twitter'
             'dvlpr dvlpr newsletter newsletter';
         grid-template-columns: 1fr 1fr 0.5fr 0.5fr;
-        grid-template-rows: 16rem 10rem 16rem;
+        grid-template-rows: 25rem 10rem 16rem;
     }
 }
 
@@ -64,6 +63,12 @@
         transition: all ease 0.2s;
         z-index: 200;
     }
+
+    &.static {
+        &:hover {
+            transform: scale(100%);
+        }
+    }
 }
 
 .digital {
@@ -87,7 +92,8 @@
 
 .summit {
     grid-area: summit;
-    background-image: url('/images/summit/hero/hero-summit.jpg');
+    background-image: url('/images/summit/1.png');
+    gap: 2rem;
 
     p {
         color: var(--color-white);

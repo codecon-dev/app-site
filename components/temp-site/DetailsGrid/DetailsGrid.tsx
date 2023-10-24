@@ -10,23 +10,17 @@ export default function DetailsGrid() {
         <section>
             <div className={cn('container', styles.grid)}>
              
-                <Link href="/summit" className={cn(styles.block, styles.summit)}>
+                <span className={cn(styles.block, styles.summit, styles.static)}>
                     <IconLogo theme="summit" width={215} />
                     <p>
-                        <strong>26 de agosto de 2023</strong>
+                        SAVE THE DATE<br/>
+                        <strong>06 e 07 de setembro de 2024</strong>
                         <br />
-                        Presencial em Joinville, SC
+                        Complexo Expoville
                     </p>
-                </Link>
+                    <img src="/images/summit/realizacao.svg" width={400} />
+                </span>
 
-                <Link href="/feature" className={cn(styles.block, styles.feature)}>
-                    <IconLogo theme="feature" width={213} />
-                    <p>
-                        <strong>28 de outubro de 2023</strong>
-                        <br />
-                        Evento para profissionais sênior ou cargos superiores em Floripa, SC
-                    </p>
-                </Link>
                 <a
                     href="https://www.umapenca.com/dvlpr/"
                     target="_blank"
