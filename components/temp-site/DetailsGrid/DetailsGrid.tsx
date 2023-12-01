@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 import styles from './DetailsGrid.module.scss';
 import IconLogo from '@components/_ui/Icons/icon-logo';
+import Button from '@components/_ui/LinkButton/LinkButton';
 
 export default function DetailsGrid() {
     return (
@@ -13,12 +14,11 @@ export default function DetailsGrid() {
                 <span className={cn(styles.block, styles.summit, styles.static)}>
                     <IconLogo theme="summit" width={215} />
                     <p>
-                        SAVE THE DATE<br/>
                         <strong>06 e 07 de setembro de 2024</strong>
                         <br />
                         Complexo Expoville
                     </p>
-                    <img src="/images/summit/realizacao.svg" width={400} />
+                    <Button href='https://eventos.codecon.dev/codecon-summit-24/' newPage>Comprar ingresso</Button>
                 </span>
 
                 <a
