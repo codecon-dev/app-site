@@ -12,15 +12,5 @@ module.exports = {
             'cdn.aglty.io'
         ],
         imageSizes: [24, 64, 300]
-    },
-    async headers() {
-        return [
-            {
-                source: "/api/newsletter/:path*",
-                headers: [
-                    { key: "Access-Control-Allow-Origin", value: "https://test.codecon.dev/" }, // replace this your actual origin
-                ]
-            }
-        ]
     }
 };
