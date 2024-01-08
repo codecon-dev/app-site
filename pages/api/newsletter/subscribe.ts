@@ -9,6 +9,11 @@ export default async function Subscribe(
     res: NextApiResponse
 ): Promise<void> {
     try {
+        if (req.method === 'OPTIONS') {
+            ApiResponse.build(res, StatusCodes.OK, 'Success');
+            return;
+        }
+
         if (req.method != 'POST') {
             ApiResponse.build(res, StatusCodes.BAD_REQUEST, 'Método não permitido');
             return;
