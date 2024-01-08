@@ -15,13 +15,6 @@ export default async function Subscribe(
             return;
         }
 
-        await NextCors(req, res, {
-            // Options
-            methods: ['POST'],
-            origin: '*',
-            optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-        });
-
         const params = req.body;
 
         void(await axios.post(
