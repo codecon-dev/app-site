@@ -1,5 +1,6 @@
-import { StatusCodes } from 'http-status-codes';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { StatusCodes } from 'http-status-codes';
+import NextCors from 'nextjs-cors';
 import axios from 'axios';
 
 import ApiResponse from 'src/api/ApiResponse';
@@ -13,6 +14,13 @@ export default async function Subscribe(
             ApiResponse.build(res, StatusCodes.BAD_REQUEST, 'Método não permitido');
             return;
         }
+
+        await NextCors(req, res, {
+            // Options
+            methods: ['POST'],
+            origin: '*',
+            optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+        });
 
         const params = req.body;
 
