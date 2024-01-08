@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { StatusCodes } from 'http-status-codes';
-import NextCors from 'nextjs-cors';
 import axios from 'axios';
 
 import ApiResponse from 'src/api/ApiResponse';
