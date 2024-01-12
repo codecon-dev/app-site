@@ -79,7 +79,7 @@ export default async function handler(
 
                 const newEvent:Event = {
                     title: titulo,
-                    url,
+                    url: `https://eventos.codecon.dev/${url}`,
                     start_date: formatDate(start_date, 'dd/MM'),
                     start_time,
                     img: $('.imagem-capa').attr('src') as string
