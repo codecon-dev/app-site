@@ -16,6 +16,8 @@ export default async function LoginCheckController(req: NextApiRequest, res: Nex
 
         const params: UserLoginRequest = req.body
         const user: User | null = await User.findOne({ where: { email: params.email } })
+
+        console.log(user)
         if (!user) {
             ApiResponse.build(res, StatusCodes.NOT_FOUND, `Usuário com e-mail ${params.email} não encontrado`)
             return

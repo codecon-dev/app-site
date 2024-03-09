@@ -22,6 +22,9 @@ export default async function SyncDatabaseController(req: NextApiRequest, res: N
         Chest,
         ChestOpen
     );
+
+    console.log(process.env.DATABASE_HOST, process.env.DATABASE_USER, process.env.DATABASE_PASS)
+
     await dataSource.sync({ alter: true });
 
     res.status(200).json('OK');
