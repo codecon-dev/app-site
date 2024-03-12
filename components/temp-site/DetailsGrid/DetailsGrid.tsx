@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
 
@@ -10,7 +9,6 @@ export default function DetailsGrid() {
     return (
         <section>
             <div className={cn('container', styles.grid)}>
-             
                 <span className={cn(styles.block, styles.summit, styles.static)}>
                     <IconLogo theme="summit" width={215} />
                     <p>
@@ -18,7 +16,9 @@ export default function DetailsGrid() {
                         <br />
                         Complexo Expoville
                     </p>
-                    <Button href='https://eventos.codecon.dev/codecon-summit-24/' newPage>Comprar ingresso</Button>
+                    <Button href="https://eventos.codecon.dev/codecon-summit-24/" newPage>
+                        Comprar ingresso
+                    </Button>
                 </span>
 
                 <a

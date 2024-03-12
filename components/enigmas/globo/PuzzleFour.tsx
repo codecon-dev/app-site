@@ -1,4 +1,4 @@
-import { toast } from 'react-hot-toast';
+/* eslint-disable @next/next/no-img-element */
 import PuzzleLayout from '../PuzzleLayout';
 import Modal from '../Modal/Modal';
 import { useState } from 'react';

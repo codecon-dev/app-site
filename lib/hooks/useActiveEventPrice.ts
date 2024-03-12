@@ -64,7 +64,7 @@ const DISCOUNT_CODES: Discount[] = [
 
 export function useActiveEventPrice(eventData: EventData) {
     const [eventPrice, setEventPrice] = useState<number>();
-    const [registerUrlWithCode, setRegisterUrlWithCode] = useState<string>(eventData.registerUrl);
+    const [registerUrlWithCode] = useState<string>(eventData.registerUrl);
     const [discountInfo, setDiscountInfo] = useState<Discount>();
     const [priceInfo, setPriceInfo] = useState<EventPrice>();
     const [nextPrice, setNextPrice] = useState<number>();
@@ -92,10 +92,10 @@ export function useActiveEventPrice(eventData: EventData) {
         let discountCode = urlParams.get('d');
 
         if (!discountCode) {
-            discountCode = window.localStorage.getItem(`${eventData.type}_discount`)
+            discountCode = window.localStorage.getItem(`${eventData.type}_discount`);
         }
 
-        window.localStorage.setItem(`${eventData.type}_discount`, discountCode || '')
+        window.localStorage.setItem(`${eventData.type}_discount`, discountCode || '');
 
         setEventPrice(activePrice.price);
         setPriceInfo(activePrice);
@@ -115,7 +115,7 @@ export function useActiveEventPrice(eventData: EventData) {
                 setDiscountInfo(discountData);
             }
         }
-    }, []);
+    }, [eventData.eventPrice, eventData.type]);
 
     return { eventPrice, registerUrlWithCode, discountInfo, priceInfo, nextPrice };
 }

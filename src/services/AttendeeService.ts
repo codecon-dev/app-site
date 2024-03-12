@@ -9,10 +9,6 @@ export type AttendeeResponse = {
     message: string;
 };
 export default class AttendeeService {
-    private static async sendWelcomeEmail(email: string) {
-        return;
-    }
-
     public static async create(
         even3Id: string,
         name: string,

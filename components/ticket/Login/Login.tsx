@@ -125,7 +125,7 @@ export default function Login() {
                             buttonText="Importar dados"
                         />
 
-                        <a onClick={e => setStatus(statusType.doubt)} className={styles.link}>
+                        <a onClick={() => setStatus(statusType.doubt)} className={styles.link}>
                             Não sei onde está meu código
                         </a>
                     </div>

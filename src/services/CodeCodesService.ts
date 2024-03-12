@@ -1,5 +1,4 @@
 import { claimCodecodesApiToken } from '@lib/codecodes-api';
-import ValidationError from '@lib/errors/ValidationError';
 import { CodecodesClaimResponse } from '@lib/types/codecodes';
 import Attendee from 'src/database/model/Attendee';
 

@@ -49,7 +49,7 @@ export default function AttendeeArea({ attendee }: Props) {
     const eventData = useEventData(theme);
     const ticketRef = useRef<HTMLDivElement>(null);
     const { subtitle, registerUrl, homeUrl } = eventData;
-    const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
+    const { eventPrice } = useActiveEventPrice(eventData);
 
     useEffect(() => {
         if (ticketRef.current && !window.matchMedia('(pointer: coarse)').matches) {

@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import cn from 'classnames';
 
 import { EventData } from '@lib/constants';
@@ -22,8 +22,7 @@ type CountdownNumbers = {
 
 export default function SubscribeCountdown({ eventData }: Props) {
     const [countdownNumbers, setCountdownNumbers] = useState<CountdownNumbers | undefined>();
-    const { eventPrice, registerUrlWithCode, discountInfo, priceInfo, nextPrice } =
-        useActiveEventPrice(eventData);
+    const { eventPrice, discountInfo, priceInfo, nextPrice } = useActiveEventPrice(eventData);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isClosed, setIsClosed] = useState(false);
 

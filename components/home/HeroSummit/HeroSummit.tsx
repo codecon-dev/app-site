@@ -3,18 +3,13 @@ import { useEffect } from 'react';
 
 import cn from 'classnames';
 
-import AttendeesAvatars from '@components/_ui/AttendeesAvatars/AttendeesAvatars';
-import LinkButton from '@components/_ui/LinkButton/LinkButton';
-
 import { useEventData } from '@lib/constants';
-import { useActiveEventPrice } from '@lib/hooks/useActiveEventPrice';
 
 import styles from './HeroSummit.module.scss';
 
 export default function HeroSummit() {
     const eventData = useEventData('summit');
     const { local, city, initialDate, finalDate } = eventData;
-    const { eventPrice } = useActiveEventPrice(eventData);
 
     useEffect(() => {
         document.addEventListener('mousemove', event => {

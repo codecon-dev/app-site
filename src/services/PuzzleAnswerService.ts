@@ -65,7 +65,7 @@ export default class PuzzleAnswerService {
     }
 
     private static async findOrCreate(attendee: Attendee, puzzle: Puzzle): Promise<PuzzleAnswer> {
-        const [puzzleAnswer, created] = await PuzzleAnswer.findOrCreate({
+        const [puzzleAnswer] = await PuzzleAnswer.findOrCreate({
             where: { attendeeUuid: attendee.uuid, puzzleId: puzzle.id, company: puzzle.company }
         });
 

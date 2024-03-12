@@ -1,6 +1,5 @@
 import oneInputFormStyles from '@components/_ui/OneInputForm/OneInputForm.module.scss';
 import privateAreaStyles from '@components/_ui/PrivateArea/PrivateArea.module.scss';
-import { useUserData } from '@lib/hooks/useUserData';
 import { ConfAttendee } from '@lib/types/all';
 import { FormEvent, useState } from 'react';
 import toast from 'react-hot-toast';

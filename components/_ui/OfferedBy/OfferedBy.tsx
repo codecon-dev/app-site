@@ -11,7 +11,7 @@ type Props = {
     offerType?: 'Conteúdo' | 'Experiência' | 'Workshop';
 };
 
-export default function OfferedBy({ logo, name, isBlackBg, offerType = 'Conteúdo' }: Props) {
+export default function OfferedBy({ logo, name, isBlackBg }: Props) {
     return (
         <div className={cn(styles.sponsor, { [styles[`sponsor-black`]]: isBlackBg })}>
             <span>Oferecimento</span>

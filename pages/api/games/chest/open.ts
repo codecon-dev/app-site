@@ -1,7 +1,6 @@
 import ResourceNotFoundError from '@lib/errors/ResourceNotFoundError';
 import Attendee from '@models/Attendee';
 import Chest from '@models/chest/Chest';
-import ChestOpen from '@models/chest/ChestOpen';
 import { StatusCodes } from 'http-status-codes';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { Transaction } from 'sequelize';

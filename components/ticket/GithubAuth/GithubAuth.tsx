@@ -115,7 +115,7 @@ export default function Form({ attendee, setGithubData }: Props) {
                 new Image().src = `https://github.com/${usernameFromResponse}.png`;
 
                 // Prefetch the twitter share URL to eagerly generate the page
-                fetch(`/${theme}/tickets/${usernameFromResponse}`).catch(_ => {});
+                fetch(`/${theme}/tickets/${usernameFromResponse}`).catch(() => {});
             })
             .catch(() => {
                 setFormState('error');

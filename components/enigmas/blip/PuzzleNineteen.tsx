@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from 'react';
 import PuzzleLayout from '../PuzzleLayout';
 import Button from '@components/_ui/LinkButton/LinkButton';

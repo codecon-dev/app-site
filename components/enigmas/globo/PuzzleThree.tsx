@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import PuzzleLayout from '../PuzzleLayout';
-import { toast } from 'react-hot-toast';
 import Modal from '../Modal/Modal';
 
 export default function Puzzle() {

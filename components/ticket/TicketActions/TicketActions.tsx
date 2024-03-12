@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import cn from 'classnames';
 
-import Attendee from 'src/database/model/Attendee';
 import ThemeContext from 'context/ThemeContext';
 import { SITE_URL } from '@lib/constants';
 import IconTwitter from '@components/_ui/Icons/icon-twitter';

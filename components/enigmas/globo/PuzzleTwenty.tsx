@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import PuzzleLayout from '../PuzzleLayout';
 
 export default function Puzzle() {

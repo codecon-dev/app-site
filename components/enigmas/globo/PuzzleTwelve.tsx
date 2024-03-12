@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PuzzleLayout from '../PuzzleLayout';
-import Modal from '../Modal/Modal';
 
 export default function Puzzle() {
     const [click, setClick] = useState(false);

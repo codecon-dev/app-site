@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
 import PuzzleLayout from '../PuzzleLayout';
 import Switch from '@components/_ui/Switch/Switch';

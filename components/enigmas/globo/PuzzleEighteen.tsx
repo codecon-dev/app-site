@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from 'react';
 import PuzzleLayout from '../PuzzleLayout';
 
@@ -14,7 +15,7 @@ export default function Puzzle() {
         return () => {
             clearInterval(interval);
         };
-    }, []);
+    }, [images.length]);
 
     return (
         <PuzzleLayout>

@@ -1,6 +1,4 @@
-import cn from 'classnames';
-
-import { EVENT_DAYS, Talk } from '@lib/types/all';
+import { Talk } from '@lib/types/all';
 import {
     isTimeBetweenAcitivity,
     captureHourAndMinutesFromDateString,
@@ -19,7 +17,6 @@ type Props = {
 
 const today = new Date();
 const dayTwoDate = new Date('2022-09-23 00:00:00');
-const dayThreeDate = new Date('2022-09-24 00:00:00');
 
 function TalkCard({ talk, index }: { talk: Talk; index: number }) {
     const isTalkLive = isTimeBetweenAcitivity(talk, `${today.getHours()}:${today.getMinutes()}`);

@@ -2,7 +2,6 @@ import Attendee from '@models/Attendee';
 import { StatusCodes } from 'http-status-codes';
 import { NextApiRequest, NextApiResponse } from 'next';
 import FormatHelper from 'src/FormatHelper';
-import ApiKeyValidator from 'src/api/ApiKeyValidator';
 import ApiResponse from 'src/api/ApiResponse';
 
 export default async function twillioCheckAttendee(req: NextApiRequest, res: NextApiResponse) {

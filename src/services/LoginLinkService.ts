@@ -49,7 +49,7 @@ export default class LoginLinkService {
         const hash = Math.floor(Math.random() * 1000000);
         const expiresAt = new Date(new Date().getTime() + timeToExpireInHours * 60 * 60 * 1000);
 
-        const [loginLink, created] = await LoginLink.findOrCreate({
+        const [loginLink] = await LoginLink.findOrCreate({
             where: { hash, expiresAt, attendeeUuid }
         });
 

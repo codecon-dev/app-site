@@ -2,7 +2,6 @@
 import { useEffect, useRef } from 'react';
 import cn from 'classnames';
 
-import AttendeesAvatars from '@components/_ui/AttendeesAvatars/AttendeesAvatars';
 import LinkButton from '@components/_ui/LinkButton/LinkButton';
 
 import { useEventData } from '@lib/constants';
@@ -13,7 +12,7 @@ import styles from './HeroFeature.module.scss';
 export default function HeroSummit() {
     const eventData = useEventData('feature');
     const { local, city, initialDate, finalDate } = eventData;
-    const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
+    const { eventPrice } = useActiveEventPrice(eventData);
     const videoRef = useRef<HTMLVideoElement | null>(null);
 
     function handlerVideoLoop() {
@@ -47,17 +46,13 @@ export default function HeroSummit() {
             </div>
             <div className={cn(styles['header-wrapper'], styles.button)}>
                 {eventPrice && (
-                    <LinkButton
-                        href={eventData.registerUrl}
-                        info={eventPrice}
-                    >
+                    <LinkButton href={eventData.registerUrl} info={eventPrice}>
                         Inscreva-se
                     </LinkButton>
                 )}
 
                 <div className={styles.sponsors}>
                     Patrocínio
-
                     <div className={styles['sponsors-list']}>
                         <img src="/images/feature/hero/globo-topo.svg" />
                         <img src="/images/feature/hero/new-relic-topo.svg" />

@@ -3,17 +3,12 @@ import { useEffect } from 'react';
 
 import cn from 'classnames';
 import { useEventData } from '@lib/constants';
-import { useActiveEventPrice } from '@lib/hooks/useActiveEventPrice';
-
-import LinkButton from '@components/_ui/LinkButton/LinkButton';
-import AttendeesAvatars from '@components/_ui/AttendeesAvatars/AttendeesAvatars';
 
 import styles from './HeroDigital.module.scss';
 
 export default function HeroDigital() {
     const eventData = useEventData('digital');
     const { local, city, initialDate, finalDate } = eventData;
-    const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
 
     useEffect(() => {
         document.addEventListener('mousemove', event => {

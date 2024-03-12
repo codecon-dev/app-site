@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import MaterialTable from 'material-table';
 
 import { AttendeeRank } from '@lib/types/all';

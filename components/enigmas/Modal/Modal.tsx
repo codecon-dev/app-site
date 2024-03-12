@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import cn from 'classnames';
 import styles from './PuzzleModal.module.scss';
 

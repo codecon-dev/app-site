@@ -1,4 +1,4 @@
-import Modal from '../Modal/Modal';
+/* eslint-disable @next/next/no-img-element */
 import PuzzleLayout from '../PuzzleLayout';
 
 export default function Puzzle() {

@@ -1,7 +1,6 @@
 import Page from '@components/_ui/Page';
 import PrivateArea from '@components/_ui/PrivateArea';
 import Claim from '@components/code-codes/Claim';
-import Header from '@components/_ui/Header';
 
 export default function CodeCodesResgate() {
     const meta = {
