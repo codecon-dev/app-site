@@ -1,5 +1,5 @@
 import MissionBoard from 'src/database/model/MissionBoard';
-import User from 'src/database/model/User';
+import Attendee from 'src/database/model/Attendee';
 import CodeCodesService from './CodeCodesService';
 
 export type MissionBoardResponse = {
@@ -20,7 +20,7 @@ export type Guess = {
 };
 
 export default class MissionBoardService {
-    public static async finish(user: User, guess: Guess): Promise<MissionBoardResponse> {
+    public static async finish(attendee: Attendee, guess: Guess): Promise<MissionBoardResponse> {
         if (
             guess.stamp1.toUpperCase() !== process.env.TREASURE_HUNT_WORD_1 ||
             guess.stamp2.toUpperCase() !== process.env.TREASURE_HUNT_WORD_2 ||
@@ -38,7 +38,7 @@ export default class MissionBoardService {
             };
         }
 
-        const missionBoard = await MissionBoard.findOne({ where: { userId: user.id } });
+        const missionBoard = await MissionBoard.findOne({ where: { attendeeUuid: attendee.uuid } });
 
         if (missionBoard) {
             return {
@@ -47,12 +47,12 @@ export default class MissionBoardService {
             };
         }
 
-        const newMissionBoard = await MissionBoard.create({ userId: user.id });
+        const newMissionBoard = await MissionBoard.create({ attendeeUuid: attendee.uuid });
 
         await newMissionBoard.save();
 
         const { data } = await CodeCodesService.claimCode(
-            user,
+            attendee,
             `${process.env.CODECODES_TREASURE_HUNT}`
         );
 

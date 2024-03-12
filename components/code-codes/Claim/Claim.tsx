@@ -19,7 +19,7 @@ async function claim(payload: CodecodesClaimPayload) {
 export default function CodecodesClaimForm() {
     const [code, setCode] = useState<string>('');
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const { fullName, email } = useUserData();
+    const [userData] = useUserData();
 
     async function handleOnClaimSubmit(event: FormEvent) {
         event.preventDefault();
@@ -28,15 +28,17 @@ export default function CodecodesClaimForm() {
             return;
         }
 
-        if (!fullName || !email) {
+        if (!userData.attendeeUuid) {
             toast.error('Não foi possível obter o usuário');
             return;
         }
 
         setIsLoading(true);
-        const result = await claim({ code, name: fullName, email });
-
-        console.log(result);
+        const result = await claim({
+            code,
+            name: userData.displayName as string,
+            attendeeUuid: userData.attendeeUuid
+        });
 
         if (!result.success) {
             toast.error(result.message as string);

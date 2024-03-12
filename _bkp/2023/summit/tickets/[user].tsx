@@ -20,7 +20,7 @@ export default function Tickets({ attendee }: Props) {
     const params = {
         name: attendee.githubFullName || attendee.name,
         username: attendee.githubUsername,
-        ticketNumber: attendee.id,
+        ticketNumber: attendee.uuid,
         event: 'summit'
     };
 
@@ -38,7 +38,7 @@ export default function Tickets({ attendee }: Props) {
 
 export const getStaticProps: GetStaticProps<any> = async ({ params }) => {
     const user = params?.user;
-    const attendee = await Attendee.findByGithubUsernameAndEvent(user as string, 'SUMMIT');
+    const attendee = await Attendee.findBygithubUsernameAndEvent(user as string, 'SUMMIT');
 
     if (!attendee) {
         return {
@@ -54,14 +54,14 @@ export const getStaticProps: GetStaticProps<any> = async ({ params }) => {
                 email: attendee?.email,
                 githubFullName: attendee?.githubFullName,
                 githubUsername: attendee?.githubUsername,
-                symplaId: attendee?.symplaId
+                even3Id: attendee?.even3Id
             }
         }
     };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const attendees = await Attendee.findAllWithGithubUsernameAndEvent('SUMMIT');
+    const attendees = await Attendee.findAllWithgithubUsernameAndEvent('SUMMIT');
 
     if (!attendees) {
         return {

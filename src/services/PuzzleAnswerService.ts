@@ -1,7 +1,7 @@
 import ResourceNotFoundError from '@lib/errors/ResourceNotFoundError';
 import Puzzle from 'src/database/model/puzzle/Puzzle';
 import PuzzleAnswer, { PuzzleAnswerStatus } from 'src/database/model/puzzle/PuzzleAnswer';
-import User from 'src/database/model/User';
+import Attendee from 'src/database/model/Attendee';
 import CodeCodesService from './CodeCodesService';
 
 export type PuzzleAnswerAttemptResponse = {
@@ -11,7 +11,7 @@ export type PuzzleAnswerAttemptResponse = {
 
 export default class PuzzleAnswerService {
     public static async attempt(
-        user: User,
+        attendee: Attendee,
         userGuess: string,
         puzzlePublicId: string
     ): Promise<PuzzleAnswerAttemptResponse> {
@@ -19,7 +19,11 @@ export default class PuzzleAnswerService {
         if (!puzzle) throw new ResourceNotFoundError('Enigma não encontrado');
 
         const answeredAlready = !!(await PuzzleAnswer.findOne({
-            where: { userId: user.id, puzzleId: puzzle.id, status: PuzzleAnswerStatus.DONE }
+            where: {
+                attendeeUuid: attendee.uuid,
+                puzzleId: puzzle.id,
+                status: PuzzleAnswerStatus.DONE
+            }
         }));
         if (answeredAlready)
             return {
@@ -27,13 +31,13 @@ export default class PuzzleAnswerService {
                 message: 'O enigma já havia sido respondido e os pontos já foram creditados :)'
             };
 
-        const puzzleAnswer: PuzzleAnswer = await this.findOrCreate(user, puzzle);
+        const puzzleAnswer: PuzzleAnswer = await this.findOrCreate(attendee, puzzle);
         puzzleAnswer.attempts++;
 
-        const normalizedUserGuess: string = this.normalize(userGuess);
-        const guessedCorrectly: boolean = normalizedUserGuess == this.normalize(puzzle.answer);
+        const normalizedAttendeeGuess: string = this.normalize(userGuess);
+        const guessedCorrectly: boolean = normalizedAttendeeGuess == this.normalize(puzzle.answer);
         if (guessedCorrectly) {
-            const { data } = await CodeCodesService.claimCode(user, puzzle.rewardCode);
+            const { data } = await CodeCodesService.claimCode(attendee, puzzle.rewardCode);
             if (!data) throw new Error('Dados do Code-Codes vieram vazios');
 
             await this.setAsDone(puzzleAnswer);
@@ -47,7 +51,7 @@ export default class PuzzleAnswerService {
 
         if (almostList.length) {
             const almostGotItRight: boolean = almostList.some(
-                (almost: string) => normalizedUserGuess == this.normalize(almost)
+                (almost: string) => normalizedAttendeeGuess == this.normalize(almost)
             );
             if (almostGotItRight) {
                 puzzleAnswer.almosts++;
@@ -60,9 +64,9 @@ export default class PuzzleAnswerService {
         return { success: false, message: 'Hmmm, não é isso' };
     }
 
-    private static async findOrCreate(user: User, puzzle: Puzzle): Promise<PuzzleAnswer> {
+    private static async findOrCreate(attendee: Attendee, puzzle: Puzzle): Promise<PuzzleAnswer> {
         const [puzzleAnswer, created] = await PuzzleAnswer.findOrCreate({
-            where: { userId: user.id, puzzleId: puzzle.id, company: puzzle.company }
+            where: { attendeeUuid: attendee.uuid, puzzleId: puzzle.id, company: puzzle.company }
         });
 
         if (!puzzleAnswer.status) puzzleAnswer.status = PuzzleAnswerStatus.PENDING;

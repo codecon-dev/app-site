@@ -3,14 +3,14 @@ import ValidationError from "@lib/errors/ValidationError"
 import { StatusCodes } from "http-status-codes"
 import { NextApiResponse } from "next"
 import { NextApiRequest } from "next/dist/shared/lib/utils"
-import User from "src/database/model/User"
+import Attendee from "src/database/model/Attendee"
 
 export enum HttpMethod {
     POST = "POST"
 }
 
-export interface WithLoggedUserRequest {
-    email: string
+export interface WithLoggedAttendeeRequest {
+    attendeeUuid: string
 }
 
 export default class ApiResponse {
@@ -38,24 +38,24 @@ export default class ApiResponse {
         this.build(res, StatusCodes.UNPROCESSABLE_ENTITY, exception.message)
     }
 
-    public static async withCurrentUserAndErrorHandler(req: NextApiRequest, res: NextApiResponse, method: HttpMethod, action: any): Promise<void> {
+    public static async withCurrentAttendeeAndErrorHandler(req: NextApiRequest, res: NextApiResponse, method: HttpMethod, action: any): Promise<void> {
         try {
             if (req.method != method) {
                 this.build(res, StatusCodes.METHOD_NOT_ALLOWED, "Método HTTP não permitido")
                 return
             }
 
-            const userEmail: string | null = req.body.email
-            if (!userEmail) {
-                this.build(res, StatusCodes.UNPROCESSABLE_ENTITY, "Informe o e-mail do usuário")
+            const attendeeUuid: string | null = req.body.attendeeUuid
+            if (!attendeeUuid) {
+                this.build(res, StatusCodes.UNPROCESSABLE_ENTITY, "Usuário não está logado")
                 return
             }
 
-            const user: User | null = await User.findByEmail(userEmail)
-            if (!user) throw new ResourceNotFoundError(`Usuário com e-mail ${userEmail} não encontrado`)
+            const attendee: Attendee | null = await Attendee.findByUuid(attendeeUuid)
+            if (!attendee) throw new ResourceNotFoundError(`Usuário não encontrado`)
 
             // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-            await action(user)
+            await action(attendee)
         } catch (error) {
             if (error instanceof ResourceNotFoundError) {
                 this.build(res, StatusCodes.NOT_FOUND, error.message)

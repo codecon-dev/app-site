@@ -3,24 +3,27 @@ import ValidationError from '@lib/errors/ValidationError';
 import { CodecodesClaimPayload, CodecodesClaimResponse } from '@lib/types/codecodes';
 import { StatusCodes } from 'http-status-codes';
 import { NextApiRequest, NextApiResponse } from 'next';
-import ApiResponse, { HttpMethod, WithLoggedUserRequest } from 'src/api/ApiResponse';
-import User from 'src/database/model/User';
+import ApiResponse, { HttpMethod, WithLoggedAttendeeRequest } from 'src/api/ApiResponse';
+import Attendee from 'src/database/model/Attendee';
 
-export interface CodecodesClaimRequest extends WithLoggedUserRequest {
+export interface CodecodesClaimRequest extends WithLoggedAttendeeRequest {
     code: string;
 }
 
 export default async function CodeCodesClaimController(req: NextApiRequest, res: NextApiResponse) {
-    await ApiResponse.withCurrentUserAndErrorHandler(
+    await ApiResponse.withCurrentAttendeeAndErrorHandler(
         req,
         res,
         HttpMethod.POST,
-        async (user: User) => {
+        async (attendee: Attendee) => {
             const params: CodecodesClaimRequest = req.body;
-            if (!params.email || !params.code)
+            if (!params.attendeeUuid || !params.code)
                 throw new ValidationError('Tão faltando alguns dados nessa requisição');
 
-            const codecodesClaimPayload: CodecodesClaimPayload = { ...params, name: user.displayName || user.name };
+            const codecodesClaimPayload: CodecodesClaimPayload = {
+                ...params,
+                name: attendee.displayName || attendee.name
+            };
             const codecodesResponse: CodecodesClaimResponse = await claimCodecodesApiToken(
                 codecodesClaimPayload
             );

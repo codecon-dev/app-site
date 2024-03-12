@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { StatusCodes } from 'http-status-codes';
 
 import ApiResponse from 'src/api/ApiResponse';
-import Attendee from 'src/database/model/Attendee';
 import AttendeeService from 'src/services/AttendeeService';
 
 export default async function NewAttendeeController(
@@ -15,14 +14,17 @@ export default async function NewAttendeeController(
             return;
         }
 
-        const id: string = req.body.id;
-        const name: string = req.body.name;
-        const lastName: string = req.body.last_name;
-        const email: string = req.body.email;
-        const value: string = req.body.value;
-        const event: 'DIGITAL' | 'SUMMIT' | 'FEATURE' = req.body.event;
+        const attendee = req.body.pessoa;
 
-        await AttendeeService.sendWelcomeEmail(id, name, lastName, email, event, value);
+        const fullName = attendee.nome as string;
+
+        const even3Id: string = req.body.inscricao.id;
+        const name: string = fullName.split(' ')[0];
+        const lastName: string = fullName.split(' ')[-1];
+        const email: string = attendee.email;
+        const event = 'SUMMIT';
+
+        await AttendeeService.create(even3Id, name, lastName, email, event);
 
         ApiResponse.build(res, StatusCodes.OK, 'Tudo certo');
     } catch (exception) {

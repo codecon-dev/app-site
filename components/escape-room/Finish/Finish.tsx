@@ -11,15 +11,15 @@ type ApiResponse = {
 };
 
 export default function Finish() {
-    const [userMessage, setUserMessage] = useState('');
+    const [userMessage, setAttendeeMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [finished, setFinished] = useState(false);
-    const { email } = useUserData();
+    const [userData] = useUserData();
 
     async function handleSubmit(e: SyntheticEvent): Promise<void> {
         e.preventDefault();
 
-        if (!email) {
+        if (!userData.attendeeUuid) {
             toast.error('Ocorreu um erro inesperado!');
             return;
         }
@@ -31,7 +31,7 @@ export default function Finish() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, message: userMessage })
+            body: JSON.stringify({ attendeeUuid: userData.attendeeUuid, message: userMessage })
         });
 
         const json = await response.json();
@@ -90,11 +90,11 @@ export default function Finish() {
                 <br />
                 <OneInputForm
                     handleSubmit={handleSubmit}
-                    handleInputChange={event => setUserMessage(event.target.value)}
+                    handleInputChange={event => setAttendeeMessage(event.target.value)}
                     isLoading={isLoading}
                     placeholder="Escreva aqui"
                     buttonText="Salvar"
-                    disableSubmit={!userMessage || !email}
+                    disableSubmit={!userMessage || !userData.attendeeUuid}
                 />
             </div>
         </section>

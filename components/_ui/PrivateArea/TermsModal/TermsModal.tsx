@@ -1,28 +1,43 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { FormEvent, useState } from 'react';
+import toast from 'react-hot-toast';
 
-import { useUserData } from '@lib/hooks/useUserData';
-
+import ApiResponse from 'src/api/ApiResponse';
+import { ConfAttendee } from '@lib/types/all';
 import styles from './TermsModal.module.scss';
 
-export default function TermsModal({ onAccept }: { onAccept: () => void }) {
+export default function TermsModal({
+    attendeeUuid,
+    onAccept
+}: {
+    attendeeUuid: string;
+    onAccept: (data: ConfAttendee) => void;
+}) {
     const [isLoading, setIsLoading] = useState(false);
-    const { email } = useUserData();
 
     async function handleSubmit(e: FormEvent) {
         e.preventDefault();
         setIsLoading(true);
 
-        void (await fetch(`/api/login/accept-terms`, {
+        const response = await fetch(`/api/login/accept-terms`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email })
-        }).then(() => {
-            onAccept();
-            setIsLoading(false);
-        }));
+            body: JSON.stringify({ attendeeUuid })
+        });
+
+        const json = await response.json();
+        const { data, success, message }: ApiResponse = json;
+
+        if (!success) {
+            toast.error(message.join('\n'));
+            return;
+        }
+
+        toast.success('Obrigado e bom evento!');
+        onAccept(data as ConfAttendee);
+        setIsLoading(false);
     }
 
     return (
@@ -37,13 +52,13 @@ export default function TermsModal({ onAccept }: { onAccept: () => void }) {
                     </p>
                     <p>
                         Esse jogo foi criado para que você participe o máximo possível do evento,
-                        por isso os tokens podem ser regatados de várias formas: participando de atividades, 
-                        encontrando códigos espalhados pelo mapa, pegar códigos que os hosts podem divulgar 
-                        durante as apresentações e vários outros escondidos.
+                        por isso os tokens podem ser regatados de várias formas: participando de
+                        atividades, encontrando códigos espalhados pelo mapa, pegar códigos que os
+                        hosts podem divulgar durante as apresentações e vários outros escondidos.
                     </p>
                     <p>
-                        O resgate é feito pelo QR Code da sua credencial, nele você poderá digitar um
-                        código para resgatá-lo. Algumas atividades também contarão com resgate
+                        O resgate é feito pelo QR Code da sua credencial, nele você poderá digitar
+                        um código para resgatá-lo. Algumas atividades também contarão com resgate
                         automático, mas você sempre será avisado.
                     </p>
                     <p>

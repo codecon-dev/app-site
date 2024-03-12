@@ -11,27 +11,25 @@ export default async function AuthController(req: NextApiRequest, res: NextApiRe
             case 'POST':
                 await sendMagicLink(req, res);
                 break;
+            case 'GET':
+                await getUser(req, res);
+                break;
             default:
                 ApiResponse.build(res, StatusCodes.BAD_REQUEST, 'Método não permitido');
         }
     } catch (exception) {
-        console.error('SymplaController >> Ocorreu um erro inesperado', exception);
+        console.error('AuthController >> Ocorreu um erro inesperado', exception);
         ApiResponse.build(res, StatusCodes.INTERNAL_SERVER_ERROR, 'Ocorreu um erro desconhecido');
     }
 }
 
 async function sendMagicLink(req: NextApiRequest, res: NextApiResponse) {
     const email: string = req.body.email;
-    const order: string = req.body.order;
 
-    const attendee = await Attendee.findBySymplaIdAndEmail(order, email);
+    const attendee = await Attendee.findByEmail(email);
 
     if (!attendee) {
-        ApiResponse.build(
-            res,
-            StatusCodes.UNAUTHORIZED,
-            'Este não é o mesmo e-mail de compra no Sympla'
-        );
+        ApiResponse.build(res, StatusCodes.UNAUTHORIZED, 'Este e-mail não está inscrito.');
         return;
     }
 
@@ -42,5 +40,26 @@ async function sendMagicLink(req: NextApiRequest, res: NextApiResponse) {
         return;
     }
 
-    ApiResponse.build(res, StatusCodes.OK, 'Link mágico enviado com sucesso');
+    ApiResponse.build(res, StatusCodes.OK, 'Confira seu e-mail!', {
+        uuid: attendee.uuid
+    });
+}
+
+async function getUser(req: NextApiRequest, res: NextApiResponse) {
+    const uuid: string = req.query.uuid as string;
+
+    const attendee = await Attendee.findByUuid(uuid);
+
+    if (!attendee) {
+        ApiResponse.build(res, StatusCodes.UNAUTHORIZED, 'Usuário não encontrado');
+        return;
+    }
+
+    ApiResponse.build(res, StatusCodes.OK, 'Sucesso', {
+        attendeeUuid: attendee.uuid,
+        firstName: attendee.name,
+        displayName: attendee.displayName,
+        hasMobilePhone: attendee.mobilePhone ? true : false,
+        hasAcceptedTerms: attendee.acceptedTerms
+    });
 }

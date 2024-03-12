@@ -4,16 +4,16 @@ import Page from '@components/_ui/Page';
 import Header from '@components/_ui/Header';
 import Rank from '@components/code-codes/Ranking';
 
-import { Sponsor, UserRank } from '@lib/types/all';
+import { Sponsor, AttendeeRank } from '@lib/types/all';
 import { RANKING_ENABLED } from '@lib/constants';
 import { getRank } from '@lib/codecodes-api';
 
 type Props = {
     sponsors: Sponsor[];
-    rankUsers: UserRank[];
+    rankAttendees: AttendeeRank[];
 };
 
-export default function Ranking({ rankUsers, sponsors }: Props) {
+export default function Ranking({ rankAttendees, sponsors }: Props) {
     const meta = {
         title: 'Ranking Code-codes - Codecon Summit'
     };
@@ -22,7 +22,7 @@ export default function Ranking({ rankUsers, sponsors }: Props) {
         <Page theme="digital" meta={meta} sponsors={sponsors} hideNav hideFooter>
             <Header title="Code-codes" description="Ranking" smaller />
             {RANKING_ENABLED ? (
-                <Rank users={rankUsers} />
+                <Rank users={rankAttendees} />
             ) : (
                 <div className="container">
                     <p>
@@ -38,12 +38,12 @@ export default function Ranking({ rankUsers, sponsors }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const { data: rankUsers } = await getRank();
+    const { data: rankAttendees } = await getRank();
     const sponsors = [] as Sponsor[];
     return {
         props: {
             sponsors,
-            rankUsers: rankUsers || []
+            rankAttendees: rankAttendees || []
         },
         revalidate: 1
     };

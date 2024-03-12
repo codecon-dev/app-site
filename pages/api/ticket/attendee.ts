@@ -37,7 +37,7 @@ async function update(req: NextApiRequest, res: NextApiResponse) {
 
 async function get(req: NextApiRequest, res: NextApiResponse) {
     const event: Event = req.query.event as Event;
-    const attendees = await Attendee.findAllWithGithubUsernameAndEvent(event);
+    const attendees = await Attendee.findAllWithgithubUsernameAndEvent(event);
 
     const firstFiveAttendess = attendees?.reverse().slice(0, 5);
 

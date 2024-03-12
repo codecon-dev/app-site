@@ -30,6 +30,19 @@
     color: var(--color-white);
 }
 
+.otp-input {
+    -webkit-appearance: none;
+    display: block;
+    width: 60px;
+    border: 0;
+    font-size: 40px;
+    text-align: center;
+    border-radius: 0.5rem;
+    background-color: var(--color-black-60);
+    border: 1px solid var(--color-gray);
+    color: var(--color-white);
+}
+
 .button {
     -webkit-appearance: none;
     background-color: var(--color-black-60);

@@ -24,12 +24,12 @@ export default function Form() {
     });
     const [isLoading, setIsLoading] = useState(false);
     const [isRight, setIsRight] = useState(false);
-    const { email } = useUserData();
+    const [userData] = useUserData();
 
     async function handleSubmit(e: SyntheticEvent): Promise<void> {
         e.preventDefault();
 
-        if (!email) {
+        if (!userData.attendeeUuid) {
             toast.error('Ocorreu um erro inesperado!');
             return;
         }
@@ -42,7 +42,7 @@ export default function Form() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ email, guess })
+                body: JSON.stringify({ attendeeUuid: userData.attendeeUuid, guess })
             });
 
             const json = await response.json();
@@ -158,7 +158,7 @@ export default function Form() {
                 />
                 <button
                     type="submit"
-                    disabled={isLoading || !guess || !email}
+                    disabled={isLoading || !guess || !userData.attendeeUuid}
                     className={styles.button}
                 >
                     {isLoading ? 'Enviando...' : 'Tentar'}

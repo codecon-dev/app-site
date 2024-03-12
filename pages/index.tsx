@@ -1,14 +1,12 @@
 import Page from '@components/_ui/Page';
-import Hero from '@components/temp-site/Hero';
-import DetailsGrid from '@components/temp-site/DetailsGrid';
-import Contact from '@components/temp-site/Contact';
+import PrivateArea from '@components/_ui/PrivateArea';
 
 export default function Index() {
     return (
         <Page>
-            <Hero />
-            <DetailsGrid />
-            <Contact />
+            <PrivateArea>
+                <>olá</>
+            </PrivateArea>
         </Page>
     );
 }

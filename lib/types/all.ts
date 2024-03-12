@@ -1,6 +1,6 @@
 import { Speaker } from './speakers';
 
-export type UserRank = {
+export type AttendeeRank = {
     tag: string;
     score: number;
     claims: number;
@@ -84,12 +84,12 @@ export type Workshop = {
     };
 };
 
-export type ConfUser = {
-    email: string;
-    firstName: string;
-    fullName: string;
-    mobilePhone?: string;
+export type ConfAttendee = {
+    attendeeUuid?: string;
+    firstName?: string;
     displayName?: string;
+    hasMobilePhone?: boolean;
+    hasAcceptedTerms?: boolean;
 };
 
 export type OkPacket = {
@@ -115,7 +115,7 @@ export type Puzzle = {
     answer: string;
 };
 
-export type PuzzleUser = {
+export type PuzzleAttendee = {
     position: number;
     name: string;
     lastSent: string;
@@ -131,7 +131,7 @@ export type CodecodesClaimPayload = {
 export type CodecodesRankResponse = {
     status: string;
     message: string;
-    data?: UserRank[];
+    data?: AttendeeRank[];
 };
 
 type CodecodesSuccessClaimData = {
@@ -145,12 +145,12 @@ export type CodecodesClaimResponse = {
     data?: CodecodesSuccessClaimData;
 };
 
-export type UserAlreadyAnswerData = {
+export type AttendeeAlreadyAnswerData = {
     success: boolean;
     userAnswered: boolean;
 };
 
-export type MarathonUser = {
+export type MarathonAttendee = {
     gatherName: string;
     profileURI: string;
     userId: number | undefined;

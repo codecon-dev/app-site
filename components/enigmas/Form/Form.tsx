@@ -18,12 +18,12 @@ export default function Form({ puzzlePublicId }: Props) {
     const [guess, setGuess] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [isRight, setIsRight] = useState(false);
-    const { email } = useUserData();
+    const [userData] = useUserData();
 
     async function handleSubmit(e: SyntheticEvent): Promise<void> {
         e.preventDefault();
 
-        if (!email) {
+        if (!userData.attendeeUuid) {
             toast.error('Ocorreu um erro inesperado!');
             return;
         }
@@ -36,7 +36,7 @@ export default function Form({ puzzlePublicId }: Props) {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ email, guess, puzzlePublicId })
+                body: JSON.stringify({ attendeeUuid: userData.attendeeUuid, guess, puzzlePublicId })
             });
 
             const json = await response.json();
@@ -81,7 +81,7 @@ export default function Form({ puzzlePublicId }: Props) {
             isLoading={isLoading}
             placeholder="Seu chute"
             buttonText="Tentar"
-            disableSubmit={!guess || !email}
+            disableSubmit={!guess || !userData.attendeeUuid}
             horizontal
         />
     );

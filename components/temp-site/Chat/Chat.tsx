@@ -62,7 +62,7 @@ export default function Chat() {
     const [messages, setMessages] = useState([
         { by: 'codesnr', text: 'Qual problema você quer ajuda pra resolver?' }
     ]);
-    const [userType, setUserType] = useState('');
+    const [userType, setAttendeeType] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -115,7 +115,7 @@ export default function Chat() {
         };
 
         if (messages[messages.length - 1].text === userType) {
-            setUserType('');
+            setAttendeeType('');
 
             setTimeout(makeMagic, 500);
         }
@@ -141,7 +141,7 @@ export default function Chat() {
                         type="text"
                         disabled={isLoading}
                         value={userType}
-                        onChange={e => setUserType(e.currentTarget.value)}
+                        onChange={e => setAttendeeType(e.currentTarget.value)}
                         placeholder="Faça uma pergunta"
                         enterKeyHint="send"
                     />

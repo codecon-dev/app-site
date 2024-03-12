@@ -1,18 +1,47 @@
 import { useEffect, useState } from 'react';
-import { ConfUser } from '@lib/types/all';
+import { getCookie } from 'cookies-next';
 
-export function useUserData() {
-    const [userData, setUserData] = useState<ConfUser>();
+import ApiResponse from 'src/api/ApiResponse';
+import { ConfAttendee } from '@lib/types/all';
+
+export function useUserData(): [ConfAttendee, boolean] {
+    const [userData, setAttendeeData] = useState<ConfAttendee>({});
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const email = window.localStorage.getItem('codeconSummitEmail2023');
-        const firstName = window.localStorage.getItem('codeconSummitFirstName2023') ?? '';
-        const fullName = window.localStorage.getItem('codeconSummitFullName2023') ?? '';
+        const attendeeUuid = getCookie('attendeeUuid');
 
-        if (email) {
-            setUserData({ firstName, fullName, email });
+        if (!attendeeUuid) {
+            setLoading(false);
+            return;
         }
+
+        async function getAttendeeData() {
+            const response = await fetch(`/api/login/auth?uuid=${attendeeUuid}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const json = await response.json();
+            const { data, success }: ApiResponse = json;
+
+            if (success) {
+                setAttendeeData({
+                    attendeeUuid: data.attendeeUuid,
+                    firstName: data.firstName,
+                    displayName: data.displayName,
+                    hasMobilePhone: data.hasMobilePhone,
+                    hasAcceptedTerms: data.hasAcceptedTerms
+                });
+            }
+
+            setLoading(false);
+        }
+
+        void getAttendeeData();
     }, []);
 
-    return { email: userData?.email, firstName: userData?.firstName, fullName: userData?.fullName };
+    return [userData, loading];
 }

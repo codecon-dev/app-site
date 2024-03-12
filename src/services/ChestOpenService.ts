@@ -1,5 +1,5 @@
 import Prize, { PrizeType } from '@models/Prize';
-import User from '@models/User';
+import Attendee from '@models/Attendee';
 import Chest from '@models/chest/Chest';
 import ChestOpen from '@models/chest/ChestOpen';
 import { Sequelize, Transaction } from 'sequelize';
@@ -13,31 +13,31 @@ export type ChestInfo = {
 export default class ChestOpenService {
     public static async openChest(
         chest: Chest,
-        user: User,
+        attendee: Attendee,
         transaction: Transaction
     ): Promise<ChestInfo | undefined> {
-        if (!chest || !user) throw new Error('Dados inválidos para abrir o baú');
+        if (!chest || !attendee) throw new Error('Dados inválidos para abrir o baú');
 
         const chestOpen = await ChestOpen.findOne({
             where: {
-                userId: user.id,
+                attendeeUuid: attendee.uuid,
                 chestId: chest.id
             }
         });
         if (chestOpen) {
-            console.warn(`Usuário ${user.id} tentou abrir baú ${chest.id} pela segunda vez`);
+            console.warn(`Usuário ${attendee.uuid} tentou abrir baú ${chest.id} pela segunda vez`);
             return { chest: chestOpen, firstOpen: false };
         }
 
         const prizeType = await PrizeService.getRandomPrizeType();
         const prize: Prize | null = await this.selectPrize(prizeType, chest);
 
-        return await this.save(chest, user, prize, transaction);
+        return await this.save(chest, attendee, prize, transaction);
     }
 
     private static async save(
         chest: Chest,
-        user: User,
+        attendee: Attendee,
         prize: Prize | null,
         transaction: Transaction
     ): Promise<ChestInfo> {
@@ -45,7 +45,7 @@ export default class ChestOpenService {
             {
                 chestId: chest.id,
                 prizeId: prize?.id,
-                userId: user.id
+                attendeeUuid: attendee.uuid
             },
             { transaction: transaction }
         );

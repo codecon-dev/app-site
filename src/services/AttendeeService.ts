@@ -1,89 +1,63 @@
-import sendgrid from '@sendgrid/mail';
-import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
 import Attendee from 'src/database/model/Attendee';
 
 type Event = 'DIGITAL' | 'SUMMIT' | 'FEATURE';
 
+export type AttendeeResponse = {
+    success: boolean;
+    message: string;
+};
 export default class AttendeeService {
-    public static async createFromSympla(
-        symplaId: string,
-        symplaData: any,
-        event: Event
-    ): Promise<void> {
-        const attendee: Attendee | null = await Attendee.findBySymplaIdAndEvent(symplaId, event);
-
-        if (attendee) return;
-
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        symplaData.map(async (t: any) => {
-            void (await Attendee.create({
-                symplaId: t.order_id as string,
-                name: t.first_name as string,
-                lastName: t.last_name as string,
-                email: t.email as string,
-                event
-            }));
-        });
+    private static async sendWelcomeEmail(email: string) {
+        return;
     }
 
-    public static async sendWelcomeEmail(
-        id: string,
+    public static async create(
+        even3Id: string,
         name: string,
         lastName: string,
         email: string,
-        event: Event,
-        value: string
+        event: Event
     ): Promise<void> {
         const attendee: Attendee | null = await Attendee.findByEmaildAndEvent(email, event);
 
         if (attendee) return;
 
-        await axios.post('https://codecon.dev/api/ia/save', {
-            content: `🎉 **Irru, nova inscrição na CODECON ${event}**: ${name} ${lastName} - Valor pago R$ ${value}`
-        });
-
         await Attendee.create({
-            symplaId: id,
+            uuid: uuidv4(),
+            even3Id,
             name,
             lastName,
             email,
             event
         });
 
-        /*sendgrid.setApiKey(process.env.SENDGRID_API_KEY || '');
+        //await this.sendWelcomeEmail(email);
+    }
 
-        let templateId;
-        let eventName;
+    public static async completeRegistration(
+        attendee: Attendee,
+        mobilePhone: string,
+        displayName: string
+    ): Promise<AttendeeResponse> {
+        attendee.mobilePhone = mobilePhone;
+        attendee.displayName = displayName;
+        await attendee.save();
 
-        switch (event) {
-            case 'DIGITAL':
-                templateId = 'd-c18b9d72d4784e10b0879ae94e4eba9e';
-                eventName = 'Codecon Digital';
-                break;
-            case 'SUMMIT':
-                templateId = 'd-c9cbcc08854849e2baf96c16a50cddd9';
-                eventName = 'Codecon Summit';
-                break;
-            case 'FEATURE':
-                templateId = 'd-ca3b1747b9a94526acfdb5812df7a1b4';
-                eventName = 'Codecon Feature';
-                break;
-        }
-
-        const msg = {
-            to: email,
-            from: {
-                email: 'contato@codecon.dev',
-                name: eventName
-            },
-            templateId,
-            dynamicTemplateData: {
-                url: `https://codecon.dev/${event.toLowerCase()}/inscrito`,
-                order: id
-            }
+        return {
+            success: true,
+            message: `Seus dados foram salvos`
         };
+    }
 
-        await sendgrid.send(msg);*/
+    public static async acceptTerms(attendee: Attendee): Promise<AttendeeResponse> {
+        attendee.acceptedTerms = true;
+        await attendee.save();
+
+        return {
+            success: true,
+            message: `Obrigado e bom evento!`
+        };
     }
 }

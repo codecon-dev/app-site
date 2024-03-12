@@ -1,21 +1,23 @@
 import { DataTypes } from 'sequelize';
 import dataSource from 'src/database/DataSource';
 import ModelImpl, { commonAttributes } from './ModelImpl';
-import User from './User';
+import { ForeignKey } from 'sequelize';
+import Attendee from './Attendee';
 
 class MissionBoard extends ModelImpl<MissionBoard> {
-    declare userId?: number;
+    declare attendeeUuid: ForeignKey<Attendee['uuid']>;
 }
 
 MissionBoard.init(
     {
-        ...commonAttributes
+        ...commonAttributes,
+        attendeeUuid: { type: DataTypes.UUID, allowNull: false }
     },
     {
         sequelize: dataSource
     }
 );
 
-MissionBoard.belongsTo(User, { foreignKey: 'userId', targetKey: 'id' });
+MissionBoard.belongsTo(Attendee, { foreignKey: { allowNull: false }, as: 'attendee' });
 
 export default MissionBoard;

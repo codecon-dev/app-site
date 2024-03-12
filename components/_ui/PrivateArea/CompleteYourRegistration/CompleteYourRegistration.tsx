@@ -1,20 +1,21 @@
 import oneInputFormStyles from '@components/_ui/OneInputForm/OneInputForm.module.scss';
 import privateAreaStyles from '@components/_ui/PrivateArea/PrivateArea.module.scss';
 import { useUserData } from '@lib/hooks/useUserData';
+import { ConfAttendee } from '@lib/types/all';
 import { FormEvent, useState } from 'react';
 import toast from 'react-hot-toast';
 import PhoneInput from 'react-phone-input-international';
 import ApiResponse from 'src/api/ApiResponse';
 
 type Props = {
-    onSuccess: (mobilePhone: string, displayName: string, message: string) => void;
+    attendeeUuid: string;
+    onSuccess: (data: ConfAttendee) => void;
 };
 
-export default function CompleteYourRegistration({ onSuccess }: Props) {
+export default function CompleteYourRegistration({ attendeeUuid, onSuccess }: Props) {
     const [mobilePhone, setMobilePhone] = useState<string>('');
     const [displayName, setDisplayName] = useState<string>('');
     const [isLoading, setLoading] = useState<boolean>(false);
-    const { email } = useUserData();
 
     async function handleSubmit(event: FormEvent) {
         try {
@@ -22,21 +23,22 @@ export default function CompleteYourRegistration({ onSuccess }: Props) {
             event.preventDefault();
 
             const response = await fetch(`/api/login/complete-registration`, {
-                method: "POST",
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ email, mobilePhone, displayName })
+                body: JSON.stringify({ attendeeUuid, mobilePhone, displayName })
             });
 
             const json = await response.json();
-            const { success, message }: ApiResponse = json;
+            const { data, success, message }: ApiResponse = json;
             if (!success) {
-                toast.error(message.join("\n"));
+                toast.error(message.join('\n'));
                 return;
             }
 
-            onSuccess(mobilePhone, displayName, message[0]);
+            toast.success('Dados salvos!');
+            onSuccess(data as ConfAttendee);
         } catch (error) {
             if (error instanceof Error) {
                 toast.error(`Ocorreu um erro desconhecido [${error.message}]`);
@@ -55,14 +57,17 @@ export default function CompleteYourRegistration({ onSuccess }: Props) {
                 <h3>Complete seu cadastro para continuar</h3>
 
                 <div className={privateAreaStyles.form}>
-                    <form className={oneInputFormStyles.form} onSubmit={event => void handleSubmit(event)}>
+                    <form
+                        className={oneInputFormStyles.form}
+                        onSubmit={event => void handleSubmit(event)}
+                    >
                         <PhoneInput
-                            country='br'
+                            country="br"
                             disableDropdown={true}
                             inputClass={oneInputFormStyles.input}
-                            specialLabel='Não usaremos seu número para enviar anúncios 🤞'
+                            specialLabel="Não usaremos seu número para enviar anúncios 🤞"
                             inputProps={{ required: true, autoFocus: true }}
-                            placeholder='Digite seu telefone'
+                            placeholder="Digite seu telefone"
                             value={mobilePhone}
                             onChange={phone => setMobilePhone(phone)}
                         />
@@ -76,7 +81,11 @@ export default function CompleteYourRegistration({ onSuccess }: Props) {
                             required
                         />
 
-                        <button type="submit" disabled={mobilePhone.length < 5 || !displayName.length} className={oneInputFormStyles.button}>
+                        <button
+                            type="submit"
+                            disabled={mobilePhone.length < 5 || !displayName.length}
+                            className={oneInputFormStyles.button}
+                        >
                             {isLoading ? 'Salvando...' : 'Continuar'}
                         </button>
                     </form>

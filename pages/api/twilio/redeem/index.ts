@@ -1,5 +1,5 @@
 import { CodecodesClaimResponse } from '@lib/types/codecodes';
-import User from '@models/User';
+import Attendee from '@models/Attendee';
 import { StatusCodes } from 'http-status-codes';
 import { NextApiRequest, NextApiResponse } from 'next';
 import FormatHelper from 'src/FormatHelper';
@@ -13,8 +13,8 @@ export default async function twillioRedeem(req: NextApiRequest, res: NextApiRes
     }
 
     const mobilePhone = FormatHelper.removeNonNumeric(req.body.mobilePhone as string);
-    const user = await User.findByMobilePhone(mobilePhone);
-    if (!user) {
+    const attendee = await Attendee.findByMobilePhone(mobilePhone);
+    if (!attendee) {
         ApiResponse.build(res, StatusCodes.UNPROCESSABLE_ENTITY, 'Usuário não encontrado');
         return;
     }
@@ -30,7 +30,7 @@ export default async function twillioRedeem(req: NextApiRequest, res: NextApiRes
     }
 
     const codecodesResponse: CodecodesClaimResponse = await CodeCodesService.claimCode(
-        user,
+        attendee,
         codeToRedeem
     );
 
@@ -39,11 +39,7 @@ export default async function twillioRedeem(req: NextApiRequest, res: NextApiRes
             'twillioRedeem >> Ocorreu um erro inesperado ao resgatar pontos',
             JSON.stringify(codecodesResponse)
         );
-        ApiResponse.build(
-            res,
-            codecodesResponse.statusCode,
-            codecodesResponse.message
-        );
+        ApiResponse.build(res, codecodesResponse.statusCode, codecodesResponse.message);
         return;
     }
 

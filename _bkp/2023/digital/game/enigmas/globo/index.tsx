@@ -5,7 +5,7 @@ import { GetServerSideProps } from 'next';
 import dataSource from 'src/database/DataSource';
 import { PuzzleCompanyType } from 'src/database/model/puzzle/Puzzle';
 import PuzzleAnswer, { PuzzleAnswerStatus } from 'src/database/model/puzzle/PuzzleAnswer';
-import User from 'src/database/model/User';
+import Attendee from 'src/database/model/Attendee';
 
 type Props = {
     puzzleRank: Array<EnigmaRankingRow>;
@@ -66,7 +66,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
     const formattedRankingList: Array<EnigmaRankingRow> = [];
     for (let i = 0; i < unformattedRankingList.length; i++) {
         const unformattedRankingItem: RankQueryReturn = unformattedRankingList[i].dataValues;
-        const user: User | null = await User.findByPk(unformattedRankingItem.userId);
+        const user: Attendee | null = await Attendee.findByPk(unformattedRankingItem.userId);
         if (!user) throw new Error(`Usuário [${unformattedRankingItem.userId}] não encontrado`);
 
         formattedRankingList.push({

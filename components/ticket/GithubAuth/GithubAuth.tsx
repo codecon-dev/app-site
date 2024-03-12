@@ -101,7 +101,7 @@ export default function Form({ attendee, setGithubData }: Props) {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        id: attendee.id,
+                        id: attendee.uuid,
                         username: data.login,
                         fullName: data.name
                     })

@@ -1,6 +1,5 @@
 import { Op } from 'sequelize';
 import { NextApiResponse } from 'next';
-import sendgrid from '@sendgrid/mail';
 import { Resend } from 'resend';
 
 import Attendee from 'src/database/model/Attendee';
@@ -13,23 +12,7 @@ export default class LoginLinkService {
         const attendee: Attendee | null = await Attendee.findByEmaildAndEvent(email, event);
         if (!attendee || !event) return false;
 
-        const magicLink = await this.createMagicLink(attendee.id);
-
-        /*sendgrid.setApiKey(process.env.SENDGRID_API_KEY || '');
-
-        const msg = {
-            to: email,
-            from: {
-                email: 'contato@codecon.dev',
-                name: 'Codecon'
-            },
-            templateId: 'd-59ea463e92bf4729a0b9d143a9862744',
-            dynamicTemplateData: {
-                url: `https://codecon.dev/${event.toLowerCase()}/inscrito/${magicLink.hash}`
-            }
-        };
-
-        const sendMail = await sendgrid.send(msg);*/
+        const magicLink = await this.createMagicLink(attendee.uuid);
 
         const resend = new Resend(process.env.RESEND_API_KEY || '');
 
@@ -49,25 +32,25 @@ export default class LoginLinkService {
         return true;
     }
 
-    private static async createMagicLink(attendeeId: number): Promise<LoginLink> {
+    private static async createMagicLink(attendeeUuid: string): Promise<LoginLink> {
         const loginLink: LoginLink | null = await LoginLink.findOne({
             where: {
-                attendeeId: attendeeId,
+                attendeeUuid,
                 expiresAt: { [Op.gt]: new Date() }
             }
         });
         if (loginLink) return loginLink;
 
-        return await this.findOrCreate(attendeeId);
+        return await this.findOrCreate(attendeeUuid);
     }
 
-    private static async findOrCreate(attendeeId: number): Promise<LoginLink> {
+    private static async findOrCreate(attendeeUuid: string): Promise<LoginLink> {
         const timeToExpireInHours = 24 * 3;
-        const hash = Date.now().toString(36) + Math.random().toString(36).substring(2);
+        const hash = Math.floor(Math.random() * 1000000);
         const expiresAt = new Date(new Date().getTime() + timeToExpireInHours * 60 * 60 * 1000);
 
         const [loginLink, created] = await LoginLink.findOrCreate({
-            where: { hash, expiresAt, attendeeId }
+            where: { hash, expiresAt, attendeeUuid }
         });
 
         return await loginLink.save();
@@ -86,7 +69,7 @@ export default class LoginLinkService {
         res.setHeader('Set-Cookie', `USERHASH${suffix}=${loginLink.hash};path=/`);
     }
 
-    public static async isLogged(hash: string): Promise<number | undefined> {
+    public static async isLogged(hash: string): Promise<string | undefined> {
         const loginLink: LoginLink | null = await LoginLink.findOne({
             where: {
                 hash: hash,
@@ -94,6 +77,6 @@ export default class LoginLinkService {
             }
         });
 
-        return loginLink ? loginLink?.attendeeId : undefined;
+        return loginLink ? loginLink?.attendeeUuid : undefined;
     }
 }

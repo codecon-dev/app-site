@@ -38,9 +38,9 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
         };
     }
 
-    const attendeeId = await LoginLinkService.isLogged(hash);
+    const attendeeUuid = await LoginLinkService.isLogged(hash);
 
-    if (!attendeeId) {
+    if (!attendeeUuid) {
         return {
             props: {
                 isLogged: false
@@ -48,7 +48,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
         };
     }
 
-    const attendee = await Attendee.findByPk(attendeeId);
+    const attendee = await Attendee.findByPk(attendeeUuid);
 
     return {
         props: {
@@ -59,7 +59,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
                 email: attendee?.email,
                 githubFullName: attendee?.githubFullName,
                 githubUsername: attendee?.githubUsername,
-                symplaId: attendee?.symplaId
+                even3Id: attendee?.even3Id
             }
         }
     };

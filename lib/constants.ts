@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import { EVENTS, MenuItem } from './types/all';
 
 export type EventPrice = {
@@ -42,7 +42,7 @@ export const SITE_NAME = 'Codecon • Festival de código e tecnologia';
 export const META_DESCRIPTION =
     'A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.';
 export const RANKING_ENABLED = true;
-export const WHATSAPP_LINK = 'https://wa.me/+5547991367060';
+export const WHATSAPP_LINK = 'https://wa.me/+5547935052153';
 
 export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | undefined) => {
     let eventData: EventData;
@@ -54,11 +54,11 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
         let discountCode = urlParams.get('d');
 
         if (!discountCode) {
-            discountCode = window.localStorage.getItem(`${event?.toUpperCase()}_discount`)
+            discountCode = window.localStorage.getItem(`${event?.toUpperCase()}_discount`);
         }
 
         setDiscountCode(discountCode || '');
-    }, [event])
+    }, [event]);
 
     switch (event) {
         case 'digital':
@@ -84,9 +84,7 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                         route: '/digital/patrocinadores'
                     }
                 ],
-                attendeeNav: [
-                    
-                ],
+                attendeeNav: [],
                 eventPrice: [
                     {
                         name: 'Early bird',
@@ -141,8 +139,7 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                     'O maior evento para pessoas programadoras de Santa Catarina, com grandes nomes nacionais.',
                 registerUrl: `https://www.sympla.com.br/evento/codecon-summit-2023/1829544?d=${discountCode}`,
                 whatsapp: 'https://chat.whatsapp.com/D0zzxblnzloFulzLvzXi1e',
-                menuNav: [
-                ],
+                menuNav: [],
                 attendeeNav: [
                     {
                         name: 'Aftermovie',
@@ -273,9 +270,7 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                     'A Codecon organiza eventos de tecnologia que juntam código, networking e diversão.',
                 registerUrl: '#',
                 whatsapp: WHATSAPP_LINK,
-                menuNav: [
-                    
-                ],
+                menuNav: [],
                 attendeeNav: [
                     {
                         name: 'Fale com a gente',

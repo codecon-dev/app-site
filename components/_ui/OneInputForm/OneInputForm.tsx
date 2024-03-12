@@ -39,7 +39,7 @@ export default function OneInputForm({
                 className={styles.input}
                 placeholder={placeholder}
                 required
-                style={ allCaps ? { textTransform: 'uppercase' } : undefined} 
+                style={allCaps ? { textTransform: 'uppercase' } : undefined}
             />
             <button type="submit" disabled={isLoading || disableSubmit} className={styles.button}>
                 {isLoading ? 'Enviando...' : buttonText}

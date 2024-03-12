@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import dataSource from 'src/database/DataSource';
 import ModelImpl, { commonAttributes } from '../ModelImpl';
-import User from '../User';
+import Attendee from '../Attendee';
 import Puzzle, { PuzzleCompanyType } from './Puzzle';
 
 export enum PuzzleAnswerStatus {
@@ -17,7 +17,7 @@ class PuzzleAnswer extends ModelImpl<PuzzleAnswer> {
     declare doneAt: Date;
     declare puzzleId?: number;
     declare company?: PuzzleCompanyType;
-    declare userId?: number;
+    declare attendeeUuid?: string;
 }
 
 PuzzleAnswer.init(
@@ -27,12 +27,13 @@ PuzzleAnswer.init(
         almosts: { type: DataTypes.INTEGER.UNSIGNED, allowNull: false, defaultValue: 0 },
         status: { type: DataTypes.ENUM(...Object.keys(PuzzleAnswerStatus)) },
         doneAt: { type: DataTypes.DATE, allowNull: true, defaultValue: null },
-        company: { type: DataTypes.ENUM(...Object.keys(PuzzleCompanyType)) }
+        company: { type: DataTypes.ENUM(...Object.keys(PuzzleCompanyType)) },
+        attendeeUuid: { type: DataTypes.UUID, allowNull: false }
     },
     { sequelize: dataSource }
 );
 
 PuzzleAnswer.belongsTo(Puzzle, { foreignKey: 'puzzleId', targetKey: 'id' });
-PuzzleAnswer.belongsTo(User, { foreignKey: 'userId', targetKey: 'id' });
+PuzzleAnswer.belongsTo(Attendee, { foreignKey: 'attendeeUuid', targetKey: 'uuid' });
 
 export default PuzzleAnswer;

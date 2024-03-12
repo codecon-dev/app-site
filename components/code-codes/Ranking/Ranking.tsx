@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import MaterialTable from 'material-table';
 
-import { UserRank } from '@lib/types/all';
+import { AttendeeRank } from '@lib/types/all';
 
-export default function Ranking({ users }: { users: UserRank[] }) {
-    const rankUsers = users.map((user, index) => ({
+export default function Ranking({ users }: { users: AttendeeRank[] }) {
+    const rankAttendees = users.map((user, index) => ({
         tag: user.tag,
         score: user.score,
         position: index + 1,
@@ -22,7 +22,7 @@ export default function Ranking({ users }: { users: UserRank[] }) {
                         { title: 'Pontuação', field: 'score', type: 'numeric' },
                         { title: 'Resgates', field: 'claims', type: 'numeric' }
                     ]}
-                    data={rankUsers}
+                    data={rankAttendees}
                     title="Ranking"
                 />
                 <br />
