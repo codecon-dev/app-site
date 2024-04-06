@@ -2,6 +2,7 @@ import { Op } from 'sequelize';
 import { NextApiResponse } from 'next';
 import { Resend } from 'resend';
 
+import { LoginCodeEmail } from '../../transactional/emails/magic-link';
 import Attendee from 'src/database/model/Attendee';
 import LoginLink from 'src/database/model/LoginLink';
 
@@ -17,12 +18,10 @@ export default class LoginLinkService {
         const resend = new Resend(process.env.RESEND_API_KEY || '');
 
         const sendMail = await resend.emails.send({
-            from: 'contato@codecon.dev',
+            from: 'Codecon <contato@codecon.dev>',
             to: email,
-            subject: 'Seu link mágico chegou',
-            html: `<p>Olá!<br/><br/>Para confirmar seu login <a href="https://codecon.dev/${event.toLowerCase()}/inscrito/${
-                magicLink.hash
-            }">clique aqui</a>.</p>`
+            subject: 'Seu código de verificação - Codecon',
+            react: LoginCodeEmail({ validationCode: magicLink.hash })
         });
 
         if (!sendMail) {

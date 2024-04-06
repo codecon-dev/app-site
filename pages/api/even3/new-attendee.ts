@@ -14,17 +14,20 @@ export default async function NewAttendeeController(
             return;
         }
 
-        const attendee = req.body.pessoa;
+        const data = req.body.data;
+        const attendee = data.pessoa;
 
         const fullName = attendee.nome as string;
+        const fullNameSplit = fullName.split(' ');
 
-        const even3Id: string = req.body.inscricao.id;
-        const name: string = fullName.split(' ')[0];
-        const lastName: string = fullName.split(' ')[-1];
+        const even3Id: string = data.inscricao.id;
+        const name: string = fullNameSplit[0];
+        const lastName: string = fullNameSplit[fullNameSplit.length - 1];
+        const displayName: string = attendee.nome_para_cracha;
         const email: string = attendee.email;
         const event = 'SUMMIT';
 
-        await AttendeeService.create(even3Id, name, lastName, email, event);
+        await AttendeeService.create(even3Id, name, lastName, displayName, email, event);
 
         ApiResponse.build(res, StatusCodes.OK, 'Tudo certo');
     } catch (exception) {

@@ -34,3 +34,5 @@ yarn-error.log*
 .vercel
 .env
 .env*.local
+
+transactional/node_modules

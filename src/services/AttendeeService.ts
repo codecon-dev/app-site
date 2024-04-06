@@ -13,6 +13,7 @@ export default class AttendeeService {
         even3Id: string,
         name: string,
         lastName: string,
+        displayName: string,
         email: string,
         event: Event
     ): Promise<void> {
@@ -25,6 +26,7 @@ export default class AttendeeService {
             even3Id,
             name,
             lastName,
+            displayName,
             email,
             event
         });
@@ -34,11 +36,9 @@ export default class AttendeeService {
 
     public static async completeRegistration(
         attendee: Attendee,
-        mobilePhone: string,
-        displayName: string
+        mobilePhone: string
     ): Promise<AttendeeResponse> {
         attendee.mobilePhone = mobilePhone;
-        attendee.displayName = displayName;
         await attendee.save();
 
         return {

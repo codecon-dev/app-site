@@ -13,7 +13,6 @@ type Props = {
 
 export default function CompleteYourRegistration({ attendeeUuid, onSuccess }: Props) {
     const [mobilePhone, setMobilePhone] = useState<string>('');
-    const [displayName, setDisplayName] = useState<string>('');
     const [isLoading, setLoading] = useState<boolean>(false);
 
     async function handleSubmit(event: FormEvent) {
@@ -26,7 +25,7 @@ export default function CompleteYourRegistration({ attendeeUuid, onSuccess }: Pr
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ attendeeUuid, mobilePhone, displayName })
+                body: JSON.stringify({ attendeeUuid, mobilePhone })
             });
 
             const json = await response.json();
@@ -71,18 +70,9 @@ export default function CompleteYourRegistration({ attendeeUuid, onSuccess }: Pr
                             onChange={phone => setMobilePhone(phone)}
                         />
 
-                        <input
-                            type="text"
-                            className={oneInputFormStyles.input}
-                            placeholder="Como devemos te chamar?"
-                            value={displayName}
-                            onChange={event => setDisplayName(event.target.value)}
-                            required
-                        />
-
                         <button
                             type="submit"
-                            disabled={mobilePhone.length < 5 || !displayName.length}
+                            disabled={mobilePhone.length < 5}
                             className={oneInputFormStyles.button}
                         >
                             {isLoading ? 'Salvando...' : 'Continuar'}
