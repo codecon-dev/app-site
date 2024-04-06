@@ -69,7 +69,7 @@ const heading = {
     fontSize: '24px',
     letterSpacing: '-0.5px',
     lineHeight: '1.3',
-    fontWeight: '400',
+    fontWeight: 400,
     color: '#484848',
     padding: '17px 0 0'
 };
@@ -93,7 +93,7 @@ const hr = {
 
 const code = {
     fontFamily: 'monospace',
-    fontWeight: '700',
+    fontWeight: 700,
     padding: '1px 4px',
     backgroundColor: '#dfe1e4',
     letterSpacing: '-0.3px',
