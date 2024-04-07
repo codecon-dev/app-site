@@ -85,8 +85,7 @@ export default function Navbar({ hideNavMenu, live }: { hideNavMenu: boolean; li
                                 >
                                     <span
                                         className={cn(styles['nav__item'], {
-                                            [styles['nav__item--active']]:
-                                                activeRoute.startsWith(route),
+                                            [styles['nav__item--active']]: activeRoute === route,
                                             [styles['nav__item--button']]: type == 'button'
                                         })}
                                     >

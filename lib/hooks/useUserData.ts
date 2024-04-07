@@ -29,11 +29,14 @@ export function useUserData(): [ConfAttendee, boolean] {
 
             if (success) {
                 setAttendeeData({
+                    attendeeNumber: data.attendeeNumber,
                     attendeeUuid: data.attendeeUuid,
                     firstName: data.firstName,
                     displayName: data.displayName,
                     hasMobilePhone: data.hasMobilePhone,
-                    hasAcceptedTerms: data.hasAcceptedTerms
+                    hasAcceptedTerms: data.hasAcceptedTerms,
+                    githubFullName: data.githubFullName,
+                    githubUsername: data.githubUsername
                 });
             }
 

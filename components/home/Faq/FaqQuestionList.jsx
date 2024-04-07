@@ -51,7 +51,7 @@ export const faqQuestionListDigital = [
             <>
                 Se ainda ficaram dúvidas, não se acanhe. É só{' '}
                 <a href={WHATSAPP_LINK}>chamar a gente no WhatsApp</a> ou procurar a gente no{' '}
-                <a href="https://codecon.dev/discord">Discord</a>.
+                <a href="https://app.codecon.dev/discord">Discord</a>.
             </>
         )
     }
@@ -152,7 +152,7 @@ export const faqQuestionListSummit = [
             <>
                 Se ainda ficaram dúvidas, não se acanhe. É só{' '}
                 <a href={WHATSAPP_LINK}>chamar a gente no WhatsApp</a> procurar a gente no{' '}
-                <a href="https://codecon.dev/discord">Discord</a>.
+                <a href="https://app.codecon.dev/discord">Discord</a>.
             </>
         )
     }
@@ -219,7 +219,7 @@ export const faqQuestionListFeature = [
             <>
                 Se ainda ficaram dúvidas, não se acanhe. É só{' '}
                 <a href={WHATSAPP_LINK}>chamar a gente no WhatsApp</a> procurar a gente no{' '}
-                <a href="https://codecon.dev/discord">Discord</a>.
+                <a href="https://app.codecon.dev/discord">Discord</a>.
             </>
         )
     }

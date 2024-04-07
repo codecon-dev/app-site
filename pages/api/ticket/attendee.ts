@@ -23,13 +23,13 @@ export default async function AttendeeTicketController(req: NextApiRequest, res:
 }
 
 async function update(req: NextApiRequest, res: NextApiResponse) {
-    const id: number = req.body.id;
+    const uuid: number = req.body.id;
     const username: string = req.body.username;
     const fullName: string = req.body.fullName;
 
     await Attendee.update(
         { githubUsername: username, githubFullName: fullName },
-        { where: { id: id } }
+        { where: { uuid: uuid } }
     );
 
     ApiResponse.build(res, StatusCodes.OK, 'Login realizado com sucesso');

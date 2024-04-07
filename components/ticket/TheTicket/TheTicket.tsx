@@ -21,7 +21,7 @@ export default function TheTicket({
 }: Props) {
     const theme = useContext(ThemeContext);
     const numDigits = number.toString().length;
-    const prefix = `00000`.slice(numDigits);
+    const prefix = `0000000`.slice(numDigits);
 
     return (
         <div
@@ -52,10 +52,10 @@ export default function TheTicket({
             </div>
             <svg
                 className={cn(styles.number, { [styles.responsive]: responsive })}
-                viewBox="0 0 100 20"
+                viewBox="0 0 100 50"
             >
-                <text x="0" y="15" fill="var(--color-black)">
-                    № {prefix}
+                <text x="0" y="40" fill="var(--color-gray)">
+                    #{prefix}
                     {number}
                 </text>
             </svg>

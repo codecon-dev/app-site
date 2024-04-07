@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
 import Image from 'next/image';
 import cn from 'classnames';
-import Attendee from 'src/database/model/Attendee';
+import { ConfAttendee } from '@lib/types/all';
 import ThemeContext from 'context/ThemeContext';
 
 import { Grid, Column } from '@components/_ui/Grid';
@@ -15,7 +15,7 @@ import TicketUrl from '../TicketUrl';
 import styles from './AttendeeArea.module.scss';
 
 type Props = {
-    attendee: Attendee;
+    attendee: ConfAttendee;
 };
 
 export default function AttendeeArea({ attendee }: Props) {
@@ -35,14 +35,11 @@ export default function AttendeeArea({ attendee }: Props) {
                     {githubData ? (
                         <div className={styles.content}>
                             <h2>
-                                Boa! Seu ticket da <span>Codecon foi gerado.</span>
+                                Boa! Seu ticket <span>foi gerado.</span>
                             </h2>
-                            <p className="headline">
-                                Para confirmar sua participação no sorteio, compartilhe nas redes
-                                sociais.
-                            </p>
+                            <p className="headline">Compartilhe-o nas rede sociais.</p>
                             <TicketActions
-                                ticketNumber={attendee.id}
+                                ticketNumber={attendee.attendeeNumber ?? 0}
                                 githubFullName={githubData.name}
                                 githubUsername={githubData.login}
                             />
@@ -50,28 +47,20 @@ export default function AttendeeArea({ attendee }: Props) {
                         </div>
                     ) : (
                         <div className={styles.content}>
-                            Hey, {attendee.name}! 👋
+                            Hey, {attendee.firstName}! 👋
                             <h2>
-                                Quer concorrer a um <span>kit da Codecon?</span>
+                                Mostre ao mundo que você estará na <span>Codecon Summit</span>
                             </h2>
-                            <p className="headline">
-                                É só gerar seu ticket e compartilhar nas redes sociais.
-                            </p>
-                            <Image
-                                alt="Kit Codecon"
-                                src="/images/ticket/kit-codecon.png"
-                                width={497}
-                                height={212}
-                            />
+                            <p className="headline">É só gerar seu ticket com o GitHub.</p>
                         </div>
                     )}
                 </Column>
                 <Column lg={7}>
                     <div className={styles.ticket}>
                         <TheTicket
-                            name={githubData?.name || attendee.name}
+                            name={githubData?.name || attendee.firstName}
                             username={githubData?.login}
-                            number={attendee.id}
+                            number={attendee.attendeeNumber}
                         />
                         <Form attendee={attendee} setGithubData={setGithubData} />
                     </div>

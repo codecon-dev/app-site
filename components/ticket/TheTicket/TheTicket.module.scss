@@ -54,9 +54,9 @@
 
     &.responsive {
         @media #{$breakpoint-sm} {
-            width: 7%;
+            width: 14.25%;
             left: 10%;
-            top: 18%;
+            top: 15.75%;
         }
     }
 }
@@ -65,11 +65,13 @@
     width: 73%;
     position: absolute;
     top: 21%;
-    left: 14%;
+    left: 20%;
 
     .title {
         width: 100%;
         font-weight: bold;
+        font-family: 'Big Shoulders Text';
+        text-transform: uppercase;
     }
 
     .username {
@@ -91,14 +93,15 @@
 
         @media #{$breakpoint-sm} {
             width: 56%;
-            top: 18%;
-            left: 19%;
+            top: 22%;
+            left: 29%;
         }
     }
 }
 
 .number {
     position: absolute;
+    font-family: 'Big Shoulders Text';
     top: 80%;
     left: 21%;
     color: var(--color-black);
@@ -108,11 +111,12 @@
 
     &.responsive {
         @media #{$breakpoint-sm} {
-            transform: rotate(-90deg);
-            transform-origin: bottom right;
-            top: -10%;
+            font-size: 24px;
+            transform: rotate(90deg);
+            transform-origin: 50% 50%;
+            top: 35%;
             left: auto;
-            right: 12%;
+            right: -2%;
             width: 35%;
         }
     }

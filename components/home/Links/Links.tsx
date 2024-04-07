@@ -25,7 +25,7 @@ export default function Links() {
                             <WhatsApp size={24} />
                         </a>
                         <a
-                            href="https://codecon.dev/discord"
+                            href="https://app.codecon.dev/discord"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.button}

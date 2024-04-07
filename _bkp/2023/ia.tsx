@@ -8,7 +8,7 @@ export default function Index() {
     const meta = {
         title: 'Senior-GPT • IA para pessoas desenvolvedoras • Codecon',
         description: 'A primeira ia brasileira focada em pessoas desenvolvedoras',
-        image: 'https://codecon.dev/ia-share.png'
+        image: 'https://app.codecon.dev/ia-share.png'
     };
 
     return (

@@ -8,7 +8,7 @@ export default function CodeCodesResgate() {
     };
 
     return (
-        <Page theme="summit" meta={meta} hideNav hideFooter>
+        <Page theme="summit" meta={meta} hideFooter hideWhatsApp>
             <PrivateArea>
                 <>
                     <Claim />

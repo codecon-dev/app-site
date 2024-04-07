@@ -3,7 +3,7 @@ import PrivateArea from '@components/_ui/PrivateArea';
 
 export default function Index() {
     return (
-        <Page>
+        <Page theme="summit">
             <PrivateArea>
                 <>olá</>
             </PrivateArea>

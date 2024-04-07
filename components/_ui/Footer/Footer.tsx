@@ -246,7 +246,7 @@ export default function Footer({ sponsors }: Props) {
 
                             <a
                                 className={styles.icon}
-                                href="https://codecon.dev/discord"
+                                href="https://app.codecon.dev/discord"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

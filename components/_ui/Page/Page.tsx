@@ -28,6 +28,7 @@ type Props = {
     hideNav?: boolean;
     hideNavMenu?: boolean;
     hideFooter?: boolean;
+    hideWhatsApp?: boolean;
     noPadding?: boolean;
     sponsors?: Sponsor[];
 };
@@ -39,6 +40,7 @@ export default function Page({
     live,
     hideNav,
     hideFooter,
+    hideWhatsApp,
     noPadding,
     sponsors,
     hideNavMenu = false
@@ -93,7 +95,6 @@ export default function Page({
                 {!hideNav && <Navbar live={live} hideNavMenu={hideNavMenu} />}
                 <main>{children}</main>
                 {!hideFooter && <SubscribeCountdown eventData={eventData} />}
-                {(!hideNav || !hideFooter) && <WhatsappFloatingButton />}
                 {!hideFooter && <Footer sponsors={sponsors} />}
             </div>
         </ThemeContext.Provider>

@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 
 import { SITE_ORIGIN } from '@lib/constants';
 import { GitHubOAuthData } from '@lib/types/all';
-import Attendee from 'src/database/model/Attendee';
+import { ConfAttendee } from '@lib/types/all';
 import ThemeContext from 'context/ThemeContext';
 
 import IconGithub from '@components/_ui/Icons/icon-github';
@@ -15,7 +15,7 @@ import styles from './GithubAuth.module.scss';
 type FormState = 'default' | 'loading' | 'error';
 
 type Props = {
-    attendee: Attendee;
+    attendee: ConfAttendee;
     setGithubData: (data: GitHubOAuthData) => void;
 };
 
@@ -88,6 +88,7 @@ export default function Form({ attendee, setGithubData }: Props) {
             });
         })
             .then(async data => {
+                console.log(1);
                 if (!data) {
                     setFormState('default');
                     return;
@@ -101,11 +102,13 @@ export default function Form({ attendee, setGithubData }: Props) {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        id: attendee.uuid,
+                        id: attendee.attendeeUuid,
                         username: data.login,
                         fullName: data.name
                     })
                 });
+
+                console.log(2);
 
                 setGithubData(data);
                 setUsername(usernameFromResponse);

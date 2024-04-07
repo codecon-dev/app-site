@@ -6,8 +6,8 @@ export const config = {
     runtime: 'edge'
 };
 
-const font = fetch(new URL('../../../public/fonts/SpaceGrotesk.ttf', import.meta.url)).then(res =>
-    res.arrayBuffer()
+const font = fetch(new URL('../../../public/fonts/BigShouldersText.ttf', import.meta.url)).then(
+    res => res.arrayBuffer()
 );
 
 type Params = {
@@ -31,7 +31,7 @@ export default async function handler(req: NextApiRequest) {
         const parsedParams: Params = JSON.parse(atob(params));
 
         const numDigits = parsedParams.ticketNumber.toString().length;
-        const prefix = `00000`.slice(numDigits);
+        const prefix = `0000000`.slice(numDigits);
 
         return new ImageResponse(
             (
@@ -39,34 +39,34 @@ export default async function handler(req: NextApiRequest) {
                     <img
                         width="1080"
                         height="1920"
-                        src={`https://codecon.dev/images/ticket/${parsedParams.event}-stories.jpg`}
+                        src={`https://app.codecon.dev/images/ticket/ticket-stories.png`}
                         style={{
                             position: 'relative'
                         }}
                     />
                     <img
                         alt="avatar"
-                        width="115"
+                        width="162"
                         src={`https://github.com/${parsedParams.username}.png`}
                         style={{
                             borderRadius: 128,
                             position: 'absolute',
-                            left: 320,
-                            top: 568
+                            left: 202,
+                            top: 761
                         }}
                     />
                     <div
                         style={{
                             color: 'white',
                             width: 450,
-                            fontSize: 48,
-                            fontFamily: 'SpaceGrotesk',
+                            fontSize: 60,
+                            fontFamily: 'BigShouldersText',
                             position: 'absolute',
-                            left: 320,
-                            top: 706
+                            left: 420,
+                            top: 770
                         }}
                     >
-                        {`${parsedParams.name}`}
+                        {`${parsedParams.name.toUpperCase()}`}
                     </div>
                     <div
                         style={{
@@ -74,21 +74,22 @@ export default async function handler(req: NextApiRequest) {
                             width: 450,
                             fontSize: 35,
                             position: 'absolute',
-                            left: 320,
-                            top: 770
+                            left: 420,
+                            top: 840
                         }}
                     >
                         {`@${parsedParams.username}`}
                     </div>
                     <div
                         style={{
-                            color: 'black',
-                            fontSize: 76,
-                            fontFamily: 'SpaceGrotesk',
+                            color: 'gray',
+                            fontSize: 99,
+                            fontFamily: 'BigShouldersText',
                             width: 500,
                             position: 'absolute',
-                            left: 370,
-                            top: 1445
+                            left: 800,
+                            top: 950,
+                            transform: 'rotate(90deg)'
                         }}
                     >
                         {`№ ${prefix}${parsedParams.ticketNumber}`}
@@ -100,7 +101,7 @@ export default async function handler(req: NextApiRequest) {
                 height: 1920,
                 fonts: [
                     {
-                        name: 'SpaceGrotesk',
+                        name: 'BigShouldersText',
                         data: fontData,
                         style: 'normal'
                     }

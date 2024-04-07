@@ -51,7 +51,7 @@ export default function Contact() {
                             <IconGithub size={24} color="var(--color-primary)" />
                         </a>
                         <a
-                            href="https://codecon.dev/discord"
+                            href="https://app.codecon.dev/discord"
                             target="_blank"
                             rel="noreferrer noopener"
                         >

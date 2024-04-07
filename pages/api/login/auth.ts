@@ -56,10 +56,13 @@ async function getUser(req: NextApiRequest, res: NextApiResponse) {
     }
 
     ApiResponse.build(res, StatusCodes.OK, 'Sucesso', {
+        attendeeNumber: attendee.id,
         attendeeUuid: attendee.uuid,
         firstName: attendee.name,
         displayName: attendee.displayName,
         hasMobilePhone: attendee.mobilePhone ? true : false,
-        hasAcceptedTerms: attendee.acceptedTerms
+        hasAcceptedTerms: attendee.acceptedTerms,
+        githubFullName: attendee.githubFullName,
+        githubUsername: attendee.githubUsername
     });
 }

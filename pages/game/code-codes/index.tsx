@@ -19,7 +19,7 @@ export default function Ranking({ rankAttendees, sponsors }: Props) {
     };
 
     return (
-        <Page theme="digital" meta={meta} sponsors={sponsors} hideNav hideFooter>
+        <Page theme="digital" meta={meta} sponsors={sponsors}>
             <Header title="Code-codes" description="Ranking" smaller />
             {RANKING_ENABLED ? (
                 <Rank users={rankAttendees} />

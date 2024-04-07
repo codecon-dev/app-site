@@ -4,7 +4,7 @@
     "private": false,
     "repository": "codecon-dev/site",
     "author": "Codecon",
-    "homepage": "https://codecon.dev",
+    "homepage": "https://app.codecon.dev",
     "license": "Apache-2.0",
     "engines": {
         "node": "18.x"

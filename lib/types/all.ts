@@ -85,11 +85,14 @@ export type Workshop = {
 };
 
 export type ConfAttendee = {
+    attendeeNumber?: number;
     attendeeUuid?: string;
     firstName?: string;
     displayName?: string;
     hasMobilePhone?: boolean;
     hasAcceptedTerms?: boolean;
+    githubFullName?: string;
+    githubUsername?: string;
 };
 
 export type OkPacket = {

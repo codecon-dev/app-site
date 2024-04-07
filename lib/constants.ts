@@ -35,7 +35,7 @@ export type EventData = {
     };
 };
 
-export const SITE_URL = 'https://codecon.dev';
+export const SITE_URL = 'https://app.codecon.dev';
 export const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN || new URL(SITE_URL).origin;
 export const TWITTER_USER_NAME = 'codecondev';
 export const SITE_NAME = 'Codecon • Festival de código e tecnologia';
@@ -73,7 +73,7 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 finalDate: new Date('2023-06-23 00:00:00'),
                 homeUrl: '/digital',
                 siteName: 'Codecon Digital • Festival de código e tecnologia',
-                shareImage: 'https://codecon.dev/digital-share.png',
+                shareImage: 'https://app.codecon.dev/digital-share.png',
                 metaDescription:
                     'A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.',
                 registerUrl: 'https://www.sympla.com.br/evento-online/codecon-digital-2023/1829527',
@@ -132,9 +132,9 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 local: 'Campus Park',
                 city: 'Joinville, SC',
                 initialDate: new Date('2023-08-26 00:00:00'),
-                homeUrl: '/summit',
+                homeUrl: '/',
                 siteName: 'Codecon Summit • Inovação, tecnologia, experiências e muito código',
-                shareImage: 'https://codecon.dev/summit-share.png',
+                shareImage: 'https://app.codecon.dev/summit-share.png',
                 metaDescription:
                     'O maior evento para pessoas programadoras de Santa Catarina, com grandes nomes nacionais.',
                 registerUrl: `https://www.sympla.com.br/evento/codecon-summit-2023/1829544?d=${discountCode}`,
@@ -142,17 +142,16 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 menuNav: [],
                 attendeeNav: [
                     {
-                        name: 'Aftermovie',
-                        route: 'https://www.youtube.com/watch?v=Akyhkv5msdA',
-                        target: '_blank'
+                        name: 'Dashboard',
+                        route: '/'
                     },
                     {
-                        name: 'Patrocinadores',
-                        route: '/summit/patrocinadores'
+                        name: 'Code-codes',
+                        route: '/game/code-codes/resgate'
                     },
                     {
-                        name: 'Galeria de fotos',
-                        route: 'https://fotos-summit.codecon.dev/',
+                        name: 'Gerar ticket',
+                        route: '/tickets',
                         type: 'button'
                     }
                 ],
@@ -184,7 +183,7 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                     background: '#120E16'
                 },
                 heading: {
-                    fontFace: 'Jost',
+                    fontFace: 'Big Shoulders Text',
                     textTransform: 'uppercase'
                 }
             };
@@ -201,7 +200,7 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 homeUrl: '/feature',
                 siteName:
                     'Codecon Feature • Um evento de tecnologia para profissionais em cargos sênior+',
-                shareImage: 'https://codecon.dev/feature-share.png',
+                shareImage: 'https://app.codecon.dev/feature-share.png',
                 metaDescription:
                     'O evento será repleto de sessões e workshops onde todos podem trazer problemas que enfrentam e todos tem locais de fala.',
                 registerUrl: `https://www.sympla.com.br/evento/codecon-feature-2023/1829552?d=${discountCode}`,
@@ -262,9 +261,9 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
             break;
         default:
             eventData = {
-                homeUrl: 'https://codecon.dev/',
+                homeUrl: 'https://app.codecon.dev/',
                 siteName: 'Codecon • Eventos de tecnologia que fogem do comum',
-                shareImage: 'https://codecon.dev/share-image.png',
+                shareImage: 'https://app.codecon.dev/share-image.png',
                 initialDate: new Date(),
                 metaDescription:
                     'A Codecon organiza eventos de tecnologia que juntam código, networking e diversão.',

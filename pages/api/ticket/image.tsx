@@ -6,8 +6,8 @@ export const config = {
     runtime: 'edge'
 };
 
-const font = fetch(new URL('../../../public/fonts/SpaceGrotesk.ttf', import.meta.url)).then(res =>
-    res.arrayBuffer()
+const font = fetch(new URL('../../../public/fonts/BigShouldersText.ttf', import.meta.url)).then(
+    res => res.arrayBuffer()
 );
 
 type Params = {
@@ -31,7 +31,7 @@ export default async function handler(req: NextApiRequest) {
         const parsedParams: Params = JSON.parse(atob(params));
 
         const numDigits = parsedParams.ticketNumber.toString().length;
-        const prefix = `00000`.slice(numDigits);
+        const prefix = `0000000`.slice(numDigits);
 
         return new ImageResponse(
             (
@@ -39,34 +39,34 @@ export default async function handler(req: NextApiRequest) {
                     <img
                         width="1200"
                         height="628"
-                        src={`https://codecon.dev/images/ticket/${parsedParams.event}-share.jpg?1`}
+                        src={`https://app.codecon.dev/images/ticket/ticket-share.jpg`}
                         style={{
                             position: 'relative'
                         }}
                     />
                     <img
                         alt="avatar"
-                        width="80"
+                        width="162"
                         src={`https://github.com/${parsedParams.username}.png`}
                         style={{
                             borderRadius: 128,
                             position: 'absolute',
-                            left: 240,
-                            top: 180
+                            left: 145,
+                            top: 128
                         }}
                     />
                     <div
                         style={{
                             color: 'white',
                             width: 500,
-                            fontSize: 37,
-                            fontFamily: 'SpaceGrotesk',
+                            fontSize: 55,
+                            fontFamily: 'BigShouldersText',
                             position: 'absolute',
-                            left: 342,
-                            top: 178
+                            left: 362,
+                            top: 158
                         }}
                     >
-                        {`${parsedParams.name}`}
+                        {`${parsedParams.name.toUpperCase()}`}
                     </div>
                     <div
                         style={{
@@ -74,7 +74,7 @@ export default async function handler(req: NextApiRequest) {
                             width: 500,
                             fontSize: 24,
                             position: 'absolute',
-                            left: 342,
+                            left: 362,
                             top: 220
                         }}
                     >
@@ -82,17 +82,17 @@ export default async function handler(req: NextApiRequest) {
                     </div>
                     <div
                         style={{
-                            color: 'black',
-                            fontSize: 47,
-                            fontFamily: 'SpaceGrotesk',
+                            color: 'gray',
+                            fontSize: 99,
+                            fontFamily: 'BigShouldersText',
                             width: 500,
                             position: 'absolute',
-                            left: 650,
-                            top: 150,
-                            transform: 'rotate(-90deg)'
+                            left: 730,
+                            top: 300,
+                            transform: 'rotate(90deg)'
                         }}
                     >
-                        {`№ ${prefix}${parsedParams.ticketNumber}`}
+                        {`# ${prefix}${parsedParams.ticketNumber}`}
                     </div>
                 </div>
             ),
