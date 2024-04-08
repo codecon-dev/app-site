@@ -21,8 +21,6 @@ export default function TicketActions({ ticketNumber, githubFullName, githubUser
     const permalink = encodeURIComponent(`${SITE_URL}/tickets/${githubUsername}`);
     const tweetUrl = `https://twitter.com/intent/tweet?url=${permalink}&via=codecondev&text=Já garanti minha inscrição!`;
     const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${permalink}`;
-    const whatsappText = encodeURIComponent('Já garanti minha inscrição!');
-    const whatsappUrl = `https://wa.me/?text=${whatsappText} ${permalink}`;
 
     const params = {
         name: githubFullName,
@@ -55,14 +53,6 @@ export default function TicketActions({ ticketNumber, githubFullName, githubUser
                 target="_blank"
             >
                 <IconTwitter color="var(--color-black)" size={24} />
-            </a>
-            <a
-                className={cn(styles.button)}
-                href={whatsappUrl}
-                rel="noopener noreferrer"
-                target="_blank"
-            >
-                <Whatsapp size={24} color="var(--color-black)" />
             </a>
             <a className={cn(styles.button)} href={downloadUrl} download="ticket.png">
                 <InstagramIcon size={24} color="var(--color-black)" />
