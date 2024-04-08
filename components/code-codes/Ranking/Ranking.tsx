@@ -14,7 +14,6 @@ export default function Ranking({ users }: { users: AttendeeRank[] }) {
         <section>
             <div className="container">
                 <MaterialTable
-                    options={{ pageSize: 10 }}
                     columns={[
                         { title: 'Posição', field: 'position', cellStyle: { width: '10%' } },
                         { title: 'Nome', field: 'tag' },

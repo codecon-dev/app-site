@@ -10,6 +10,7 @@ import OtpInput from './OtpInput';
 import styles from './PrivateArea.module.scss';
 import { useUserData } from '@lib/hooks/useUserData';
 import Page from '../Page';
+import IconLogo from '../Icons/icon-logo';
 
 type Props = {
     children: ReactElement;
@@ -125,6 +126,9 @@ export default function PrivateArea({ children }: Props) {
             <Wrapper hideNavAndFooter>
                 <section className={styles.section}>
                     <div className="container">
+                        <div className={styles.logo}>
+                            <IconLogo theme="summit" />
+                        </div>
                         <h3>Faça login para continuar</h3>
 
                         <div className={styles.form}>
@@ -147,7 +151,12 @@ export default function PrivateArea({ children }: Props) {
     if (status === statusType.hashSent) {
         return (
             <Wrapper hideNavAndFooter>
-                <OtpInput attendeeUuid={attendeeUuid} onSuccess={handleStepFinished} />
+                <>
+                    <div className={styles.logo}>
+                        <IconLogo theme="summit" />
+                    </div>
+                    <OtpInput attendeeUuid={attendeeUuid} onSuccess={handleStepFinished} />
+                </>
             </Wrapper>
         );
     }
@@ -155,10 +164,15 @@ export default function PrivateArea({ children }: Props) {
     if (status === statusType.completeRegistration) {
         return (
             <Wrapper hideNavAndFooter>
-                <CompleteYourRegistration
-                    attendeeUuid={attendeeUuid}
-                    onSuccess={handleStepFinished}
-                />
+                <>
+                    <div className={styles.logo}>
+                        <IconLogo theme="summit" />
+                    </div>
+                    <CompleteYourRegistration
+                        attendeeUuid={attendeeUuid}
+                        onSuccess={handleStepFinished}
+                    />
+                </>
             </Wrapper>
         );
     }

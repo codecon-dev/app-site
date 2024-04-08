@@ -134,7 +134,7 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
                 finalDate: new Date('2024-09-07 00:00:00'),
                 homeUrl: '/',
                 siteName: 'Codecon Summit • Inovação, tecnologia, experiências e muito código',
-                shareImage: 'https://app.codecon.dev/summit-share.png',
+                shareImage: 'https://framerusercontent.com/assets/TadbpqYIYgOWwAOfokGxFsihdyo.png',
                 metaDescription: 'Um dos maiores encontros dev do sul do mundo.',
                 registerUrl: `https://codecon.dev/summit`,
                 whatsapp: 'https://chat.whatsapp.com/D0zzxblnzloFulzLvzXi1e',
