@@ -225,7 +225,7 @@ export default function Footer({ sponsors }: Props) {
                     </Column>
                     <Column lg={6} sm={6}>
                         <div className={styles.social}>
-                            <Link href="/digital/contato">Contato</Link>
+                            <Link href="https://www.codecon.dev/contato">Contato</Link>
                             <a
                                 className={styles.icon}
                                 href="https://twitter.com/codecondev"

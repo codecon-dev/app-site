@@ -1,4 +1,5 @@
 import { ReactElement, SyntheticEvent, useCallback, useEffect, useState } from 'react';
+import Head from 'next/head';
 import toast from 'react-hot-toast';
 
 import { ConfAttendee } from '@lib/types/all';
@@ -8,9 +9,15 @@ import TermsModal from './TermsModal';
 import OtpInput from './OtpInput';
 import styles from './PrivateArea.module.scss';
 import { useUserData } from '@lib/hooks/useUserData';
+import Page from '../Page';
 
 type Props = {
     children: ReactElement;
+};
+
+type WrapperProps = {
+    children: ReactElement;
+    hideNavAndFooter?: boolean;
 };
 
 const statusType = {
@@ -26,6 +33,28 @@ type LoginResponse = {
     success: boolean;
     message: string;
 };
+
+function Wrapper({ children, hideNavAndFooter }: WrapperProps) {
+    const meta = {
+        title: `Área do inscrito - Codecon`
+    };
+
+    return (
+        <>
+            <Head>
+                <meta name="robots" content="noindex" />
+            </Head>
+            <Page
+                meta={meta}
+                theme="summit"
+                hideNav={hideNavAndFooter}
+                hideFooter={hideNavAndFooter}
+            >
+                {children}
+            </Page>
+        </>
+    );
+}
 
 export default function PrivateArea({ children }: Props) {
     const [email, setEmail] = useState('');
@@ -84,44 +113,63 @@ export default function PrivateArea({ children }: Props) {
     }
 
     if (isLoadingUserData) {
-        return <div className={styles.loading} />;
+        return (
+            <Wrapper>
+                <div className={styles.loading} />
+            </Wrapper>
+        );
     }
 
     if (!attendeeUuid) {
         return (
-            <section className={styles.section}>
-                <div className="container">
-                    <h3>Faça login para continuar</h3>
+            <Wrapper hideNavAndFooter>
+                <section className={styles.section}>
+                    <div className="container">
+                        <h3>Faça login para continuar</h3>
 
-                    <div className={styles.form}>
-                        <OneInputForm
-                            handleSubmit={handleSubmit}
-                            handleInputChange={event => setEmail(event.target.value)}
-                            placeholder="Seu e-mail cadastrado"
-                            buttonText="Fazer login"
-                            inputType="email"
-                            disableSubmit={!email}
-                            isLoading={formLoading}
-                        />
+                        <div className={styles.form}>
+                            <OneInputForm
+                                handleSubmit={handleSubmit}
+                                handleInputChange={event => setEmail(event.target.value)}
+                                placeholder="Seu e-mail cadastrado"
+                                buttonText="Fazer login"
+                                inputType="email"
+                                disableSubmit={!email}
+                                isLoading={formLoading}
+                            />
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </Wrapper>
         );
     }
 
     if (status === statusType.hashSent) {
-        return <OtpInput attendeeUuid={attendeeUuid} onSuccess={handleStepFinished} />;
+        return (
+            <Wrapper hideNavAndFooter>
+                <OtpInput attendeeUuid={attendeeUuid} onSuccess={handleStepFinished} />
+            </Wrapper>
+        );
     }
 
     if (status === statusType.completeRegistration) {
         return (
-            <CompleteYourRegistration attendeeUuid={attendeeUuid} onSuccess={handleStepFinished} />
+            <Wrapper hideNavAndFooter>
+                <CompleteYourRegistration
+                    attendeeUuid={attendeeUuid}
+                    onSuccess={handleStepFinished}
+                />
+            </Wrapper>
         );
     }
 
     if (status === statusType.termsModal) {
-        return <TermsModal attendeeUuid={attendeeUuid} onAccept={handleStepFinished} />;
+        return (
+            <Wrapper hideNavAndFooter>
+                <TermsModal attendeeUuid={attendeeUuid} onAccept={handleStepFinished} />
+            </Wrapper>
+        );
     }
 
-    return children;
+    return <Wrapper>{children}</Wrapper>;
 }

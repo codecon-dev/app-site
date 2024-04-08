@@ -18,7 +18,7 @@ type Props = {
 
 export default function TicketActions({ ticketNumber, githubFullName, githubUsername }: Props) {
     const theme = useContext(ThemeContext);
-    const permalink = encodeURIComponent(`${SITE_URL}/${theme}/tickets/${githubUsername}`);
+    const permalink = encodeURIComponent(`${SITE_URL}/tickets/${githubUsername}`);
     const tweetUrl = `https://twitter.com/intent/tweet?url=${permalink}&via=codecondev&text=Já garanti minha inscrição!`;
     const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${permalink}`;
     const whatsappText = encodeURIComponent('Já garanti minha inscrição!');

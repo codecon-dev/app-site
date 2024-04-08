@@ -3,21 +3,22 @@
 .grid {
     display: grid;
     grid-template-areas:
-        'summit summit'
+        'ticket ticket'
+        'local calendar'
         'dvlpr dvlpr'
         'newsletter newsletter'
         'instagram twitter';
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 25rem 25rem 15rem 10rem;
+    grid-template-rows: 25rem 25rem 25rem 15rem 10rem;
     gap: 1rem;
 
     @media #{$breakpoint-sm} {
         grid-template-areas:
-            'summit summit summit summit'
+            'ticket ticket local calendar'
             'dvlpr dvlpr instagram twitter'
             'dvlpr dvlpr newsletter newsletter';
-        grid-template-columns: 1fr 1fr 0.5fr 0.5fr;
-        grid-template-rows: 25rem 10rem 16rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 20rem 12rem 16rem;
     }
 }
 
@@ -69,6 +70,10 @@
             transform: scale(100%);
         }
     }
+}
+
+.ticket {
+    grid-area: ticket;
 }
 
 .digital {

@@ -7,117 +7,64 @@
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: center;
+    padding-top: 48%;
 
     &.theme-digital {
-        background-image: url('/images/ticket/ticket-digital-vertical.svg');
+        background-image: url('/images/ticket/ticket-digital.svg');
     }
 
     &.theme-summit {
-        background-image: url('/images/ticket/ticket-summit-vertical.svg');
+        background-image: url('/images/ticket/ticket-summit.svg');
     }
 
     &.theme-feature {
-        background-image: url('/images/ticket/ticket-feature-vertical.svg');
-    }
-
-    &.responsive {
-        @media #{$breakpoint-sm} {
-            padding-top: 48%;
-
-            &.theme-digital {
-                background-image: url('/images/ticket/ticket-digital.svg');
-            }
-
-            &.theme-summit {
-                background-image: url('/images/ticket/ticket-summit.svg');
-            }
-
-            &.theme-feature {
-                background-image: url('/images/ticket/ticket-feature.svg');
-            }
-        }
+        background-image: url('/images/ticket/ticket-feature.svg');
     }
 }
 
 .avatar {
-    width: 20%;
     border-radius: 100%;
     background-color: var(--color-primary);
     position: absolute;
-    left: 14%;
-    top: 10%;
+    width: 14.25%;
+    left: 10%;
+    top: 15.75%;
 
     img {
         width: 100%;
         border-radius: 100%;
     }
-
-    &.responsive {
-        @media #{$breakpoint-sm} {
-            width: 14.25%;
-            left: 10%;
-            top: 15.75%;
-        }
-    }
 }
 
 .name {
-    width: 73%;
+    width: 56%;
+    top: 22%;
+    left: 29%;
     position: absolute;
-    top: 21%;
-    left: 20%;
 
     .title {
-        width: 100%;
+        width: 75%;
         font-weight: bold;
         font-family: 'Big Shoulders Text';
         text-transform: uppercase;
     }
 
     .username {
-        width: 100%;
-    }
-
-    &.responsive {
-        .title {
-            @media #{$breakpoint-sm} {
-                width: 75%;
-            }
-        }
-
-        .username {
-            @media #{$breakpoint-sm} {
-                width: 75%;
-            }
-        }
-
-        @media #{$breakpoint-sm} {
-            width: 56%;
-            top: 22%;
-            left: 29%;
-        }
+        width: 75%;
     }
 }
 
 .number {
     position: absolute;
     font-family: 'Big Shoulders Text';
-    top: 80%;
-    left: 21%;
+    font-size: 24px;
+    transform: rotate(90deg);
+    transform-origin: 50% 50%;
+    top: 35%;
+    left: auto;
+    right: -2%;
+    width: 35%;
     color: var(--color-black);
     font-weight: bold;
-    width: 80%;
     text-align: center;
-
-    &.responsive {
-        @media #{$breakpoint-sm} {
-            font-size: 24px;
-            transform: rotate(90deg);
-            transform-origin: 50% 50%;
-            top: 35%;
-            left: auto;
-            right: -2%;
-            width: 35%;
-        }
-    }
 }

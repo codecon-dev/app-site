@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import ThemeContext, { ThemeContextType } from 'context/ThemeContext';
+import { useUserData } from '@lib/hooks/useUserData';
 import { Sponsor } from '@lib/types/all';
 import Navbar from '@components/_ui/Navbar';
 import Footer from '@components/_ui/Footer';
@@ -28,7 +29,6 @@ type Props = {
     hideNav?: boolean;
     hideNavMenu?: boolean;
     hideFooter?: boolean;
-    hideWhatsApp?: boolean;
     noPadding?: boolean;
     sponsors?: Sponsor[];
 };
@@ -40,7 +40,6 @@ export default function Page({
     live,
     hideNav,
     hideFooter,
-    hideWhatsApp,
     noPadding,
     sponsors,
     hideNavMenu = false

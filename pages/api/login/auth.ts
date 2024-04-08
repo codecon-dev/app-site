@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { StatusCodes } from 'http-status-codes';
 
+import { setCookie } from 'cookies-next';
 import ApiResponse from 'src/api/ApiResponse';
 import Attendee from 'src/database/model/Attendee';
 import LoginLinkService from 'src/services/LoginLinkService';
@@ -13,6 +14,9 @@ export default async function AuthController(req: NextApiRequest, res: NextApiRe
                 break;
             case 'GET':
                 await getUser(req, res);
+                break;
+            case 'DELETE':
+                logoutUser(req, res);
                 break;
             default:
                 ApiResponse.build(res, StatusCodes.BAD_REQUEST, 'Método não permitido');
@@ -65,4 +69,9 @@ async function getUser(req: NextApiRequest, res: NextApiResponse) {
         githubFullName: attendee.githubFullName,
         githubUsername: attendee.githubUsername
     });
+}
+
+function logoutUser(req: NextApiRequest, res: NextApiResponse) {
+    setCookie('attendeeUuid', '', { req, res, maxAge: 0 });
+    ApiResponse.build(res, StatusCodes.OK, 'Deslogado com sucesso!');
 }

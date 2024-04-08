@@ -2,6 +2,7 @@ import { GetStaticProps } from 'next';
 
 import Page from '@components/_ui/Page';
 import Header from '@components/_ui/Header';
+import PrivateArea from '@components/_ui/PrivateArea';
 import Rank from '@components/code-codes/Ranking';
 
 import { Sponsor, AttendeeRank } from '@lib/types/all';
@@ -13,27 +14,25 @@ type Props = {
     rankAttendees: AttendeeRank[];
 };
 
-export default function Ranking({ rankAttendees, sponsors }: Props) {
-    const meta = {
-        title: 'Ranking Code-codes - Codecon Summit'
-    };
-
+export default function Ranking({ rankAttendees }: Props) {
     return (
-        <Page theme="digital" meta={meta} sponsors={sponsors}>
-            <Header title="Code-codes" description="Ranking" smaller />
-            {RANKING_ENABLED ? (
-                <Rank users={rankAttendees} />
-            ) : (
-                <div className="container">
-                    <p>
-                        O ranking está desabilitado. Vamos divulgar o ranking e os resultados ao
-                        final do evento.
-                        <br />
-                        <br /> Boa sorte! :)
-                    </p>
-                </div>
-            )}
-        </Page>
+        <PrivateArea>
+            <>
+                <Header title="Code-codes" description="Ranking" smaller />
+                {RANKING_ENABLED ? (
+                    <Rank users={rankAttendees} />
+                ) : (
+                    <div className="container">
+                        <p>
+                            O ranking está desabilitado. Vamos divulgar o ranking e os resultados ao
+                            final do evento.
+                            <br />
+                            <br /> Boa sorte! :)
+                        </p>
+                    </div>
+                )}
+            </>
+        </PrivateArea>
     );
 }
 

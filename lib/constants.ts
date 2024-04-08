@@ -127,56 +127,43 @@ export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | un
             eventData = {
                 type: EVENTS.SUMMIT,
                 title: 'Codecon Summit',
-                subtitle:
-                    'O maior evento para pessoas programadoras de Santa Catarina, com grandes nomes nacionais.',
-                local: 'Campus Park',
+                subtitle: 'Um dos maiores encontros dev do sul do mundo.',
+                local: 'Expoville',
                 city: 'Joinville, SC',
-                initialDate: new Date('2023-08-26 00:00:00'),
+                initialDate: new Date('2024-09-06 00:00:00'),
+                finalDate: new Date('2024-09-07 00:00:00'),
                 homeUrl: '/',
                 siteName: 'Codecon Summit • Inovação, tecnologia, experiências e muito código',
                 shareImage: 'https://app.codecon.dev/summit-share.png',
-                metaDescription:
-                    'O maior evento para pessoas programadoras de Santa Catarina, com grandes nomes nacionais.',
-                registerUrl: `https://www.sympla.com.br/evento/codecon-summit-2023/1829544?d=${discountCode}`,
+                metaDescription: 'Um dos maiores encontros dev do sul do mundo.',
+                registerUrl: `https://codecon.dev/summit`,
                 whatsapp: 'https://chat.whatsapp.com/D0zzxblnzloFulzLvzXi1e',
-                menuNav: [],
-                attendeeNav: [
+                menuNav: [
                     {
                         name: 'Dashboard',
                         route: '/'
                     },
                     {
-                        name: 'Code-codes',
+                        name: 'Resgate Code-codes',
                         route: '/game/code-codes/resgate'
                     },
                     {
-                        name: 'Gerar ticket',
-                        route: '/tickets',
+                        name: 'Ranking',
+                        route: '/game/code-codes'
+                    },
+                    {
+                        name: 'Seu ticket',
+                        route: '/tickets'
+                    }
+                ],
+                attendeeNav: [
+                    {
+                        name: 'Sair',
+                        route: '/logout',
                         type: 'button'
                     }
                 ],
-                eventPrice: [
-                    {
-                        name: 'Early bird',
-                        price: 99,
-                        endDate: new Date('2023-04-05 18:00:00')
-                    },
-                    {
-                        name: '1º lote',
-                        price: 129,
-                        endDate: new Date('2023-06-26 18:00:00')
-                    },
-                    {
-                        name: '2º lote',
-                        price: 159,
-                        endDate: new Date('2023-08-10 18:00:00')
-                    },
-                    {
-                        name: '3º lote',
-                        price: 199,
-                        endDate: new Date('2023-08-17 18:00:00')
-                    }
-                ],
+                eventPrice: [],
                 colors: {
                     primary: '#8800FF',
                     primaryDark: '#280075',

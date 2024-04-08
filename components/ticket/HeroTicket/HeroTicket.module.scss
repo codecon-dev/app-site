@@ -16,7 +16,7 @@
 
 .section {
     margin: 0;
-    padding: 8rem 0 5rem;
+    padding: 2rem 0;
     text-align: center;
     background-position: center;
     background-size: cover;
@@ -34,17 +34,14 @@
     }
 
     @media #{$breakpoint-sm} {
-        text-align: left;
-        padding: 12rem 0 7rem;
-        text-align: left;
-        min-height: 84vh;
-        display: flex;
+        padding: 8rem 0 5rem;
     }
 }
 
 .content {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
 
     h2 {
@@ -56,7 +53,7 @@
     }
 
     @media #{$breakpoint-sm} {
-        padding-right: 2rem;
+        margin-top: 5rem;
     }
 }
 
@@ -82,13 +79,5 @@
 
     @media #{$breakpoint-sm} {
         flex-direction: row;
-    }
-}
-
-.ticket {
-    &-content {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
     }
 }

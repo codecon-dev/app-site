@@ -1,12 +1,10 @@
-import Page from '@components/_ui/Page';
 import PrivateArea from '@components/_ui/PrivateArea';
+import DetailsGrid from '@components/temp-site/DetailsGrid';
 
 export default function Index() {
     return (
-        <Page theme="summit">
-            <PrivateArea>
-                <>olá</>
-            </PrivateArea>
-        </Page>
+        <PrivateArea>
+            <DetailsGrid />
+        </PrivateArea>
     );
 }

@@ -45,10 +45,6 @@ body {
 
 section {
     margin: 4rem 0;
-
-    @media #{$breakpoint-sm} {
-        margin: 8rem 0;
-    }
 }
 
 .container {

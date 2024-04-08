@@ -98,9 +98,10 @@
 
 .vercel {
     padding: 1rem 0;
-    text-align: center;
+    display: flex;
+    justify-content: center;
 
     @media #{$breakpoint-sm} {
-        text-align: right;
+        justify-content: flex-end;
     }
 }

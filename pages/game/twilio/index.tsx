@@ -8,15 +8,13 @@ export default function Twilio() {
     };
 
     return (
-        <Page theme="summit" meta={meta} hideNav hideFooter>
-            <PrivateArea>
-                <section>
-                    <div className="container" style={{ textAlign: 'center' }}>
-                        <h2>Tudo certo!</h2>
-                        <Button href='https://wa.me/551150393737'>Voltar para o WhatsApp</Button>
-                    </div>
-                </section>
-            </PrivateArea>
-        </Page>
+        <PrivateArea>
+            <section>
+                <div className="container" style={{ textAlign: 'center' }}>
+                    <h2>Tudo certo!</h2>
+                    <Button href="https://wa.me/551150393737">Voltar para o WhatsApp</Button>
+                </div>
+            </section>
+        </PrivateArea>
     );
 }

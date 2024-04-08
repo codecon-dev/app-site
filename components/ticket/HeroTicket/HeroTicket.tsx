@@ -13,6 +13,7 @@ import TheTicket from '../TheTicket';
 
 import styles from './HeroTicket.module.scss';
 import Link from 'next/link';
+import { Col } from 'sequelize/types/utils';
 
 type Props = {
     attendee: Attendee;
@@ -63,37 +64,33 @@ export default function AttendeeArea({ attendee }: Props) {
     return (
         <section className={cn(styles.section, styles[`theme-${theme}`])}>
             <Grid align="center">
-                <Column lg={6}>
+                <Column lg={2} />
+                <Column lg={8}>
+                    <div className={styles.ticket} ref={ticketRef}>
+                        <TheTicket
+                            name={attendee.githubFullName || attendee.name}
+                            username={attendee.githubUsername}
+                            number={attendee.id}
+                        />
+                    </div>
+                </Column>
+                <Column lg={2} />
+            </Grid>
+            <Grid>
+                <Column lg={2} />
+
+                <Column lg={8}>
                     <div className={styles.content}>
-                        <div className={styles['only-desktop']}>
-                            <EventInfo attendee={attendee} eventData={eventData} />
-                        </div>
+                        <EventInfo attendee={attendee} eventData={eventData} />
                         <p className="headline">{subtitle}</p>
 
                         <div className={styles.buttons}>
-                            {eventPrice && (
-                                <LinkButton href={registerUrl} info={eventPrice}>
-                                    Inscreva-se
-                                </LinkButton>
-                            )}
-                            <Link href={homeUrl}>Saiba mais</Link>
+                            <LinkButton href={registerUrl}>Inscreva-se</LinkButton>
                         </div>
                     </div>
                 </Column>
-                <Column xsmOrder={1} lg={6}>
-                    <div className={styles['ticket-content']}>
-                        <div className={styles['only-mobile']}>
-                            <EventInfo attendee={attendee} eventData={eventData} />
-                        </div>
-                        <div className={styles.ticket} ref={ticketRef}>
-                            <TheTicket
-                                name={attendee.githubFullName || attendee.name}
-                                username={attendee.githubUsername}
-                                number={attendee.id}
-                            />
-                        </div>
-                    </div>
-                </Column>
+
+                <Column lg={2} />
             </Grid>
         </section>
     );

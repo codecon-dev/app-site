@@ -10,14 +10,10 @@ type BauProps = {
 };
 
 export default function Bau({ chestPublicId }: BauProps) {
-    const meta = { title: 'Baú de Prêmios - Codecon Summit' };
-
     return (
-        <Page theme="summit" meta={meta} hideNav hideFooter>
-            <PrivateArea>
-                <OpenChest chestPublicId={chestPublicId} />
-            </PrivateArea>
-        </Page>
+        <PrivateArea>
+            <OpenChest chestPublicId={chestPublicId} />
+        </PrivateArea>
     );
 }
 

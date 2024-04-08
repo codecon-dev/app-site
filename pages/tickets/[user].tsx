@@ -30,7 +30,7 @@ export default function Tickets({ attendee }: Props) {
     };
 
     return (
-        <Page theme="summit" meta={meta} noPadding hideNavMenu>
+        <Page theme="summit" meta={meta} hideNav noPadding>
             <HeroTicket attendee={attendee} />
         </Page>
     );
