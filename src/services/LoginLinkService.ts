@@ -45,7 +45,7 @@ export default class LoginLinkService {
 
     private static async findOrCreate(attendeeUuid: string): Promise<LoginLink> {
         const timeToExpireInHours = 24 * 3;
-        const hash = Math.floor(Math.random() * 1000000);
+        const hash = Math.floor(100000 + Math.random() * 900000);
         const expiresAt = new Date(new Date().getTime() + timeToExpireInHours * 60 * 60 * 1000);
 
         const [loginLink] = await LoginLink.findOrCreate({
