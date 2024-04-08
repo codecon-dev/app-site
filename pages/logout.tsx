@@ -6,16 +6,16 @@ const LogoutPage = () => {
     const router = useRouter();
 
     useEffect(() => {
-        const logout = async () => {
+        async function logout() {
             try {
                 await axios.delete('/api/login/auth'); // Faz uma chamada DELETE para o endpoint /api/auth
                 await router.push('/'); // Redireciona para a página de login após o logout
             } catch (error) {
                 console.error('Erro ao fazer logout:', error);
             }
-        };
+        }
 
-        logout();
+        void logout();
     }, [router]);
 
     return null; // Página vazia, já que o redirecionamento é feito no useEffect
