@@ -24,7 +24,7 @@ export const LoginCodeEmail = ({ validationCode }: LoginCodeEmailProps) => (
         <Preview>Seu login para o site da Codecon</Preview>
         <Body style={main}>
             <Container style={container}>
-                <Img src={`${baseUrl}/logo.png`} width="42" height="42" alt="" style={logo} />
+                <Img src={`${baseUrl}/logo.png`} width="190" height="32" alt="" style={logo} />
                 <Heading style={heading}>
                     Seu código para continuar o login no site da Codecon
                 </Heading>

@@ -15,16 +15,18 @@ export default function DetailsGrid() {
                     <p>Gere um ticket com GitHub e compartilhe nas redes sociais</p>
                 </a>
                 <a
-                    href="https://expoville.com.br/"
+                    href="https://codecon.gitbook.io/codecon-summit-24-docs"
                     target="_blank"
                     rel="noreferrer noopener"
                     className={cn(styles.block)}
                 >
                     <Image alt="" src="/images/mill.svg" width={40} height={46} />
 
-                    <h3>Expoville</h3>
-                    <p>Conheça o local onde a Codecon Summit acontecerá.</p>
-                    <p>Rua XV de Novembro, 4315 em Joinville, SC.</p>
+                    <h3>Confira nossa documentação</h3>
+                    <p>
+                        Dicas para quem vem de fora, informações sobre a cidade e outras dúvidas que
+                        os inscritos podem ter.
+                    </p>
                 </a>
                 <a
                     href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20240906%2F20240908&details=Um%20dos%20maiores%20encontros%20dev%20do%20sul%20do%20mundo.&location=Expoville%20-%20Rua%20XV%20de%20Novembro%2C%204315%20-%20Joinville%2C%20SC&text=Codecon%20Summit%2024"

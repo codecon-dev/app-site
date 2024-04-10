@@ -1,6 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
+import { Resend } from 'resend';
 
 import Attendee from 'src/database/model/Attendee';
+import { WelcomeEmail } from '../../transactional/emails/welcome';
 
 type Event = 'DIGITAL' | 'SUMMIT' | 'FEATURE';
 
@@ -31,7 +33,7 @@ export default class AttendeeService {
             event
         });
 
-        //await this.sendWelcomeEmail(email);
+        await this.sendWelcomeEmail(email, name);
     }
 
     public static async completeRegistration(
@@ -55,5 +57,16 @@ export default class AttendeeService {
             success: true,
             message: `Obrigado e bom evento!`
         };
+    }
+
+    private static async sendWelcomeEmail(email: string, name: string): Promise<void> {
+        const resend = new Resend(process.env.RESEND_API_KEY || '');
+
+        await resend.emails.send({
+            from: 'Codecon Summit <contato@codecon.dev>',
+            to: email,
+            subject: 'Acesse a área para pessoas inscritas',
+            react: WelcomeEmail({ name })
+        });
     }
 }
