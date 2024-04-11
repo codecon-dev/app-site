@@ -40,7 +40,7 @@ export default function AttendeeArea({ attendee }: Props) {
                             <p className="headline">Compartilhe-o nas rede sociais.</p>
                             <TicketActions
                                 ticketNumber={attendee.attendeeNumber ?? 0}
-                                githubFullName={githubData.name}
+                                githubFullName={attendee.firstName || githubData.name}
                                 githubUsername={githubData.login}
                             />
                             <TicketUrl username={githubData.login} />
@@ -58,7 +58,7 @@ export default function AttendeeArea({ attendee }: Props) {
                 <Column lg={7}>
                     <div className={styles.ticket}>
                         <TheTicket
-                            name={githubData?.name || attendee.firstName}
+                            name={attendee.firstName}
                             username={githubData?.login}
                             number={attendee.attendeeNumber}
                         />

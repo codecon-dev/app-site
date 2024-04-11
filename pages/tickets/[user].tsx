@@ -18,7 +18,7 @@ export default function Tickets({ attendee }: Props) {
     }
 
     const params = {
-        name: attendee.githubFullName || attendee.name,
+        name: attendee.name,
         username: attendee.githubUsername,
         ticketNumber: attendee.id,
         event: 'summit'

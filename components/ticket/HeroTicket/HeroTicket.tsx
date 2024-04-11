@@ -49,8 +49,7 @@ export default function AttendeeArea({ attendee }: Props) {
     const theme = useContext(ThemeContext);
     const eventData = useEventData(theme);
     const ticketRef = useRef<HTMLDivElement>(null);
-    const { subtitle, registerUrl, homeUrl } = eventData;
-    const { eventPrice } = useActiveEventPrice(eventData);
+    const { subtitle, registerUrl } = eventData;
 
     useEffect(() => {
         if (ticketRef.current && !window.matchMedia('(pointer: coarse)').matches) {
@@ -68,7 +67,7 @@ export default function AttendeeArea({ attendee }: Props) {
                 <Column lg={8}>
                     <div className={styles.ticket} ref={ticketRef}>
                         <TheTicket
-                            name={attendee.githubFullName || attendee.name}
+                            name={attendee.name}
                             username={attendee.githubUsername}
                             number={attendee.id}
                         />

@@ -59,7 +59,7 @@ export default async function handler(req: NextApiRequest) {
                         style={{
                             color: 'white',
                             width: 500,
-                            fontSize: 55,
+                            fontSize: 50,
                             fontFamily: 'BigShouldersText',
                             position: 'absolute',
                             left: 362,
