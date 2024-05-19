@@ -44,3 +44,30 @@ export type CodecodesClaimResponse = {
     statusCode: number;
     data?: CodecodesSuccessClaimData;
 };
+
+type UserClaim = {
+    tag: string;
+    id: string;
+    claimedAt: string;
+};
+
+export type CodecodesToken = {
+    code: string;
+    description: string;
+    value: number;
+    decreaseValue?: number;
+    minimumValue?: number;
+    totalClaims?: number;
+    remainingClaims?: number;
+    claimedBy?: UserClaim[];
+    createdBy?: string;
+    createdAt?: string;
+    expireAt?: string;
+};
+
+export type CodecodesTokenResponse = {
+    status: 'success' | 'error';
+    message: string;
+    statusCode: number;
+    data?: CodecodesToken;
+};

@@ -1,46 +1,29 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
-import { useRouter } from 'next/router';
 
 import Page from '@components/_ui/Page';
-import Attendee from 'src/database/model/Attendee';
+import { getToken } from '@lib/codecodes-api';
 
-import HeroTicket from '@components/ticket/HeroTicket';
+import { CodecodesToken } from '@lib/types/codecodes';
 
 type Props = {
-    attendee: Attendee;
+    token: CodecodesToken;
 };
 
-export default function Tickets({ attendee }: Props) {
-    const router = useRouter();
-
-    if (router.isFallback) {
-        return <div>Carregando...</div>;
-    }
-
-    const params = {
-        name: attendee.name,
-        username: attendee.githubUsername,
-        ticketNumber: attendee.id,
-        event: 'summit'
-    };
-
-    const meta = {
-        title: `${attendee.name} estará na Codecon Summit`,
-        image: `/api/ticket/image?params=${btoa(JSON.stringify(params))}`
-    };
+export default function Token({ token }: Props) {
+    console.log(token);
 
     return (
-        <Page theme="summit" meta={meta} hideNav noPadding>
-            <HeroTicket attendee={attendee} />
+        <Page theme="summit" hideNav noPadding>
+            oioi
         </Page>
     );
 }
 
 export const getStaticProps: GetStaticProps<any> = async ({ params }) => {
-    const user = params?.user;
-    const attendee = await Attendee.findBygithubUsernameAndEvent(user as string, 'SUMMIT');
+    const code = params?.code;
+    const token = await getToken(code as string);
 
-    if (!attendee) {
+    if (token.status !== 'success') {
         return {
             notFound: true
         };
@@ -48,32 +31,14 @@ export const getStaticProps: GetStaticProps<any> = async ({ params }) => {
 
     return {
         props: {
-            attendee: {
-                id: attendee?.id,
-                name: attendee?.name,
-                email: attendee?.email,
-                githubFullName: attendee?.githubFullName,
-                githubUsername: attendee?.githubUsername,
-                even3Id: attendee?.even3Id
-            }
+            attendee: token.data
         }
     };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-    const attendees = await Attendee.findAllWithgithubUsernameAndEvent('SUMMIT');
-
-    if (!attendees) {
-        return {
-            paths: [],
-            fallback: 'blocking'
-        };
-    }
-
-    const paths = attendees.map(a => ({ params: { user: a.githubUsername } }));
-
+export const getStaticPaths: GetStaticPaths<{ slug: string }> = () => {
     return {
-        paths,
-        fallback: true
+        paths: [],
+        fallback: 'blocking'
     };
 };
