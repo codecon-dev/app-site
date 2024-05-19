@@ -15,6 +15,7 @@ class Attendee extends ModelImpl<Attendee> {
     declare even3Id?: string;
     declare mobilePhone?: string;
     declare acceptedTerms?: boolean;
+    declare isAdmin?: boolean;
     declare event: 'DIGITAL' | 'SUMMIT' | 'FEATURE';
 
     public static async findByEmail(email: string): Promise<Attendee | null> {
@@ -82,7 +83,8 @@ Attendee.init(
         even3Id: { type: DataTypes.STRING, allowNull: true },
         event: { type: DataTypes.ENUM('DIGITAL', 'SUMMIT', 'FEATURE'), allowNull: true },
         mobilePhone: { type: DataTypes.STRING, allowNull: true },
-        acceptedTerms: { type: DataTypes.BOOLEAN, defaultValue: false, allowNull: true }
+        acceptedTerms: { type: DataTypes.BOOLEAN, defaultValue: false, allowNull: true },
+        isAdmin: { type: DataTypes.BOOLEAN, defaultValue: false, allowNull: true }
     },
     {
         sequelize: dataSource

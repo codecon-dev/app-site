@@ -16,6 +16,23 @@ export type CodecodesRankResponse = {
     data?: AttendeeRank[];
 };
 
+export type GeneralStats = {
+    tokensQuantity: number;
+    totalClaims: number;
+    usersQuantity: number;
+    tokensByClaimQuantity: string[];
+    tokensWithClaims: number;
+    tokensWithNoClaims: number;
+    latestClaimedTokens: any[];
+};
+
+export type CodecodesStatsResponse = {
+    status: string;
+    message: string;
+    statusCode?: number;
+    data?: GeneralStats;
+};
+
 type CodecodesSuccessClaimData = {
     scoreAcquired: number;
     totalScore: number;

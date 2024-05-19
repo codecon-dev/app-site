@@ -1,7 +1,8 @@
 import {
     CodecodesClaimPayload,
     CodecodesRankResponse,
-    CodecodesClaimResponse
+    CodecodesClaimResponse,
+    CodecodesStatsResponse
 } from '@lib/types/codecodes';
 
 function getHeaders() {
@@ -27,6 +28,22 @@ export async function claimCodecodesApiToken({
         console.trace(error);
         return {
             statusCode: 500,
+            status: 'error',
+            message: 'Algo deu errado :('
+        };
+    }
+}
+
+export async function getStats(): Promise<CodecodesStatsResponse> {
+    try {
+        const response = await fetch(`${process.env.CODECODES_API_URL}/stats`, {
+            method: 'GET',
+            headers: getHeaders()
+        });
+        return (await response.json()) as CodecodesStatsResponse;
+    } catch (error) {
+        console.trace(error);
+        return {
             status: 'error',
             message: 'Algo deu errado :('
         };

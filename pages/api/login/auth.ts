@@ -67,7 +67,8 @@ async function getUser(req: NextApiRequest, res: NextApiResponse) {
         hasMobilePhone: attendee.mobilePhone ? true : false,
         hasAcceptedTerms: attendee.acceptedTerms,
         githubFullName: attendee.githubFullName,
-        githubUsername: attendee.githubUsername
+        githubUsername: attendee.githubUsername,
+        isAdmin: attendee.isAdmin
     });
 }
 

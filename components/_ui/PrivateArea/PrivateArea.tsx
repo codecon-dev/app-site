@@ -1,4 +1,5 @@
 import { ReactElement, SyntheticEvent, useCallback, useEffect, useState } from 'react';
+import { notFound } from 'next/navigation'
 import Head from 'next/head';
 import toast from 'react-hot-toast';
 
@@ -14,6 +15,7 @@ import IconLogo from '../Icons/icon-logo';
 
 type Props = {
     children: ReactElement;
+    onlyAdmin?: boolean;
 };
 
 type WrapperProps = {
@@ -57,7 +59,7 @@ function Wrapper({ children, hideNavAndFooter }: WrapperProps) {
     );
 }
 
-export default function PrivateArea({ children }: Props) {
+export default function PrivateArea({ children, onlyAdmin }: Props) {
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState(statusType.default);
     const [attendeeUuid, setAttendeeUuid] = useState('');
@@ -183,6 +185,10 @@ export default function PrivateArea({ children }: Props) {
                 <TermsModal attendeeUuid={attendeeUuid} onAccept={handleStepFinished} />
             </Wrapper>
         );
+    }
+
+    if (onlyAdmin && !userData.isAdmin) {
+        return <Wrapper><div style={{ textAlign: "center", margin: "50px 0" }}>Acesso restrito.</div></Wrapper>;
     }
 
     return <Wrapper>{children}</Wrapper>;

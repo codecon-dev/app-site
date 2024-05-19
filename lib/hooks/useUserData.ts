@@ -36,7 +36,8 @@ export function useUserData(): [ConfAttendee, boolean] {
                     hasMobilePhone: data.hasMobilePhone,
                     hasAcceptedTerms: data.hasAcceptedTerms,
                     githubFullName: data.githubFullName,
-                    githubUsername: data.githubUsername
+                    githubUsername: data.githubUsername,
+                    isAdmin: data.isAdmin
                 });
             }
 

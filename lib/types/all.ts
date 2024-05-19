@@ -93,6 +93,7 @@ export type ConfAttendee = {
     hasAcceptedTerms?: boolean;
     githubFullName?: string;
     githubUsername?: string;
+    isAdmin?: boolean;
 };
 
 export type OkPacket = {
