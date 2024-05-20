@@ -23,7 +23,7 @@ export default function Ranking({ rankAttendees }: Props) {
                     <Rank users={rankAttendees} />
                 ) : (
                     <div className="container">
-                        <p>
+                        <p style={{ marginBottom: 50, fontSize: 20 }}>
                             O ranking está desabilitado. Vamos divulgar o ranking e os resultados ao
                             final do evento.
                             <br />

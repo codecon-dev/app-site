@@ -1,9 +1,11 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 
-import Page from '@components/_ui/Page';
 import { getToken } from '@lib/codecodes-api';
 
 import { CodecodesToken } from '@lib/types/codecodes';
+import PrivateArea from '@components/_ui/PrivateArea';
+import AdminArea from '@components/AdminArea';
+import Tokens from '@components/AdminArea/Tokens';
 
 type Props = {
     token: CodecodesToken;
@@ -13,9 +15,11 @@ export default function Token({ token }: Props) {
     console.log(token);
 
     return (
-        <Page theme="summit" hideNav noPadding>
-            oioi
-        </Page>
+        <PrivateArea onlyAdmin>
+            <AdminArea>
+                <Tokens token={token} />
+            </AdminArea>
+        </PrivateArea>
     );
 }
 
@@ -31,7 +35,7 @@ export const getStaticProps: GetStaticProps<any> = async ({ params }) => {
 
     return {
         props: {
-            attendee: token.data
+            token: token.data
         }
     };
 };

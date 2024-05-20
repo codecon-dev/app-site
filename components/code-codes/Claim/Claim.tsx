@@ -55,7 +55,7 @@ export default function CodecodesClaimForm() {
     return (
         <section>
             <div className="container">
-                <h2 style={{ textAlign: 'center' }}>Code-codes</h2>
+                <h2 style={{ textAlign: 'center' }}>Resgate</h2>
                 <p style={{ textAlign: 'center' }}>Digite abaixo o código que encontrou:</p>
                 <OneInputForm
                     handleSubmit={handleOnClaimSubmit}

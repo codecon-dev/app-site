@@ -24,6 +24,7 @@ export type GeneralStats = {
     tokensWithClaims: number;
     tokensWithNoClaims: number;
     latestClaimedTokens: any[];
+    claimsPerDate: { date: string; count: number; }[]
 };
 
 export type CodecodesStatsResponse = {
@@ -70,4 +71,11 @@ export type CodecodesTokenResponse = {
     message: string;
     statusCode: number;
     data?: CodecodesToken;
+};
+
+export type CodecodesTokensResponse = {
+    status: 'success' | 'error';
+    message: string;
+    statusCode: number;
+    data?: CodecodesToken[];
 };

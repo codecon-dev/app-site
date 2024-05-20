@@ -41,7 +41,7 @@ export const TWITTER_USER_NAME = 'codecondev';
 export const SITE_NAME = 'Codecon • Festival de código e tecnologia';
 export const META_DESCRIPTION =
     'A Codecon reúne código, diversão e atividades em um ambiente virtual onde você consegue de verdade interagir com outras pessoas.';
-export const RANKING_ENABLED = true;
+export const RANKING_ENABLED = false;
 export const WHATSAPP_LINK = 'https://wa.me/+5547935052153';
 
 export const useEventData = (event: 'digital' | 'summit' | 'feature' | 'ia' | undefined) => {

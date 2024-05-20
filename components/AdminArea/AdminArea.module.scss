@@ -15,6 +15,11 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    a {
+        font-size: 18px;
+        color: var(--color-gray);
+    }
 }
 
 .loading {
@@ -54,4 +59,9 @@
             display: block;
         }
     }
+}
+
+.form {
+    display: flex;
+    gap: 16px;
 }

@@ -5,29 +5,33 @@ import { Grid, Column } from '@components/_ui/Grid';
 import styles from './AdminArea.module.scss';
 import Stats from './Stats';
 
-export default function AdminArea() {
+export default function AdminArea({ children }: { children: React.ReactNode }) {
     return (
         <section className={cn(styles.section)}>
             <Grid align="start">
-                <Column lg={3}>
+                <Column lg={2}>
                     <ul className={styles.list}>
                         <li>
-                            <button>Novo token</button>
+                            <a href="/admin">Estatísticas</a>
                         </li>
                         <li>
-                            <button>Importar tokens</button>
+                            <a href="/admin/tokens/new">Novo token</a>
                         </li>
                         <li>
-                            <button>Listar tokens</button>
+                            <a href="/admin/tokens/import">Importar tokens</a>
                         </li>
                         <li>
-                            <button>Visualizar ranking</button>
+                            <a href="/admin/tokens">Listar tokens</a>
+                        </li>
+                        <li>
+                            <a href="/admin/ranking">Ranking</a>
+                        </li>
+                        <li>
+                            <a href="/admin/users">Buscar usuários</a>
                         </li>
                     </ul>
                 </Column>
-                <Column lg={9}>
-                    <Stats />
-                </Column>
+                <Column lg={10}>{children}</Column>
             </Grid>
         </section>
     );

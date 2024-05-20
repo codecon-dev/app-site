@@ -2,7 +2,13 @@ import MaterialTable from 'material-table';
 
 import { AttendeeRank } from '@lib/types/all';
 
-export default function Ranking({ users }: { users: AttendeeRank[] }) {
+export default function Ranking({
+    users,
+    onRowClick
+}: {
+    users: AttendeeRank[];
+    onRowClick?: any;
+}) {
     const rankAttendees = users.map((user, index) => ({
         tag: user.tag,
         score: user.score,
@@ -22,6 +28,10 @@ export default function Ranking({ users }: { users: AttendeeRank[] }) {
                     ]}
                     data={rankAttendees}
                     title="Ranking"
+                    options={{
+                        paging: true,
+                        pageSize: 10
+                    }}
                 />
                 <br />
                 <p>
