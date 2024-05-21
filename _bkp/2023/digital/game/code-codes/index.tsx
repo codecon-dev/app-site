@@ -4,7 +4,8 @@ import Page from '@components/_ui/Page';
 import Header from '@components/_ui/Header';
 import Rank from '@components/code-codes/Ranking';
 
-import { Sponsor, AttendeeRank } from '@lib/types/all';
+import { Sponsor } from '@lib/types/all';
+import { AttendeeRank } from '@lib/types/codecodes';
 import { RANKING_ENABLED } from '@lib/constants';
 import { getRank } from '@lib/codecodes-api';
 

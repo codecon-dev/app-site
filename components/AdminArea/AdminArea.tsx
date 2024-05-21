@@ -26,9 +26,6 @@ export default function AdminArea({ children }: { children: React.ReactNode }) {
                         <li>
                             <a href="/admin/ranking">Ranking</a>
                         </li>
-                        <li>
-                            <a href="/admin/users">Listar usuários</a>
-                        </li>
                     </ul>
                 </Column>
                 <Column lg={10} sm={9}>

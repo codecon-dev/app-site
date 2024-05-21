@@ -5,7 +5,9 @@ import Header from '@components/_ui/Header';
 import PrivateArea from '@components/_ui/PrivateArea';
 import Rank from '@components/code-codes/Ranking';
 
-import { Sponsor, AttendeeRank } from '@lib/types/all';
+import { Sponsor } from '@lib/types/all';
+import { AttendeeRank } from '@lib/types/codecodes';
+
 import { RANKING_ENABLED } from '@lib/constants';
 import { getRank } from '@lib/codecodes-api';
 

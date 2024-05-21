@@ -1,11 +1,5 @@
 import { Speaker } from './speakers';
 
-export type AttendeeRank = {
-    tag: string;
-    score: number;
-    claims: number;
-};
-
 export type Image = {
     url: string;
 };

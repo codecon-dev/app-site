@@ -1,52 +1,74 @@
-import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import MaterialTable from 'material-table';
 
 import { CodecodesToken } from '@lib/types/codecodes';
 
-import MaterialTable from 'material-table';
+import styles from './AdminArea.module.scss';
 
 type Props = {
     token?: CodecodesToken;
     allTokens?: CodecodesToken[];
 };
 
-function Token({ token }: { token: CodecodesToken }) {
+function Token({ code, externalTokenData }: { code: string; externalTokenData?: CodecodesToken }) {
+    const [tokenData, setTokenData] = useState<CodecodesToken | null>(externalTokenData ?? null);
+
+    useEffect(() => {
+        async function getTokenData() {
+            await axios.get(`/api/codecodes/token/?code=${code}`).then(function (response) {
+                setTokenData(response.data.data as CodecodesToken);
+            });
+        }
+
+        if (!tokenData) void getTokenData();
+    }, [code, tokenData]);
+
+    if (!tokenData) return <p>Carregando...</p>;
+
     return (
-        <div>
-            <h3>Token - {token.code}</h3>
-            <p>
-                Nome: <pre>{token.code}</pre>
-            </p>
-            <p>
-                Descrição: <pre>{token.description}</pre>
-            </p>
-            <p>
-                Pontos: <pre>{token.value}</pre>
-            </p>
-            <p>
-                Redução por resgate:{' '}
-                <pre>{token.decreaseValue == 0 ? 'Não reduz' : token.decreaseValue}</pre>
-            </p>
-            <p>
-                Pontos mínimos:{' '}
-                <pre>{token.minimumValue == 0 ? 'Não tem' : token.minimumValue}</pre>
-            </p>
-            <p>
-                Resgates máximos: <pre>{token.totalClaims ?? 'Infinito'}</pre>
-            </p>
-            <p>
-                Resgates restantes: <pre>{token.remainingClaims ?? 'Infinito'}</pre>
-            </p>
-            <p>
-                Resgates efetuados: <pre>{token.claimedBy && token.claimedBy.length}</pre>
-            </p>
-            <p>
-                Expira em: <pre>{token.expireAt ?? 'Não expira'}</pre>
-            </p>
-            <p>
+        <div className={styles.token}>
+            <h3>Token - {tokenData.code}</h3>
+
+            <div className={styles['token-detail']}>
+                <p>
+                    Nome: <pre>{tokenData.code}</pre>
+                </p>
+                <p>
+                    Descrição: <pre>{tokenData.description}</pre>
+                </p>
+                <p>
+                    Pontos: <pre>{tokenData.value}</pre>
+                </p>
+                <p>
+                    Redução por resgate:{' '}
+                    <pre>
+                        {tokenData.decreaseValue == 0 ? 'Não reduz' : tokenData.decreaseValue}
+                    </pre>
+                </p>
+                <p>
+                    Pontos mínimos:{' '}
+                    <pre>{tokenData.minimumValue == 0 ? 'Não tem' : tokenData.minimumValue}</pre>
+                </p>
+                <p>
+                    Resgates máximos: <pre>{tokenData.totalClaims ?? 'Infinito'}</pre>
+                </p>
+                <p>
+                    Resgates restantes: <pre>{tokenData.remainingClaims ?? 'Infinito'}</pre>
+                </p>
+                <p>
+                    Resgates efetuados:{' '}
+                    <pre>{tokenData.claimedBy && tokenData.claimedBy.length}</pre>
+                </p>
+                <p>
+                    Expira em: <pre>{tokenData.expireAt ?? 'Não expira'}</pre>
+                </p>
+            </div>
+            <p className={styles['claimed-by']}>
                 Usuários que resgataram:
                 <pre>
-                    {token.claimedBy && token.claimedBy.length > 0
-                        ? JSON.stringify(token.claimedBy, null, 2)
+                    {tokenData.claimedBy && tokenData.claimedBy.length > 0
+                        ? JSON.stringify(tokenData.claimedBy, null, 2)
                         : 'Nenhum'}
                 </pre>
             </p>
@@ -55,8 +77,6 @@ function Token({ token }: { token: CodecodesToken }) {
 }
 
 function AllTokens({ allTokens }: { allTokens: CodecodesToken[] }) {
-    const router = useRouter();
-
     return (
         <>
             <p>Clique no código para ver mais detalhes.</p>
@@ -73,8 +93,15 @@ function AllTokens({ allTokens }: { allTokens: CodecodesToken[] }) {
                     pageSize: 10
                 }}
                 data={allTokens}
-                onRowClick={(event, rowData) => {
-                    router.push(`/admin/tokens/${rowData?.code}`);
+                detailPanel={rowData => {
+                    return (
+                        <div className={styles['row-detail']}>
+                            <Token code={rowData.code} />
+                        </div>
+                    );
+                }}
+                onRowClick={(event, rowData, togglePanel) => {
+                    togglePanel && togglePanel();
                 }}
             />
         </>
@@ -86,7 +113,7 @@ export default function Tokens({ token, allTokens }: Props) {
         <div>
             <h2>Tokens</h2>
 
-            {token && <Token token={token} />}
+            {token && <Token code={token.code} externalTokenData={token} />}
 
             {allTokens && <AllTokens allTokens={allTokens} />}
         </div>

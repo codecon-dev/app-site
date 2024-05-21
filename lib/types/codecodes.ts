@@ -1,4 +1,5 @@
 export type AttendeeRank = {
+    userId?: string | null;
     tag: string;
     score: number;
     claims: number;
@@ -8,6 +9,26 @@ export type CodecodesClaimPayload = {
     name: string;
     attendeeUuid: string;
     code: string;
+};
+
+export type User = {
+    userId: string;
+    tag: string;
+    score: number;
+    tokens: UserClaimedToken[];
+};
+
+export type UserClaimedToken = {
+    code: string;
+    value: number;
+    claimedAt: string;
+};
+
+export type CodecodesUserResponse = {
+    status: 'success' | 'error';
+    message: string;
+    statusCode: number;
+    data?: AttendeeCodeCodes;
 };
 
 export type CodecodesRankResponse = {
@@ -20,11 +41,11 @@ export type GeneralStats = {
     tokensQuantity: number;
     totalClaims: number;
     usersQuantity: number;
-    tokensByClaimQuantity: { code: string; claims: number; }[];
+    tokensByClaimQuantity: { code: string; claims: number }[];
     tokensWithClaims: number;
     tokensWithNoClaims: number;
     latestClaimedTokens: any[];
-    claimsPerDate: { date: string; count: number; }[]
+    claimsPerDate: { date: string; count: number }[];
 };
 
 export type CodecodesStatsResponse = {
@@ -78,4 +99,20 @@ export type CodecodesTokensResponse = {
     message: string;
     statusCode: number;
     data?: CodecodesToken[];
+};
+
+export type AttendeeCodecodesResponse = {
+    status: 'success' | 'error';
+    message: string;
+    statusCode: number;
+    data?: AttendeeCodeCodes;
+};
+
+export type AttendeeCodeCodes = {
+    name: string;
+    lastName: string;
+    displayName?: string;
+    email: string;
+    github?: string;
+    user?: User;
 };

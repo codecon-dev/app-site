@@ -1,13 +1,13 @@
 import MaterialTable from 'material-table';
 
-import { AttendeeRank } from '@lib/types/all';
+import { AttendeeRank } from '@lib/types/codecodes';
 
 export default function Ranking({
     users,
-    onRowClick
+    showDetails
 }: {
     users: AttendeeRank[];
-    onRowClick?: any;
+    showDetails?: boolean;
 }) {
     const rankAttendees = users.map((user, index) => ({
         tag: user.tag,

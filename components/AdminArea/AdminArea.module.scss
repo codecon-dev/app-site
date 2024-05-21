@@ -81,3 +81,40 @@
         }
     }
 }
+
+.token {
+    padding: 40px;
+
+    pre {
+        display: block;
+        white-space: pre-wrap;
+    }
+
+    .claimed-by {
+        pre {
+            border: 1px solid #999;
+            width: 100%;
+            height: 200px;
+            overflow-x: auto;
+        }
+    }
+}
+
+.token-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: flex-start;
+    margin-bottom: 32px;
+
+    p {
+        margin: 0;
+        width: 25%;
+    }
+}
+
+.row-detail {
+    p {
+        color: #333;
+    }
+}

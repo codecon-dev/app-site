@@ -1,29 +1,29 @@
 import { GetStaticProps } from 'next';
 
 import PrivateArea from '@components/_ui/PrivateArea';
-import Rank from '@components/code-codes/Ranking';
 import AdminArea from '@components/AdminArea';
+import Ranking from '@components/AdminArea/Ranking';
 
-import { AttendeeRank } from '@lib/types/all';
+import { AttendeeRank } from '@lib/types/codecodes';
+
 import { getRank } from '@lib/codecodes-api';
 
 type Props = {
     rankAttendees: AttendeeRank[];
 };
 
-export default function Ranking({ rankAttendees }: Props) {
+export default function RankingPage({ rankAttendees }: Props) {
     return (
         <PrivateArea onlyAdmin>
             <AdminArea>
-                <h2>Ranking</h2>
-                <Rank users={rankAttendees} />
+                <Ranking rankAttendees={rankAttendees} />
             </AdminArea>
         </PrivateArea>
     );
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const { data: rankAttendees } = await getRank();
+    const { data: rankAttendees } = await getRank(true);
     return {
         props: {
             rankAttendees: rankAttendees || []

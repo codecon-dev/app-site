@@ -1,12 +1,16 @@
 import {
+    AttendeeCodeCodes,
     CodecodesClaimPayload,
     CodecodesRankResponse,
     CodecodesClaimResponse,
     CodecodesStatsResponse,
     CodecodesToken,
     CodecodesTokenResponse,
-    CodecodesTokensResponse
+    CodecodesTokensResponse,
+    User,
+    CodecodesUserResponse
 } from '@lib/types/codecodes';
+import Attendee from '@models/Attendee';
 
 function getHeaders() {
     return {
@@ -131,6 +135,57 @@ export async function getAllTokens(): Promise<CodecodesTokensResponse> {
     }
 }
 
+export async function getUser(userId: string): Promise<CodecodesUserResponse> {
+    try {
+        const attendee = await Attendee.findByEmail(userId);
+
+        if (!attendee) {
+            return {
+                status: 'error',
+                message: 'Usuário não encontrado',
+                statusCode: 404
+            };
+        }
+
+        const response = await fetch(`${process.env.CODECODES_API_URL}/user/${userId}`, {
+            method: 'GET',
+            headers: getHeaders()
+        });
+        const codecodesUser = (await response.json()) as User;
+
+        if (!codecodesUser) {
+            return {
+                status: 'error',
+                message: 'Usuário não encontrado',
+                statusCode: 404
+            };
+        }
+
+        const attendeeCodecodes: AttendeeCodeCodes = {
+            name: attendee.name,
+            lastName: attendee.lastName,
+            displayName: attendee.displayName,
+            email: attendee.email,
+            github: attendee.githubUsername,
+            user: codecodesUser
+        };
+
+        return {
+            status: 'success',
+            message: 'Usuário encontrado',
+            statusCode: 200,
+            data: attendeeCodecodes
+        };
+    } catch (error) {
+        console.trace(error);
+        return {
+            status: 'error',
+            statusCode: 500,
+            message: 'Algo deu errado :('
+        };
+    }
+}
+
 export async function getStats(): Promise<CodecodesStatsResponse> {
     try {
         const response = await fetch(`${process.env.CODECODES_API_URL}/stats`, {
@@ -147,13 +202,24 @@ export async function getStats(): Promise<CodecodesStatsResponse> {
     }
 }
 
-export async function getRank(): Promise<CodecodesRankResponse> {
+export async function getRank(returnId?: boolean): Promise<CodecodesRankResponse> {
     try {
         const response = await fetch(`${process.env.CODECODES_API_URL}/user/rank`, {
             method: 'GET',
             headers: getHeaders()
         });
-        return (await response.json()) as CodecodesRankResponse;
+        const rankResponse = (await response.json()) as CodecodesRankResponse;
+        const rankMap = rankResponse.data?.map(rank => {
+            return {
+                ...rank,
+                userId: returnId ? rank.userId : null
+            };
+        });
+
+        return {
+            ...rankResponse,
+            data: rankMap
+        };
     } catch (error) {
         console.trace(error);
         return {
