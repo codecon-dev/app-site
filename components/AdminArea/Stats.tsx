@@ -62,31 +62,31 @@ export default function Stats() {
 
     return (
         <Grid align="start">
-            <Column lg={4}>
+            <Column lg={4} sm={6}>
                 <div className={styles.card}>
                     <span>🎫 Qtde de tokens</span>
                     {stats?.tokensQuantity.toLocaleString('pt-BR')}
                 </div>
             </Column>
-            <Column lg={4}>
+            <Column lg={4} sm={6}>
                 <div className={styles.card}>
                     <span>🪝 Qtde de resgates</span>
                     {stats?.totalClaims.toLocaleString('pt-BR')}
                 </div>
             </Column>
-            <Column lg={4}>
+            <Column lg={4} sm={6}>
                 <div className={styles.card}>
                     <span>👤 Usuários ativos</span>
                     {stats?.usersQuantity.toLocaleString('pt-BR')}
                 </div>
             </Column>
-            <Column lg={4}>
+            <Column lg={4} sm={6}>
                 <div className={styles.card}>
                     <span>⭐ Tokens já resgatados</span>
                     {stats?.tokensWithClaims.toLocaleString('pt-BR')}
                 </div>
             </Column>
-            <Column lg={4}>
+            <Column lg={4} sm={6}>
                 <div className={styles.card}>
                     <span>📊 Resgate/token</span>
                     {stats?.tokensWithClaims
@@ -94,7 +94,7 @@ export default function Stats() {
                         : 0}
                 </div>
             </Column>
-            <Column lg={4}>
+            <Column lg={4} sm={6}>
                 <div className={styles.card}>
                     <span>🌚 Tokens sem resgate</span>
                     {stats?.tokensWithNoClaims.toLocaleString('pt-BR')}
@@ -102,7 +102,7 @@ export default function Stats() {
             </Column>
             <Column lg={12}>
                 <div className={styles.card}>
-                    <span>Resgates por hora</span>
+                    <span>🕙 Resgates por hora</span>
                     <canvas id="claimsPerDate" />
                 </div>
             </Column>
@@ -115,7 +115,7 @@ export default function Stats() {
                     <ol>
                         {stats?.latestClaimedTokens.slice(0, 10).map((token, index) => (
                             <li key={index}>
-                                📌 {token.code}
+                                📌 <a href={`/admin/tokens/${token.code}`}>{token.code}</a>
                                 <span>
                                     Resgatado por {token.claimedBy.tag} -{' '}
                                     {new Date(token.claimedBy.claimedAt as string).toLocaleString()}
@@ -133,7 +133,10 @@ export default function Stats() {
 
                     <ol>
                         {stats?.tokensByClaimQuantity.slice(0, 20).map((token, index) => (
-                            <li key={index}>{token}</li>
+                            <li key={index}>
+                                <a href={`/admin/tokens/${token.code}`}>{token.code}</a> (
+                                {token.claims} resgates)
+                            </li>
                         ))}
                     </ol>
                 </div>

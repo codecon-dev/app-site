@@ -1,4 +1,7 @@
-import { NextRouter } from "next/router";
+import { NextRouter } from 'next/router';
+import parseCsv from 'csv-parser';
+import fs from 'fs';
+import { CodecodesToken } from './types/codecodes';
 
 export const createMarkup = (text: string) => {
     return { __html: text.replace(/(?:\r\n|\r|\n)/g, '<br>') };
@@ -48,6 +51,42 @@ export const getLastPath = (pathname: string) => {
 
 export const addBasePath = (router: NextRouter, path: string) => {
     const event = router?.asPath?.split('/')[1] || '';
-    const eventPath = event ? `/${event}` : ''
+    const eventPath = event ? `/${event}` : '';
     return `${eventPath}${path}`;
+};
+
+export async function readAndMapCsvTokens(csvFilePath: string): Promise<CodecodesToken[]> {
+    return new Promise((resolve, reject) => {
+        const tokens: CodecodesToken[] = [];
+        fs.createReadStream(csvFilePath)
+            .pipe(parseCsv())
+            .on('data', data => {
+                const mmddyyDate = (data as { 'Data de expiração': string })[
+                    'Data de expiração'
+                ].replace(/(.*?)\/(.*?)\//, '$2/$1/');
+                const utcDate = new Date(mmddyyDate);
+                const expireDate = utcDate.toISOString();
+
+                const totalClaims = Number(data['Número máximo de resgates']);
+                const now = new Date(Date.now());
+                const createdAt = now.toISOString();
+
+                return tokens.push({
+                    code: data.Token,
+                    description: data['Descrição'],
+                    value: Number(data.Pontos),
+                    decreaseValue: Number(data['Quanto pontos diminui por resgate']),
+                    minimumValue: Number(data['Pontos mínimos de resgate']),
+                    totalClaims: totalClaims,
+                    remainingClaims: totalClaims,
+                    expireAt: expireDate,
+                    createdAt,
+                    createdBy: 'API'
+                });
+            })
+            .on('end', () => {
+                console.log('File read with success');
+                resolve(tokens);
+            });
+    });
 }

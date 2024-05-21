@@ -37,6 +37,44 @@ export async function claimCodecodesApiToken({
     }
 }
 
+export async function newToken(token: CodecodesToken): Promise<CodecodesTokenResponse> {
+    try {
+        const response = await fetch(`${process.env.CODECODES_API_URL}/token`, {
+            method: 'POST',
+            headers: getHeaders(),
+            body: JSON.stringify(token)
+        });
+
+        return (await response.json()) as CodecodesTokenResponse;
+    } catch (error) {
+        console.trace(error);
+        return {
+            status: 'error',
+            statusCode: 500,
+            message: 'Algo deu errado :('
+        };
+    }
+}
+
+export async function importTokens(tokens: CodecodesToken[]): Promise<CodecodesTokenResponse> {
+    try {
+        const response = await fetch(`${process.env.CODECODES_API_URL}/token/batch`, {
+            method: 'POST',
+            headers: getHeaders(),
+            body: JSON.stringify(tokens)
+        });
+
+        return (await response.json()) as CodecodesTokenResponse;
+    } catch (error) {
+        console.trace(error);
+        return {
+            status: 'error',
+            statusCode: 500,
+            message: 'Algo deu errado :('
+        };
+    }
+}
+
 export async function getToken(code: string): Promise<CodecodesTokenResponse> {
     try {
         const response = await fetch(`${process.env.CODECODES_API_URL}/token/${code}`, {

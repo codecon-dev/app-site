@@ -1,10 +1,7 @@
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { Grid, Column } from '@components/_ui/Grid';
 import { CodecodesToken } from '@lib/types/codecodes';
 
-import styles from './AdminArea.module.scss';
 import MaterialTable from 'material-table';
 
 type Props = {
@@ -16,6 +13,9 @@ function Token({ token }: { token: CodecodesToken }) {
     return (
         <div>
             <h3>Token - {token.code}</h3>
+            <p>
+                Nome: <pre>{token.code}</pre>
+            </p>
             <p>
                 Descrição: <pre>{token.description}</pre>
             </p>

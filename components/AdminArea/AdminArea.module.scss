@@ -53,6 +53,11 @@
         gap: 16px;
         list-style: none;
 
+        a {
+            font-size: 18px;
+            color: var(--color-gray);
+        }
+
         span {
             font-size: 14px;
             font-weight: bold;
@@ -64,4 +69,15 @@
 .form {
     display: flex;
     gap: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+
+    input {
+        padding: 5px 10px;
+        width: 30%;
+
+        &.bigger {
+            width: 50%;
+        }
+    }
 }

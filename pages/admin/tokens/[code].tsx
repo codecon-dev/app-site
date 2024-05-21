@@ -12,8 +12,6 @@ type Props = {
 };
 
 export default function Token({ token }: Props) {
-    console.log(token);
-
     return (
         <PrivateArea onlyAdmin>
             <AdminArea>

@@ -9,7 +9,7 @@ export default function AdminArea({ children }: { children: React.ReactNode }) {
     return (
         <section className={cn(styles.section)}>
             <Grid align="start">
-                <Column lg={2}>
+                <Column lg={2} sm={3}>
                     <ul className={styles.list}>
                         <li>
                             <a href="/admin">Estatísticas</a>
@@ -27,11 +27,13 @@ export default function AdminArea({ children }: { children: React.ReactNode }) {
                             <a href="/admin/ranking">Ranking</a>
                         </li>
                         <li>
-                            <a href="/admin/users">Buscar usuários</a>
+                            <a href="/admin/users">Listar usuários</a>
                         </li>
                     </ul>
                 </Column>
-                <Column lg={10}>{children}</Column>
+                <Column lg={10} sm={9}>
+                    {children}
+                </Column>
             </Grid>
         </section>
     );
