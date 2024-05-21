@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { IncomingForm } from 'formidable';
-import fs from 'fs';
 
 import { StatusCodes } from 'http-status-codes';
 import { importTokens } from '@lib/codecodes-api';
