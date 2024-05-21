@@ -22,7 +22,8 @@ export default async function CodeCodesClaimController(req: NextApiRequest, res:
 
             const codecodesClaimPayload: CodecodesClaimPayload = {
                 ...params,
-                name: attendee.displayName || attendee.name
+                name: attendee.displayName || attendee.name,
+                email: attendee.email
             };
             const codecodesResponse: CodecodesClaimResponse = await claimCodecodesApiToken(
                 codecodesClaimPayload

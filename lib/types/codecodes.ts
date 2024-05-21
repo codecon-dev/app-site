@@ -9,6 +9,7 @@ export type CodecodesClaimPayload = {
     name: string;
     attendeeUuid: string;
     code: string;
+    email?: string;
 };
 
 export type User = {

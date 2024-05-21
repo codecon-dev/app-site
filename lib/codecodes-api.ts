@@ -20,7 +20,7 @@ function getHeaders() {
 }
 
 export async function claimCodecodesApiToken({
-    attendeeUuid,
+    email,
     name,
     code
 }: CodecodesClaimPayload): Promise<CodecodesClaimResponse> {
@@ -28,7 +28,7 @@ export async function claimCodecodesApiToken({
         const response = await fetch(`${process.env.CODECODES_API_URL}/token/claim`, {
             method: 'POST',
             headers: getHeaders(),
-            body: JSON.stringify({ attendeeUuid, name, code: code.toUpperCase() })
+            body: JSON.stringify({ email, name, code: code.toUpperCase() })
         });
         return (await response.json()) as CodecodesClaimResponse;
     } catch (error) {

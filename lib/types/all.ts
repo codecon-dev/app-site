@@ -126,23 +126,6 @@ export type CodecodesClaimPayload = {
     code: string;
 };
 
-export type CodecodesRankResponse = {
-    status: string;
-    message: string;
-    data?: AttendeeRank[];
-};
-
-type CodecodesSuccessClaimData = {
-    scoreAcquired: number;
-    totalScore: number;
-};
-
-export type CodecodesClaimResponse = {
-    status: string;
-    message: string;
-    data?: CodecodesSuccessClaimData;
-};
-
 export type AttendeeAlreadyAnswerData = {
     success: boolean;
     userAnswered: boolean;
