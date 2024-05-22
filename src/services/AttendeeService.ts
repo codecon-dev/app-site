@@ -38,9 +38,11 @@ export default class AttendeeService {
 
     public static async completeRegistration(
         attendee: Attendee,
+        displayName: string,
         mobilePhone: string
     ): Promise<AttendeeResponse> {
         attendee.mobilePhone = mobilePhone;
+        attendee.displayName = displayName;
         await attendee.save();
 
         return {

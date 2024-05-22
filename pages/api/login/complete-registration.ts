@@ -18,7 +18,13 @@ export default async function CompleteRegistrationController(
             if (!mobilePhone)
                 throw new ValidationError('Obrigatório informar um número de telefone');
 
-            const response = await AttendeeService.completeRegistration(attendee, mobilePhone);
+            const displayName: string = req.body.displayName || attendee.displayName;
+
+            const response = await AttendeeService.completeRegistration(
+                attendee,
+                displayName,
+                mobilePhone
+            );
             ApiResponse.build(res, StatusCodes.OK, response.message, {
                 attendeeUuid: attendee.uuid,
                 firstName: attendee.name,

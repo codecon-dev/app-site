@@ -8,11 +8,17 @@ import ApiResponse from 'src/api/ApiResponse';
 
 type Props = {
     attendeeUuid: string;
+    displayNameUser?: string;
     onSuccess: (data: ConfAttendee) => void;
 };
 
-export default function CompleteYourRegistration({ attendeeUuid, onSuccess }: Props) {
+export default function CompleteYourRegistration({
+    attendeeUuid,
+    displayNameUser,
+    onSuccess
+}: Props) {
     const [mobilePhone, setMobilePhone] = useState<string>('');
+    const [displayName, setDisplayName] = useState<string | undefined>(displayNameUser);
     const [isLoading, setLoading] = useState<boolean>(false);
 
     async function handleSubmit(event: FormEvent) {
@@ -25,7 +31,7 @@ export default function CompleteYourRegistration({ attendeeUuid, onSuccess }: Pr
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ attendeeUuid, mobilePhone })
+                body: JSON.stringify({ attendeeUuid, displayName, mobilePhone })
             });
 
             const json = await response.json();
@@ -59,6 +65,7 @@ export default function CompleteYourRegistration({ attendeeUuid, onSuccess }: Pr
                         className={oneInputFormStyles.form}
                         onSubmit={event => void handleSubmit(event)}
                     >
+                        <label htmlFor="">Seu celular:</label>
                         <PhoneInput
                             country="br"
                             disableDropdown={true}
@@ -70,9 +77,19 @@ export default function CompleteYourRegistration({ attendeeUuid, onSuccess }: Pr
                             onChange={phone => setMobilePhone(phone)}
                         />
 
+                        <label htmlFor="">Nome de exibição (edite se quiser):</label>
+                        <input
+                            type="text"
+                            value={displayName}
+                            className={oneInputFormStyles.input}
+                            placeholder="Nome de exibição"
+                            required={true}
+                            onChange={event => setDisplayName(event.target.value)}
+                        />
+
                         <button
                             type="submit"
-                            disabled={mobilePhone.length < 5}
+                            disabled={!(mobilePhone.length > 5 && (displayName?.length ?? 0) > 2)}
                             className={oneInputFormStyles.button}
                         >
                             {isLoading ? 'Salvando...' : 'Continuar'}

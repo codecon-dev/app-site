@@ -1,5 +1,7 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 import toast from 'react-hot-toast';
+import { driver } from 'driver.js';
+import 'driver.js/dist/driver.css';
 
 import OneInputForm from '@components/_ui/OneInputForm';
 import { CodecodesClaimPayload } from '@lib/types/codecodes';
@@ -21,6 +23,30 @@ export default function CodecodesClaimForm() {
     const [code, setCode] = useState<string>('');
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [userData] = useUserData();
+
+    useEffect(() => {
+        if (!userData.attendeeUuid) return;
+
+        if (userData.hasMadeClaims) return;
+
+        const driverObj = driver({
+            showProgress: true,
+            steps: [
+                {
+                    element: '#claim-container',
+                    popover: {
+                        title: 'Faça seu primeiro resgate!',
+                        description:
+                            'Vimos que você ainda não resgatou nenhum código, já que você chegou cedo, pode usar o código CHEGUEI para ganhar alguns pontinhos.',
+                        side: 'left',
+                        align: 'start'
+                    }
+                }
+            ]
+        });
+
+        driverObj.drive();
+    }, [userData]);
 
     async function handleOnClaimSubmit(event: FormEvent) {
         event.preventDefault();
@@ -59,16 +85,18 @@ export default function CodecodesClaimForm() {
             <div className="container">
                 <h2 style={{ textAlign: 'center' }}>Resgate</h2>
                 <p style={{ textAlign: 'center' }}>Digite abaixo o código que encontrou:</p>
-                <OneInputForm
-                    value={code}
-                    handleSubmit={handleOnClaimSubmit}
-                    handleInputChange={event => setCode(event.target.value)}
-                    isLoading={isLoading}
-                    disableSubmit={code === ''}
-                    placeholder="Informe um código"
-                    buttonText="Resgatar"
-                    allCaps
-                />
+                <span id="claim-container">
+                    <OneInputForm
+                        value={code}
+                        handleSubmit={handleOnClaimSubmit}
+                        handleInputChange={event => setCode(event.target.value)}
+                        isLoading={isLoading}
+                        disableSubmit={code === ''}
+                        placeholder="Informe um código"
+                        buttonText="Resgatar"
+                        allCaps
+                    />
+                </span>
             </div>
         </section>
     );

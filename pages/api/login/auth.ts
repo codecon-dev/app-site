@@ -3,6 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 
 import { setCookie } from 'cookies-next';
 import ApiResponse from 'src/api/ApiResponse';
+import { getUser as getCodecodesUser } from '@lib/codecodes-api';
 import Attendee from 'src/database/model/Attendee';
 import LoginLinkService from 'src/services/LoginLinkService';
 
@@ -59,6 +60,13 @@ async function getUser(req: NextApiRequest, res: NextApiResponse) {
         return;
     }
 
+    const codeCodesUser = await getCodecodesUser(attendee.email);
+    let userClaims = 0;
+
+    if (codeCodesUser.data?.user?.tokens && codeCodesUser.status !== 'error') {
+        userClaims = codeCodesUser.data.user.tokens.length;
+    }
+
     ApiResponse.build(res, StatusCodes.OK, 'Sucesso', {
         attendeeNumber: attendee.id,
         attendeeUuid: attendee.uuid,
@@ -68,7 +76,8 @@ async function getUser(req: NextApiRequest, res: NextApiResponse) {
         hasAcceptedTerms: attendee.acceptedTerms,
         githubFullName: attendee.githubFullName,
         githubUsername: attendee.githubUsername,
-        isAdmin: attendee.isAdmin
+        isAdmin: attendee.isAdmin,
+        hasMadeClaims: userClaims > 0
     });
 }
 

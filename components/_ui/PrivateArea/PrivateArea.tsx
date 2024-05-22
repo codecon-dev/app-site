@@ -1,5 +1,5 @@
 import { ReactElement, SyntheticEvent, useCallback, useEffect, useState } from 'react';
-import { notFound } from 'next/navigation'
+import { notFound } from 'next/navigation';
 import Head from 'next/head';
 import toast from 'react-hot-toast';
 
@@ -172,6 +172,7 @@ export default function PrivateArea({ children, onlyAdmin }: Props) {
                     </div>
                     <CompleteYourRegistration
                         attendeeUuid={attendeeUuid}
+                        displayNameUser={userData.displayName}
                         onSuccess={handleStepFinished}
                     />
                 </>
@@ -188,7 +189,11 @@ export default function PrivateArea({ children, onlyAdmin }: Props) {
     }
 
     if (onlyAdmin && !userData.isAdmin) {
-        return <Wrapper><div style={{ textAlign: "center", margin: "50px 0" }}>Acesso restrito.</div></Wrapper>;
+        return (
+            <Wrapper>
+                <div style={{ textAlign: 'center', margin: '50px 0' }}>Acesso restrito.</div>
+            </Wrapper>
+        );
     }
 
     return <Wrapper>{children}</Wrapper>;

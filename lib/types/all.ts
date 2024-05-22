@@ -88,6 +88,7 @@ export type ConfAttendee = {
     githubFullName?: string;
     githubUsername?: string;
     isAdmin?: boolean;
+    hasMadeClaims?: boolean;
 };
 
 export type OkPacket = {

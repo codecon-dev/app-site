@@ -37,7 +37,8 @@ export function useUserData(): [ConfAttendee, boolean] {
                     hasAcceptedTerms: data.hasAcceptedTerms,
                     githubFullName: data.githubFullName,
                     githubUsername: data.githubUsername,
-                    isAdmin: data.isAdmin
+                    isAdmin: data.isAdmin,
+                    hasMadeClaims: data.hasMadeClaims
                 });
             }
 
