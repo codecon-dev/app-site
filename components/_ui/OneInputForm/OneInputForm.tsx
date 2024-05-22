@@ -4,6 +4,7 @@ import cn from 'classnames';
 import styles from './OneInputForm.module.scss';
 
 type Props = {
+    value?: string;
     buttonText: string;
     placeholder?: string;
     handleSubmit: (event: FormEvent<Element>) => Promise<void>;
@@ -16,6 +17,7 @@ type Props = {
 };
 
 export default function OneInputForm({
+    value,
     placeholder,
     handleSubmit,
     handleInputChange,
@@ -33,6 +35,7 @@ export default function OneInputForm({
             onSubmit={e => void handleSubmit(e)}
         >
             <input
+                value={value}
                 type={inputType}
                 onChange={event => handleInputChange(event)}
                 disabled={isLoading}

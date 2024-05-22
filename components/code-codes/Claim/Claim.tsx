@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import OneInputForm from '@components/_ui/OneInputForm';
 import { CodecodesClaimPayload } from '@lib/types/codecodes';
 import { useUserData } from '@lib/hooks/useUserData';
+import shoot from '@lib/confetti';
 
 async function claim(payload: CodecodesClaimPayload) {
     const response = await fetch('/api/codecodes/claim', {
@@ -40,16 +41,17 @@ export default function CodecodesClaimForm() {
             attendeeUuid: userData.attendeeUuid
         });
 
+        setIsLoading(false);
+        setCode('');
+
         if (!result.success) {
             toast.error(result.message as string);
         } else {
-            setCode('');
             toast.success(result.message as string, {
                 duration: 5000
             });
+            await shoot(window.innerWidth / 2, window.innerHeight / 2);
         }
-
-        setIsLoading(false);
     }
 
     return (
@@ -58,6 +60,7 @@ export default function CodecodesClaimForm() {
                 <h2 style={{ textAlign: 'center' }}>Resgate</h2>
                 <p style={{ textAlign: 'center' }}>Digite abaixo o código que encontrou:</p>
                 <OneInputForm
+                    value={code}
                     handleSubmit={handleOnClaimSubmit}
                     handleInputChange={event => setCode(event.target.value)}
                     isLoading={isLoading}

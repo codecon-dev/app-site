@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import cn from 'classnames';
 import toast from 'react-hot-toast';
 
+import shoot from '@lib/confetti';
 import { SITE_ORIGIN } from '@lib/constants';
 import { GitHubOAuthData } from '@lib/types/all';
 import { ConfAttendee } from '@lib/types/all';
@@ -32,7 +33,7 @@ export default function Form({ attendee, setGithubData }: Props) {
         }
     }, [attendee]);
 
-    const handleButtonClick = () => {
+    const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         if (formState !== 'default') {
             setFormState('default');
             return;
@@ -88,7 +89,6 @@ export default function Form({ attendee, setGithubData }: Props) {
             });
         })
             .then(async data => {
-                console.log(1);
                 if (!data) {
                     setFormState('default');
                     return;
@@ -108,8 +108,6 @@ export default function Form({ attendee, setGithubData }: Props) {
                     })
                 });
 
-                console.log(2);
-
                 setGithubData(data);
                 setUsername(usernameFromResponse);
                 setFormState('default');
@@ -119,6 +117,8 @@ export default function Form({ attendee, setGithubData }: Props) {
 
                 // Prefetch the twitter share URL to eagerly generate the page
                 fetch(`/${theme}/tickets/${usernameFromResponse}`).catch(() => {});
+
+                shoot(event.clientX, event.clientY);
             })
             .catch(() => {
                 setFormState('error');
