@@ -118,7 +118,7 @@ export default function Form({ attendee, setGithubData }: Props) {
                 // Prefetch the twitter share URL to eagerly generate the page
                 fetch(`/${theme}/tickets/${usernameFromResponse}`).catch(() => {});
 
-                shoot(event.clientX, event.clientY);
+                await shoot(event.clientX, event.clientY);
             })
             .catch(() => {
                 setFormState('error');
