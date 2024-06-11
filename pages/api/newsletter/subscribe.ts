@@ -46,22 +46,10 @@ export default async function handler(
     const params = req.body;
 
     void(await axios.post(
-        process.env.NEWSLETTER_AUDIENCE_RESEND || '',
+        process.env.CONVERTKIT_SUBSCRIBE_URL || '',
         {
+            api_key: process.env.CONVERTKIT_API_KEY,
             email: params.email
-        },
-        {
-            headers: {
-                'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
-                'Content-Type': 'application/json'
-            }
-        }
-    ));
-
-    void (await axios.post(
-        process.env.DISCORD_WEBHOOK || '',
-        {
-            content: `Novo inscrito na newsletter: ${params.email}`
         },
         {
             headers: {

@@ -1,5 +1,5 @@
 import { ReactElement, SyntheticEvent, useCallback, useEffect, useState } from 'react';
-import { notFound } from 'next/navigation';
+import Median from 'median-js-bridge';
 import Head from 'next/head';
 import toast from 'react-hot-toast';
 
@@ -73,6 +73,10 @@ export default function PrivateArea({ children, onlyAdmin }: Props) {
             setStatus(statusType.termsModal);
         } else {
             setStatus(statusType.finished);
+
+            Median.onReady(() => {
+                Median.tabNavigation.setTabs({ enabled: true });
+            });
         }
     }, []);
 

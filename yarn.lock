@@ -6095,6 +6095,11 @@ md-to-react-email@5.0.2:
   dependencies:
     marked "7.0.4"
 
+median-js-bridge@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/median-js-bridge/-/median-js-bridge-2.2.1.tgz#a25e7f16d2e30990749007cedbbcf58093cc11ea"
+  integrity sha512-bzcO1qnx/j8RLzX68yMGWpXfo2rDTPSqwtL+/ydlZcqDgAr0cD/q8aYc9DTY9tEtlcjdG+rOIA9I7J+ffn8hPA==
+
 memoize-one@^5.1.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.2.1.tgz#8337aa3c4335581839ec01c3d594090cebe8f00e"
