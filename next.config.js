@@ -3,6 +3,7 @@ module.exports = {
         VERCEL_ENV: process.env.VERCEL_ENV,
         VERCEL_URL: process.env.VERCEL_URL
     },
+    transpilePackages: ['median-js-bridge'],
     images: {
         domains: [
             'www.datocms-assets.com',
