@@ -29,6 +29,7 @@ export const getStaticProps: GetStaticProps<any> = async () => {
     return {
         props: {
             tokens: tokens.data
-        }
+        },
+        revalidate: 1
     };
 };

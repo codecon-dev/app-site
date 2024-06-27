@@ -31,7 +31,7 @@ export default function AttendeeArea({ attendee }: Props) {
     return (
         <section className={cn(styles.section, styles[`theme-${theme}`])}>
             <Grid align="center">
-                <Column lg={5}>
+                <Column lg={5} xsmOrder={2}>
                     {githubData ? (
                         <div className={styles.content}>
                             <h2>
@@ -55,7 +55,7 @@ export default function AttendeeArea({ attendee }: Props) {
                         </div>
                     )}
                 </Column>
-                <Column lg={7}>
+                <Column lg={7} xsmOrder={1}>
                     <div className={styles.ticket}>
                         <TheTicket
                             name={attendee.firstName}

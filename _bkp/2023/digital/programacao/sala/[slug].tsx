@@ -20,7 +20,7 @@ export default function TalkPage({ talks, roomName }: Props) {
 
     return (
         <Page theme="digital" meta={meta} hideNav hideFooter>
-            <RoomSchedule talks={talks} title={roomName} />
+            <RoomSchedule talks={talks} />
         </Page>
     );
 }

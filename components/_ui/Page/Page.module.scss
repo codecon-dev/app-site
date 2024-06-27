@@ -1,8 +1,9 @@
 @import '/styles/media-queries';
 
 .page {
-    padding-top: 6.25rem;
+    padding-top: 4rem;
     min-height: 100vh;
+    padding-bottom: 5rem;
 
     @media #{$breakpoint-sm} {
         padding-top: 7.5rem;

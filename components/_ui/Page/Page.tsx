@@ -94,7 +94,7 @@ export default function Page({
                 {!hideNav && <Navbar live={live} hideNavMenu={hideNavMenu} />}
                 <main>{children}</main>
                 {!hideFooter && <SubscribeCountdown eventData={eventData} />}
-                {!hideFooter && <Footer sponsors={sponsors} />}
+                {/*!hideFooter && <Footer sponsors={sponsors} />*/}
             </div>
         </ThemeContext.Provider>
     );

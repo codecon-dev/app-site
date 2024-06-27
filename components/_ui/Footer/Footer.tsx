@@ -253,20 +253,6 @@ export default function Footer({ sponsors }: Props) {
                                 <IconDiscord size={16} color="#fff" />
                             </a>
                         </div>
-                        <div className={styles.vercel}>
-                            <a
-                                href="https://vercel.com/?utm_source=codecon&utm_campaign=oss"
-                                target="_blank"
-                                rel="noreferrer noopener"
-                            >
-                                <Image
-                                    width={215}
-                                    height={45}
-                                    src="/powered-by-vercel.svg"
-                                    alt="Powered by Vercel"
-                                />
-                            </a>
-                        </div>
                     </Column>
                 </Grid>
             </div>

@@ -71,6 +71,7 @@ export default function Otp({ attendeeUuid, onSuccess }: Props) {
                             value={otp}
                             onChange={setOtp}
                             numInputs={6}
+                            inputType="number"
                             renderInput={props => <input {...props} />}
                         />
 

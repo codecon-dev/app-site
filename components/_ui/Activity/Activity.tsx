@@ -27,6 +27,7 @@ type ActivityProps = {
     soon?: boolean;
     featured?: boolean;
     sponsor?: { name: string; logo: Image };
+    lunch?: boolean;
 };
 
 interface SpeakerImageProps extends React.LinkHTMLAttributes<HTMLAnchorElement> {
@@ -39,9 +40,9 @@ const SpeakerImage = ({ src, alt, href = '', ...rest }: SpeakerImageProps) => {
     const path = addBasePath(router, href);
 
     return (
-        <a className={`${styles.speaker_image} tooltip`} data-content={alt} href={path} {...rest}>
-            <NextImage src={src} alt={alt} width={32} height={32} />
-        </a>
+        <span className={`${styles.speaker_image} tooltip`} data-content={alt} {...rest}>
+            <NextImage src={src} alt={alt} width={48} height={48} />
+        </span>
     );
 };
 
@@ -67,27 +68,27 @@ const Header = ({ children }: HeaderProps) => {
 };
 
 const Title = ({ children, href = '', ...rest }: TitleProps) => {
-    const router = useRouter();
-    const path = addBasePath(router, href);
-
     return (
-        <a href={path} {...rest} className={styles.title}>
+        <span {...rest} className={styles.title}>
             {children}
-        </a>
+        </span>
     );
 };
 
-const Activity = ({ children, sponsor, soon, featured }: ActivityProps) => {
+const Activity = ({ children, sponsor, soon, featured, lunch }: ActivityProps) => {
     return (
         <article
             className={cn(styles.activity, {
                 [styles.sponsored]: !!sponsor?.name && !!sponsor?.logo,
-                [styles.soon]: soon,
+                [styles.soon]: soon || lunch,
                 [styles.featured]: featured
             })}
         >
-            {soon ? (
-                <div className={styles.soon}>Em breve!</div>
+            {soon || lunch ? (
+                <>
+                    {soon && <div className={styles.soon}>Em breve!</div>}
+                    {lunch && <div className={styles.soon}>Almoço</div>}
+                </>
             ) : (
                 <>
                     {!!sponsor?.name && !!sponsor?.logo && (

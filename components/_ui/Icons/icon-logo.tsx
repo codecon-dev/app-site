@@ -9,7 +9,7 @@ export default function IconLogo({
     theme,
     ...rest
 }: Props & JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-    const { width = 200, height = 60 } = rest;
+    const { width = 120, height = 40 } = rest;
 
     if (theme === 'digital') {
         return (

@@ -142,6 +142,7 @@ export async function getAllTalks(event: Events): Promise<Talk[]> {
           url
         }
         speaker {
+          id
           name
           bio
           twitter
@@ -154,6 +155,7 @@ export async function getAllTalks(event: Events): Promise<Talk[]> {
           }
         }
         host {
+          id
           name
           bio
           twitter

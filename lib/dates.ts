@@ -42,12 +42,18 @@ export function formatDate(date: string, formatType: string) {
     return format(parseISO(date), formatType, { locale: pt });
 }
 
-export function isTimeBetweenAcitivity(activity: Talk | Workshop, timeNow: string): boolean {
+export function isTimeBetweenAcitivity(activity: Talk | Workshop, today: Date): boolean {
+    const timeNow = format(today, 'HH:mm');
+
     const startingHourAndMinute = captureHourAndMinutesFromDateString(activity.start);
     const decimalStartingHour = convertTimeToDecimalHours(startingHourAndMinute);
 
     const endingHourAndMinute = captureHourAndMinutesFromDateString(activity.end);
     const decimalEndingHour = convertTimeToDecimalHours(endingHourAndMinute);
+
+    if (!isActivityStartingOnDay(activity, formatDate(today.toISOString(), 'dd/MM/yyyy'))) {
+        return false;
+    }
 
     return (
         convertTimeToDecimalHours(timeNow) >= decimalStartingHour &&

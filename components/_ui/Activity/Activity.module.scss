@@ -4,9 +4,10 @@
     display: flex;
     height: 100%;
     flex-direction: column;
-    border: 1px solid var(--color-primary);
-    background: var(--color-black-40);
-    border-radius: 0.5rem;
+    background: var(--color-black);
+    border: 1px solid #333;
+    border-radius: 16px;
+    font-family: 'DM Sans';
 
     &.soon {
         border: 1px dashed var(--color-gray);
@@ -16,23 +17,25 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 0.5rem;
+        margin-top: 1rem;
 
-        * {
+        time {
             color: var(--color-gray);
+            background-color: #1e1e1e;
+            display: inline-block;
+            padding: 5px 10px;
             text-transform: uppercase;
-            font-size: 0.75rem;
-        }
-
-        *:first-child {
-            color: var(--color-primary);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
         }
     }
 
     .title {
         display: block;
+        font-weight: bolder;
         color: #fff;
-        font-size: 1.25rem;
+        font-size: 1.35rem;
         margin-bottom: 1.5rem;
 
         &[href]:hover {
@@ -49,7 +52,7 @@
         text-transform: uppercase;
         min-height: 12rem;
         background-color: var(--color-background);
-        border-radius: 0.5rem;
+        border-radius: 16px;
         color: var(--color-gray);
     }
 
@@ -67,7 +70,7 @@
 
     .speaker_image {
         flex: 1;
-        max-width: 2rem;
+        max-width: 3rem;
         margin-right: 0.625rem;
 
         img {
@@ -77,70 +80,15 @@
 
     &.sponsored,
     &.featured {
-        border: 0;
+        border: 1px solid var(--color-primary);
 
         .content {
             background-color: var(--color-black);
-            border-radius: 0 0 0.5rem 0.5rem;
-        }
-
-        &:before {
-            position: absolute;
-            background: conic-gradient(
-                    from 180deg at 50% 50%,
-                    rgba(0, 0, 0, 1) 0deg,
-                    rgba(255, 255, 255, 0.7) 17deg,
-                    rgba(0, 0, 0, 1) 88deg,
-                    rgba(255, 255, 255, 0.7) 152deg,
-                    rgba(0, 0, 0, 1) 225deg,
-                    rgba(255, 255, 255, 0.7) 289deg,
-                    rgba(0, 0, 0, 1) 360deg
-                ),
-                conic-gradient(
-                    from 180deg at 50% 50%,
-                    rgba(0, 0, 0, 1) 0deg,
-                    rgba(255, 255, 255, 1) 30deg,
-                    rgba(0, 0, 0, 1) 96deg,
-                    rgba(255, 255, 255, 1) 169deg,
-                    rgba(0, 0, 0, 1) 229deg,
-                    rgba(255, 255, 255, 1) 285deg,
-                    rgba(0, 0, 0, 1) 360deg
-                ),
-                radial-gradient(
-                    88% 127% at 13% 13%,
-                    rgba(42, 168, 208, 1) 0%,
-                    rgba(250, 191, 165, 1) 32%,
-                    rgba(252, 244, 171, 1) 56%,
-                    rgba(93, 247, 164, 1) 76%,
-                    rgba(88, 208, 246, 1) 100%
-                );
-            background-blend-mode: screen, difference, normal;
-            content: '';
-            display: block;
-            width: calc(100% + 2px);
-            height: calc(100% + 2px);
-            border-radius: 0.5rem;
-            top: -1px;
-            left: -1px;
-            z-index: -1;
+            border-radius: 16px;
         }
     }
 }
 
 .hackathon {
-    background: linear-gradient(
-        228.7deg,
-        #ffac4a 6.79%,
-        #f2e9bc 25.64%,
-        #fef4c9 46.58%,
-        #d2fbff 66.27%,
-        #d6ffd2 86.79%
-    );
-    width: 100%;
-    display: block;
-    border-radius: 0.5rem 0.5rem 0 0;
-    padding: 1rem;
-    text-transform: uppercase;
-    color: var(--color-black);
-    font-weight: bolder;
+    display: none;
 }
