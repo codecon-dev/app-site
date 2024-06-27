@@ -6,29 +6,28 @@ import ThemeContext from 'context/ThemeContext';
 import { nl2br } from '@lib/utils';
 import { Talk } from '@lib/types/all';
 import { captureHourAndMinutesFromDateString, formatDate } from '@lib/dates';
-import { useActiveEventPrice } from '@lib/hooks/useActiveEventPrice';
 
 import { Column, Grid } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton';
 
 import styles from './TalkPage.module.scss';
-import { useEventData } from '@lib/constants';
 
 type Props = {
     talk: Talk;
 };
 
+const today = new Date();
+
 export default function TalkPage({ talk }: Props) {
-    const theme = useContext(ThemeContext);
-    const eventData = useEventData(theme);
-    const { eventPrice, registerUrlWithCode } = useActiveEventPrice(eventData);
+    const talkEndDate = new Date(talk.end);
+    talkEndDate.setMinutes(talkEndDate.getMinutes() - 10);
+    const activityAlreadyTookPlace = today > talkEndDate;
 
     return (
         <section>
             <Grid align="center">
                 <Column lg={1} sm={0} xsm={0} />
                 <Column lg={10} sm={12}>
-                    <span className="highlight">{talk.talkType}</span>
                     <h1 className={styles.title}>{talk.title}</h1>
                 </Column>
             </Grid>
@@ -46,29 +45,13 @@ export default function TalkPage({ talk }: Props) {
                     {talk.speaker && (
                         <div className={styles.speakers}>
                             {talk.speaker?.map(speaker => (
-                                <span className="tooltip" data-content={`${speaker.name}`}>
-                                    <Link
-                                        href={`/${theme}/quem-vai/${speaker.slug}`}
-                                        key={speaker.id}
-                                        className={styles.image}
-                                    >
-                                        <Image src={speaker.image.url} alt={speaker.name} fill />
-                                    </Link>
+                                <span className={styles.image}>
+                                    <Image src={speaker.image.url} alt={speaker.name} fill />
                                 </span>
                             ))}
                             {talk.host && (
-                                <span className="tooltip" data-content={`[HOST] ${talk.host.name}`}>
-                                    <Link
-                                        href={`/${theme}/quem-vai/${talk.host.slug}`}
-                                        key={talk.host.slug}
-                                        className={styles.image}
-                                    >
-                                        <Image
-                                            src={talk.host.image.url}
-                                            alt={talk.host.name}
-                                            fill
-                                        />
-                                    </Link>
+                                <span className={styles.image}>
+                                    <Image src={talk.host.image.url} alt={talk.host.name} fill />
                                 </span>
                             )}
                         </div>
@@ -78,23 +61,33 @@ export default function TalkPage({ talk }: Props) {
             <Grid>
                 <Column lg={2} sm={0} xsm={0} />
                 <Column lg={8}>
-                    <p className={styles.description} dangerouslySetInnerHTML={{ __html: nl2br(talk.description) }} />
+                    {activityAlreadyTookPlace ? (
+                        <div className={styles['took-place']}>
+                            Este conteúdo já aconteceu.
+                            <br />
+                            <a
+                                target="_blank"
+                                href={`https://openfeedback.io/codecon-summit-24/${formatDate(
+                                    talk.start,
+                                    'yyyy-MM-dd'
+                                )}/${talk.id}?forceColorScheme=dark`}
+                            >
+                                Clique aqui para avaliá-lo.
+                            </a>
+                        </div>
+                    ) : (
+                        <p
+                            className={styles.description}
+                            dangerouslySetInnerHTML={{ __html: nl2br(talk.description) }}
+                        />
+                    )}
                 </Column>
             </Grid>
 
             <div className={styles.buttons}>
-                <LinkButton type="secondary" href={`/${theme}/programacao`}>
-                    Programação completa
+                <LinkButton type="secondary" href={`/programacao`}>
+                    &laquo; Programação completa
                 </LinkButton>
-
-                {eventPrice && (
-                    <LinkButton
-                        href={registerUrlWithCode || eventData.registerUrl}
-                        info={eventPrice}
-                    >
-                        Inscreva-se
-                    </LinkButton>
-                )}
             </div>
         </section>
     );

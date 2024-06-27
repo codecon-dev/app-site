@@ -74,8 +74,42 @@ export default function PrivateArea({ children, onlyAdmin }: Props) {
         } else {
             setStatus(statusType.finished);
 
+            const tabItems = [
+                {
+                    icon: 'far fa-calendar',
+                    label: '',
+                    url: 'https://app.codecon.dev/programacao'
+                },
+                {
+                    label: '',
+                    icon: 'far fa-heart',
+                    url: 'https://app.codecon.dev/programacao/salvos'
+                },
+                {
+                    label: '',
+                    icon: 'fas fa-bug',
+                    url: 'https://app.codecon.dev/game/code-codes/resgate'
+                },
+                {
+                    icon: 'far fa-ranking-star',
+                    label: '',
+                    url: 'https://app.codecon.dev/game/code-codes'
+                },
+                {
+                    icon: 'fab fa-whatsapp',
+                    label: '',
+                    url: 'https://chat.whatsapp.com/D0zzxblnzloFulzLvzXi1e'
+                }
+            ];
+
             Median.onReady(() => {
-                Median.tabNavigation.setTabs({ enabled: true });
+                Median.tabNavigation.setTabs({
+                    enabled: true,
+                    items: {
+                        icon: 'far fa-calendar',
+                        url: 'https://app.codecon.dev/programacao'
+                    }
+                });
             });
         }
     }, []);

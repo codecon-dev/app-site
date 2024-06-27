@@ -67,11 +67,17 @@ const Header = ({ children }: HeaderProps) => {
     return <header className={styles.header}>{children}</header>;
 };
 
-const Title = ({ children, href = '', ...rest }: TitleProps) => {
-    return (
+const Title = ({ children, href, ...rest }: TitleProps) => {
+    if (!href) {
         <span {...rest} className={styles.title}>
             {children}
-        </span>
+        </span>;
+    }
+
+    return (
+        <a href={href} {...rest} className={styles.title}>
+            {children}
+        </a>
     );
 };
 

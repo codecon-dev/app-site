@@ -28,4 +28,10 @@ export default class LikesService {
 
         return { likes, userLiked };
     }
+
+    public static async getAttendeeAlreadyLikedOne(attendeeUuid: string): Promise<Likes | null> {
+        const userLike = await Likes.findOne({ where: { attendeeUuid } });
+
+        return userLike;
+    }
 }

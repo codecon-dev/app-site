@@ -97,3 +97,15 @@
         flex-direction: row;
     }
 }
+
+.took-place {
+    border: 1px solid var(--color-gray);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 2rem 0;
+
+    a {
+        color: #fff;
+        text-decoration: underline;
+    }
+}

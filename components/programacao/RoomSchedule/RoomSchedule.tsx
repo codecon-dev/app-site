@@ -5,9 +5,11 @@ import { Talk } from '@lib/types/all';
 import {
     isTimeBetweenAcitivity,
     captureHourAndMinutesFromDateString,
-    isActivityStartingOnDay
+    isActivityStartingOnDay,
+    formatDate
 } from '@lib/dates';
 import Activity from '@components/_ui/Activity';
+import LinkButton from '@components/_ui/LinkButton';
 
 import styles from './RoomSchedule.module.scss';
 
@@ -17,6 +19,26 @@ type Props = {
 };
 
 const today = new Date();
+const attendeeUuid = getCookie('attendeeUuid');
+
+function AlreadyTookPlaceTalk({ talk }: { talk: Talk }) {
+    return (
+        <div className={styles.talk}>
+            <h4>
+                {captureHourAndMinutesFromDateString(talk.start)} - {talk.title}
+            </h4>
+            <a
+                href={`https://openfeedback.io/codecon-summit-24/${formatDate(
+                    talk.start,
+                    'yyyy-MM-dd'
+                )}/${talk.id}?forceColorScheme=dark`}
+                target="_blank"
+            >
+                Deixe uma avaliação!
+            </a>
+        </div>
+    );
+}
 
 function TalkComponent({
     talk,
@@ -29,7 +51,6 @@ function TalkComponent({
 }) {
     const [likes, setLikes] = useState(0);
     const [userLiked, setUserLiked] = useState(false);
-    const attendeeUuid = getCookie('attendeeUuid');
     const isTalkLive = isTimeBetweenAcitivity(talk, today);
 
     useEffect(() => {
@@ -45,14 +66,23 @@ function TalkComponent({
         void getLikes();
     }, [attendeeUuid, talk]);
 
-    const activityAlreadyTookPlace = new Date() > new Date(talk.end);
+    const talkEndDate = new Date(talk.end);
+    talkEndDate.setMinutes(talkEndDate.getMinutes() - 10);
+    const activityAlreadyTookPlace = today > talkEndDate;
 
-    if (activityAlreadyTookPlace) {
+    talkEndDate.setMinutes(talkEndDate.getMinutes() + 60);
+    const activityAlreadyTookPlaceLongTime = today > talkEndDate;
+
+    if (activityAlreadyTookPlaceLongTime) {
         return null;
     }
 
     if (onlyLiked && !userLiked && talk.title !== 'Almoço') {
         return null;
+    }
+
+    if (activityAlreadyTookPlace) {
+        return <AlreadyTookPlaceTalk talk={talk} />;
     }
 
     return (
@@ -61,9 +91,7 @@ function TalkComponent({
                 {showHourDivider && (
                     <header className={styles.hour}>
                         {captureHourAndMinutesFromDateString(talk.start)}
-                        {isTalkLive && today.getDate() >= 22 && (
-                            <span className={styles.live}>Agora</span>
-                        )}
+                        {isTalkLive && <span className={styles.live}>Agora</span>}
                     </header>
                 )}
                 <Activity
@@ -71,7 +99,7 @@ function TalkComponent({
                     soon={talk.emBreve}
                     lunch={talk.title === 'Almoço'}
                 >
-                    <Activity.Title>{talk.title}</Activity.Title>
+                    <Activity.Title href={`/programacao/${talk.id}`}>{talk.title}</Activity.Title>
                     <Activity.Footer>
                         {!!talk.speaker?.length &&
                             talk.speaker.map(t => (
@@ -149,7 +177,7 @@ function Likes({
             className={cn(styles.like, { [styles.liked]: userLiked })}
         >
             <svg
-                clip-rule="evenodd"
+                clipRule="evenodd"
                 fillRule="evenodd"
                 strokeLinejoin="round"
                 strokeMiterlimit="2"
@@ -169,8 +197,37 @@ function Likes({
 }
 
 export default function RoomSchedule({ talks, onlyLiked }: Props) {
+    const [userAlreadyLiked, setUserAlreadyLiked] = useState(false);
     const dayOne = talks.filter(talk => isActivityStartingOnDay(talk, '06/09/2024'));
     const dayTwo = talks.filter(talk => isActivityStartingOnDay(talk, '07/09/2024'));
+
+    useEffect(() => {
+        const getLikes = async () => {
+            await fetch(`/api/likes?attendeeUuid=${attendeeUuid}`).then(response => {
+                if (response.status === 200) {
+                    setUserAlreadyLiked(true);
+                }
+            });
+        };
+
+        void getLikes();
+    }, []);
+
+    if (!userAlreadyLiked && onlyLiked) {
+        return (
+            <section className={styles.centered}>
+                <div className={styles['not-found']}>
+                    <h3>Você ainda não salvou nenhum conteúdo</h3>
+                    Toque no coração para salvar na sua agenda.
+                    <br />
+                    <br />
+                    <LinkButton type="secondary" href={`/programacao`}>
+                        &laquo; Programação
+                    </LinkButton>
+                </div>
+            </section>
+        );
+    }
 
     return (
         <section>

@@ -40,6 +40,22 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
     const talkId: string = req.query.talkId as string;
     const attendeeUuid: string = req.query.attendeeUuid as string;
 
+    if (!talkId) {
+        const isUserLikedOne = await LikesService.getAttendeeAlreadyLikedOne(attendeeUuid);
+
+        if (isUserLikedOne) {
+            ApiResponse.build(res, StatusCodes.OK, 'Usuário já curtiu uma palestra');
+        } else {
+            ApiResponse.build(
+                res,
+                StatusCodes.NOT_FOUND,
+                'Usuário ainda não curtiu nenhuma palestra'
+            );
+        }
+
+        return;
+    }
+
     const likesResponse = await LikesService.getLikes(talkId, attendeeUuid);
 
     ApiResponse.build(res, StatusCodes.OK, 'Done!', likesResponse);
