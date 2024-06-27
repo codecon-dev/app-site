@@ -3,7 +3,21 @@ import { StatusCodes } from 'http-status-codes';
 
 import ApiResponse from 'src/api/ApiResponse';
 import { getAllTalks, getAllSpeakers } from '@lib/cms-api';
-import { Talk } from '@lib/types/all';
+
+type Session = {
+    speakers: string[];
+    title: string;
+    id: string;
+    startTime?: string;
+    endTime?: string;
+    trackTitle?: string;
+};
+
+type Speaker = {
+    name: string;
+    photoUrl: string;
+    id: string;
+};
 
 export default async function TalksController(req: NextApiRequest, res: NextApiResponse) {
     try {
@@ -25,8 +39,6 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
     const allSpeakers = await getAllSpeakers(100, 'summit');
 
     const sessions = talks.map(talk => {
-        const talkId = talk.id as string;
-
         const talkSpeakersAndHost = talk.speaker?.map(speaker => {
             return speaker.id;
         });
@@ -36,28 +48,39 @@ async function get(req: NextApiRequest, res: NextApiResponse) {
         }
 
         return {
-            [talkId]: {
-                speakers: talkSpeakersAndHost,
-                title: talk.title,
-                id: talk.id,
-                startTime: talk.start,
-                endTime: talk.end,
-                trackTitle: talk.place
-            }
+            speakers: talkSpeakersAndHost || [],
+            title: talk.title || '',
+            id: talk.id || '',
+            startTime: talk.start,
+            endTime: talk.end,
+            trackTitle: talk.place
         };
     });
 
     const speakers = allSpeakers.map(speaker => {
-        const speakerId = speaker.id;
-
         return {
-            [speakerId]: {
-                name: speaker.name,
-                photoUrl: speaker.image.url,
-                id: speaker.id
-            }
+            name: speaker.name,
+            photoUrl: speaker.image.url,
+            id: speaker.id
         };
     });
 
-    res.status(200).json({ sessions, speakers });
+    res.status(200).json(mapData(sessions, speakers));
+}
+
+function mapData(sessions: Session[], speakers: Speaker[]) {
+    const mappedSessions = sessions.reduce((acc, session) => {
+        acc[session.id] = session;
+        return acc;
+    }, {} as Record<string, Session>);
+
+    const mappedSpeakers = speakers.reduce((acc, speaker) => {
+        acc[speaker.id] = speaker;
+        return acc;
+    }, {} as Record<string, Speaker>);
+
+    return {
+        sessions: mappedSessions,
+        speakers: mappedSpeakers
+    };
 }
