@@ -56,47 +56,45 @@ export default function CompleteYourRegistration({
     }
 
     return (
-        <section className={privateAreaStyles.section}>
-            <div className="container">
-                <h3>Complete seu cadastro para continuar</h3>
+        <div className="container">
+            <h3>Complete seu cadastro para continuar</h3>
 
-                <div className={privateAreaStyles.form}>
-                    <form
-                        className={oneInputFormStyles.form}
-                        onSubmit={event => void handleSubmit(event)}
+            <div className={privateAreaStyles.form}>
+                <form
+                    className={oneInputFormStyles.form}
+                    onSubmit={event => void handleSubmit(event)}
+                >
+                    <label htmlFor="">Seu celular:</label>
+                    <PhoneInput
+                        country="br"
+                        disableDropdown={true}
+                        inputClass={oneInputFormStyles.input}
+                        specialLabel="Não usaremos seu número para enviar anúncios 🤞"
+                        inputProps={{ required: true, autoFocus: true }}
+                        placeholder="Digite seu telefone"
+                        value={mobilePhone}
+                        onChange={phone => setMobilePhone(phone)}
+                    />
+
+                    <label htmlFor="">Nome de exibição (edite se quiser):</label>
+                    <input
+                        type="text"
+                        value={displayName}
+                        className={oneInputFormStyles.input}
+                        placeholder="Nome de exibição"
+                        required={true}
+                        onChange={event => setDisplayName(event.target.value)}
+                    />
+
+                    <button
+                        type="submit"
+                        disabled={!(mobilePhone.length > 5 && (displayName?.length ?? 0) > 2)}
+                        className={oneInputFormStyles.button}
                     >
-                        <label htmlFor="">Seu celular:</label>
-                        <PhoneInput
-                            country="br"
-                            disableDropdown={true}
-                            inputClass={oneInputFormStyles.input}
-                            specialLabel="Não usaremos seu número para enviar anúncios 🤞"
-                            inputProps={{ required: true, autoFocus: true }}
-                            placeholder="Digite seu telefone"
-                            value={mobilePhone}
-                            onChange={phone => setMobilePhone(phone)}
-                        />
-
-                        <label htmlFor="">Nome de exibição (edite se quiser):</label>
-                        <input
-                            type="text"
-                            value={displayName}
-                            className={oneInputFormStyles.input}
-                            placeholder="Nome de exibição"
-                            required={true}
-                            onChange={event => setDisplayName(event.target.value)}
-                        />
-
-                        <button
-                            type="submit"
-                            disabled={!(mobilePhone.length > 5 && (displayName?.length ?? 0) > 2)}
-                            className={oneInputFormStyles.button}
-                        >
-                            {isLoading ? 'Salvando...' : 'Continuar'}
-                        </button>
-                    </form>
-                </div>
+                        {isLoading ? 'Salvando...' : 'Continuar'}
+                    </button>
+                </form>
             </div>
-        </section>
+        </div>
     );
 }

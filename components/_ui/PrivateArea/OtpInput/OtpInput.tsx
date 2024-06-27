@@ -56,36 +56,34 @@ export default function Otp({ attendeeUuid, onSuccess }: Props) {
     }, [handleSubmit, otp]);
 
     return (
-        <section className={privateAreaStyles.section}>
-            <div className="container">
-                <h3>Te enviamos um ✨código mágico✨.</h3>
+        <div className="container">
+            <h3>Te enviamos um ✨código mágico✨.</h3>
 
-                <span>Verifique seu e-mail!</span>
+            <span>Verifique seu e-mail!</span>
 
-                <div className={privateAreaStyles.form}>
-                    <div className={oneInputFormStyles.form}>
-                        <OtpInput
-                            shouldAutoFocus
-                            inputStyle={oneInputFormStyles['otp-input']}
-                            skipDefaultStyles
-                            value={otp}
-                            onChange={setOtp}
-                            numInputs={6}
-                            inputType="number"
-                            renderInput={props => <input {...props} />}
-                        />
+            <div className={privateAreaStyles.form}>
+                <div className={oneInputFormStyles.form}>
+                    <OtpInput
+                        shouldAutoFocus
+                        inputStyle={oneInputFormStyles['otp-input']}
+                        skipDefaultStyles
+                        value={otp}
+                        onChange={setOtp}
+                        numInputs={6}
+                        inputType="number"
+                        renderInput={props => <input {...props} />}
+                    />
 
-                        <button
-                            type="button"
-                            onClick={() => void handleSubmit()}
-                            disabled={otp.length < 6}
-                            className={oneInputFormStyles.button}
-                        >
-                            {isLoading ? 'Enviando...' : 'Continuar'}
-                        </button>
-                    </div>
+                    <button
+                        type="button"
+                        onClick={() => void handleSubmit()}
+                        disabled={otp.length < 6}
+                        className={oneInputFormStyles.button}
+                    >
+                        {isLoading ? 'Enviando...' : 'Continuar'}
+                    </button>
                 </div>
             </div>
-        </section>
+        </div>
     );
 }

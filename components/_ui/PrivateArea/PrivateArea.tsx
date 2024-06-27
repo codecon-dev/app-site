@@ -191,12 +191,12 @@ export default function PrivateArea({ children, onlyAdmin }: Props) {
     if (status === statusType.hashSent) {
         return (
             <Wrapper hideNavAndFooter>
-                <>
+                <section className={styles.section}>
                     <div className={styles.logo}>
                         <IconLogo theme="summit" />
                     </div>
                     <OtpInput attendeeUuid={attendeeUuid} onSuccess={handleStepFinished} />
-                </>
+                </section>
             </Wrapper>
         );
     }
@@ -204,7 +204,7 @@ export default function PrivateArea({ children, onlyAdmin }: Props) {
     if (status === statusType.completeRegistration) {
         return (
             <Wrapper hideNavAndFooter>
-                <>
+                <section className={styles.section}>
                     <div className={styles.logo}>
                         <IconLogo theme="summit" />
                     </div>
@@ -213,7 +213,7 @@ export default function PrivateArea({ children, onlyAdmin }: Props) {
                         displayNameUser={userData.displayName}
                         onSuccess={handleStepFinished}
                     />
-                </>
+                </section>
             </Wrapper>
         );
     }
@@ -229,7 +229,9 @@ export default function PrivateArea({ children, onlyAdmin }: Props) {
     if (onlyAdmin && !userData.isAdmin) {
         return (
             <Wrapper>
-                <div style={{ textAlign: 'center', margin: '50px 0' }}>Acesso restrito.</div>
+                <section className={styles.section}>
+                    <div style={{ textAlign: 'center', margin: '50px 0' }}>Acesso restrito.</div>
+                </section>
             </Wrapper>
         );
     }

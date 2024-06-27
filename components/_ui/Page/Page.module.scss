@@ -3,14 +3,6 @@
 .page {
     min-height: 100vh;
     padding-bottom: 5rem;
-
-    @media #{$breakpoint-sm} {
-        padding-top: 7.5rem;
-    }
-
-    @media #{$breakpoint-lg} {
-        padding-top: 6.25rem;
-    }
 }
 
 .no-padding {

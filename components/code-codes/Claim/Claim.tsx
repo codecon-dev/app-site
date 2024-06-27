@@ -8,6 +8,8 @@ import { CodecodesClaimPayload } from '@lib/types/codecodes';
 import { useUserData } from '@lib/hooks/useUserData';
 import shoot from '@lib/confetti';
 
+import styles from './Claim.module.scss';
+
 async function claim(payload: CodecodesClaimPayload) {
     const response = await fetch('/api/codecodes/claim', {
         method: 'POST',
@@ -81,7 +83,7 @@ export default function CodecodesClaimForm() {
     }
 
     return (
-        <section>
+        <section className={styles.section}>
             <div className="container">
                 <h2 style={{ textAlign: 'center' }}>Resgate</h2>
                 <p style={{ textAlign: 'center' }}>Digite abaixo o código que encontrou:</p>

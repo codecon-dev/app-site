@@ -44,6 +44,7 @@ export default function TermsModal({
         <div className={styles.modal}>
             <form className={styles.form} onSubmit={e => handleSubmit(e)}>
                 <main>
+                    <h3>Aceite os termos para participar</h3>
                     <p>
                         Ao fazer login aqui, você estará automaticamente participando do{' '}
                         <strong>Code-codes</strong>, nosso jogo de caça aos tokens secretos. Durante
