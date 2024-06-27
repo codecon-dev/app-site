@@ -39,7 +39,7 @@ export default function CodecodesClaimForm() {
                     popover: {
                         title: 'Faça seu primeiro resgate!',
                         description:
-                            'Vimos que você ainda não resgatou nenhum código, já que você chegou cedo, pode usar o código CHEGUEI para ganhar alguns pontinhos.',
+                            'Vimos que você ainda não resgatou nenhum código, que tal começar? Use o código CHEGUEI para ganhar alguns pontinhos.',
                         side: 'left',
                         align: 'start'
                     }
