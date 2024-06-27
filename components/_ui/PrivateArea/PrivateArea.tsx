@@ -74,7 +74,7 @@ export default function PrivateArea({ children, onlyAdmin }: Props) {
         } else {
             setStatus(statusType.finished);
 
-            const tabItems = [
+            /* const tabItems = [
                 {
                     icon: 'far fa-calendar',
                     label: '',
@@ -110,7 +110,7 @@ export default function PrivateArea({ children, onlyAdmin }: Props) {
                         url: 'https://app.codecon.dev/programacao'
                     }
                 });
-            });
+            });*/
         }
     }, []);
 
