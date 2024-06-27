@@ -24,7 +24,29 @@ function ModalDialog(props: Parameters<typeof useOverlay>[0] & Parameters<typeof
     const { overlayProps } = useOverlay(props, ref);
     const { dialogProps } = useDialog(props, ref);
 
-    const allNavigation = [...eventData.menuNav, ...eventData.attendeeNav];
+    const allNavigation = [
+        {
+            name: 'Programação',
+            route: '/programacao'
+        },
+        {
+            name: 'Salvos',
+            route: '/programacao/salvos'
+        },
+        {
+            name: 'Resgate Code-codes',
+            route: '/game/code-codes/resgate'
+        },
+        {
+            name: 'Ranking',
+            route: '/game/code-codes'
+        },
+        {
+            name: 'Sair',
+            route: '/logout',
+            type: 'button'
+        }
+    ];
 
     usePreventScroll();
 

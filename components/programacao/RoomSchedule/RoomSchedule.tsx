@@ -202,6 +202,8 @@ export default function RoomSchedule({ talks, onlyLiked }: Props) {
     const dayTwo = talks.filter(talk => isActivityStartingOnDay(talk, '07/09/2024'));
 
     useEffect(() => {
+        if (!onlyLiked) return;
+
         const getLikes = async () => {
             await fetch(`/api/likes?attendeeUuid=${attendeeUuid}`).then(response => {
                 if (response.status === 200) {
@@ -211,7 +213,7 @@ export default function RoomSchedule({ talks, onlyLiked }: Props) {
         };
 
         void getLikes();
-    }, []);
+    }, [onlyLiked]);
 
     if (!userAlreadyLiked && onlyLiked) {
         return (

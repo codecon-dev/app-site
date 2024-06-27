@@ -17,19 +17,16 @@ export default function Navbar({ hideNavMenu, live }: { hideNavMenu: boolean; li
     const router: NextRouter = useRouter();
     const activeRoute: string = router.asPath;
 
-    const [isScrolled, setIsScrolled] = useState(false);
-
     useEffect(() => {
         window.addEventListener('scroll', () => {
-            setIsScrolled(window.scrollY > 100);
+            //setIsScrolled(window.scrollY > 100);
         });
     }, []);
 
     return (
         <>
             <header
-                className={cn(styles.header, {
-                    [styles.scroll]: isScrolled,
+                className={cn(styles.header, styles.scroll, {
                     [styles['in-live']]: live
                 })}
             >
@@ -49,11 +46,15 @@ export default function Navbar({ hideNavMenu, live }: { hideNavMenu: boolean; li
                 )}
                 <div className={cn('container', styles['header__container'])}>
                     <div className={styles['header__logo']}>
-                        <Link href={eventData.homeUrl}>
-                            <span className={styles.logo}>
-                                <Logo theme={theme} />
-                            </span>
-                        </Link>
+                        <span
+                            className={styles.logo}
+                            onClick={e => {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}
+                        >
+                            <Logo theme={theme} />
+                        </span>
                         <MobileMenu key={router.asPath} />
                     </div>
                     <div className={styles['header__navigation']}>
