@@ -1,0 +1,36 @@
+.like {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #999;
+    font-weight: bold;
+    background-color: #333;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+
+    svg {
+        path {
+            fill: #999;
+        }
+    }
+
+    &.absolute {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+    }
+
+    &.liked {
+        background-color: rgba(#c594ff, 50%);
+        color: var(--color-white);
+
+        svg {
+            path {
+                fill: var(--color-white);
+            }
+        }
+    }
+}

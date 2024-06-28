@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import NextImage from 'next/image';
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
@@ -41,7 +42,7 @@ const SpeakerImage = ({ src, alt, href = '', ...rest }: SpeakerImageProps) => {
 
     return (
         <span className={`${styles.speaker_image} tooltip`} data-content={alt} {...rest}>
-            <NextImage src={src} alt={alt} width={48} height={48} />
+            <img src={src} alt={alt} width={48} height={48} />
         </span>
     );
 };

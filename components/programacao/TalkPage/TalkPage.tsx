@@ -1,14 +1,13 @@
-import { useContext } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-
-import ThemeContext from 'context/ThemeContext';
+/* eslint-disable @next/next/no-img-element */
 import { nl2br } from '@lib/utils';
+import { useEffect, useState } from 'react';
+import { getCookie } from 'cookies-next';
 import { Talk } from '@lib/types/all';
 import { captureHourAndMinutesFromDateString, formatDate } from '@lib/dates';
 
 import { Column, Grid } from '@components/_ui/Grid';
 import LinkButton from '@components/_ui/LinkButton';
+import Likes from '../Likes';
 
 import styles from './TalkPage.module.scss';
 
@@ -19,6 +18,9 @@ type Props = {
 const today = new Date();
 
 export default function TalkPage({ talk }: Props) {
+    const attendeeUuid = getCookie('attendeeUuid');
+    const [likes, setLikes] = useState(0);
+    const [userLiked, setUserLiked] = useState(false);
     const talkEndDate = new Date(talk.end);
     talkEndDate.setMinutes(talkEndDate.getMinutes() - 10);
     const activityAlreadyTookPlace = today > talkEndDate;
@@ -27,7 +29,7 @@ export default function TalkPage({ talk }: Props) {
         <section>
             <Grid align="center">
                 <Column lg={1} sm={0} xsm={0} />
-                <Column lg={10} sm={12}>
+                <Column lg={10} sm={12} xsm={12}>
                     <h1 className={styles.title}>{talk.title}</h1>
                 </Column>
             </Grid>
@@ -41,21 +43,36 @@ export default function TalkPage({ talk }: Props) {
                         <span className="bullet">•</span> {talk.place}
                     </p>
                 </Column>
-                <Column lg={4} xsmOrder={1}>
+                <Column lg={4} xsm={10}>
                     {talk.speaker && (
                         <div className={styles.speakers}>
                             {talk.speaker?.map(speaker => (
-                                <span className={styles.image}>
-                                    <Image src={speaker.image.url} alt={speaker.name} fill />
-                                </span>
+                                <img
+                                    key={speaker.name}
+                                    className={styles.image}
+                                    src={speaker.image.url}
+                                    alt={speaker.name}
+                                />
                             ))}
                             {talk.host && (
-                                <span className={styles.image}>
-                                    <Image src={talk.host.image.url} alt={talk.host.name} fill />
-                                </span>
+                                <img
+                                    className={styles.image}
+                                    src={talk.host.image.url}
+                                    alt={talk.host.name}
+                                />
                             )}
                         </div>
                     )}
+                </Column>
+                <Column lg={1} sm={1} xsm={2}>
+                    <Likes
+                        talkId={talk.id as string}
+                        attendeeUuid={attendeeUuid as string}
+                        likes={likes}
+                        userLiked={userLiked}
+                        setLikes={setLikes}
+                        setUserLiked={setUserLiked}
+                    />
                 </Column>
             </Grid>
             <Grid>
